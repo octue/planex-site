@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Link } from 'gatsby-theme-material-ui';
 
-import ProTip from '../components/ProTip';
-import Copyright from '../components/Copyright';
+import ProTip from '../components/elements/ProTip';
+import Copyright from '../components/elements/Copyright';
 
 
 export default function Index() {
