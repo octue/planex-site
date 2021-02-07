@@ -1,22 +1,34 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from "../components/core/Layout"
+import Image from "../components/core/Image"
+import SEO from "../components/core/SEO"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import { Link } from 'gatsby-theme-material-ui';
 
-export default IndexPage
+import ProTip from '../components/ProTip';
+import Copyright from '../components/Copyright';
+
+
+export default function Index() {
+  return (
+    <Container maxWidth="sm">
+      <Box my={4}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Gatsby v4-beta example
+        </Typography>
+        <Link to="/about" color="secondary">
+          Go to the about page
+        </Link>
+        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+          <Image />
+        </div>
+        <ProTip />
+        <Copyright />
+      </Box>
+    </Container>
+  );
+}
