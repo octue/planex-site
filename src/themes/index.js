@@ -1,2 +1,2 @@
 export { lightTheme, darkTheme } from './octue'
-export hexToRgb from './hexToRgb'
+export { default as hexToRgb } from './hexToRgb'
