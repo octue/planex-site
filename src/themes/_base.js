@@ -50,12 +50,12 @@ const branding = {
   },
   logos: {
     text: {
-      dark: require('assets/images/logo/octue/text-transparent-tight-dark.svg'),
-      light: require('assets/images/logo/octue/text-transparent-tight-light.svg'),
+      dark: require('../assets/images/logos/octue/text-transparent-white.svg'),
+      light: require('../assets/images/logos/octue/text-transparent-coloured.svg'),
     },
     square: {
-      dark: require('assets/images/logo/octue/square-transparent-tight-dark.svg'),
-      light: require('assets/images/logo/octue/square-transparent-tight-light.svg'),
+      dark: require('../assets/images/logos/octue/square-transparent-white.svg'),
+      light: require('../assets/images/logos/octue/square-transparent-coloured.svg'),
     },
   },
 }

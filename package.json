@@ -42,10 +42,9 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
     "start": "gatsby develop",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./src/assets -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
