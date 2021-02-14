@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#3498db`,
         display: `minimal-ui`,
-        icon: `/src/assets/images/gatsby-icon.png`,
+        icon: `src/assets/images/logos/octue/square-transparent-white.png`,
       },
     },
     `gatsby-theme-material-ui`,
