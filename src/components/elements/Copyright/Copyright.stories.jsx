@@ -3,21 +3,17 @@ import Copyright from './Copyright'
 import { ThemeProvider } from '@material-ui/styles'
 import { darkTheme } from '../../../themes'
 
-
 export default {
   title: 'Elements/Copyright',
   component: Copyright,
   parameters: {
     layout: 'fullscreen',
-  }
+  },
 }
 
-
-export const PrimaryColor = (args) => (
-  <Copyright {...args} />
-)
+export const PrimaryColor = (args) => <Copyright {...args} />
 PrimaryColor.args = {
-  color: "primary",
+  color: 'primary',
   fixed: false,
 }
 

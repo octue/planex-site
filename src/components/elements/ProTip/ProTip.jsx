@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import LightbulbIcon from '../../icons/LightbulbIcon'
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function ProTip({children}) {
+export default function ProTip({ children }) {
   const classes = useStyles()
   return (
     <Typography className={classes.root} color="textSecondary">

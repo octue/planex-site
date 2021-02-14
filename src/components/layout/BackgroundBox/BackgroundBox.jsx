@@ -11,13 +11,7 @@ import Copyright from '../../elements/Copyright'
 //   require('images/backgrounds/shutterstock-251095081-reduced.jpg'),
 // ]
 
-
-function BackgroundBox({
-  copyright,
-  children,
-  background,
-  ...rest
-}) {
+function BackgroundBox({ copyright, children, background, ...rest }) {
   // Allow randomised selection of the background image on mount
   // eslint-disable-next-line no-unused-vars
   // const [backgroundImage, setBackgroundImage] = React.useState(background || backgrounds[Math.floor(Math.random() * backgrounds.length)])
@@ -29,7 +23,8 @@ function BackgroundBox({
       display="flex"
       justifyContent="center"
       alignItems="center"
-      style={{ // These styles for some reason can't be applied on the box object
+      style={{
+        // These styles for some reason can't be applied on the box object
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         // backgroundImage: `url(${backgroundImage})`,
@@ -37,7 +32,7 @@ function BackgroundBox({
       {...rest}
     >
       {children}
-      { copyright ? <Copyright paper /> : null }
+      {copyright ? <Copyright paper /> : null}
     </Box>
   )
 }

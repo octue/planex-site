@@ -30,18 +30,35 @@ function SmallFooter(props) {
     <footer id={props.id} className={classes.footer}>
       <GradientStripe />
       <div className={classes.container}>
-        <Grid container direction="row" justify="space-between" alignItems="center">
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
           <Grid item>
             <Copyright />
           </Grid>
           <Grid item>
-            <IconLink href="https://twitter.com/octue" className={classes.button} aria-label="twitter">
+            <IconLink
+              href="https://twitter.com/octue"
+              className={classes.button}
+              aria-label="twitter"
+            >
               <Icon className="fab fa-twitter" fontSize="inherit" />
             </IconLink>
-            <IconLink href="https://linkedin.com/company/octue" className={classes.button} aria-label="linkedin">
+            <IconLink
+              href="https://linkedin.com/company/octue"
+              className={classes.button}
+              aria-label="linkedin"
+            >
               <Icon className="fab fa-linkedin" fontSize="inherit" />
             </IconLink>
-            <IconLink href="https://github.com/octue" className={classes.button} aria-label="github">
+            <IconLink
+              href="https://github.com/octue"
+              className={classes.button}
+              aria-label="github"
+            >
               <Icon className="fab fa-github" fontSize="inherit" />
             </IconLink>
           </Grid>

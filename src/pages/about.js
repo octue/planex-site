@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import Layout from "../components/core/Layout"
-import SEO from "../components/core/SEO"
+import Layout from '../components/core/Layout'
+import SEO from '../components/core/SEO'
 
 const About = () => (
   <Layout>

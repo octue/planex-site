@@ -1,7 +1,6 @@
 import React from 'react'
 import CardPage from './CardPage'
 
-
 export default {
   title: 'Layout/CardPage',
   component: CardPage,
@@ -11,7 +10,6 @@ export default {
   },
 }
 
-
 const Template = (args) => (
   <CardPage {...args}>
     <div style={{ height: '200px', width: '300px' }}>
@@ -20,7 +18,5 @@ const Template = (args) => (
   </CardPage>
 )
 
-
 export const Simple = Template.bind({})
-Simple.args = {
-}
+Simple.args = {}

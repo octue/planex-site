@@ -2,7 +2,6 @@ import merge from 'deepmerge'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { baseThemeOptions, branding } from './_base'
 
-
 /* Light Theme
  *
  */
@@ -19,7 +18,6 @@ export const lightThemeOptions = {
   },
 }
 export const lightTheme = merge(createMuiTheme(lightThemeOptions), branding)
-
 
 /* Dark Theme
  *

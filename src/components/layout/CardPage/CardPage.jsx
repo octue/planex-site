@@ -5,13 +5,11 @@ import Card from '@material-ui/core/Card'
 import Copyright from '../../elements/Copyright'
 import BackgroundBox from '../../layout/BackgroundBox'
 
-
 const useStyles = makeStyles((theme) => ({
   card: {
     padding: theme.spacing(2),
   },
 }))
-
 
 function CardPage({ className, children }) {
   const classes = useStyles()
@@ -21,20 +19,16 @@ function CardPage({ className, children }) {
   return (
     <main className={classes.content}>
       <BackgroundBox>
-        <Card className={cardClassName}>
-          { children }
-        </Card>
+        <Card className={cardClassName}>{children}</Card>
       </BackgroundBox>
       <Copyright paper />
     </main>
   )
 }
 
-
 CardPage.defaultProps = {
   className: undefined,
 }
-
 
 CardPage.propTypes = {
   /**
@@ -46,6 +40,5 @@ CardPage.propTypes = {
    */
   children: PropTypes.node.isRequired,
 }
-
 
 export default CardPage

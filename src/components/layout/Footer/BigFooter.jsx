@@ -53,10 +53,31 @@ function BigFooter(props) {
               Company
             </Typography>
             <List dense>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/about/">About</ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/about/"
+              >
+                About
+              </ListItem>
               {/* <ListItem component={Link} variant="caption" color="textSecondary" to="/press/">Press</ListItem> */}
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/hse/">HS&E</ListItem>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/quality/">Quality</ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/hse/"
+              >
+                HS&E
+              </ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/quality/"
+              >
+                Quality
+              </ListItem>
             </List>
           </Grid>
           <Grid item xs={6} sm={3}>
@@ -64,10 +85,38 @@ function BigFooter(props) {
               Support
             </Typography>
             <List dense>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/contact/">Contact</ListItem>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/help/">Help</ListItem>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/privacy/">Privacy</ListItem>
-              <ListItem component={Link} variant="caption" color="textSecondary" to="/terms/">Terms & Conditions</ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/contact/"
+              >
+                Contact
+              </ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/help/"
+              >
+                Help
+              </ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/privacy/"
+              >
+                Privacy
+              </ListItem>
+              <ListItem
+                component={Link}
+                variant="caption"
+                color="textSecondary"
+                to="/terms/"
+              >
+                Terms & Conditions
+              </ListItem>
             </List>
           </Grid>
           <Grid item xs={6} sm={3}>
@@ -82,35 +131,80 @@ function BigFooter(props) {
                 className={classes.address}
               >
                 <List dense>
-                  <ListItem><Typography variant="caption" color="textSecondary">Hauser Forum</Typography></ListItem>
-                  <ListItem><Typography variant="caption" color="textSecondary">3 Charles Babbage Road</Typography></ListItem>
-                  <ListItem><Typography variant="caption" color="textSecondary">Cambridge, United Kingdom</Typography></ListItem>
-                  <ListItem><Typography variant="caption" color="textSecondary">CB3 0GT</Typography></ListItem>
+                  <ListItem>
+                    <Typography variant="caption" color="textSecondary">
+                      Hauser Forum
+                    </Typography>
+                  </ListItem>
+                  <ListItem>
+                    <Typography variant="caption" color="textSecondary">
+                      3 Charles Babbage Road
+                    </Typography>
+                  </ListItem>
+                  <ListItem>
+                    <Typography variant="caption" color="textSecondary">
+                      Cambridge, United Kingdom
+                    </Typography>
+                  </ListItem>
+                  <ListItem>
+                    <Typography variant="caption" color="textSecondary">
+                      CB3 0GT
+                    </Typography>
+                  </ListItem>
                 </List>
               </a>
             </Typography>
           </Grid>
           <Grid item xs={6} sm={3}>
-            <Grid container direction="column" justify="space-evenly" alignItems="center" className={classes.social}>
+            <Grid
+              container
+              direction="column"
+              justify="space-evenly"
+              alignItems="center"
+              className={classes.social}
+            >
               <Grid item>
-                <IconButton component="a" href="https://twitter.com/octue" target="_blank" rel="noopener noreferrer" aria-label="twitter">
+                <IconButton
+                  component="a"
+                  href="https://twitter.com/octue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="twitter"
+                >
                   <Icon className="fab fa-twitter" fontSize="inherit" />
                 </IconButton>
               </Grid>
               <Grid item>
-                <IconButton component="a" href="https://linkedin.com/company/octue" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
+                <IconButton
+                  component="a"
+                  href="https://linkedin.com/company/octue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="linkedin"
+                >
                   <Icon className="fab fa-linkedin" fontSize="inherit" />
                 </IconButton>
               </Grid>
               <Grid item>
-                <IconButton component="a" href="https://github.com/octue" target="_blank" rel="noopener noreferrer" aria-label="github">
+                <IconButton
+                  component="a"
+                  href="https://github.com/octue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="github"
+                >
                   <Icon className="fab fa-github" fontSize="inherit" />
                 </IconButton>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid container direction="row" justify="space-between" alignItems="center">
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
           <Grid item className={classes.copyright}>
             <Copyright />
           </Grid>
