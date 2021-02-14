@@ -3,8 +3,8 @@
 This repository ([planex-site](https://github.com/octue/planex-site)) is for developing the front-end components and
 pages of the octue website.
 
-See also [planex-cms](https://github.com/octue/planex-cms) for a content management system. Currently that's not
-integrated here.
+See also [planex-cms](https://github.com/octue/planex-cms) for a content management system. **Currently not
+integrated here.**
 
 ## 🚀 Quick start
 
@@ -40,7 +40,7 @@ integrated here.
 
     _Note that you'll need to restart after adding or removing stories._
 
-1.  **OR: Start the gatsby reloader to preview the whole site**
+1.  **AND/OR: Start the gatsby reloader to preview the whole site**
 
     ```shell
     yarn start
@@ -58,6 +58,7 @@ integrated here.
 Check out a new branch:
 
 ```
+# Check the .pre-commit-config.yaml file for valid patterns
 git checkout -b feature/my-new-feature
 ```
 
@@ -70,7 +71,6 @@ git commit <file> -m "FIX updated copyright string"
 ```
 
 Push your changes to GitHub:
-
 ```
 git push
 ```
