@@ -1,4 +1,4 @@
-exclude: '.storybook|build|docs|node_modules|.git|.tox|src/assets|((?:[^/]*/)*)(.svg)|((?:[^/]*/)*)(.xml)'
+exclude: 'build|docs|node_modules|.cache|.git|.tox|.storybook/stories/assets|src/assets|((?:[^/]*/)*)(.svg)|((?:[^/]*/)*)(.xml)'
 default_stages: [commit]
 fail_fast: true
 repos:
