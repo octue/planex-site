@@ -1,6 +1,7 @@
 exclude: 'build|docs|node_modules|.cache|.git|.tox|.storybook/stories/assets|src/assets|((?:[^/]*/)*)(.svg)|((?:[^/]*/)*)(.xml)'
 default_stages: [commit]
 fail_fast: true
+verbose: true
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.1.0
