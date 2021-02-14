@@ -4,10 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import Copyright from 'components/site/Copyright/Copyright.jsx'
 
-import {
-  container,
-  right,
-} from 'assets/jss/material-octue'
+import { container, right } from 'assets/jss/material-octue'
 
 const useStyles = makeStyles((theme) => ({
   footer: {

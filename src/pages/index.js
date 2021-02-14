@@ -1,17 +1,16 @@
-import React from "react"
+import React from 'react'
 
-import Layout from "../components/core/Layout"
-import Image from "../components/core/Image"
-import SEO from "../components/core/SEO"
+import Layout from '../components/core/Layout'
+import Image from '../components/core/Image'
+import SEO from '../components/core/SEO'
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { Link } from 'gatsby-theme-material-ui';
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import { Link } from 'gatsby-theme-material-ui'
 
-import ProTip from '../components/elements/ProTip';
-import Copyright from '../components/elements/Copyright';
-
+import ProTip from '../components/elements/ProTip'
+import Copyright from '../components/elements/Copyright'
 
 export default function Index() {
   return (
@@ -30,5 +29,5 @@ export default function Index() {
         <Copyright />
       </Box>
     </Container>
-  );
+  )
 }

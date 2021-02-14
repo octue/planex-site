@@ -1,6 +1,5 @@
 import { lightTheme as theme } from '../../themes'
 
-
 /** Default website theme
  * The gatsby mui plugin demands export of the website theme from
  * this specific file.

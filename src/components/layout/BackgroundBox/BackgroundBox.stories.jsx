@@ -2,7 +2,6 @@ import React from 'react'
 
 import BackgroundBox from './BackgroundBox'
 
-
 export default {
   title: 'Layout/BackgroundBox',
   component: BackgroundBox,
@@ -15,5 +14,4 @@ export default {
 const Template = (args) => <BackgroundBox {...args} />
 
 export const Simple = Template.bind({})
-Simple.args = {
-}
+Simple.args = {}

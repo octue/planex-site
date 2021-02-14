@@ -9,7 +9,8 @@
  */
 const branding = {
   palette: {
-    success: {  // Because MUI has error, warning, info but misses success
+    success: {
+      // Because MUI has error, warning, info but misses success
       light: '#81c784',
       main: '#4caf50',
       dark: '#388e3c',
@@ -60,7 +61,6 @@ const branding = {
   },
 }
 
-
 /* MATERIAL-UI THEME
  *
  * MUI doesn't allow arbitrary additions to its theme object. That's a disadvantage when you have one parameter that
@@ -90,8 +90,4 @@ const baseThemeOptions = {
   },
 }
 
-
-export {
-  baseThemeOptions,
-  branding,
-}
+export { baseThemeOptions, branding }

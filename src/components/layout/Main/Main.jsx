@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 
-
 const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
@@ -11,24 +10,19 @@ const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
 }))
 
-
 function Main({ appBarOffset, children }) {
   const classes = useStyles()
   return (
     <>
-      { appBarOffset ? <div className={classes.offset} /> : null }
-      <main className={classes.content}>
-        { children }
-      </main>
+      {appBarOffset ? <div className={classes.offset} /> : null}
+      <main className={classes.content}>{children}</main>
     </>
   )
 }
 
-
 Main.defaultProps = {
   appBarOffset: false,
 }
-
 
 Main.propTypes = {
   /**
@@ -41,6 +35,5 @@ Main.propTypes = {
    */
   children: PropTypes.node.isRequired,
 }
-
 
 export default Main

@@ -7,7 +7,6 @@ import SmallFooter from './SmallFooter.jsx'
 import BigFooter from './BigFooter.jsx'
 import { darkTheme } from '../../../themes'
 
-
 function getFooterComponent(kind, rest) {
   switch (kind) {
     case 'micro':
@@ -29,9 +28,7 @@ function getFooterComponent(kind, rest) {
 function Footer({ kind, ...rest }) {
   const component = getFooterComponent(kind, rest)
   return component ? (
-    <ThemeProvider theme={darkTheme}>
-      {component}
-    </ThemeProvider>
+    <ThemeProvider theme={darkTheme}>{component}</ThemeProvider>
   ) : null
 }
 

@@ -4,7 +4,6 @@ import MuiAppBar from '@material-ui/core/AppBar'
 import Menu from '@material-ui/core/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 
-
 const useStyles = makeStyles((theme) => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -26,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     border: '0',
   },
 }))
-
 
 function AppBar() {
   const classes = useStyles()
@@ -57,7 +55,11 @@ function AppBar() {
       <MuiAppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <div className={classes.logo}>
-            <img src={theme.logos.square.light} alt="logo" className={classes.logoImg} />
+            <img
+              src={theme.logos.square.light}
+              alt="logo"
+              className={classes.logoImg}
+            />
           </div>
           <div className={classes.grow} />
         </Toolbar>
@@ -67,13 +69,8 @@ function AppBar() {
   )
 }
 
+AppBar.defaultProps = {}
 
-AppBar.defaultProps = {
-}
-
-
-AppBar.propTypes = {
-}
-
+AppBar.propTypes = {}
 
 export default AppBar

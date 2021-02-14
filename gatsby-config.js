@@ -27,6 +27,6 @@ module.exports = {
         icon: `/src/assets/images/gatsby-icon.png`,
       },
     },
-    `gatsby-theme-material-ui`
+    `gatsby-theme-material-ui`,
   ],
 }

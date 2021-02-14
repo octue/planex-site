@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
 /**
  * Wrapper allowing components to be optionally rendered in fullscreen, with a close button top right.
  * A dialog is used to provide a fade in transition to fullscreen.
@@ -34,7 +33,11 @@ function Fullscreenable({
   const handleClose = () => onFullscreenChange(false)
 
   const closeButton = closable ? (
-    <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
+    <IconButton
+      aria-label="close"
+      className={classes.closeButton}
+      onClick={handleClose}
+    >
       <Tooltip title="Close fullscreen">
         <FullscreenExitIcon />
       </Tooltip>
@@ -45,21 +48,17 @@ function Fullscreenable({
     <>
       {closeButton}
       <Dialog fullScreen open={fullscreen} {...rest}>
-        { children }
+        {children}
       </Dialog>
     </>
   ) : (
-    <>
-      { children }
-    </>
+    <>{children}</>
   )
 }
-
 
 Fullscreenable.defaultProps = {
   closable: true,
 }
-
 
 Fullscreenable.propTypes = {
   /**
@@ -80,6 +79,5 @@ Fullscreenable.propTypes = {
    */
   onFullscreenChange: PropTypes.func.isRequired,
 }
-
 
 export default Fullscreenable

@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography'
 import Copyright from '../../elements/Copyright'
 import BackgroundBox from '../../layout/BackgroundBox'
 
-
 const useStyles = makeStyles({
   code: {
     fontSize: '200px',
@@ -41,7 +40,6 @@ const useStyles = makeStyles({
   },
 })
 
-
 function ErrorPage({ code, text, description }) {
   const classes = useStyles()
 
@@ -49,7 +47,9 @@ function ErrorPage({ code, text, description }) {
     <main className={classes.content}>
       <BackgroundBox className={classes.dimmed}>
         <Box maxWidth="80vw" textAlign="center" color="#ffffff" zIndex={3}>
-          <Typography variant="h1" className={classes.code}>{code}</Typography>
+          <Typography variant="h1" className={classes.code}>
+            {code}
+          </Typography>
           <Typography variant="h3">{text}</Typography>
           <Typography variant="subtitle1">{description}</Typography>
         </Box>
@@ -59,12 +59,10 @@ function ErrorPage({ code, text, description }) {
   )
 }
 
-
 ErrorPage.propTypes = {
   code: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }
-
 
 export default ErrorPage
