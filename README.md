@@ -71,6 +71,7 @@ git commit <file> -m "FIX updated copyright string"
 ```
 
 Push your changes to GitHub:
+
 ```
 git push
 ```
