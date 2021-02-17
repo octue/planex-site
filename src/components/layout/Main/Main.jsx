@@ -7,7 +7,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backGroundColor: theme.palette.background.default,
   },
-  offset: theme.mixins.toolbar,
+  offset: {
+    ...theme.mixins.toolbar,
+    height: theme.spacing(8), // adjusts for navbar rather than default appbar
+  },
 }))
 
 function Main({ appBarOffset, children }) {

@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@material-ui/core/Box'
 
 import Main from './Main'
-import AppBar from '../AppBar'
+import NavBar from '../NavBar'
 
 export default {
   title: 'Layout/Main',
@@ -15,7 +15,7 @@ export default {
 export const MainView = (args) => {
   return (
     <>
-      <AppBar />
+      <NavBar />
       <Main {...args}>
         <Box width="100vw" height="140px" backgroundColor="#9de0e7">
           Here's a box within main. See how it's below the appbar? Change the
