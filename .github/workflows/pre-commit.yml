@@ -16,4 +16,4 @@ jobs:
         architecture: 'x64'
     - uses: pre-commit/action@v2.0.0
       with:
-        extra_args: --verbose
+        extra_args: --verbose --all-files
