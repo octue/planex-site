@@ -4,7 +4,6 @@ import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 import PeopleIcon from '@material-ui/icons/People'
 import ScatterPlotIcon from '@material-ui/icons/ScatterPlot'
 import RssFeedIcon from '@material-ui/icons/RssFeed'
-import React from 'react'
 
 export const main = [
   {
