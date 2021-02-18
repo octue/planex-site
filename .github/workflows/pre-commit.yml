@@ -15,4 +15,4 @@ jobs:
         python-version: '3.8'
         architecture: 'x64'
     - uses: pre-commit/action@v2.0.0
-        extra_args: --verbose
+      extra_args: --verbose
