@@ -18,7 +18,7 @@ const Link = forwardRef(({ kind, variant, children, href, ...rest }, ref) => {
   // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name to be poor
   // UX so we use just one, `href`, and map it as needed here.
   if (kind === 'site') {
-    if (!href.startsWith('/')) {
+    if (!href.startsWith('/') && !href.startsWith('#')) {
       throw new Error(
         `For kind='site', supplied href should be an internal link to this site, eg '/' (href=${href}).`
       )
@@ -61,7 +61,7 @@ Link.defaultProps = {
   variant: 'typography',
 }
 
-Link.PropTypes = {
+Link.propTypes = {
   /**
    * Valid values are 'site', 'internal', and 'external'.
    *

@@ -53,12 +53,33 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent !important',
     boxShadow: 'none',
   },
+  drawerPaper: {
+    maxWidth: '80vw',
+    // width: '80vw',
+    // The following copied from the MUI Drawer styles...
+    overflowY: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    flex: '1 0 auto',
+    zIndex: theme.zIndex.drawer,
+    WebkitOverflowScrolling: 'touch', // Add iOS momentum scrolling.
+    position: 'fixed',
+    top: 0,
+    // We disable the focus ring for mouse, touch and keyboard users.
+    // At some point, it would be better to keep it for keyboard users.
+    // :focus-ring CSS pseudo-class will help.
+    outline: 0,
+  },
   drawerLinks: {
     margin: '20px 10px',
     marginTop: '0px',
   },
   drawerCloseButton: {
-    margin: theme.spacing(1),
+    width: '40px', // forces it square
+    height: '40px', // forces it square
+    fontSize: '24px',
+    margin: theme.spacing(1.5),
   },
 }))
 
@@ -118,11 +139,12 @@ function NavBar({ id, transparency, height, children }) {
             color="inherit"
             aria-label="close drawer"
             onClick={handleCloseMobile}
+            size="small"
             className={classes.drawerCloseButton}
           >
             <Close />
           </IconButton>
-          <div className={classes.drawerLinks}>{children}</div>
+          {children}
         </Drawer>
       </Hidden>
     </AppBar>

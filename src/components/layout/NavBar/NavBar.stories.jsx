@@ -1,8 +1,10 @@
 import React from 'react'
-import NavBar from './NavBar'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
+import NavBar from './NavBar'
+import NavItems from './NavItems'
 import { darkTheme } from '../../../themes'
+import defaultMenu from '../../../../menus'
 
 export default {
   title: 'Layout/NavBar',
@@ -47,4 +49,24 @@ export const OpaqueDark = Template.bind({})
 OpaqueDark.args = {
   transparency: false,
   withDarkTheme: true,
+}
+
+export const WithLinks = () => {
+  // We set up the second link to be active (i.e. it links to the same location as the storybook is rendered at)
+  const menuWithActive = defaultMenu
+  menuWithActive[1].href = '/iframe.html'
+
+  return (
+    <>
+      <ThemeProvider theme={darkTheme}>
+        <NavBar transparency>
+          <NavItems />
+        </NavBar>
+      </ThemeProvider>
+      <Box bgcolor="#b2e060" pt={10} width="100%" height="200vh">
+        This is the page content. The SECOND item in the navbar should have the
+        "active" state.
+      </Box>
+    </>
+  )
 }
