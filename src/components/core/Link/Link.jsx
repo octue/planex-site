@@ -47,7 +47,8 @@ const Link = forwardRef(({ kind, variant, children, href, ...rest }, ref) => {
           {children}
         </MuiIconButton>
       )
-    case 'typography':
+    default:
+      // 'typography'
       return (
         <MuiLink component={component} ref={ref} {...extra} {...rest}>
           {children}
