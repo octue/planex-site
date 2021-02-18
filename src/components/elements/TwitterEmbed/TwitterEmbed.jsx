@@ -8,7 +8,6 @@ const TwitterEmbed = ({ height, transparent }) => {
   const options = {
     height: height,
   }
-  console.log(theme.palette.type)
   return (
     <TwitterTimelineEmbed
       sourceType="profile"
