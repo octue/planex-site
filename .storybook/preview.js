@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import themes from './storybookTheme'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
+import withLocationProvider from './withLocationProvider'
 import { lightTheme, darkTheme } from '../src/themes'
 
 import '@storybook/addon-console'
@@ -36,8 +37,8 @@ window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
 
-
 export const decorators = [
+  withLocationProvider,
   withMuiTheme({
     'Light Theme': lightTheme,
     'Dark Theme': darkTheme,
