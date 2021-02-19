@@ -1,13 +1,14 @@
 import { action } from "@storybook/addon-actions"
 import themes from './storybookTheme'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
-import lightTheme from '../src/gatsby-theme-material-ui-top-layout/lightTheme'
-import darkTheme from '../src/gatsby-theme-material-ui-top-layout/darkTheme'
+import withLocationProvider from './withLocationProvider'
+import { lightTheme, darkTheme } from '../src/themes'
 
 import '@storybook/addon-console'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  layout: 'fullscreen',
   docs: {
     theme: themes.dark,
   },
@@ -35,3 +36,11 @@ global.__BASE_PATH__ = "/"
 window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
+
+export const decorators = [
+  withLocationProvider,
+  withMuiTheme({
+    'Light Theme': lightTheme,
+    'Dark Theme': darkTheme,
+  })
+]
