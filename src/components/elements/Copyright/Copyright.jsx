@@ -15,14 +15,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Copyright({ fixed, href, color }) {
+function Copyright({ fixed, href, color, boxProps, ...rest }) {
   const theme = useTheme()
   const classes = useStyles()
 
   const year = new Date().getFullYear()
 
-  const linkComponent = (
-    <Typography variant="body2" color={color}>
+  const typographyComponent = (
+    <Typography variant="body2" color={color} {...rest}>
       {'Copyright © '}
       <Link className={classes.link} href={href}>
         Octue Ltd
@@ -33,16 +33,21 @@ function Copyright({ fixed, href, color }) {
 
   if (fixed) {
     return (
-      <Box position="fixed" bottom={theme.spacing(1)} right={theme.spacing(1)}>
-        {linkComponent}
+      <Box
+        position="fixed"
+        bottom={theme.spacing(1)}
+        right={theme.spacing(1)}
+        {...boxProps}
+      >
+        {typographyComponent}
       </Box>
     )
   }
-  return linkComponent
+  return typographyComponent
 }
 
 Copyright.defaultProps = {
-  fixed: true,
+  fixed: false,
   href: 'https://www.octue.com',
   color: 'textSecondary',
 }
