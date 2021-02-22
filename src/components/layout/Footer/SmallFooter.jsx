@@ -1,35 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
-import Icon from '@material-ui/core/Icon'
 import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
 
-import Copyright from 'components/site/Copyright/Copyright.jsx'
-import GradientStripe from 'components/site/GradientStripe/GradientStripe.jsx'
-import IconLink from 'components/navigation/IconLink.jsx'
+import Copyright from '../../elements/Copyright'
+import GradientStripe from '../../elements/GradientStripe'
+import { Link } from '../../core/Link'
 
-import { container } from 'assets/jss/material-octue'
+import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
   },
-  container: {
-    zIndex: 3,
-    ...container,
-    position: 'relative',
-  },
   button: {
     margin: theme.spacing(1),
+    fontSize: '24px',
+  },
+  copyright: {
+    fontSize: `${theme.spacing(1.5)}px`,
   },
 }))
 
-function SmallFooter(props) {
+function SmallFooter({ id }) {
   const classes = useStyles()
   return (
-    <footer id={props.id} className={classes.footer}>
+    <footer id={id} className={classes.footer}>
       <GradientStripe />
-      <div className={classes.container}>
+      <Container>
         <Grid
           container
           direction="row"
@@ -37,33 +36,39 @@ function SmallFooter(props) {
           alignItems="center"
         >
           <Grid item>
-            <Copyright />
+            <Copyright className={classes.copyright} />
           </Grid>
           <Grid item>
-            <IconLink
+            <Link
               href="https://twitter.com/octue"
+              kind="external"
+              variant="iconButton"
               className={classes.button}
               aria-label="twitter"
             >
-              <Icon className="fab fa-twitter" fontSize="inherit" />
-            </IconLink>
-            <IconLink
+              <FaTwitter />
+            </Link>
+            <Link
               href="https://linkedin.com/company/octue"
+              kind="external"
+              variant="iconButton"
               className={classes.button}
               aria-label="linkedin"
             >
-              <Icon className="fab fa-linkedin" fontSize="inherit" />
-            </IconLink>
-            <IconLink
+              <FaLinkedin />
+            </Link>
+            <Link
               href="https://github.com/octue"
+              kind="external"
+              variant="iconButton"
               className={classes.button}
               aria-label="github"
             >
-              <Icon className="fab fa-github" fontSize="inherit" />
-            </IconLink>
+              <FaGithub />
+            </Link>
           </Grid>
         </Grid>
-      </div>
+      </Container>
     </footer>
   )
 }

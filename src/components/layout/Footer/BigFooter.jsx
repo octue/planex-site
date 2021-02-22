@@ -1,29 +1,22 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
-import GradientStripe from 'components/site/GradientStripe/GradientStripe.jsx'
-import Copyright from 'components/site/Copyright/Copyright.jsx'
-import { makeStyles } from '@material-ui/core/styles'
-import Link from 'components/navigation/Link.jsx'
-
-import Icon from '@material-ui/core/Icon'
+import Container from '@material-ui/core/Container'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
-
-import IconButton from '@material-ui/core/IconButton'
-
-import { container } from 'assets/jss/material-octue'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { footer as footerMenus } from '../../../../menus.js'
+import hexToRgb from '../../../themes/hexToRgb'
+import GradientStripe from '../../elements/GradientStripe'
+import { Link } from '../../core/Link'
+import Copyright from '../../elements/Copyright'
+import FooterLinkGroup from './FooterLinkGroup'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
-  },
-  container: {
-    zIndex: 3,
-    ...container,
-    position: 'relative',
-    marginTop: theme.spacing(2),
   },
   button: {
     margin: theme.spacing(1),
@@ -31,123 +24,78 @@ const useStyles = makeStyles((theme) => ({
   address: {
     color: theme.palette.text.secondary,
     textDecoration: 'none',
+    borderRadius: theme.shape.borderRadius,
+    paddingLeft: theme.spacing(0.5),
+    '&:hover, &:focus, &.active': {
+      backgroundColor: `rgba(${hexToRgb('#ffffff')}, 0.2)`,
+      color: 'inherit',
+      textDecoration: 'none',
+      borderLeft: `${theme.spacing(0.5)}px solid #ffffff`,
+      paddingLeft: 0,
+    },
+  },
+  addressLink: {
+    textDecoration: 'none',
   },
   copyright: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
+    fontSize: `${theme.spacing(1.5)}px`,
   },
   social: {
     height: '100%',
   },
+  panel: {
+    padding: theme.spacing(2),
+  },
 }))
 
-function BigFooter(props) {
+// TODO Query location and address data out of a gatsby plugin or other configuration file
+
+function BigFooter({ id }) {
   const classes = useStyles()
+  console.log(footerMenus, footerMenus[0])
   return (
-    <footer id={props.id} className={classes.footer}>
+    <footer id={id} className={classes.footer}>
       <GradientStripe />
-      <div className={classes.container}>
+      <Container>
         <Grid container>
-          <Grid item xs={6} sm={3}>
-            <Typography variant="overline" color="textSecondary">
-              Company
-            </Typography>
-            <List dense>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/about/"
-              >
-                About
-              </ListItem>
-              {/* <ListItem component={Link} variant="caption" color="textSecondary" to="/press/">Press</ListItem> */}
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/hse/"
-              >
-                HS&E
-              </ListItem>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/quality/"
-              >
-                Quality
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <Typography variant="overline" color="textSecondary">
-              Support
-            </Typography>
-            <List dense>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/contact/"
-              >
-                Contact
-              </ListItem>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/help/"
-              >
-                Help
-              </ListItem>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/privacy/"
-              >
-                Privacy
-              </ListItem>
-              <ListItem
-                component={Link}
-                variant="caption"
-                color="textSecondary"
-                to="/terms/"
-              >
-                Terms & Conditions
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={6} sm={3}>
+          {footerMenus.map((item) => (
+            <Grid item xs={6} sm={3} className={classes.panel}>
+              <FooterLinkGroup {...item} />
+            </Grid>
+          ))}
+          <Grid item xs={6} sm={3} className={classes.panel}>
             <Typography variant="overline" color="textSecondary">
               Location
             </Typography>
-            <Typography variant="body2" color="textSecondary">
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              className={classes.address}
+            >
               <a
                 href="https://www.google.co.uk/maps/place/IdeaSpace/@52.208859,0.089999,17z/data=!4m6!1m3!3m2!1s0x47d87749662a463d:0x9c891cfd7b88f6c1!2sHauser+Forum+Café!3m1!1s0x0000000000000000:0xfa0c4b40e0313172"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={classes.address}
+                className={classes.addressLink}
               >
                 <List dense>
                   <ListItem>
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography variant="body2" color="textSecondary">
                       Hauser Forum
                     </Typography>
                   </ListItem>
                   <ListItem>
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography variant="body2" color="textSecondary">
                       3 Charles Babbage Road
                     </Typography>
                   </ListItem>
                   <ListItem>
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography variant="body2" color="textSecondary">
                       Cambridge, United Kingdom
                     </Typography>
                   </ListItem>
                   <ListItem>
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography variant="body2" color="textSecondary">
                       CB3 0GT
                     </Typography>
                   </ListItem>
@@ -164,37 +112,37 @@ function BigFooter(props) {
               className={classes.social}
             >
               <Grid item>
-                <IconButton
-                  component="a"
+                <Link
                   href="https://twitter.com/octue"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  kind="external"
+                  variant="iconButton"
+                  className={classes.button}
                   aria-label="twitter"
                 >
-                  <Icon className="fab fa-twitter" fontSize="inherit" />
-                </IconButton>
+                  <FaTwitter />
+                </Link>
               </Grid>
               <Grid item>
-                <IconButton
-                  component="a"
+                <Link
                   href="https://linkedin.com/company/octue"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  kind="external"
+                  variant="iconButton"
+                  className={classes.button}
                   aria-label="linkedin"
                 >
-                  <Icon className="fab fa-linkedin" fontSize="inherit" />
-                </IconButton>
+                  <FaLinkedin />
+                </Link>
               </Grid>
               <Grid item>
-                <IconButton
-                  component="a"
+                <Link
                   href="https://github.com/octue"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  kind="external"
+                  variant="iconButton"
+                  className={classes.button}
                   aria-label="github"
                 >
-                  <Icon className="fab fa-github" fontSize="inherit" />
-                </IconButton>
+                  <FaGithub />
+                </Link>
               </Grid>
             </Grid>
           </Grid>
@@ -205,17 +153,15 @@ function BigFooter(props) {
           justify="space-between"
           alignItems="center"
         >
-          <Grid item className={classes.copyright}>
-            <Copyright />
-          </Grid>
+          <Copyright className={classes.copyright} />
         </Grid>
-      </div>
+      </Container>
     </footer>
   )
 }
 
 BigFooter.defaultProps = {
-  id: 'footer',
+  id: 'big-footer',
 }
 
 BigFooter.propTypes = {

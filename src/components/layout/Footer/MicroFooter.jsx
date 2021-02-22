@@ -1,34 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-
-import Copyright from 'components/site/Copyright/Copyright.jsx'
-
-import { container, right } from 'assets/jss/material-octue'
+import Box from '@material-ui/core/Box'
+import Copyright from '../../elements/Copyright'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: '0px',
+    width: '100%',
+    backgroundColor:
+      theme.palette.type === 'dark'
+        ? theme.palette.background.paper
+        : theme.palette.primary.main,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
-  container: {
-    ...container,
-    position: 'relative',
-    zIndex: 3,
+  typography: {
+    fontSize: `${theme.spacing(1.5)}px`,
+    color:
+      theme.palette.type === 'dark'
+        ? theme.palette.text.secondary
+        : theme.palette.primary.contrastText,
   },
-  right,
 }))
 
-function MicroFooter(props) {
+function MicroFooter({ id, ...rest }) {
   const classes = useStyles()
   return (
-    <footer id={props.id} className={classes.footer}>
-      <div className={classes.container}>
-        <div className={classes.right}>
-          <Copyright />
-        </div>
-      </div>
-    </footer>
+    <Box component="footer" id={id} className={classes.footer} {...rest}>
+      <Copyright className={classes.typography} />
+    </Box>
   )
 }
 
