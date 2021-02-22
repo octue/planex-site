@@ -44,4 +44,57 @@ export const main = [
   },
 ]
 
+export const footer = [
+  {
+    text: 'Company',
+    submenu: [
+      {
+        href: '/about/',
+        text: 'About',
+        style: 'link',
+      },
+      {
+        href: '/hse/',
+        text: 'HS&E',
+        style: 'link',
+      },
+      {
+        href: '/quality/',
+        text: 'Quality',
+        style: 'link',
+      },
+      {
+        href: '/about/',
+        text: 'About',
+        style: 'link',
+      },
+    ],
+  },
+  {
+    text: 'Support',
+    submenu: [
+      {
+        href: '/contact/',
+        text: 'Contact',
+        style: 'link',
+      },
+      {
+        href: '/help/',
+        text: 'Help',
+        style: 'link',
+      },
+      {
+        href: '/privacy/',
+        text: 'Privacy',
+        style: 'link',
+      },
+      {
+        href: '/terms/',
+        text: 'Terms & Conditions',
+        style: 'link',
+      },
+    ],
+  },
+]
+
 export default main

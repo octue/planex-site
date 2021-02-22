@@ -13,6 +13,7 @@ export const MUITypography = ({ color, gutterBottom }) => {
     'h4',
     'h5',
     'h6',
+    'overline',
     'subtitle',
     'body1',
     'body2',

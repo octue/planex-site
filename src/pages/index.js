@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Copyright from '../components/elements/Copyright'
 import { NavBar, NavItems } from '../components/layout/NavBar'
 import Main from '../components/layout/Main'
 
@@ -13,6 +12,7 @@ import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurth
 import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
 import TheTeam from '../components/shuffle/TheTeam/TheTeam'
 import OurMission from '../components/shuffle/OurMission/OurMission'
+import { Footer } from '../components/layout/Footer'
 
 export default function Index() {
   return (
@@ -34,7 +34,9 @@ export default function Index() {
           <TheTeam />
           <OurMission />
         </Main>
-        <Copyright color="primary" fixed />
+      </ThemeProvider>
+      <ThemeProvider theme={darkTheme}>
+        <Footer kind="big" />
       </ThemeProvider>
     </>
   )
