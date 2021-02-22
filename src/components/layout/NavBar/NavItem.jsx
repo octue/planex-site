@@ -77,7 +77,7 @@ function NavItem({ href, kind, style, icon, text }) {
       <Link
         kind={kind}
         href={href}
-        variant="iconButton"
+        componentType="iconButton"
         className={linkClasses}
       >
         {icon ? <TheIcon className={classes.icon} /> : null}

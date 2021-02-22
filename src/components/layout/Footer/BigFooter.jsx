@@ -115,7 +115,7 @@ function BigFooter({ id }) {
                 <Link
                   href="https://twitter.com/octue"
                   kind="external"
-                  variant="iconButton"
+                  componentType="iconButton"
                   className={classes.button}
                   aria-label="twitter"
                 >
@@ -126,7 +126,7 @@ function BigFooter({ id }) {
                 <Link
                   href="https://linkedin.com/company/octue"
                   kind="external"
-                  variant="iconButton"
+                  componentType="iconButton"
                   className={classes.button}
                   aria-label="linkedin"
                 >
@@ -137,7 +137,7 @@ function BigFooter({ id }) {
                 <Link
                   href="https://github.com/octue"
                   kind="external"
-                  variant="iconButton"
+                  componentType="iconButton"
                   className={classes.button}
                   aria-label="github"
                 >
