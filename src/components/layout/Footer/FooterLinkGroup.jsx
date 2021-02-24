@@ -10,10 +10,16 @@ import hexToRgb from '../../../themes/hexToRgb'
 
 const useStyles = makeStyles((theme) => ({
   // TODO Consolidate this repeating style block to have just a generalised NavLink component used across the board.
+  li: {
+    padding: 0,
+  },
   item: {
     color: theme.palette.text.secondary,
     textDecoration: 'none',
+    width: '100%',
     borderRadius: theme.shape.borderRadius,
+    paddingTop: theme.spacing(0.5),
+    paddingBottom: theme.spacing(0.5),
     paddingLeft: theme.spacing(1.5),
     '&:hover, &:focus, &.active': {
       backgroundColor: `rgba(${hexToRgb('#ffffff')}, 0.2)`,
@@ -34,13 +40,14 @@ function FooterLinkGroup({ text, submenu }) {
       </Typography>
       <List dense>
         {submenu.map((item) => (
-          <ListItem
-            component={Link}
-            color="textSecondary"
-            href={item.href}
-            className={classes.item}
-          >
-            {item.text}
+          <ListItem className={classes.li}>
+            <Link
+              color="textSecondary"
+              href={item.href}
+              className={classes.item}
+            >
+              {item.text}
+            </Link>
           </ListItem>
         ))}
       </List>

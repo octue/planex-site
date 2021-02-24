@@ -5,61 +5,63 @@ import MuiButton from '@material-ui/core/Button'
 import MuiIconButton from '@material-ui/core/IconButton'
 import PropTypes from 'prop-types'
 
-const Link = forwardRef(({ kind, variant, children, href, ...rest }, ref) => {
-  const component = kind === 'site' ? GatsbyLink : 'a'
-  const extra =
-    kind === 'external'
-      ? {
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        }
-      : {}
+const Link = forwardRef(
+  ({ kind, componentType, children, href, ...rest }, ref) => {
+    const component = kind === 'site' ? GatsbyLink : 'a'
+    const extra =
+      kind === 'external'
+        ? {
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          }
+        : {}
 
-  // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name to be poor
-  // UX so we use just one, `href`, and map it as needed here.
-  if (kind === 'site') {
-    if (!href.startsWith('/') && !href.startsWith('#')) {
-      throw new Error(
-        `For kind='site', supplied href should be an internal link to this site, eg '/' (href=${href}).`
-      )
+    // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name to be poor
+    // UX so we use just one, `href`, and map it as needed here.
+    if (kind === 'site') {
+      if (!href.startsWith('/') && !href.startsWith('#')) {
+        throw new Error(
+          `For kind='site', supplied href should be an internal link to this site, eg '/' (href=${href}).`
+        )
+      }
+      extra['to'] = href
+    } else {
+      extra['href'] = href
     }
-    extra['to'] = href
-  } else {
-    extra['href'] = href
+    /* Note to future tom:
+     * It's super weird using a switch here. Obviously you should
+     * refactor this horrid code to define the component
+     * as a prop with a default and simply create that. Much more
+     * elegant. Don't waste time trying though, it doesn't work and I
+     * can't find out why.
+     */
+    switch (componentType) {
+      case 'button':
+        return (
+          <MuiButton component={component} ref={ref} {...extra} {...rest}>
+            {children}
+          </MuiButton>
+        )
+      case 'iconButton':
+        return (
+          <MuiIconButton component={component} ref={ref} {...extra} {...rest}>
+            {children}
+          </MuiIconButton>
+        )
+      default:
+        // 'typography'
+        return (
+          <MuiLink component={component} ref={ref} {...extra} {...rest}>
+            {children}
+          </MuiLink>
+        )
+    }
   }
-  /* Note to future tom:
-   * It's super weird using a switch here. Obviously you should
-   * refactor this horrid code to define the component
-   * as a prop with a default and simply create that. Much more
-   * elegant. Don't waste time trying though, it doesn't work and I
-   * can't find out why.
-   */
-  switch (variant) {
-    case 'button':
-      return (
-        <MuiButton component={component} ref={ref} {...extra} {...rest}>
-          {children}
-        </MuiButton>
-      )
-    case 'iconButton':
-      return (
-        <MuiIconButton component={component} ref={ref} {...extra} {...rest}>
-          {children}
-        </MuiIconButton>
-      )
-    default:
-      // 'typography'
-      return (
-        <MuiLink component={component} ref={ref} {...extra} {...rest}>
-          {children}
-        </MuiLink>
-      )
-  }
-})
+)
 
 Link.defaultProps = {
   kind: 'site',
-  variant: 'typography',
+  componentType: 'typography',
 }
 
 Link.propTypes = {
@@ -90,6 +92,6 @@ Link.propTypes = {
    * `iconButton` uses MUI's "IconButton" component and should be given a child icon.
    * `button` uses MUI's "Button" component and can be given child text or span elements like icon + text.
    */
-  variant: PropTypes.oneOf(['button', 'iconButton', 'typography']),
+  componentType: PropTypes.oneOf(['button', 'iconButton', 'typography']),
 }
 export default Link
