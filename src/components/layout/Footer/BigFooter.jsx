@@ -67,11 +67,7 @@ function BigFooter({ id }) {
             <Typography variant="overline" color="textSecondary">
               Location
             </Typography>
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              className={classes.address}
-            >
+            <div className={classes.address}>
               <a
                 href="https://www.google.co.uk/maps/place/IdeaSpace/@52.208859,0.089999,17z/data=!4m6!1m3!3m2!1s0x47d87749662a463d:0x9c891cfd7b88f6c1!2sHauser+Forum+Café!3m1!1s0x0000000000000000:0xfa0c4b40e0313172"
                 target="_blank"
@@ -103,7 +99,7 @@ function BigFooter({ id }) {
                   </ListItem>
                 </List>
               </a>
-            </Typography>
+            </div>
           </Grid>
           <Grid item xs={6} sm={3}>
             <Grid
