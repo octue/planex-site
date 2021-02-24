@@ -22,19 +22,19 @@ export default function Index() {
           <NavItems />
         </NavBar>
       </ThemeProvider>
-      <ThemeProvider theme={lightTheme}>
-        <Main>
-          <ThemeProvider theme={darkTheme}>
-            <Hero />
-          </ThemeProvider>
+      <Main>
+        <ThemeProvider theme={darkTheme}>
+          <Hero />
+        </ThemeProvider>
+        <ThemeProvider theme={lightTheme}>
           <TimeToBuild />
           <BuildWithTwined />
           <TakeWorkFurther />
           <HereToHelp />
           <TheTeam />
           <OurMission />
-        </Main>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Main>
       <ThemeProvider theme={darkTheme}>
         <Footer kind="big" />
       </ThemeProvider>
