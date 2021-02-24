@@ -77,6 +77,8 @@ function BigFooter({ id }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={classes.addressLink}
+                aria-label="View map"
+                title="Address"
               >
                 <List dense>
                   <ListItem>
