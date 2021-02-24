@@ -2,43 +2,41 @@ import React from 'react'
 
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 
 import { makeStyles, useTheme } from '@material-ui/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
+import { Link } from '../../core/Link'
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    paddingTop: theme.spacing(12),
-    paddingBottom: theme.spacing(12),
-    [theme.breakpoints.up('md')]: {
-      paddingTop: theme.spacing(30),
-      paddingBottom: theme.spacing(30),
-    },
+    height: '100%',
+  },
+  title: {
+    display: 'flex',
+    color: theme.palette.text.primary,
+    fontSize: '2rem',
+    fontWeight: 300,
+    lineHeight: '2.125rem',
   },
   description: {
-    color: theme.palette.background.secondary,
+    color: theme.palette.text.secondary,
+    fontSize: '1.313rem',
+    fontWeight: 400,
+    lineHeight: '1.9rem',
+    whiteSpace: 'pre-line',
   },
-  primaryAction: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-      marginRight: theme.spacing(0),
-      marginBottom: theme.spacing(2),
-    },
-  },
-  secondaryAction: {
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-    },
+  cta: {
+    display: 'flex',
+    border: `2px solid ${theme.palette.text.secondary}`,
+    paddingTop: `10px`,
+    paddingBottom: `10px`,
   },
 }))
 
 function Hero() {
   const classes = useStyles()
-
   const theme = useTheme()
   const data = useStaticQuery(
     graphql`
@@ -56,6 +54,18 @@ function Hero() {
 
   const imageData = data.desktop.childImageSharp.fluid
 
+  // This data could ultimately come from a CMS
+  const ctaData = {
+    text: "Let's build something together",
+    kind: 'site',
+    href: '/about/',
+    icon: null,
+  }
+  /* Annoying. Maintain compatibility with the NavLink data structure so we can generalise the link component
+   * better in future.
+   */
+  const TheIcon = ctaData.icon
+
   return (
     <Box component="section" height="100vh">
       <BackgroundImage
@@ -72,17 +82,23 @@ function Hero() {
         }}
       >
         <Container maxWidth="md" className={classes.container}>
-          <Box textAlign="center" color="common.white">
-            <Typography variant="h2" component="h2" gutterBottom={true}>
-              <Typography color="secondary" variant="h2" component="span">
-                Science we can build on{' '}
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="flex-start"
+            height="100%"
+            maxWidth="650px" // Places it to the left of center on larger screens
+          >
+            <Box display="flex" pb={3}>
+              <Typography variant="h2" component="h1" className={classes.title}>
+                Science we can build on
               </Typography>
-            </Typography>
-            <Container maxWidth="sm">
+            </Box>
+            <Box display="flex" pb={4} px={8}>
               <Typography
                 variant="subtitle1"
-                color="textSecondary"
-                paragraph={true}
+                component="h2"
                 className={classes.description}
               >
                 Octue helps scientists take full advantage of data, with fewer
@@ -90,15 +106,26 @@ function Hero() {
                 easier, quicker and more sustainable, setting you free to focus
                 on the science.
               </Typography>
-            </Container>
-            <Box mt={3}>
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.primaryAction}
-              >
-                Let's build something together
-              </Button>
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="row"
+              justifyContent="flex-end"
+              width="100%"
+            >
+              <Box display="flex">
+                <Link
+                  kind={ctaData.kind}
+                  href={ctaData.href}
+                  className={classes.cta}
+                  componentType="button"
+                  variant="outlined"
+                >
+                  {ctaData.icon ? <TheIcon className={classes.icon} /> : null}
+                  {ctaData.text && ctaData.icon ? ' ' : null}
+                  {ctaData.text || null}
+                </Link>
+              </Box>
             </Box>
           </Box>
         </Container>
