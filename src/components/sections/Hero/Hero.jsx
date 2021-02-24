@@ -76,7 +76,7 @@ function Hero() {
          * Unlike a dynamic react site, this shouldn't be a performance issue.
          */
         style={{
-          backgroundColor: theme.palette.background,
+          backgroundColor: theme.palette.background.paper,
           width: '100%',
           height: '100%',
         }}
