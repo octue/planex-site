@@ -29,9 +29,7 @@ function OurMission() {
                     <Typography color="primary" variant="h3" component="span">
                       Our mission{' '}
                     </Typography>
-                    <Typography variant="h3" component="span">
-                      sit amet consectetur.
-                    </Typography>
+                    <Typography variant="h3" component="span"></Typography>
                   </Typography>
                   <Typography
                     variant="subtitle1"
@@ -39,22 +37,48 @@ function OurMission() {
                     paragraph={true}
                   >
                     Data was always at the heart of science, even when
-                    calculations were completed by hand. Now, computers carry
-                    out sophisticated analysis for us at speed. But that
-                    considerable power comes at a price. Today, most scientists
-                    around the world, in industry and academia, have to code in
-                    order to draw conclusions. They’ve become data scientists by
-                    default. This was the situation Tom found himself in when he
+                    calculations were completed by hand.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    Now, computers carry out sophisticated analysis for us at
+                    speed. But that considerable power comes at a price. Today,
+                    most scientists around the world, in industry and academia,
+                    have to code in order to draw conclusions. They’ve become
+                    data scientists by default.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    This was the situation Tom found himself in when he
                     established marine energy consultancy Ocean Array Systems in
                     2013. Exasperated by the difficulties of reusing data and
                     building tool chains that span organisations, Tom started
                     developing the Octue platform and the open-source Twined
-                    framework to make it all easier. Octue was launched in 2017
-                    and recognised as a Gamechanger by the UK Offshore Renewable
-                    Energy Catapult for its work on digital twins. Today, we
-                    help scientists – and the companies and institutions they
-                    work for – get more from data their data, with less
-                    frustration.
+                    framework to make it all easier.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    Octue was launched in 2017 and recognised as a Gamechanger
+                    by the UK Offshore Renewable Energy Catapult for its work on
+                    digital twins.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    Today, we help scientists – and the companies and
+                    institutions they work for – get more from data their data,
+                    with less frustration.
                   </Typography>
                   <Box mt={3}>
                     <Button variant="contained" color="secondary">
