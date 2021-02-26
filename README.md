@@ -11,6 +11,14 @@ integrated here.**
 1.  **Check out the code locally**
 
     Use `git clone` or GitHub desktop.
+    
+1.  ** Install pre-commit**
+
+    Install the program - see https://pre-commit.com/ for instructions on how.
+    Then do:
+    ```
+    pre-commit install
+    ```
 
 1.  **Make sure you have node and yarn installed**
 
