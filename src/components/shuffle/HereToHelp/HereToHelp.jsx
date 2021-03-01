@@ -30,7 +30,7 @@ function HereToHelp() {
                       Here to help{' '}
                     </Typography>
                     <Typography variant="h3" component="span">
-                      sit amet consectetur.
+                      you build
                     </Typography>
                   </Typography>
                   <Typography
@@ -42,7 +42,14 @@ function HereToHelp() {
                     sorts of data dilemmas. Need a digital twin strategy? Want
                     to know how to commercialise a data service? Looking for a
                     white-labelled app? We’ve got the technical expertise to
-                    deliver. Our background in the renewables sector makes our
+                    deliver.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    Our background in the renewables sector makes our
                     consultancy particularly popular with engineering
                     consultancies, renewable energy equipment manufacturers and
                     operators, survey companies and academics in the climate

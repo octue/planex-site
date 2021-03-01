@@ -29,9 +29,7 @@ function BuildWithTwined() {
                     <Typography color="primary" variant="h3" component="span">
                       Build with Twined{' '}
                     </Typography>
-                    <Typography variant="h3" component="span">
-                      sit amet consectetur.
-                    </Typography>
+                    <Typography variant="h3" component="span"></Typography>
                   </Typography>
                   <Typography
                     variant="subtitle1"
@@ -39,11 +37,18 @@ function BuildWithTwined() {
                     paragraph={true}
                   >
                     Octue’s open-source Twined framework provides the tools to
-                    read-in and output data. With this fundamental set of
-                    operations in place, it’s much quicker and easier to access,
-                    assess and analyse data, and to create data services, like
-                    digital twins. And whatever you build will be shareable and
-                    scalable. So others can build on your work.
+                    read-in and output data.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
+                    With this fundamental set of operations in place, it’s much
+                    quicker and easier to access, assess and analyse data, and
+                    to create data services, like digital twins. And whatever
+                    you build will be shareable and scalable. So others can
+                    build on your work.
                   </Typography>
                   <Box mt={3}>
                     <Button variant="contained" color="secondary">

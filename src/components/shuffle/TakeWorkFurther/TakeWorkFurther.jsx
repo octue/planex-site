@@ -125,6 +125,12 @@ function TakeWorkFurther() {
                     paragraph={true}
                   >
                     Host your newly-created data services on the Octue platform.
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="textSecondary"
+                    paragraph={true}
+                  >
                     It’s a simple way for academic institutions and businesses
                     to make their digital twins and apps widely available.
                     Underpinning collaboration and commercialisation.

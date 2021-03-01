@@ -29,25 +29,18 @@ function TheTeam() {
                 variant="overline"
                 color="textSecondary"
                 paragraph={true}
-              >
-                LOREM IPSUM
-              </Typography>
+              ></Typography>
               <Typography variant="h3" component="h2" gutterBottom={true}>
                 <Typography variant="h3" component="span" color="primary">
                   The team{' '}
                 </Typography>
-                <Typography variant="h3" component="span">
-                  turpis non sapien lobortis pretium
-                </Typography>
+                <Typography variant="h3" component="span"></Typography>
               </Typography>
               <Typography
                 variant="subtitle1"
                 color="textSecondary"
                 paragraph={true}
-              >
-                Integer feugiat massa sapien, vitae tristique metus suscipit
-                nec.
-              </Typography>
+              ></Typography>
             </Container>
           </Box>
           <Grid container spacing={6}>
@@ -60,7 +53,7 @@ function TheTeam() {
               />
               <Box display="flex" justifyContent="space-between">
                 <Typography variant="h6" component="h6" gutterBottom={true}>
-                  Danny Bailey
+                  Tom Clark
                 </Typography>
                 <ArrowRightAltIcon />
               </Box>
@@ -81,7 +74,7 @@ function TheTeam() {
               />
               <Box display="flex" justifyContent="space-between">
                 <Typography variant="h6" component="h6" gutterBottom={true}>
-                  Alice Bradley
+                  Marcus Lugg
                 </Typography>
                 <ArrowRightAltIcon />
               </Box>
@@ -90,7 +83,7 @@ function TheTeam() {
                 color="textSecondary"
                 component="span"
               >
-                Head of Operations
+                Developer
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
@@ -102,7 +95,7 @@ function TheTeam() {
               />
               <Box display="flex" justifyContent="space-between">
                 <Typography variant="h6" component="h6" gutterBottom={true}>
-                  Ian Brown
+                  Andy Clifton
                 </Typography>
                 <ArrowRightAltIcon />
               </Box>
@@ -111,7 +104,7 @@ function TheTeam() {
                 color="textSecondary"
                 component="span"
               >
-                Head of Development
+                Adviser
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
@@ -123,7 +116,7 @@ function TheTeam() {
               />
               <Box display="flex" justifyContent="space-between">
                 <Typography variant="h6" component="h6" gutterBottom={true}>
-                  Daisy Carter
+                  Volunteers
                 </Typography>
                 <ArrowRightAltIcon />
               </Box>
@@ -132,7 +125,7 @@ function TheTeam() {
                 color="textSecondary"
                 component="span"
               >
-                Sales Director
+                Choose an issue
               </Typography>
             </Grid>
           </Grid>
