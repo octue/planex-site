@@ -67,7 +67,7 @@ function OurMission() {
             <Grid item xs={12} md={6}>
               <Card>
                 <CardMedia
-                  image="https://images.unsplash.com/photo-1497681883844-82b4f0a359a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                  image="../../../assets/images/stock/markus-spiske-OO89_95aUC0-unsplash.jpg"
                   className={classes.card}
                 />
               </Card>
