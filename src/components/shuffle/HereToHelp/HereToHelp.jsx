@@ -1,4 +1,6 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 // import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -17,6 +19,20 @@ const useStyles = makeStyles((theme) => ({
 
 function HereToHelp() {
   const classes = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      desktop: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <section>
       <Container maxWidth="lg">
