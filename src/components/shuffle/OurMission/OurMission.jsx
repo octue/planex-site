@@ -21,8 +21,8 @@ function OurMission() {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query {
-      desktop: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      blocks: file(
+        relativePath: { eq: "stock/markus-spiske-OO89_95aUC0-unsplash.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
@@ -105,7 +105,7 @@ function OurMission() {
             </Grid>
             <Grid item xs={12} md={6}>
               <Img
-                fluid={data.desktop.childImageSharp.fluid}
+                fluid={data.blocks.childImageSharp.fluid}
                 className={classes.image}
               />
             </Grid>
