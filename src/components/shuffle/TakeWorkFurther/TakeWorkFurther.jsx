@@ -70,7 +70,7 @@ function TakeWorkFurther() {
         }
       }
       topRightPanel: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/shutterstock_265908587.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
