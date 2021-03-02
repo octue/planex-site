@@ -1,4 +1,6 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 // import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -47,6 +49,19 @@ const useStyles = makeStyles((theme) => ({
 
 function TakeWorkFurther() {
   const classes = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      defaultPanel: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
   return (
     <section>
       <Container maxWidth="lg">
@@ -55,14 +70,10 @@ function TakeWorkFurther() {
             <Grid item xs={12} md={6} className={classes.imagesColumn}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={8}>
-                  <Box display="flex" height="100%">
-                    <Card className={classes.fullHeight}>
-                      <CardMedia
-                        className={classes.mediaLarge}
-                        image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
-                      />
-                    </Card>
-                  </Box>
+                  <Img
+                    fluid={data.defaultPanel.childImageSharp.fluid}
+                    className={classes.mediaLarge}
+                  />
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Grid container spacing={2}>
@@ -70,12 +81,10 @@ function TakeWorkFurther() {
                       <Card className={classes.emptyCard} />
                     </Grid>
                     <Grid item xs={12}>
-                      <Card>
-                        <CardMedia
-                          className={classes.media}
-                          image="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
-                        />
-                      </Card>
+                      <Img
+                        fluid={data.defaultPanel.childImageSharp.fluid}
+                        className={classes.media}
+                      />
                     </Grid>
                   </Grid>
                 </Grid>
@@ -84,12 +93,10 @@ function TakeWorkFurther() {
                 <Grid item xs={12} md={4}>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
-                      <Card>
-                        <CardMedia
-                          className={classes.media}
-                          image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                        />
-                      </Card>
+                      <Img
+                        fluid={data.defaultPanel.childImageSharp.fluid}
+                        className={classes.media}
+                      />
                     </Grid>
                     <Grid item xs={12} className={classes.emptyCardContainer}>
                       <Card className={classes.emptyCard} />
@@ -97,13 +104,15 @@ function TakeWorkFurther() {
                   </Grid>
                 </Grid>
                 <Grid item xs={12} md={8}>
-                  <Box display="flex" height="100%">
-                    <Card className={classes.fullHeight}>
-                      <CardMedia
-                        className={classes.mediaLarge}
-                        image="https://images.unsplash.com/photo-1497681883844-82b4f0a359a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                      />
-                    </Card>
+                  <Box
+                    display="flex"
+                    height="100%"
+                    className={classes.mediaLarge}
+                  >
+                    <Img
+                      fluid={data.defaultPanel.childImageSharp.fluid}
+                      className={classes.fullHeight}
+                    />
                   </Box>
                 </Grid>
               </Grid>
