@@ -60,6 +60,42 @@ function TakeWorkFurther() {
           }
         }
       }
+      topLeftPanel: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      topRightPanel: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      bottomLeftPanel: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      bottomRightPanel: file(
+        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `)
   return (
@@ -71,7 +107,7 @@ function TakeWorkFurther() {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={8}>
                   <Img
-                    fluid={data.defaultPanel.childImageSharp.fluid}
+                    fluid={data.topLeftPanel.childImageSharp.fluid}
                     className={classes.mediaLarge}
                   />
                 </Grid>
@@ -82,7 +118,7 @@ function TakeWorkFurther() {
                     </Grid>
                     <Grid item xs={12}>
                       <Img
-                        fluid={data.defaultPanel.childImageSharp.fluid}
+                        fluid={data.topRightPanel.childImageSharp.fluid}
                         className={classes.media}
                       />
                     </Grid>
@@ -94,7 +130,7 @@ function TakeWorkFurther() {
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Img
-                        fluid={data.defaultPanel.childImageSharp.fluid}
+                        fluid={data.bottomLeftPanel.childImageSharp.fluid}
                         className={classes.media}
                       />
                     </Grid>
@@ -110,7 +146,7 @@ function TakeWorkFurther() {
                     className={classes.mediaLarge}
                   >
                     <Img
-                      fluid={data.defaultPanel.childImageSharp.fluid}
+                      fluid={data.bottomRightPanel.childImageSharp.fluid}
                       className={classes.fullHeight}
                     />
                   </Box>
