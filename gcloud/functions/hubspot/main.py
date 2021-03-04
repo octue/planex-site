@@ -1,6 +1,6 @@
 import logging
-from .forms import ContactForm, SubscribeForm
-from .hubspot import create_ticket, get_or_create_contact, subscribe_contact, update_user_name
+from forms import ContactForm, SubscribeForm
+from hubspot import create_ticket, get_or_create_contact, subscribe_contact, update_user_name
 
 
 logger = logging.getLogger(__name__)
