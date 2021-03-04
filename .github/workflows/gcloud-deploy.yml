@@ -17,6 +17,7 @@ jobs:
         with:
           name: contact
           runtime: python38
+          region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
           env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
           source_dir: gcloud/functions/hubspot
@@ -26,6 +27,7 @@ jobs:
         with:
           name: subscribe
           runtime: python38
+          region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
           env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
           source_dir: gcloud/functions/hubspot
