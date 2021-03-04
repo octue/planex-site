@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+
+steps:
+- id: checkout
+  uses: actions/checkout@v2
+
+- id: deploy-contact
+  uses: google-github-actions/deploy-cloud-functions@main
+  with:
+    name: contact
+    runtime: python38
+    credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+    env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
+    source_dir: gcloud/functions/hubspot
+
+- id: deploy-subscribe
+  uses: google-github-actions/deploy-cloud-functions@main
+  with:
+    name: subscribe
+    runtime: python38
+    credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+    env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
+    source_dir: gcloud/functions/hubspot
