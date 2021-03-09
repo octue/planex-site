@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button'
 const useStyles = makeStyles((theme) => ({
   image: {
     height: 512,
-    borderRadius: '4px',
+    borderRadius: '${theme.shape.borderRadius}px',
     width: '100%',
   },
 }))
@@ -25,7 +25,7 @@ function OurMission() {
         relativePath: { eq: "stock/markus-spiske-OO89_95aUC0-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(quality: 70, maxWidth: 600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

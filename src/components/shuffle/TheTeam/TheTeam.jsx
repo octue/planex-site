@@ -26,21 +26,21 @@ function TheTeam() {
     query {
       defaultAvatar: file(relativePath: { eq: "avatars/default-avatar.png" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(quality: 90, maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       tomClark: file(relativePath: { eq: "team/tom-clark.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(quality: 90, maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       andyClifton: file(relativePath: { eq: "team/andy-clifton.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(quality: 90, maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
