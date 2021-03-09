@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+
 // import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: '100%',
     height: '256px',
-    borderRadius: '${theme.shape.borderRadius}px',
+    borderRadius: theme.shape.borderRadius,
     marginBottom: theme.spacing(2),
   },
 }))

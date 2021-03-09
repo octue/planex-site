@@ -18,14 +18,17 @@ import CardMedia from '@material-ui/core/CardMedia'
 const useStyles = makeStyles((theme) => ({
   media: {
     height: '256px',
+    borderRadius: theme.shape.borderRadius,
   },
   mediaLarge: {
     minHeight: '256px',
     height: '100%',
+    borderRadius: theme.shape.borderRadius,
   },
   fullHeight: {
     height: '100%',
     width: '100%',
+    borderRadius: theme.shape.borderRadius,
   },
   emptyCardContainer: {
     display: 'none',

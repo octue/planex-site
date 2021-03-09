@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button'
 const useStyles = makeStyles((theme) => ({
   image: {
     height: 512,
-    borderRadius: '${theme.shape.borderRadius}px',
+    borderRadius: theme.shape.borderRadius,
     width: '100%',
   },
 }))
