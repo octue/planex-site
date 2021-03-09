@@ -22,7 +22,7 @@ function HereToHelp() {
   const data = useStaticQuery(graphql`
     query {
       desktop: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/jj-ying-DYHx6h3lMdY-unsplash.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 600) {

@@ -55,16 +55,16 @@ function TakeWorkFurther() {
   const data = useStaticQuery(graphql`
     query {
       topLeftPanel: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/shutterstock_270258722.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
+          fluid(quality: 40, maxWidth: 600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       topRightPanel: file(
-        relativePath: { eq: "stock/shutterstock_265908587.jpg" }
+        relativePath: { eq: "stock/vincent-ledvina-bD0sXSND4kA-unsplash.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 600) {
@@ -73,16 +73,16 @@ function TakeWorkFurther() {
         }
       }
       bottomLeftPanel: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/shutterstock_255586588.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
+          fluid(quality: 10, maxWidth: 600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       bottomRightPanel: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/shutterstock_230320042.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 600) {
