@@ -22,7 +22,7 @@ function OurMission() {
   const data = useStaticQuery(graphql`
     query {
       blocks: file(
-        relativePath: { eq: "stock/lars-kienle-r3pIy-3Xgmg-unsplash.jpg" }
+        relativePath: { eq: "stock/markus-spiske-OO89_95aUC0-unsplash.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 70, maxWidth: 600) {
