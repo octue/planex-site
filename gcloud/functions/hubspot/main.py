@@ -16,7 +16,7 @@ def contact(request):
         `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
     """
 
-    form = ContactForm(csrf_enabled=False)
+    form = ContactForm(meta={'csrf': False})
     if request.method != 'POST':
         return "Method Not Allowed. Try 'POST'.", 405
 
@@ -47,7 +47,7 @@ def subscribe(request):
         `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
     """
 
-    form = SubscribeForm(csrf_enabled=False)
+    form = SubscribeForm(meta={'csrf': False})
 
     if request.method != 'POST':
         return "Method Not Allowed. Try 'POST'.", 405
