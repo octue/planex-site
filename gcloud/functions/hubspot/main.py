@@ -8,7 +8,7 @@ from errors import clean_errors
 logger = logging.getLogger(__name__)
 
 INVALID_METHOD_RESPONSE = {
-    "non_field_errors": "Method Not Allowed. Try 'POST'."
+    "nonFieldErrors": "Method Not Allowed. Try 'POST'."
 }
 
 
