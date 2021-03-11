@@ -75,7 +75,7 @@ def get_or_create_contact(email):
     return contact, created
 
 
-def update_user_name(email, first_name, last_name):
+def update_user_name(email, first, last):
     """ Use contact form submission to merge the name fields of a contact in hubspot.
     Check against name fields for registered octue users too.
     :param email:
@@ -83,7 +83,7 @@ def update_user_name(email, first_name, last_name):
     :param last_name:
     :return:
     """
-    # TODO if a contact form is submitted, pick up the user name. Check for existence as an amy user
+    # TODO if a contact form is submitted, pick up the user name
     pass
 
 

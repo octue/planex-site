@@ -2,8 +2,14 @@ import logging
 from forms import ContactForm, SubscribeForm
 from hubspot import create_ticket, get_or_create_contact, subscribe_contact, update_user_name
 from cors import cors_enabled
+from errors import clean_errors
+
 
 logger = logging.getLogger(__name__)
+
+INVALID_METHOD_RESPONSE = {
+    "non_field_errors": "Method Not Allowed. Try 'POST'."
+}
 
 
 @cors_enabled
@@ -19,12 +25,12 @@ def contact(request):
 
     form = ContactForm(meta={'csrf': False})
     if request.method != 'POST':
-        return "Method Not Allowed. Try 'POST'.", 405
+        return INVALID_METHOD_RESPONSE, 405
 
     if form.validate_on_submit():
         try:
             contact, created = get_or_create_contact(form.email)
-            update_user_name(form.email, form.first_name, form.last_name)
+            update_user_name(form.email, form.first, form.last)
             create_ticket(form.message, "Octue contact form submission", contact)
 
         except:
@@ -35,7 +41,7 @@ def contact(request):
         return form.data, 200
 
     else:
-        return form.errors, 400
+        return clean_errors(form.errors), 400
 
 
 @cors_enabled
@@ -52,7 +58,7 @@ def subscribe(request):
     form = SubscribeForm(meta={'csrf': False})
 
     if request.method != 'POST':
-        return "Method Not Allowed. Try 'POST'.", 405
+        return INVALID_METHOD_RESPONSE, 405
 
     if form.validate_on_submit():
         try:
@@ -67,4 +73,4 @@ def subscribe(request):
         return form.data, 200
 
     else:
-        return form.errors, 400
+        return clean_errors(form.errors), 400
