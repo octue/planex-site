@@ -19,9 +19,7 @@ jobs:
           runtime: python38
           region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          env_vars:
-            - HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
-            - ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }}
+          env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}, ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }}
           source_dir: gcloud/functions/hubspot
 
       - id: deploy-subscribe
@@ -31,7 +29,5 @@ jobs:
           runtime: python38
           region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          env_vars:
-            - HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}
-            - ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }}
+          env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }}, ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }}
           source_dir: gcloud/functions/hubspot
