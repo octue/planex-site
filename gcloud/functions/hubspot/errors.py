@@ -1,3 +1,7 @@
+import logging
+import json
+
+logger = logging.getLogger(__name__)
 
 
 def clean_errors(errors):
@@ -12,7 +16,8 @@ def clean_errors(errors):
     :rtype:
     """
     # In practicality, only the first validation error is ever shown on the front end
-    for field, errorMessages in errors:
+    logger.info(json.dumps(errors))
+    for field, errorMessages in errors.items():
         errors[field] = errorMessages[0] if len(errorMessages) > 0 else "Unknown field error"
 
     return errors
