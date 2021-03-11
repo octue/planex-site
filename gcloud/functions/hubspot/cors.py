@@ -6,7 +6,7 @@ from os import environ
 # once your system is running.
 # If I need to check the cors policies are working, I deploy a site to preview.octue.com before actually rolling it
 # out to www.octue.com.
-ACCESS_CONTROL_ALLOW_ORIGIN = environ.get("ACCESS_CONTROL_ALLOW_ORIGIN", "*.octue.com")
+ACCESS_CONTROL_ALLOW_ORIGIN = environ.get("ACCESS_CONTROL_ALLOW_ORIGIN", "www.octue.com")
 
 
 def cors_enabled(func):
