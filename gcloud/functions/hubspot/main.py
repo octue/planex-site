@@ -1,11 +1,12 @@
 import logging
 from forms import ContactForm, SubscribeForm
 from hubspot import create_ticket, get_or_create_contact, subscribe_contact, update_user_name
-
+from cors import cors_enabled
 
 logger = logging.getLogger(__name__)
 
 
+@cors_enabled
 def contact(request):
     """Creates a 'contact' type support request in HubSpot
     Args:
@@ -37,6 +38,7 @@ def contact(request):
         return form.errors, 400
 
 
+@cors_enabled
 def subscribe(request):
     """Subscribes a user to the mailing list in HubSpot
     Args:
