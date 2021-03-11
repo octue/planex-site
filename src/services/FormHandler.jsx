@@ -1,15 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import useAxios, { configure } from 'axios-hooks'
-import Axios from 'axios'
-
-// Configure an axios instance to submit form data
-// N.B. For creating form component storybooks, use this as the axios instance
-export const axios = Axios.create({
-  baseURL: 'https://europe-west1-planex.cloudfunctions.net',
-})
-
-configure({ axios })
+import { axios } from '../../axios'
 
 /**
  * A Form Handler service that renders a react component containing a form, handling submission to the
@@ -22,26 +13,54 @@ configure({ axios })
  * taking care of data fetching/updating" is a pretty common pattern in react.
  *
  */
-function FormHandler({ FormComponent, endpoint, ...rest }) {
-  const [{ data, loading, error, response }, execute] = useAxios(
-    {
+function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
+  const [submitting, setSubmitting] = React.useState(false)
+  const [apiErrors, setApiErrors] = React.useState({})
+
+  const handleSubmit = React.useCallback(async (data) => {
+    setSubmitting(true)
+    axios({
       url: `https://europe-west1-planex.cloudfunctions.net${endpoint}`,
       method: 'POST',
-    },
-    { manual: true } // Prevents request on initial render
-  )
-  console.log('FORMHANDLER:', data, loading, error, response)
-
-  function handleSubmit(data) {
-    execute({ data })
-  }
-
-  console.log('THIS IS ALWAYS UNDEFINED IF THERE IS AN ERROR', response?.data)
-  const apiErrors = error ? { ...response.data } : {}
+      data,
+    })
+      .catch((error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log('k', error.response)
+          setApiErrors(error.response.data)
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log('Error request', error.request)
+          console.log('Error config', error.config)
+          setApiErrors({
+            nonFieldErrors:
+              'No response from server... check your internet connection',
+          })
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error message', error.message)
+          console.log('Error config', error.config)
+          setApiErrors({
+            nonFieldErrors: 'An unknown error occurred.',
+          })
+        }
+      })
+      .then((response) => {
+        setSubmitting(false)
+        if (response) {
+          // Form submission was successful
+          setApiErrors({})
+          onSuccess(response.data)
+        }
+      })
+  }, [])
+  console.log('APIE', apiErrors)
   return (
     <FormComponent
       {...rest}
-      submitting={loading}
+      submitting={submitting}
       apiErrors={apiErrors}
       onSubmit={handleSubmit}
     />
