@@ -30,7 +30,7 @@ def contact(request):
     if form.validate_on_submit():
         try:
             contact, created = get_or_create_contact(form.email)
-            update_user_name(form.email, form.first, form.last)
+            update_user_name(form.email, form.firstName, form.lastName)
             create_ticket(form.message, "Octue contact form submission", contact)
 
         except:
