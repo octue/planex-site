@@ -21,7 +21,7 @@ function BuildWithTwined() {
   const data = useStaticQuery(graphql`
     query {
       desktop: file(
-        relativePath: { eq: "stock/people-in-classy-office.jpeg" }
+        relativePath: { eq: "stock/tobias-fischer-PkbZahEG2Ng-unsplash.jpg" }
       ) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 600) {
