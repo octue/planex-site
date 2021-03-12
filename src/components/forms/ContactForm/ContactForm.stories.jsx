@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactForm from './ContactForm'
-import AxiosMock from '../../../../.storybook/AxiosMock'
+import AxiosMock, { mockError } from '../../../../.storybook/AxiosMock'
 import FormHandler from '../../../services/FormHandler'
 
 export default {
@@ -43,24 +43,16 @@ export const WithAxiosMock = (args) => {
     // I've copied some here, adapted for comedy and we can use that to mock up an erroneous response from the API.
     apiMock
       .onPost('https://europe-west1-planex.cloudfunctions.net/contact')
-      .reply((config) => {
-        const error = new Error('Request failed')
-        error.config = config
-        error.response = {
-          status: 400,
-          data: {
-            nonFieldErrors: 'Something overarchingly terrible happened',
-            email: 'This is terrible email. What, jobs@apple.com was taken?',
-            firstName: "Pfft that's a dumb name",
-            lastName: "I don't like your surname",
-            message:
-              'This message contains content that is offensive to cloud functions',
-          },
-          headers: [],
-          config: config,
-        }
-        return Promise.reject(error)
-      })
+      .reply(
+        mockError(400, {
+          nonFieldErrors: 'Something overarchingly terrible happened',
+          email: 'This is terrible email. What, jobs@apple.com was taken?',
+          firstName: "Pfft that's a dumb name",
+          lastName: "I don't like your surname",
+          message:
+            'This message contains content that is offensive to cloud functions',
+        })
+      )
   }
   return (
     <AxiosMock mock={mock}>

@@ -38,3 +38,24 @@ const AxiosMock = ({ children, mock }) => {
 }
 
 export default AxiosMock
+
+/** A generator function for a mock error from axios-mock-adapter
+ *
+ * @param status the status code of the mock response
+ * @param data returned data from a mock response
+ * @param headers an array of headers present in the simulated response
+ * @returns {function(*=): Promise<never>}
+ */
+export const mockError = (status=400, data={}, headers=[]) => {
+  return (config) => {
+    const error = new Error('Request failed')
+    error.config = config
+    error.response = {
+      status: status,
+      data,
+      headers,
+      config: config,
+    }
+    return Promise.reject(error)
+  }
+}
