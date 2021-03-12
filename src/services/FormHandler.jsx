@@ -28,7 +28,6 @@ function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          console.log('k', error.response)
           setApiErrors(error.response.data)
         } else if (error.request) {
           // The request was made but no response was received
@@ -56,7 +55,6 @@ function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
         }
       })
   }, [])
-  console.log('APIE', apiErrors)
   return (
     <FormComponent
       {...rest}
@@ -79,7 +77,12 @@ FormHandler.propTypes = {
   /**
    * The form component to be rendered within the handler
    */
-  FormComponent: PropTypes.object.isRequired,
+  FormComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
+    .isRequired,
+  /**
+   * The callback executed when the form has successfully been submitted
+   */
+  onSuccess: PropTypes.func.isRequired,
 }
 
 export default FormHandler
