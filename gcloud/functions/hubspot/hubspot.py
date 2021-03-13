@@ -3,7 +3,6 @@ import logging
 from datetime import datetime
 from hubspot3 import Hubspot3
 from hubspot3.crm_associations import Definitions as AssociationDefinitions
-from hubspot3.error import HubspotNotFound
 
 
 logger = logging.getLogger(__name__)
@@ -14,7 +13,25 @@ if HUBSPOT_API_KEY is None:
     raise ValueError("Attempted to start the HubSpot client but no api key given. Generate an api key over at hubspot, then add it to the function as an environment variable (config var on heroku).")
 
 
+# TODO Subscribing to a paid hubspot package allows us to automate ticket assignation, which is what should be done
+#  in the future, but for now I don't want to pay £66/month just to receive an email notification (by default, nobody
+#  gets notified when a ticket is created unless it's assigned).
+# TODO Add a drop down that would allow us to assign different tickets to different pipelines
+# To display ticket owner ids while setting this up, use the print_owner_ids() function below
+TICKET_OWNER_IDS = {
+    'Support Pipeline': environ.get("SUPPORT_PIPELINE_TICKET_OWNER_ID")
+}
+
 client = Hubspot3(api_key=HUBSPOT_API_KEY)
+
+
+def print_owner_ids():
+    """ Lists owner ids by email address so you can configure the ticket owner ids above.
+
+    Note: We could indicate pipeline owners by email address. But we'd then have to make this call as part of the form
+    submission, so it would add an extra round trip to the hubspot API during each submission.
+    """
+    print(dict((owner["email"], owner["ownerId"]) for owner in client.owners.get_owners()))
 
 
 def initialise():
@@ -34,16 +51,19 @@ def initialise():
             for definition in subscription_types["subscriptionDefinitions"]
         ]
 
-        # The support pipeline to add 'contact' tickets to
+        # Get the support pipeline to add 'contact' tickets to
         ticket_pipelines = client.crm_pipelines.get_all(object_type="tickets")
         support_pipeline = None
         for pipeline in ticket_pipelines:
             if pipeline["label"] == "Support Pipeline":
                 support_pipeline = pipeline["pipelineId"]
-                support_stage = pipeline["stages"][0]["stageId"]
+                # Sigh. Stages aren't ordered by display order.
+                for stage in pipeline["stages"]:
+                    if stage['displayOrder'] == 0:
+                        support_stage = stage["stageId"]
 
         if support_pipeline is None:
-            raise Exception('Cannot get "Support Pipeline" from hubspot. Check your support ticket creation pipelines.')
+            raise Exception('Cannot get "Support Pipeline" from hubspot. Check your support ticket pipelines and create this one if necessary.')
 
     except Exception as e:
 
@@ -60,31 +80,28 @@ def initialise():
 support_pipeline, support_stage, subscription_statuses = initialise()
 
 
-def get_or_create_contact(email):
-    """ Get a contact from hubspot. If they don't exist, create them
-    :param email: client's email address
-    :return:
+def create_or_update_contact(email, first_name, last_name):
+    """ Get a contact from hubspot, updating their name. If the contact don't exist, create them.
     """
-    created = False
-    try:
-        contact = client.contacts.get_by_email(email)
-    except HubspotNotFound:
-        contact = client.contacts.create(data={"properties": [{"property": "email", "value": email}]})
-        created = True
 
-    return contact, created
+    contact = client.contacts.create_or_update_by_email(email, data={
+        "properties": [
+            {
+                "property": "email",
+                "value": email,
+            },
+            {
+              "property": "firstname",
+              "value": first_name
+            },
+            {
+              "property": "lastname",
+              "value": last_name
+            },
+        ]
+    })
 
-
-def update_user_name(email, first, last):
-    """ Use contact form submission to merge the name fields of a contact in hubspot.
-    Check against name fields for registered octue users too.
-    :param email:
-    :param first_name:
-    :param last_name:
-    :return:
-    """
-    # TODO if a contact form is submitted, pick up the user name
-    pass
+    return contact
 
 
 def subscribe_contact(email):
@@ -107,9 +124,13 @@ def create_ticket(message, subject, contact):
     :param contact:
     :return:
     """
+
+    ticket_owner_id = TICKET_OWNER_IDS["Support Pipeline"]
+
     ticket = client.tickets.create(
-        pipeline=support_pipeline, stage=support_stage, properties={"subject": subject, "content": message}
+        pipeline=support_pipeline, stage=support_stage, properties={"subject": subject, "content": message, "hubspot_owner_id": ticket_owner_id}
     )
+
     if contact is not None:
         client.crm_associations.create(
             from_object=ticket["objectId"],
