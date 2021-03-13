@@ -80,26 +80,21 @@ def initialise():
 support_pipeline, support_stage, subscription_statuses = initialise()
 
 
-def create_or_update_contact(email, first_name, last_name):
+def create_or_update_contact(email, first_name=None, last_name=None):
     """ Get a contact from hubspot, updating their name. If the contact don't exist, create them.
     """
-
-    contact = client.contacts.create_or_update_by_email(email, data={
-        "properties": [
-            {
-                "property": "email",
-                "value": email,
-            },
-            {
-              "property": "firstname",
-              "value": first_name
-            },
-            {
-              "property": "lastname",
-              "value": last_name
-            },
-        ]
-    })
+    properties = [{"property": "email", "value": email}]
+    if first_name is not None:
+        properties.append({
+            "property": "firstname",
+            "value": first_name
+        })
+    if last_name is not None:
+        properties.append({
+            "property": "lastname",
+            "value": last_name
+        })
+    contact = client.contacts.create_or_update_by_email(email, data={"properties": properties})
 
     return contact
 

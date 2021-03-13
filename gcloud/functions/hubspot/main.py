@@ -1,6 +1,6 @@
 import logging
 from forms import ContactForm, SubscribeForm
-from hubspot import create_ticket, get_or_create_contact, subscribe_contact, update_user_name
+from hubspot import create_ticket, create_or_update_contact, subscribe_contact, update_user_name
 from cors import cors_enabled
 from errors import clean_errors
 
@@ -29,8 +29,7 @@ def contact(request):
 
     if form.validate_on_submit():
         try:
-            contact, created = get_or_create_contact(form.email)
-            update_user_name(form.email, form.firstName, form.lastName)
+            contact, created = create_or_update_contact(form.email, form.firstName, form.lastName)
             create_ticket(form.message, "Octue contact form submission", contact)
 
         except:
@@ -62,7 +61,7 @@ def subscribe(request):
 
     if form.validate_on_submit():
         try:
-            get_or_create_contact(form.email)
+            create_or_update_contact(form.email)
             subscribe_contact(form.email)
 
         except:
