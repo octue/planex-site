@@ -1,4 +1,5 @@
 export { default as BackgroundBox } from './BackgroundBox'
+export { default as BasicPage } from './BasicPage'
 export { default as CardPage } from './CardPage'
 export { default as ErrorPage } from './ErrorPage'
 export { default as Footer } from './Footer'

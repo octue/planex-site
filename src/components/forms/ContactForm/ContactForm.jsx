@@ -51,7 +51,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
         message: apiErrors[key],
       })
     })
-  }, [apiErrors])
+  }, [clearErrors, setError, apiErrors])
 
   // Instead of 'null' you could provide default help text here
   const helperText = {
@@ -80,7 +80,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
-          autoFocus
+          // autoFocus - jsx-a11y says this hurts usability and accessibility
           defaultValue=""
           disabled={submitting}
           error={hasError['firstName']}

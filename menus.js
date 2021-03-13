@@ -4,6 +4,7 @@ import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 import PeopleIcon from '@material-ui/icons/People'
 import ScatterPlotIcon from '@material-ui/icons/ScatterPlot'
 import RssFeedIcon from '@material-ui/icons/RssFeed'
+import EmailIcon from '@material-ui/icons/Email'
 
 export const main = [
   {
@@ -40,6 +41,12 @@ export const main = [
     href: '/about/#faqs',
     icon: PeopleIcon,
     text: 'Register',
+    style: 'link',
+  },
+  {
+    href: '/contact/',
+    icon: EmailIcon,
+    text: 'Contact',
     style: 'link',
   },
 ]

@@ -53,8 +53,9 @@ export default ({ onSubmit, apiErrors, submitting }) => {
         type: 'api',
         message: apiErrors[key],
       })
+      return undefined
     })
-  }, [apiErrors])
+  }, [clearErrors, setError, apiErrors])
 
   const helperText = {
     nonFieldErrors: errors.nonFieldErrors?.message || null,

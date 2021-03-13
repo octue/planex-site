@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -13,12 +14,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Main({ appBarOffset, children }) {
+function Main({ appBarOffset, children, ...rest }) {
   const classes = useStyles()
   return (
     <>
       {appBarOffset ? <div className={classes.offset} /> : null}
-      <main className={classes.content}>{children}</main>
+      <Box component="main" className={classes.content} {...rest}>
+        {children}
+      </Box>
     </>
   )
 }
