@@ -24,14 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: `16px`,
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(2), // Set to align height with the input
-      paddingTop: '15px',
-      paddingBottom: '15px',
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-    },
+    width: '100%',
   },
   progress: {
     height: theme.spacing(0.5),
@@ -81,37 +74,31 @@ export default ({ onSubmit, apiErrors, submitting }) => {
           </Typography>
         )}
       </Box>
-      <Box width="100%" display="flex" flexWrap="wrap">
-        <Box flexGrow={1} className={classes.box}>
-          <TextField
-            defaultValue=""
-            disabled={submitting}
-            error={hasError['email']}
-            fullWidth
-            helperText={helperText['email']}
-            id="email"
-            inputRef={register}
-            label="Email *"
-            margin="normal"
-            name="email"
-            variant="outlined"
-          />
-        </Box>
-        <Box className={classes.box}>
-          <Button
-            className={classes.button}
-            variant="contained"
-            fullwidth
-            disabled={submitting}
-            endIcon={<EmailIcon />}
-            color="primary"
-            size="large"
-            type="submit"
-          >
-            Subscribe
-          </Button>
-        </Box>
-      </Box>
+      <TextField
+        defaultValue=""
+        disabled={submitting}
+        error={hasError['email']}
+        fullWidth
+        helperText={helperText['email']}
+        id="email"
+        inputRef={register}
+        label="Email *"
+        margin="normal"
+        name="email"
+        variant="outlined"
+      />
+      <Button
+        className={classes.button}
+        variant="contained"
+        fullwidth
+        disabled={submitting}
+        endIcon={<EmailIcon />}
+        color="primary"
+        size="large"
+        type="submit"
+      >
+        Subscribe
+      </Button>
     </form>
   )
 }
