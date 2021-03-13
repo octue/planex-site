@@ -1,33 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core'
+import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
+import ScrollablePage from '../ScrollablePage/ScrollablePage'
 
-const useStyles = makeStyles((theme) => ({
-  content: {
-    flexGrow: 1,
-    backGroundColor: theme.palette.background.default,
-  },
-  offset: {
-    ...theme.mixins.toolbar,
-    height: theme.spacing(8), // adjusts for navbar rather than default appbar
-  },
-}))
+function Main({ offset, children, ...rest }) {
+  const theme = useTheme()
 
-function Main({ appBarOffset, children, ...rest }) {
-  const classes = useStyles()
+  const offsetMargin = `${theme.spacing(offset ? 8 : 0)}px`
+
   return (
-    <>
-      {appBarOffset ? <div className={classes.offset} /> : null}
-      <Box component="main" className={classes.content} {...rest}>
-        {children}
-      </Box>
-    </>
+    <Box
+      component="main"
+      {...rest}
+      height={`calc(100vh - ${offsetMargin})`}
+      mt={offsetMargin}
+    >
+      <ScrollablePage>{children}</ScrollablePage>
+    </Box>
   )
 }
 
 Main.defaultProps = {
-  appBarOffset: false,
+  offset: false,
 }
 
 Main.propTypes = {
@@ -35,7 +30,7 @@ Main.propTypes = {
    * If true, offsets the children of the main panel contents downward by the height of the appBar
    * (providing the themed appBar is used)
    */
-  appBarOffset: PropTypes.bool,
+  offset: PropTypes.bool,
   /**
    * Child elements rendered into the Main container
    */

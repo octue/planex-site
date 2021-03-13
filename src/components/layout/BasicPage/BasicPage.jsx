@@ -16,7 +16,7 @@ import { lightTheme, darkTheme } from '../../../themes'
  * Yes, I know spread operators are an antipattern. It's an SSR site. Sue me.
  *
  */
-function BasicPage({ children, footerProps, navBarProps, ...rest }) {
+function BasicPage({ children, offset, footerProps, navBarProps, ...rest }) {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
@@ -25,12 +25,7 @@ function BasicPage({ children, footerProps, navBarProps, ...rest }) {
         </NavBar>
       </ThemeProvider>
       <ThemeProvider theme={lightTheme}>
-        <Main
-          appBarOffset
-          display="flex"
-          flexDirection="column"
-          minHeight="100vh"
-        >
+        <Main offset={offset} display="flex" flexDirection="column">
           <Box flexGrow={1} {...rest}>
             {children}
           </Box>
@@ -43,6 +38,10 @@ function BasicPage({ children, footerProps, navBarProps, ...rest }) {
       </ThemeProvider>
     </>
   )
+}
+
+BasicPage.defaultProps = {
+  offset: false,
 }
 
 BasicPage.propTypes = {
@@ -58,6 +57,10 @@ BasicPage.propTypes = {
    * Props passed down to the navbar component
    */
   navBarProps: PropTypes.object,
+  /**
+   * Offsets the content in the Main section downward by the height of the navBar
+   */
+  offset: PropTypes.bool,
 }
 
 export default BasicPage
