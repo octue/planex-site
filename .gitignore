@@ -54,6 +54,8 @@ typings/
 # dotenv environment variable files
 .env*
 
+*__pycache__
+
 # gatsby files
 .cache/
 public
