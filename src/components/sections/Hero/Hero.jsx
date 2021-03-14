@@ -68,7 +68,7 @@ function Hero() {
   const TheIcon = ctaData.icon
 
   return (
-    <Box component="section" id="hero" height="100vh">
+    <Box component="section" height="100vh">
       <BackgroundImage
         Tag="div"
         fluid={imageData}
