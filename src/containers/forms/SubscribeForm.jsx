@@ -1,5 +1,4 @@
 import React from 'react'
-import { navigate } from 'gatsby'
 import { useSnackbar } from 'notistack'
 
 import { SubscribeForm as SubscribeFormComponent } from '../../components/forms'
