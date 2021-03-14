@@ -15,12 +15,7 @@ import { axios } from '../../axios'
  */
 function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
   const [submitting, setSubmitting] = React.useState(false)
-  const [apiErrors, setApiErrors1] = React.useState({})
-
-  const setApiErrors = ({ ...stuff }) => {
-    console.log('SETTING STUFF', stuff)
-    setApiErrors1({ ...stuff })
-  }
+  const [apiErrors, setApiErrors] = React.useState({})
 
   const handleSubmit = React.useCallback(
     async (data) => {
@@ -36,17 +31,19 @@ function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
             // that falls out of the range of 2xx
             setApiErrors(error.response.data)
           } else if (error.request) {
-            // The request was made but no response was received
-            console.log('Error request', error.request)
-            console.log('Error config', error.config)
+            console.error(
+              'Error - request was made but no response received',
+              error
+            )
             setApiErrors({
               nonFieldErrors:
                 'No response from server... check your internet connection',
             })
           } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error message', error.message)
-            console.log('Error config', error.config)
+            console.error(
+              'Error - something happened in setting up the request',
+              error
+            )
             setApiErrors({
               nonFieldErrors: 'An unknown error occurred.',
             })
@@ -63,7 +60,6 @@ function FormHandler({ FormComponent, onSuccess, endpoint, ...rest }) {
     },
     [endpoint, onSuccess]
   )
-  console.log('APIERRORS', apiErrors)
   return (
     <FormComponent
       {...rest}
