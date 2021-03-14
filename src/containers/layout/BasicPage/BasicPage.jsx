@@ -5,7 +5,6 @@ import { ThemeProvider } from '@material-ui/styles'
 import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { lightTheme, darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
-import Scrollable from '../Scrollable'
 
 /**
  * A basic page layout.
@@ -32,17 +31,20 @@ function BasicPage({
         </NavBar>
       </ThemeProvider>
       <ThemeProvider theme={lightTheme}>
-        <Main offset={offset} display="flex" flexDirection="column">
-          <Scrollable>
-            <Box flexGrow={1} {...rest}>
-              {children}
-            </Box>
-            <Box>
-              <ThemeProvider theme={darkTheme}>
-                <Footer {...footerProps} />
-              </ThemeProvider>
-            </Box>
-          </Scrollable>
+        <Main
+          offset={offset}
+          height="100%"
+          display="flex"
+          flexDirection="column"
+        >
+          <Box flexGrow={1} {...rest}>
+            {children}
+          </Box>
+          <Box>
+            <ThemeProvider theme={darkTheme}>
+              <Footer {...footerProps} />
+            </ThemeProvider>
+          </Box>
         </Main>
       </ThemeProvider>
     </Toastable>
