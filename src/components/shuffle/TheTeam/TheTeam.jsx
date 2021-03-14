@@ -1,4 +1,6 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -11,12 +13,38 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: '100%',
     height: '256px',
+    borderRadius: theme.shape.borderRadius,
     marginBottom: theme.spacing(2),
   },
 }))
 
 function TheTeam() {
   const classes = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      defaultAvatar: file(relativePath: { eq: "avatars/default-avatar.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      tomClark: file(relativePath: { eq: "team/tom-clark.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      andyClifton: file(relativePath: { eq: "team/andy-clifton.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 300) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
   return (
     <section id="team">
       <Container maxWidth="lg">
@@ -43,10 +71,8 @@ function TheTeam() {
           </Box>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={6} md={3}>
-              <Avatar
-                alt=""
-                variant="rounded"
-                src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd91&w=500&ah=500&q=80"
+              <Img
+                fluid={data.tomClark.childImageSharp.fluid}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -64,10 +90,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Avatar
-                alt=""
-                variant="rounded"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&w=500&ah=500&q=80"
+              <Img
+                fluid={data.defaultAvatar.childImageSharp.fluid}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -85,10 +109,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Avatar
-                alt=""
-                variant="rounded"
-                src="https://images.unsplash.com/photo-1560298803-1d998f6b5249?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd91&w=500&ah=500&q=80"
+              <Img
+                fluid={data.andyClifton.childImageSharp.fluid}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -106,10 +128,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Avatar
-                alt=""
-                variant="rounded"
-                src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd91&w=500&ah=500&q=80"
+              <Img
+                fluid={data.defaultAvatar.childImageSharp.fluid}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">

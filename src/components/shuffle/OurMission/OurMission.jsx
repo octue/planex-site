@@ -1,23 +1,38 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card'
-import CardMedia from '@material-ui/core/CardMedia'
 
 import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
-  card: {
+  image: {
     height: 512,
+    borderRadius: theme.shape.borderRadius,
+    width: '100%',
   },
 }))
 
 function OurMission() {
   const classes = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      blocks: file(
+        relativePath: { eq: "stock/lars-kienle-r3pIy-3Xgmg-unsplash.jpg" }
+      ) {
+        childImageSharp {
+          fluid(quality: 70, maxWidth: 600) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
   return (
     <section id="take-work-further">
       <Container maxWidth="lg">
@@ -94,12 +109,10 @@ function OurMission() {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Card>
-                <CardMedia
-                  image="https://images.unsplash.com/photo-1497681883844-82b4f0a359a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                  className={classes.card}
-                />
-              </Card>
+              <Img
+                fluid={data.blocks.childImageSharp.fluid}
+                className={classes.image}
+              />
             </Grid>
           </Grid>
         </Box>
