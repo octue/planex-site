@@ -89,7 +89,8 @@ CallToAction.propTypes = {
   /**
    * The form to render
    */
-  FormComponent: PropTypes.element.isRequired,
+  FormComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+    .isRequired,
 }
 
 export default CallToAction
