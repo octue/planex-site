@@ -1,13 +1,13 @@
 import React from 'react'
-
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-
+import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import { Link } from '../../core/Link'
+
+import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function Hero() {
   const classes = useStyles()
   const theme = useTheme()
+
   const data = useStaticQuery(
     graphql`
       query {
@@ -67,7 +68,7 @@ function Hero() {
   const TheIcon = ctaData.icon
 
   return (
-    <Box component="section" height="100vh">
+    <Box component="section" id="hero" height="100vh">
       <BackgroundImage
         Tag="div"
         fluid={imageData}
@@ -114,17 +115,15 @@ function Hero() {
               width="100%"
             >
               <Box display="flex">
-                <Link
-                  kind={ctaData.kind}
-                  href={ctaData.href}
+                <Button
                   className={classes.cta}
-                  componentType="button"
                   variant="outlined"
+                  onClick={setCtaOpen}
                 >
                   {ctaData.icon ? <TheIcon className={classes.icon} /> : null}
                   {ctaData.text && ctaData.icon ? ' ' : null}
                   {ctaData.text || null}
-                </Link>
+                </Button>
               </Box>
             </Box>
           </Box>

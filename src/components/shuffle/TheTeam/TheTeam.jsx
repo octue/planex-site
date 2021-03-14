@@ -1,12 +1,10 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
-// import Link from 'gatsby'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 function TheTeam() {
   const classes = useStyles()
   return (
-    <section>
+    <section id="team">
       <Container maxWidth="lg">
         <Box py={8}>
           <Box mb={9} textAlign="center">

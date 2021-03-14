@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -8,6 +7,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
+
+import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 function OurMission() {
   const classes = useStyles()
   return (
-    <section>
+    <section id="take-work-further">
       <Container maxWidth="lg">
         <Box py={12}>
           <Grid container spacing={8}>
@@ -81,7 +82,11 @@ function OurMission() {
                     with less frustration.
                   </Typography>
                   <Box mt={3}>
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={setCtaOpen}
+                    >
                       Let's build something together
                     </Button>
                   </Box>

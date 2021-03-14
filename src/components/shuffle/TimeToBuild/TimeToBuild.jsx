@@ -1,6 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-// import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
@@ -10,12 +8,9 @@ import DevicesOtherIcon from '@material-ui/icons/DevicesOther'
 import FolderSharedIcon from '@material-ui/icons/FolderShared'
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
 
-// const useStyles = makeStyles((theme) => ({}))
-
-function TimeToBuild(props) {
-  // const classes = useStyles()
+function TimeToBuild() {
   return (
-    <section>
+    <section id="time-to-build">
       <Container maxWidth="lg">
         <Box py={6}>
           <Box textAlign="center" mb={8}>
