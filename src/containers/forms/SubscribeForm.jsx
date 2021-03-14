@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { SubscribeForm as SubscribeFormComponent } from '../../components/forms'
-import { FormHandler } from '../../services'
+import FormHandler from './FormHandler'
 
 /**
  * A container that controls submission of the subscribe form then executes supplied onSuccess() or onFailure() handlers
