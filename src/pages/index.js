@@ -1,7 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from '@material-ui/styles'
 
-import BasicPage from '../components/layout/BasicPage'
 import { Hero } from '../components/sections'
 import TimeToBuild from '../components/shuffle/TimeToBuild/TimeToBuild'
 import BuildWithTwined from '../components/shuffle/BuildWithTwined/BuildWithTwined'
@@ -9,8 +8,8 @@ import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurth
 import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
 import TheTeam from '../components/shuffle/TheTeam/TheTeam'
 import OurMission from '../components/shuffle/OurMission/OurMission'
+import { BasicPage, CallToAction } from '../containers'
 import { darkTheme } from '../themes'
-import { CallToAction } from '../containers'
 
 export default function Index({ location }) {
   const navBarProps = {

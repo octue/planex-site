@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
-import { NavBar, NavItems } from '../NavBar'
-import Main from '../Main'
-import Footer from '../Footer'
+import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { lightTheme, darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
 
@@ -33,7 +31,12 @@ function BasicPage({
         </NavBar>
       </ThemeProvider>
       <ThemeProvider theme={lightTheme}>
-        <Main offset={offset} display="flex" flexDirection="column">
+        <Main
+          offset={offset}
+          height="100%"
+          display="flex"
+          flexDirection="column"
+        >
           <Box flexGrow={1} {...rest}>
             {children}
           </Box>

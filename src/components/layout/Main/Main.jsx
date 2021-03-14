@@ -2,27 +2,38 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import ScrollablePage from '../ScrollablePage/ScrollablePage'
+import { Scrollable } from '../../../containers'
 
-function Main({ offset, children, ...rest }) {
+function Main({ offset, scrollable, children, ...rest }) {
   const theme = useTheme()
 
   const offsetMargin = `${theme.spacing(offset ? 8 : 0)}px`
 
-  return (
+  return scrollable ? (
     <Box
       component="main"
-      {...rest}
       height={`calc(100vh - ${offsetMargin})`}
       mt={offsetMargin}
     >
-      <ScrollablePage>{children}</ScrollablePage>
+      <Scrollable>
+        <Box {...rest}>{children}</Box>
+      </Scrollable>
+    </Box>
+  ) : (
+    <Box
+      component="main"
+      height={`calc(100vh - ${offsetMargin})`}
+      mt={offsetMargin}
+      {...rest}
+    >
+      {children}
     </Box>
   )
 }
 
 Main.defaultProps = {
   offset: false,
+  scrollable: true,
 }
 
 Main.propTypes = {
@@ -31,6 +42,10 @@ Main.propTypes = {
    * (providing the themed appBar is used)
    */
   offset: PropTypes.bool,
+  /**
+   * If true, content will be scrollable with a perfect scrollbar. If false, content should be a fixed height.
+   */
+  scrollable: PropTypes.bool,
   /**
    * Child elements rendered into the Main container
    */
