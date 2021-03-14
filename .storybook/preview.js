@@ -1,3 +1,4 @@
+import React from 'react'
 import { action } from "@storybook/addon-actions"
 import themes from './storybookTheme'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
@@ -21,6 +22,12 @@ export const parameters = {
   },
 }
 
+const whyDidYouRender = require('@welldone-software/why-did-you-render')
+whyDidYouRender(React, {
+  trackAllPureComponents: true,
+})
+
+
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
 // This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),
@@ -29,6 +36,7 @@ global.___loader = {
   enqueue: () => {},
   hovering: () => {},
 }
+
 // This global variable is prevents the "__BASE_PATH__ is not defined" error inside Storybook.
 global.__BASE_PATH__ = "/"
 // Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.

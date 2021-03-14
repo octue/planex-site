@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-// import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -10,10 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
-// import ApartmentIcon from '@material-ui/icons/Apartment'
-// import DevicesOtherIcon from '@material-ui/icons/DevicesOther'
-// import FolderSharedIcon from '@material-ui/icons/FolderShared'
-// import BusinessCenterIcon from '@material-ui/icons/BusinessCenter'
+
+import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -93,7 +90,7 @@ function TakeWorkFurther() {
     }
   `)
   return (
-    <section>
+    <section id="take-work-further">
       <Container maxWidth="lg">
         <Box py={12}>
           <Grid container spacing={8}>
@@ -175,7 +172,11 @@ function TakeWorkFurther() {
                     Underpinning collaboration and commercialisation.
                   </Typography>
                   <Box mt={3}>
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={setCtaOpen}
+                    >
                       Start now
                     </Button>
                   </Box>

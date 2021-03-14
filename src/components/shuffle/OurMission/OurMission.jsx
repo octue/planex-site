@@ -1,13 +1,14 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-// import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+
+import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -33,7 +34,7 @@ function OurMission() {
     }
   `)
   return (
-    <section>
+    <section id="take-work-further">
       <Container maxWidth="lg">
         <Box py={12}>
           <Grid container spacing={8}>
@@ -96,7 +97,11 @@ function OurMission() {
                     with less frustration.
                   </Typography>
                   <Box mt={3}>
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={setCtaOpen}
+                    >
                       Let's build something together
                     </Button>
                   </Box>

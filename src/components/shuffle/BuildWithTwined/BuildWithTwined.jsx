@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 
+import { setCtaOpen } from '../../../containers/elements'
+
 const useStyles = makeStyles((theme) => ({
   image: {
     height: 512,
@@ -33,7 +35,7 @@ function BuildWithTwined() {
   `)
 
   return (
-    <section>
+    <section id="build-with-twined">
       <Container maxWidth="lg">
         <Box py={12}>
           <Grid container spacing={8}>
@@ -66,7 +68,11 @@ function BuildWithTwined() {
                     build on your work.
                   </Typography>
                   <Box mt={3}>
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={setCtaOpen}
+                    >
                       Discover more
                     </Button>
                   </Box>

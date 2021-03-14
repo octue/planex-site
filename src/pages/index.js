@@ -1,44 +1,41 @@
 import React from 'react'
-
-import { NavBar, NavItems } from '../components/layout/NavBar'
-import Main from '../components/layout/Main'
-
 import { ThemeProvider } from '@material-ui/styles'
-import { lightTheme, darkTheme } from '../themes'
-import { Hero } from '../components/sections'
-import { Footer } from '../components/layout'
 
+import BasicPage from '../components/layout/BasicPage'
+import { Hero } from '../components/sections'
 import TimeToBuild from '../components/shuffle/TimeToBuild/TimeToBuild'
 import BuildWithTwined from '../components/shuffle/BuildWithTwined/BuildWithTwined'
 import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurther'
 import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
 import TheTeam from '../components/shuffle/TheTeam/TheTeam'
 import OurMission from '../components/shuffle/OurMission/OurMission'
+import { darkTheme } from '../themes'
+import { CallToAction } from '../containers'
 
-export default function Index() {
+export default function Index({ location }) {
+  const navBarProps = {
+    transparency: true,
+  }
+  const footerProps = {
+    kind: 'big',
+  }
+
   return (
-    <>
+    <BasicPage
+      location={location}
+      navBarProps={navBarProps}
+      footerProps={footerProps}
+    >
+      <CallToAction />
       <ThemeProvider theme={darkTheme}>
-        <NavBar transparency>
-          <NavItems />
-        </NavBar>
+        <Hero />
       </ThemeProvider>
-      <Main>
-        <ThemeProvider theme={darkTheme}>
-          <Hero />
-        </ThemeProvider>
-        <ThemeProvider theme={lightTheme}>
-          <TimeToBuild />
-          <BuildWithTwined />
-          <TakeWorkFurther />
-          <HereToHelp />
-          <TheTeam />
-          <OurMission />
-        </ThemeProvider>
-      </Main>
-      <ThemeProvider theme={darkTheme}>
-        <Footer kind="big" />
-      </ThemeProvider>
-    </>
+      <TimeToBuild />
+      <BuildWithTwined />
+      <TakeWorkFurther />
+      <HereToHelp />
+      <TheTeam />
+      <OurMission />
+    </BasicPage>
   )
 }
