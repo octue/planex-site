@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import ScrollablePage from '../ScrollablePage/ScrollablePage'
 
 function Main({ offset, children, ...rest }) {
   const theme = useTheme()
@@ -12,11 +11,11 @@ function Main({ offset, children, ...rest }) {
   return (
     <Box
       component="main"
-      {...rest}
       height={`calc(100vh - ${offsetMargin})`}
       mt={offsetMargin}
+      {...rest}
     >
-      <ScrollablePage>{children}</ScrollablePage>
+      {children}
     </Box>
   )
 }

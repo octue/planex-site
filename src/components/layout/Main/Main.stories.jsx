@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@material-ui/core/Box'
 
+import NavBar from '../../../components/layout/NavBar'
 import Main from './Main'
-import NavBar from '../NavBar'
 
 export default {
   title: 'Layout/Main',

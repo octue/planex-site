@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
-import BasicPage from '../components/layout/BasicPage'
+import BasicPage from '../containers/layout/BasicPage'
 
 import { ContactForm } from '../containers/forms'
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
-
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function ScrollablePage({ children }) {
+function Scrollable({ children }) {
   const classes = useStyles()
   const ps = useRef()
 
@@ -30,8 +30,12 @@ function ScrollablePage({ children }) {
   )
 }
 
-ScrollablePage.defaultProps = {}
+Scrollable.defaultProps = {
+  id: 'perfect-scrollbar',
+}
 
-ScrollablePage.propTypes = {}
+Scrollable.propTypes = {
+  id: PropTypes.string,
+}
 
-export default ScrollablePage
+export default Scrollable
