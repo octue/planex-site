@@ -12,7 +12,7 @@ import OurMission from '../components/shuffle/OurMission/OurMission'
 import { darkTheme } from '../themes'
 import { SubscribeForm, CallToAction } from '../containers'
 
-export default function Index() {
+export default function Index({ location }) {
   const navBarProps = {
     transparency: true,
   }
@@ -21,7 +21,11 @@ export default function Index() {
   }
 
   return (
-    <BasicPage navBarProps={navBarProps} footerProps={footerProps}>
+    <BasicPage
+      location={location}
+      navBarProps={navBarProps}
+      footerProps={footerProps}
+    >
       <CallToAction FormComponent={SubscribeForm} />
       <ThemeProvider theme={darkTheme}>
         <Hero />

@@ -1,6 +1,5 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { useSnackbar } from 'notistack'
 
 import { ContactForm as ContactFormComponent } from '../../components/forms'
 import { FormHandler } from '../../services'
@@ -12,27 +11,12 @@ import { FormHandler } from '../../services'
  * @constructor
  */
 export default function ContactForm() {
-  const { enqueueSnackbar } = useSnackbar()
-
   const handleSuccess = () => {
-    enqueueSnackbar("Thanks, we'll get back to you soon!", {
-      anchorOrigin: {
-        vertical: 'top',
-        horizontal: 'right',
-      },
-      variant: 'success',
-    })
-    navigate(`/`)
+    navigate(`/?toasts=contact-success`)
   }
 
   const handleFailure = () => {
-    enqueueSnackbar('Something went wrong processing your form', {
-      anchorOrigin: {
-        vertical: 'top',
-        horizontal: 'right',
-      },
-      variant: 'error',
-    })
+    navigate(`/contact?toasts=contact-failure`)
   }
 
   return (

@@ -25,6 +25,7 @@
     "gatsby-transformer-sharp": "^2.12.0",
     "notistack": "^1.0.5",
     "prop-types": "^15.7.2",
+    "query-string": "^6.14.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",

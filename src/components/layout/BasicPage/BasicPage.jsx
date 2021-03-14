@@ -6,6 +6,7 @@ import { NavBar, NavItems } from '../NavBar'
 import Main from '../Main'
 import Footer from '../Footer'
 import { lightTheme, darkTheme } from '../../../themes'
+import Toastable from '../Toastable'
 
 /**
  * A basic page layout.
@@ -16,9 +17,16 @@ import { lightTheme, darkTheme } from '../../../themes'
  * Yes, I know spread operators are an antipattern. It's an SSR site. Sue me.
  *
  */
-function BasicPage({ children, offset, footerProps, navBarProps, ...rest }) {
+function BasicPage({
+  children,
+  footerProps,
+  location,
+  navBarProps,
+  offset,
+  ...rest
+}) {
   return (
-    <>
+    <Toastable location={location}>
       <ThemeProvider theme={darkTheme}>
         <NavBar {...navBarProps}>
           <NavItems />
@@ -36,7 +44,7 @@ function BasicPage({ children, offset, footerProps, navBarProps, ...rest }) {
           </Box>
         </Main>
       </ThemeProvider>
-    </>
+    </Toastable>
   )
 }
 
