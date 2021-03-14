@@ -29,11 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function CallToAction({ FormComponent, open, onClose }) {
+function CallToAction({ FormComponent, open, onClose, ...rest }) {
   const classes = useStyles()
-  const handleSuccess = () => {
-    onClose()
-  }
   return (
     <Dialog open={open}>
       <CardContent className={classes.content}>
@@ -64,7 +61,7 @@ function CallToAction({ FormComponent, open, onClose }) {
             developments, please {<Link href="/contact">get in touch</Link>}.
           </Typography>
         </Box>
-        <FormComponent onSuccess={handleSuccess} />
+        <FormComponent {...rest} />
       </CardContent>
       <CardActions>
         <Button size="small" onClick={onClose}>

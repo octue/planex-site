@@ -2,6 +2,7 @@ import React from 'react'
 import { createState, useState } from '@hookstate/core'
 import { CallToAction as CallToActionComponent } from '../../components/elements'
 import { toastMessages } from '../../../toasts'
+import SubscribeForm from '../forms/SubscribeForm'
 import { useSnackbar } from 'notistack'
 
 const ctaState = createState(false)
@@ -20,9 +21,11 @@ const CallToAction = (props) => {
 
   const handleSuccess = () => {
     setCtaClosed()
+    console.log('HERE HANDLING SUCCESS')
     enqueueSnackbar(...toastMessages['subscribe-success'])
   }
   const handleFailure = () => {
+    console.log('HERE HANDLING FAILURE')
     enqueueSnackbar(...toastMessages['subscribe-failure'])
   }
   return (
@@ -31,13 +34,13 @@ const CallToAction = (props) => {
       onClose={setCtaClosed}
       onSuccess={handleSuccess}
       onFailure={handleFailure}
-      {...props}
+      FormComponent={SubscribeForm}
     />
   )
 }
 
-CallToAction.defaultProps = CallToActionComponent.defaultProps
-
-CallToAction.propTypes = CallToActionComponent.propTypes
+// CallToAction.defaultProps = CallToActionComponent.defaultProps
+//
+// CallToAction.propTypes = CallToActionComponent.propTypes
 
 export default CallToAction
