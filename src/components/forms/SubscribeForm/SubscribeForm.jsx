@@ -46,7 +46,6 @@ export default ({ onSubmit, apiErrors, submitting }) => {
         type: 'api',
         message: apiErrors[key],
       })
-      return undefined
     })
   }, [clearErrors, setError, apiErrors])
 
