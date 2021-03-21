@@ -5,6 +5,9 @@ import { ThemeProvider } from '@material-ui/styles'
 import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { lightTheme, darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
+import hexToRgb from '../../../themes/hexToRgb'
+import { Link } from '../../../components/core/Link'
+import CookieBar from '../../../components/elements/CookieBar'
 
 /**
  * A basic page layout.
@@ -29,6 +32,7 @@ function BasicPage({
         <NavBar {...navBarProps}>
           <NavItems />
         </NavBar>
+        <CookieBar />
       </ThemeProvider>
       <ThemeProvider theme={lightTheme}>
         <Main
