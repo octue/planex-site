@@ -42,9 +42,10 @@ function FooterLinkGroup({ text, submenu }) {
         {submenu.map((item) => (
           <ListItem className={classes.li}>
             <Link
+              className={classes.item}
               color="textSecondary"
               href={item.href}
-              className={classes.item}
+              kind={item.kind}
             >
               {item.text}
             </Link>

@@ -25,7 +25,7 @@ export default function IFrameModal({ open, src, onClose }) {
   // "https://www.iubenda.com/privacy-policy/46709371"
   const classes = useStyles()
 
-  const iframe = `<iframe style="width: 100%; height: 80vh;" src=${src}></iframe>`
+  const iframe = `<iframe style="width: 100%; height: 80vh;" frameborder="no" src=${src}></iframe>`
 
   return (
     <Modal

@@ -70,12 +70,12 @@ function NavItem({ href, kind, style, icon, text }) {
   const active = location.pathname === href
 
   const linkClasses = active ? `${classes[style]} active` : classes[style]
-  console.log(linkClasses)
+  console.log('NAVITEM', href, kind, style, icon, text)
   const TheIcon = icon // Because `icon` would compile as a dom tag
   return (
     <Box component="li" display="inline-flex" p={0} m={0}>
       <Link
-        kind={kind}
+        kind={kind || 'site'}
         href={href}
         componentType="iconButton"
         className={linkClasses}
