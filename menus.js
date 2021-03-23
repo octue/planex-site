@@ -5,6 +5,7 @@
 // import ScatterPlotIcon from '@material-ui/icons/ScatterPlot'
 // import RssFeedIcon from '@material-ui/icons/RssFeed'
 import EmailIcon from '@material-ui/icons/Email'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
 export const iubenda = {
   cookiePolicy: 'https://www.iubenda.com/privacy-policy/46709371/cookie-policy',
@@ -54,6 +55,12 @@ export const main = [
     icon: EmailIcon,
     text: 'Contact',
     style: 'link',
+  },
+  {
+    href: 'https://github.com/octue',
+    kind: 'external',
+    icon: GitHubIcon,
+    style: 'icon',
   },
 ]
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
+import classNames from 'classnames'
 import Box from '@material-ui/core/Box'
 import { useLocation } from '@reach/router'
 import { Link } from '../../core/Link'
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     borderRadius: theme.shape.borderRadius,
     '&:hover, &:focus, &.active': {
-      backgroundColor: `rgba(${hexToRgb('#ffffff')}, 0.2)`,
+      backgroundColor: `rgba(${hexToRgb('#ffffff')}, 0.1)`,
       color: 'inherit',
       textDecoration: 'none',
     },
@@ -40,8 +41,15 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: '18px',
-    marginRight: theme.spacing(0.5),
   },
+  iconSpaced: {
+    marginRight: theme.spacing(1),
+  },
+  // icon: {
+  //   fontSize: '24px',
+  //   border: '1px solid',
+  //   marginRight: theme.spacing(0.5),
+  // },
   // button: {
   //   position: 'relative',
   //   fontWeight: '400',
@@ -69,8 +77,12 @@ function NavItem({ href, kind, style, icon, text }) {
   const location = useLocation()
   const active = location.pathname === href
 
-  const linkClasses = active ? `${classes[style]} active` : classes[style]
-  console.log('NAVITEM', href, kind, style, icon, text)
+  const linkClasses = classNames(classes[style], { active: active })
+
+  const iconClasses = classNames(classes.icon, {
+    [classes.iconSpaced]: icon && text,
+  })
+
   const TheIcon = icon // Because `icon` would compile as a dom tag
   return (
     <Box component="li" display="inline-flex" p={0} m={0}>
@@ -80,8 +92,7 @@ function NavItem({ href, kind, style, icon, text }) {
         componentType="iconButton"
         className={linkClasses}
       >
-        {icon ? <TheIcon className={classes.icon} /> : null}
-        {text && icon ? ' ' : null}
+        {icon ? <TheIcon className={iconClasses} /> : null}
         {text || null}
       </Link>
     </Box>
@@ -93,7 +104,7 @@ NavItem.defaultProps = {
 }
 
 NavItem.propTypes = {
-  style: PropTypes.oneOf(['link', 'button']),
+  style: PropTypes.oneOf(['link', 'icon', 'button']),
 }
 
 export default NavItem
