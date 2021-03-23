@@ -7,7 +7,6 @@ import { Helmet } from 'react-helmet'
 function CookieBar({}) {
   return (
     <Helmet>
-      <title>My Title</title>
       <script type="text/javascript">
         {`var _iub = _iub || []
           _iub.csConfiguration = {
