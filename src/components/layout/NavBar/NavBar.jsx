@@ -10,6 +10,7 @@ import Drawer from '@material-ui/core/Drawer'
 import Menu from '@material-ui/icons/Menu'
 import Close from '@material-ui/icons/Close'
 import useScrollPosition from '@react-hook/window-scroll'
+import { Link } from '../../core'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -106,7 +107,9 @@ function NavBar({ id, transparency, height, children }) {
   }
 
   const logoComponent = (
-    <img src={theme.logos.text.dark} alt="logo" className={classes.logoImg} />
+    <Link href="/">
+      <img src={theme.logos.text.dark} alt="logo" className={classes.logoImg} />
+    </Link>
   )
 
   return (
