@@ -5,8 +5,6 @@ import { ThemeProvider } from '@material-ui/styles'
 import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { lightTheme, darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
-import hexToRgb from '../../../themes/hexToRgb'
-import { Link } from '../../../components/core/Link'
 import CookieBar from '../../../components/elements/CookieBar'
 
 /**
@@ -27,31 +25,33 @@ function BasicPage({
   ...rest
 }) {
   return (
-    <Toastable location={location}>
-      <ThemeProvider theme={darkTheme}>
-        <NavBar {...navBarProps}>
-          <NavItems />
-        </NavBar>
-        <CookieBar />
-      </ThemeProvider>
-      <ThemeProvider theme={lightTheme}>
-        <Main
-          offset={offset}
-          height="100%"
-          display="flex"
-          flexDirection="column"
-        >
-          <Box flexGrow={1} {...rest}>
-            {children}
-          </Box>
-          <Box>
-            <ThemeProvider theme={darkTheme}>
-              <Footer {...footerProps} />
-            </ThemeProvider>
-          </Box>
-        </Main>
-      </ThemeProvider>
-    </Toastable>
+    <>
+      <CookieBar />
+      <Toastable location={location}>
+        <ThemeProvider theme={darkTheme}>
+          <NavBar {...navBarProps}>
+            <NavItems />
+          </NavBar>
+        </ThemeProvider>
+        <ThemeProvider theme={lightTheme}>
+          <Main
+            offset={offset}
+            height="100%"
+            display="flex"
+            flexDirection="column"
+          >
+            <Box flexGrow={1} {...rest}>
+              {children}
+            </Box>
+            <Box>
+              <ThemeProvider theme={darkTheme}>
+                <Footer {...footerProps} />
+              </ThemeProvider>
+            </Box>
+          </Main>
+        </ThemeProvider>
+      </Toastable>
+    </>
   )
 }
 
