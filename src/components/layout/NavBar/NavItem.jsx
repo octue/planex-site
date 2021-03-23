@@ -104,7 +104,7 @@ NavItem.defaultProps = {
 }
 
 NavItem.propTypes = {
-  style: PropTypes.oneOf(['link', 'button']),
+  style: PropTypes.oneOf(['link', 'icon', 'button']),
 }
 
 export default NavItem
