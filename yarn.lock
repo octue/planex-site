@@ -10897,11 +10897,6 @@ jpeg-js@^0.4.0:
   resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.3.tgz#6158e09f1983ad773813704be80680550eff977b"
   integrity sha512-ru1HWKek8octvUHFHvE5ZzQ1yAsJmIvRdGWvSoKV52XKyuyYA437QWDttXT8eZXDSbuMpHlLzPDZUPd6idIz+Q==
 
-js-cookie@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
-  integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
-
 js-string-escape@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
@@ -14102,14 +14097,6 @@ react-color@^2.17.0:
     prop-types "^15.5.10"
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
-
-react-cookie-consent@^6.2.3:
-  version "6.2.3"
-  resolved "https://registry.yarnpkg.com/react-cookie-consent/-/react-cookie-consent-6.2.3.tgz#fdfbea5ea07ac484c46046418514865c33319015"
-  integrity sha512-PCagmezwHF0oEqORcY6jWlbwUeu1u1zFFi3gc9TL7H4bTk4qR2uLFBKKVVN5gfScTLwdoJtH8sMbgj/cOmUn0A==
-  dependencies:
-    js-cookie "^2.2.1"
-    prop-types "^15.7.2"
 
 react-dev-utils@^10.0.0:
   version "10.2.1"

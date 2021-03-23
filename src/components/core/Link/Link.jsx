@@ -4,58 +4,78 @@ import MuiLink from '@material-ui/core/Link'
 import MuiButton from '@material-ui/core/Button'
 import MuiIconButton from '@material-ui/core/IconButton'
 import PropTypes from 'prop-types'
+import IFrameModal from '../../layout/IFrameModal'
 
 const Link = forwardRef(
   ({ kind, componentType, children, href, ...rest }, ref) => {
-    const component = kind === 'site' ? GatsbyLink : 'a'
-    const extra =
-      kind === 'external'
-        ? {
-            target: '_blank',
-            rel: 'noopener noreferrer',
-          }
-        : {}
+    const [modalOpen, setModalOpen] = React.useState(false)
+    const toggleModalOpen = () => setModalOpen(!modalOpen)
+    console.log('kind', kind)
+    const extra = {
+      component: kind === 'site' ? GatsbyLink : 'a',
+    }
 
-    // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name to be poor
-    // UX so we use just one, `href`, and map it as needed here.
     if (kind === 'site') {
+      // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name
+      // to be poor developer experience so we use just one, `href`, and map it as needed here.
       if (!href.startsWith('/') && !href.startsWith('#')) {
         throw new Error(
           `For kind='site', supplied href should be an internal link to this site, eg '/' (href=${href}).`
         )
       }
       extra['to'] = href
+    } else if (kind === 'external') {
+      extra['href'] = href
+      extra['target'] = '_blank'
+      extra['rel'] = 'noopener noreferrer'
+    } else if (kind === 'modal') {
+      extra['onClick'] = toggleModalOpen
     } else {
       extra['href'] = href
     }
+    console.log('HERE NOW')
     /* Note to future tom:
      * It's super weird using a switch here. Obviously you should
      * refactor this horrid code to define the component
      * as a prop with a default and simply create that. Much more
      * elegant. Don't waste time trying though, it doesn't work and I
      * can't find out why.
+     *
+     * Note from future Tom to future future Tom:
+     * Past Tom might not have realised that to be renderable as a component,
+     * the prop name has to start with a capital letter. So a prop "MuiComponent"
+     * can be used directly like <MuiComponent/> but prop "muiComponent" wouldn't
+     * be renderable.
      */
-    switch (componentType) {
-      case 'button':
-        return (
-          <MuiButton component={component} ref={ref} {...extra} {...rest}>
-            {children}
-          </MuiButton>
-        )
-      case 'iconButton':
-        return (
-          <MuiIconButton component={component} ref={ref} {...extra} {...rest}>
-            {children}
-          </MuiIconButton>
-        )
-      default:
-        // 'typography'
-        return (
-          <MuiLink component={component} ref={ref} {...extra} {...rest}>
-            {children}
-          </MuiLink>
-        )
+    let clickableComponent
+    if (componentType === 'button') {
+      clickableComponent = (
+        <MuiButton ref={ref} {...extra} {...rest}>
+          {children}
+        </MuiButton>
+      )
+    } else if (componentType === 'iconButton') {
+      clickableComponent = (
+        <MuiIconButton ref={ref} {...extra} {...rest}>
+          {children}
+        </MuiIconButton>
+      )
+    } else {
+      clickableComponent = (
+        <MuiLink ref={ref} {...extra} {...rest}>
+          {children}
+        </MuiLink>
+      )
     }
+    console.log('COMPONENT', clickableComponent)
+    return (
+      <>
+        {clickableComponent}
+        {kind === 'modal' ? (
+          <IFrameModal open={modalOpen} onClose={toggleModalOpen} src={href} />
+        ) : null}
+      </>
+    )
   }
 )
 
@@ -85,7 +105,7 @@ Link.propTypes = {
    * The **external** type should be used for any pages off the domain. It will
    * open the new page in a new tab with no referrer information.
    */
-  kind: PropTypes.oneOf(['site', 'internal', 'external']),
+  kind: PropTypes.oneOf(['site', 'internal', 'external', 'modal']),
   /**
    * Specifies the The Material UI (or other) component used to create the visual representation of the link.
    * Default is `typography`, which uses the MaterialUI "Link" component and should be given child text or span,
