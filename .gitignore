@@ -71,3 +71,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Storybook build files
+build-storybook.log
+storybook-static
