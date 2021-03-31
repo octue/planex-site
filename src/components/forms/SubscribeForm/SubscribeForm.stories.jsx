@@ -1,7 +1,7 @@
 import React from 'react'
 import SubscribeForm from './SubscribeForm'
 import AxiosMock from '../../../../.storybook/AxiosMock'
-import FormHandler from '../../../services/FormHandler'
+import FormHandler from '../../../containers/forms/FormHandler'
 
 export default {
   title: 'Forms/Subscribe',
