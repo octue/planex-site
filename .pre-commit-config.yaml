@@ -34,3 +34,9 @@ repos:
     rev: 'v2.2.1'
     hooks:
       - id: prettier
+
+  - repo: https://github.com/octue/pre-commit-hooks
+    rev: 0.0.2
+    hooks:
+      - id: check-commit-message-is-conventional
+        stages: [commit-msg]
