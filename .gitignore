@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env*
+venv/
 
 # Python cache and scratch files
 *__pycache__
