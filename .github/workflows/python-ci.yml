@@ -18,4 +18,4 @@ jobs:
           | tar xvz \
           && sudo mv git-mkver /usr/local/bin
       - name: Check version
-        run: python .github/workflows/scripts/check-semantic-version.py
+        run: python .github/workflows/scripts/check-semantic-version.py npm
