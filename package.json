@@ -2,7 +2,7 @@
   "name": "planex-site",
   "private": true,
   "description": "The octue website frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Tom Clark <tom@octue.com>",
   "dependencies": {
     "@hookform/resolvers": "^1.3.5",
