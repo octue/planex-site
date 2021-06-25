@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 import AxiosMock, { mockError } from '../../../../.storybook/AxiosMock'
-import FormHandler from '../../../services/FormHandler'
+import FormHandler from '../../../containers/forms/FormHandler'
 
 export default {
   title: 'Forms/Contact',

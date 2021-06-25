@@ -1,0 +1,25 @@
+name: storybook-deploy
+
+on: push
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout Source Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required to retrieve git history for storybook
+
+      - id: install-dependencies
+        name: Install Dependencies
+        run: yarn install --dev
+
+      - id: publish
+        name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitZeroOnChanges: true # Prevents the workflow from failing when the UI changes
