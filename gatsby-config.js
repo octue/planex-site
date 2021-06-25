@@ -27,6 +27,13 @@ module.exports = {
         icon: `src/assets/images/logos/octue/square-transparent-white.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Work Sans\:300`],
+        display: 'swap',
+      },
+    },
     `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-plugin-google-gtag`,
