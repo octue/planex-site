@@ -48,7 +48,7 @@ window.___navigate = pathname => {
 export const decorators = [
   withLocationProvider,
   withMuiTheme({
-    'Light Theme': lightTheme,
     'Dark Theme': darkTheme,
+    'Light Theme': lightTheme,
   })
 ]
