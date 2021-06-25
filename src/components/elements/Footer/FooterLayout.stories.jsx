@@ -25,7 +25,7 @@ const Template = ({ ...args }) => (
         }}
       >
         This story shows how to lay out a footer with flex. This is the actual
-        content of the page. Adjust the height in the control to > 100 to see
+        content of the page. Adjust the height in the control to &gt; 100 to see
         what happens when page content is longer than the viewport height.
         Switch between kinds in the controls to see different footers.
       </Box>
