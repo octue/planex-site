@@ -1,10 +1,10 @@
 import React from 'react'
 import Box from '@material-ui/core/Box'
-import Footer from './Footer'
+import SmallFooter from './SmallFooter'
 
 export default {
-  title: 'Layout/Footer',
-  component: Footer,
+  title: 'Elements/Footer',
+  component: SmallFooter,
 }
 
 const Template = ({ ...args }) => (
@@ -24,17 +24,17 @@ const Template = ({ ...args }) => (
           height: `${args.height}vh`,
         }}
       >
-        Actual content of the page. Adjust the height in the control to > 100 to
-        see what happens when page content is longer than the viewport height.
+        This story shows how to lay out a footer with flex. This is the actual
+        content of the page. Adjust the height in the control to > 100 to see
+        what happens when page content is longer than the viewport height.
         Switch between kinds in the controls to see different footers.
       </Box>
     </Box>
-    <Footer kind={args.kind} />
+    <SmallFooter />
   </Box>
 )
 
-export const Simple = Template.bind({})
-Simple.args = {
-  kind: 'micro',
+export const Layout = Template.bind({})
+Layout.args = {
   height: 50,
 }
