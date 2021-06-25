@@ -16,7 +16,11 @@ function LogoLink({ logoClasses, ...rest }) {
   const logoClassName = classNames(classes.logo, logoClasses)
   return (
     <Link {...rest}>
-      <img src={theme.logos.text.dark} alt="logo" className={logoClassName} />
+      <img
+        src={theme.logos.text[theme.palette.type]}
+        alt="logo"
+        className={logoClassName}
+      />
     </Link>
   )
 }
