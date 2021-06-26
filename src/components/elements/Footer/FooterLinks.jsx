@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
 
 import Box from '@material-ui/core/Box'
@@ -13,26 +12,17 @@ import { footerLinks as menu } from '../../../../menus'
 const useStyles = makeStyles((theme) => ({
   list: {
     display: `flex`,
-    [theme.breakpoints.up('sm')]: {
-      '& li': {},
-    },
-    [theme.breakpoints.down('sm')]: {
+    justifyContent: 'flex-end',
+    [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-      borderTop: `1px solid ${theme.palette.text.secondary}`,
-      textAlign: 'left',
       justifyContent: 'flex-start',
+      textAlign: 'left',
       '& li': {
         marginTop: theme.spacing(1),
       },
     },
   },
-  // TODO Consolidate this repeating style block to have just a generalised NavLink component used across the board.
-  li: {
-    padding: 0,
-  },
-  item: {
+  link: {
     color: theme.palette.text.secondary,
     textDecoration: 'none',
     width: '100%',
@@ -53,9 +43,9 @@ function FooterLinks() {
   return (
     <List className={classes.list}>
       {menu.map((item) => (
-        <Box component="li" display="inline-flex" p={0} mx={1}>
+        <Box component="li" display="flex" className={classes.item}>
           <Link
-            className={classes.item}
+            className={classes.link}
             color="textPrimary"
             href={item.href}
             kind={item.kind}

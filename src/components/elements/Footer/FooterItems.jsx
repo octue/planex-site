@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-
+import { useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
@@ -9,29 +10,20 @@ import { footerItems as menu } from '../../../../menus'
 import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
-  subscribe: {
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
+  list: {
+    display: 'flex',
+    width: '100%',
+    marginTop: theme.spacing(2),
+    justifyContent: 'space-between',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: theme.spacing(1),
+      justifyContent: 'flex-end',
     },
   },
-  list: {
-    display: `flex`,
-    justifyContent: `space-between`,
+  subscribe: {
+    flexGrow: 1,
     [theme.breakpoints.up('sm')]: {
-      '& li': {
-        marginLeft: theme.spacing(1),
-      },
-    },
-    [theme.breakpoints.down('sm')]: {
-      // flexDirection: 'column',
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-      borderTop: '1px solid',
-      textAlign: 'left',
-      justifyContent: 'flex-start',
-      '& li': {
-        marginTop: theme.spacing(1),
-      },
+      flexGrow: 0,
     },
   },
   cta: {
@@ -40,27 +32,22 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '0px',
     textTransform: 'none',
     marginRight: theme.spacing(1),
+    height: '42px',
   },
 }))
 
 function FooterItems() {
   const classes = useStyles()
+  const theme = useTheme()
+  const smallMedia = useMediaQuery(theme.breakpoints.down('xs'))
+
+  const subscribeText = smallMedia ? 'Subscribe' : 'Subscribe to our newsletter'
+
   return (
     <List aria-labelledby="footer external links" className={classes.list}>
-      <Box
-        component="li"
-        display="flex"
-        p={0}
-        m={0}
-        className={classes.subscribe}
-      >
-        <Button
-          size="small"
-          className={classes.cta}
-          variant="outlined"
-          onClick={setCtaOpen}
-        >
-          Subscribe to our newsletter
+      <Box component="li" className={classes.subscribe}>
+        <Button className={classes.cta} variant="outlined" onClick={setCtaOpen}>
+          {subscribeText}
         </Button>
       </Box>
       {menu.map((item, idx) => {

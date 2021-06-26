@@ -12,6 +12,44 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
   },
+  box: {
+    display: `flex`,
+    flexDirection: 'row',
+    justifyContent: `space-between`,
+    width: '100%',
+    flexWrap: 'wrap',
+  },
+  logo: {
+    order: 1,
+    flexBasis: '100%',
+    [theme.breakpoints.up('sm')]: {
+      flexBasis: '20%',
+    },
+  },
+  items: {
+    order: 2,
+    flexBasis: '100%',
+    [theme.breakpoints.up('sm')]: {
+      flexBasis: '80%',
+    },
+  },
+  copyright: {
+    order: 4,
+    paddingTop: theme.spacing(1.5),
+    flexBasis: '100%',
+    [theme.breakpoints.up('sm')]: {
+      flexBasis: '30%',
+      order: 3,
+    },
+  },
+  links: {
+    order: 3,
+    flexBasis: '100%',
+    [theme.breakpoints.up('sm')]: {
+      flexBasis: '70%',
+      order: 4,
+    },
+  },
 }))
 
 function Footer({ id }) {
@@ -20,29 +58,18 @@ function Footer({ id }) {
   return (
     <footer id={id} className={classes.footer}>
       <Container>
-        <Box display="flex" justify="space-between" alignItems="stretch">
-          <Box
-            flexGrow={1}
-            display="flex"
-            flexDirection="column"
-            flexWrap="nowrap"
-            justify="space-between"
-            alignItems="flex-start"
-          >
-            <Box flexGrow={1}>
-              <LogoLink />
-            </Box>
-            <Box mb={1} py="4px">
-              <Copyright />
-            </Box>
+        <Box className={classes.box}>
+          <Box className={classes.logo}>
+            <LogoLink />
           </Box>
-          <Box>
-            <Box>
-              <FooterItems />
-            </Box>
-            <Box>
-              <FooterLinks />
-            </Box>
+          <Box className={classes.items}>
+            <FooterItems />
+          </Box>
+          <Box className={classes.copyright}>
+            <Copyright />
+          </Box>
+          <Box className={classes.links}>
+            <FooterLinks />
           </Box>
         </Box>
       </Container>
