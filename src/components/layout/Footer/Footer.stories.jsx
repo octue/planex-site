@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box'
 import Footer from './Footer'
 
 export default {
-  title: 'Elements/Footer',
+  title: 'Layout/Footer',
   component: Footer,
 }
 
