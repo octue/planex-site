@@ -6,6 +6,8 @@
 // import RssFeedIcon from '@material-ui/icons/RssFeed'
 import EmailIcon from '@material-ui/icons/Email'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import TwitterIcon from '@material-ui/icons/Twitter'
 
 export const iubenda = {
   cookiePolicy: 'https://www.iubenda.com/privacy-policy/46709371/cookie-policy',
@@ -13,7 +15,7 @@ export const iubenda = {
   termsAndConditions: 'https://www.iubenda.com/terms-and-conditions/46709371',
 }
 
-export const main = [
+export const nav = [
   // {
   //   href: '/press',
   //   icon: RssFeedIcon,
@@ -64,60 +66,52 @@ export const main = [
   },
 ]
 
-export const footer = [
+export const footerItems = [
   {
-    text: 'Company',
-    submenu: [
-      // {
-      //   href: '/about',
-      //   text: 'About',
-      //   style: 'link',
-      // },
-      {
-        href: '/contact',
-        text: 'Contact',
-        style: 'link',
-      },
-      {
-        href: iubenda.privacyPolicy,
-        text: 'Privacy',
-        style: 'link',
-        kind: 'modal',
-      },
-      {
-        href: iubenda.termsAndConditions,
-        text: 'Terms & Conditions',
-        style: 'link',
-        kind: 'modal',
-      },
-      {
-        href: iubenda.cookiePolicy,
-        text: 'Cookies',
-        style: 'link',
-        kind: 'modal',
-      },
-      // {
-      //   href: '/hse',
-      //   text: 'HS&E',
-      //   style: 'link',
-      // },
-      // {
-      //   href: '/quality',
-      //   text: 'Quality',
-      //   style: 'link',
-      // },
-    ],
+    href: 'https://twitter.com/octue',
+    kind: 'external',
+    icon: TwitterIcon,
+    style: 'icon',
+    ariaLabel: 'twitter',
   },
-  // {
-  //   text: 'Legal',
-  //   submenu: [
-  //     // {
-  //     //   href: '/help',
-  //     //   text: 'Help',
-  //     //   style: 'link',
-  //     // },
-  //   ],
-  // },
+  {
+    href: 'https://linkedin.com/company/octue',
+    kind: 'external',
+    icon: LinkedInIcon,
+    style: 'icon',
+    ariaLabel: 'linkedin',
+  },
+  {
+    href: 'https://github.com/octue',
+    kind: 'external',
+    icon: GitHubIcon,
+    style: 'icon',
+    ariaLabel: 'github',
+  },
 ]
 
-export default main
+export const footerLinks = [
+  {
+    href: '/contact',
+    text: 'Contact',
+    style: 'subtitle2',
+  },
+  {
+    href: iubenda.privacyPolicy,
+    text: 'Privacy',
+    style: 'subtitle2',
+    kind: 'modal',
+  },
+  {
+    href: iubenda.termsAndConditions,
+    text: 'Terms & Conditions',
+    style: 'subtitle2',
+    kind: 'modal',
+  },
+  {
+    href: iubenda.cookiePolicy,
+    text: 'Cookies',
+    style: 'subtitle2',
+    kind: 'modal',
+  },
+]
