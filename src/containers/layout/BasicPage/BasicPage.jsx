@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
-import { Footer } from '../../../components/elements'
-import { NavBar, NavItems, Main } from '../../../components/layout'
+import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { lightTheme, darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
 import CookieBar from '../../../components/elements/CookieBar'
+import { CallToAction, setCtaOpen } from '../../elements'
 
 /**
  * A basic page layout.
@@ -28,6 +28,7 @@ function BasicPage({
   return (
     <>
       <CookieBar />
+      <CallToAction />
       <Toastable location={location}>
         <ThemeProvider theme={darkTheme}>
           <NavBar {...navBarProps}>
@@ -46,7 +47,7 @@ function BasicPage({
             </Box>
             <Box>
               <ThemeProvider theme={darkTheme}>
-                <Footer {...footerProps} />
+                <Footer onSubscribe={setCtaOpen} {...footerProps} />
               </ThemeProvider>
             </Box>
           </Main>

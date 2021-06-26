@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
 import FooterItem from './FooterItem'
 import { footerItems as menu } from '../../../../menus'
-import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function FooterItems() {
+function FooterItems({ onSubscribe }) {
   const classes = useStyles()
   const theme = useTheme()
   const smallMedia = useMediaQuery(theme.breakpoints.down('xs'))
@@ -46,7 +45,11 @@ function FooterItems() {
   return (
     <List aria-labelledby="footer external links" className={classes.list}>
       <Box component="li" className={classes.subscribe}>
-        <Button className={classes.cta} variant="outlined" onClick={setCtaOpen}>
+        <Button
+          className={classes.cta}
+          variant="outlined"
+          onClick={onSubscribe}
+        >
           {subscribeText}
         </Button>
       </Box>

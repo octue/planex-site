@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import Copyright from '../Copyright'
+import { Copyright } from '../../elements'
 import { LogoLink } from '../../core'
 import FooterItems from './FooterItems'
 import FooterLinks from './FooterLinks'
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Footer({ id }) {
+function Footer({ id, onSubscribe }) {
   const classes = useStyles()
 
   return (
@@ -63,7 +63,7 @@ function Footer({ id }) {
             <LogoLink />
           </Box>
           <Box className={classes.items}>
-            <FooterItems />
+            <FooterItems onSubscribe={onSubscribe} />
           </Box>
           <Box className={classes.copyright}>
             <Copyright />
@@ -79,10 +79,12 @@ function Footer({ id }) {
 
 Footer.defaultProps = {
   id: 'footer',
+  onSubscribe: () => console.log('clicked subscribe'),
 }
 
 Footer.propTypes = {
   id: PropTypes.string,
+  onSubscribe: PropTypes.func,
 }
 
 export default Footer
