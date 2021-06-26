@@ -75,6 +75,14 @@ const branding = {
 const baseThemeOptions = {
   typography: {
     // Used for "small link" CTAs like subscribe in the footer
+    h3: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '2rem',
+      lineHeight: '2.5rem',
+      letterSpacing: '0rem',
+    },
     h6: {
       fontSize: '0.75rem',
       fontWeight: 500,
