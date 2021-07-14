@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Scrollable({ children }) {
+function Scrollable({ scrollTopData, children }) {
   const classes = useStyles()
   const ps = useRef()
 
@@ -24,6 +24,9 @@ function Scrollable({ children }) {
     <PerfectScrollbar
       className={classes.scrollable}
       containerRef={(el) => (ps.current = el)}
+      onScrollY={(container) => {
+        scrollTopData(container.scrollTop)
+      }}
     >
       {children}
     </PerfectScrollbar>
