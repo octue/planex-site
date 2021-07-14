@@ -27,6 +27,10 @@ const darkThemeOptions = {
   palette: {
     ...lightThemeOptions.palette,
     type: 'dark',
+    text: {
+      primary: '#fff',
+      secondary: '#fff', // TODO Review this change from the default of 'rgba(255, 255, 255, 0.7)',
+    },
   },
 }
 export const darkTheme = merge(createMuiTheme(darkThemeOptions), branding)

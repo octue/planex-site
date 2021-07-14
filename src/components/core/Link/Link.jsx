@@ -10,7 +10,7 @@ const Link = forwardRef(
   ({ kind, componentType, children, href, ...rest }, ref) => {
     const [modalOpen, setModalOpen] = React.useState(false)
     const toggleModalOpen = () => setModalOpen(!modalOpen)
-    console.log('kind', kind)
+
     const extra = {
       component: kind === 'site' ? GatsbyLink : 'a',
     }
@@ -33,7 +33,7 @@ const Link = forwardRef(
     } else {
       extra['href'] = href
     }
-    console.log('HERE NOW')
+
     /* Note to future tom:
      * It's super weird using a switch here. Obviously you should
      * refactor this horrid code to define the component
@@ -67,7 +67,6 @@ const Link = forwardRef(
         </MuiLink>
       )
     }
-    console.log('COMPONENT', clickableComponent)
     return (
       <>
         {clickableComponent}

@@ -4,7 +4,7 @@ import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { Scrollable } from '../../../containers'
 
-function Main({ offset, scrollable, children, ...rest }) {
+function Main({ offset, scrollable, scrollTopData, children, ...rest }) {
   const theme = useTheme()
 
   const offsetMargin = `${theme.spacing(offset ? 8 : 0)}px`
@@ -15,7 +15,7 @@ function Main({ offset, scrollable, children, ...rest }) {
       height={`calc(100vh - ${offsetMargin})`}
       mt={offsetMargin}
     >
-      <Scrollable>
+      <Scrollable scrollTopData={scrollTopData}>
         <Box {...rest}>{children}</Box>
       </Scrollable>
     </Box>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
@@ -24,12 +24,14 @@ function BasicPage({
   offset,
   ...rest
 }) {
+  // Overrideing react-perfect-scrollbar
+  const [scrollTopData, setScrollTopData] = useState(0)
   return (
     <>
       <CookieBar />
       <Toastable location={location}>
         <ThemeProvider theme={darkTheme}>
-          <NavBar {...navBarProps}>
+          <NavBar {...navBarProps} scrollTopData={scrollTopData}>
             <NavItems />
           </NavBar>
         </ThemeProvider>
@@ -39,6 +41,7 @@ function BasicPage({
             height="100%"
             display="flex"
             flexDirection="column"
+            scrollTopData={setScrollTopData}
           >
             <Box flexGrow={1} {...rest}>
               {children}

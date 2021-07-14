@@ -21,11 +21,9 @@ const CallToAction = (props) => {
 
   const handleSuccess = () => {
     setCtaClosed()
-    console.log('HERE HANDLING SUCCESS')
     enqueueSnackbar(...toastMessages['subscribe-success'])
   }
   const handleFailure = () => {
-    console.log('HERE HANDLING FAILURE')
     enqueueSnackbar(...toastMessages['subscribe-failure'])
   }
   return (

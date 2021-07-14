@@ -22,7 +22,7 @@ function Copyright({ fixed, href, color, boxProps, ...rest }) {
   const year = new Date().getFullYear()
 
   const typographyComponent = (
-    <Typography variant="body2" color={color} {...rest}>
+    <Typography variant="subtitle2" color={color} {...rest}>
       {'Copyright © '}
       <Link className={classes.link} href={href}>
         Octue Ltd
