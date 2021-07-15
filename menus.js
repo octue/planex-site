@@ -53,17 +53,48 @@ export const nav = [
   //   style: 'link',
   // },
   {
+    href: '/about',
+    text: 'About',
+    style: 'link',
+  },
+  {
+    href: '/twined',
+    text: 'Twined',
+    style: 'link',
+  },
+  {
+    href: '/consultancy',
+    text: 'Consultancy',
+    style: 'link',
+  },
+  {
+    href: '/articles',
+    text: 'Articles',
+    style: 'link',
+  },
+  {
+    href: '/getinvolved',
+    text: 'Get involved',
+    style: 'link',
+  },
+  {
     href: '/contact',
-    icon: EmailIcon,
+    // icon: EmailIcon,
     text: 'Contact',
     style: 'link',
   },
   {
     href: 'https://github.com/octue',
     kind: 'external',
-    icon: GitHubIcon,
-    style: 'icon',
+    text: 'Github',
+    style: 'link',
   },
+  // {
+  //   href: 'https://github.com/octue',
+  //   kind: 'external',
+  //   icon: GitHubIcon,
+  //   style: 'icon',
+  // },
 ]
 
 export const footerItems = [
