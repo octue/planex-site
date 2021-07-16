@@ -10,22 +10,29 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     marginLeft: '175px',
     marginTop: '-30px',
+
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: '130px',
+      marginTop: '-23px',
+    },
   },
 }))
-const MultipleHexagonWithImage = () => {
+const MultipleHexagonWithImage = ({ image }) => {
   const classes = useStyles()
   return (
     <>
       <Box className={classes.boxStyle}>
-        <SimpleHexagon bgHexagomImg={Img1} bgX="10%" bgY="20%" />
-        <SimpleHexagon bgHexagomImg={Img1} bgX="20%" bgY="30%" />
+        <SimpleHexagon bgHexagomImg={image} bgX="10%" bgY="20%" />
+        <SimpleHexagon bgHexagomImg={image} bgX="20%" bgY="30%" />
       </Box>
       <Box className={classes.boxStyleMove}>
-        <SimpleHexagon bgHexagomImg={Img1} bgX="30%" bgY="40%" />
-        <SimpleHexagon bgHexagomImg={Img1} bgX="40%" bgY="50%" />
+        <SimpleHexagon bgHexagomImg={image} bgX="30%" bgY="40%" />
+        <SimpleHexagon bgHexagomImg={image} bgX="40%" bgY="50%" />
       </Box>
     </>
   )
 }
-
+MultipleHexagonWithImage.defaultProps = {
+  image: Img1,
+}
 export default MultipleHexagonWithImage

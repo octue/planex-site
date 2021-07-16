@@ -10,7 +10,8 @@ import TheTeam from '../components/shuffle/TheTeam/TheTeam'
 import OurMission from '../components/shuffle/OurMission/OurMission'
 import { BasicPage, CallToAction } from '../containers'
 import { darkTheme } from '../themes'
-
+import HexagonSection from '../components/sectionelements/sectionwithhexagon/HexagonSection'
+import SvgHexagonSection from '../components/sectionelements/singlehexagonsection/SvgHexagonSection'
 export default function Index({ location }) {
   const navBarProps = {
     transparency: true,
@@ -29,6 +30,8 @@ export default function Index({ location }) {
       <ThemeProvider theme={darkTheme}>
         <Hero />
       </ThemeProvider>
+      <HexagonSection />
+      <SvgHexagonSection />
       <TimeToBuild />
       <BuildWithTwined />
       <TakeWorkFurther />

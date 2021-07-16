@@ -2,6 +2,7 @@ import React from 'react'
 import SimpleHexagon from './SimpleHexagon'
 import HexagonSvg from './HexagonSvg'
 import MultipleHexagonWithImage from './MultipleHexagonWithImage'
+import BuildSvg from '../../assets/images/hexagon/growth.svg'
 export default {
   title: 'Hexagon',
   component: SimpleHexagon,
@@ -20,7 +21,7 @@ Simple.args = {}
 export const HexagonWithSvg = () => {
   return (
     <>
-      <HexagonSvg />
+      <HexagonSvg svg={BuildSvg} />
     </>
   )
 }

@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     // padding: '6px',
     display: 'flex',
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      height: '85px',
+      width: '80px',
+    },
   },
   hexagonShape: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
@@ -19,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
     width: '110px',
     marginLeft: '2px',
     padding: '6px',
+
+    [theme.breakpoints.down('xs')]: {
+      height: '80px',
+      width: '75px',
+    },
   },
 }))
 const SimpleHexagon = ({ bgHexagomImg, bgX, bgY }) => {
