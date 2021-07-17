@@ -10,9 +10,12 @@ import SectionDetail from '../SectionDetail'
 import HexagonSvg from '../../hexagon/HexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
+  bgColor: {
+    backgroundColor: theme.palette.background.paper,
+  },
   container: {
     height: '100%',
-    marginTop: '4rem',
+    paddingTop: '4rem',
   },
   parentBox: {
     padding: '1rem 1rem',
@@ -35,7 +38,7 @@ const SvgHexagonSection = () => {
   const classes = useStyles()
   const theme = useTheme()
   return (
-    <>
+    <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.titleBox}>
@@ -77,7 +80,7 @@ const SvgHexagonSection = () => {
           </Box>
         </Box>
       </Container>
-    </>
+    </section>
   )
 }
 

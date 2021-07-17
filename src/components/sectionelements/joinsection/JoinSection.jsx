@@ -1,11 +1,13 @@
 import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
-import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
+import TripleHexagon from '../../hexagon/TripleHexagon'
+import SimpleHexagon from '../../hexagon/SimpleHexagon'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -23,24 +25,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   hexagonTitle: {
-    width: '50%',
+    width: '40%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
   },
   hexagonBox: {
-    marginTop: '6rem',
+    marginTop: '2rem',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   detailBox: {
-    marginLeft: '2rem',
-    width: '50%',
+    width: '60%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
     },
   },
 }))
-const HexagonSection = () => {
+
+const JoinSection = () => {
   const classes = useStyles()
   const theme = useTheme()
   return (
@@ -49,18 +53,22 @@ const HexagonSection = () => {
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
             <Box>
-              <SectionHeading text="Be 20x more constructive" />
-            </Box>
-            <Box className={classes.hexagonBox}>
-              <MultipleHexagonWithImage image={Image} />
+              <SectionHeading text="Join the movement" />
             </Box>
           </Box>
           <Box className={classes.detailBox}>
             <SectionDetail
-              heading="You don't need to be a materials scientist to build a LEGO® model."
               description="So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks."
-              button="click me"
+              button="Get involved"
             />
+            <Box className={classes.hexagonBox}>
+              <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon bgHexagomImg={Image} />
+            </Box>
           </Box>
         </Box>
       </Container>
@@ -68,4 +76,4 @@ const HexagonSection = () => {
   )
 }
 
-export default HexagonSection
+export default JoinSection

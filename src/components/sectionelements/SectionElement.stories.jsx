@@ -3,6 +3,11 @@ import SectionHeading from './SectionHeading'
 import SectionDetail from './SectionDetail'
 import HexagonSection from './sectionwithhexagon/HexagonSection'
 import SvgHexagonSection from './singlehexagonsection/SvgHexagonSection'
+import BackgroundImg from './BackgroundImg'
+import HeroSection from './herosection/HeroSection'
+import HelpSection from './helpsection/HelpSection'
+import JoinSection from './joinsection/JoinSection'
+
 export default {
   title: 'SectionElements',
   component: SectionHeading,
@@ -47,3 +52,26 @@ export const MultipleSvgHexagonSection = () => {
     </>
   )
 }
+
+export const HelpSectionHexagon = () => {
+  return (
+    <>
+      <HelpSection />
+    </>
+  )
+}
+export const JoinSectionHexagon = () => {
+  return (
+    <>
+      <JoinSection />
+    </>
+  )
+}
+
+// export const HeroSectionWithImage = () => {
+//   return (
+//     <>
+//       <HeroSection />
+//     </>
+//   )
+// }
