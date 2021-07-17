@@ -17,7 +17,7 @@ integrated here.**
     Install the program - see https://pre-commit.com/ for instructions on how.
     Then do:
     ```
-    pre-commit install
+    pre-commit install && pre-commit install -t commit-msg
     ```
 
 1.  **Make sure you have node and yarn installed**
@@ -72,10 +72,10 @@ git checkout -b feature/my-new-feature
 
 Make and save any edits you need, using either the storybook or the gatsby reloader from above.
 
-Commit your changes regularly and in a granular way with an informative message:
+Commit your changes regularly and in a granular way with an informative message. Our commit messages have to have a certain form, because we use conventional commits. Instructions for what prefixes are available, what they're for and how to use them are [here](https://github.com/octue/conventional-commits):
 
 ```
-git commit <file> -m "FIX updated copyright string"
+git commit <file> -m "DOC: updated copyright string"
 ```
 
 Push your changes to GitHub:
