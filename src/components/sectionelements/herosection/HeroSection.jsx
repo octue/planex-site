@@ -12,26 +12,34 @@ import { setCtaOpen } from '../../../containers/elements'
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
+    width: '100%',
+    background: 'linear-gradient(0deg, #212121 0%, rgba(30, 34, 34, 0) 100%)',
   },
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
-    fontSize: '3rem',
+    fontSize: '80px',
     fontWeight: 400,
-    lineHeight: '2.125rem',
+    lineHeight: '88px',
   },
   description: {
     color: theme.palette.text.secondary,
-    fontSize: '1.313rem',
+    fontSize: '24px',
     fontWeight: 400,
-    lineHeight: '1.9rem',
-    whiteSpace: 'pre-line',
+    lineHeight: '30px',
+    // whiteSpace: 'pre-line',
   },
   cta: {
     display: 'flex',
     border: `2px solid ${theme.palette.text.secondary}`,
     paddingTop: `10px`,
     paddingBottom: `10px`,
+  },
+  MainBox: {
+    marginLeft: '90px',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '0',
+    },
   },
 }))
 
@@ -47,7 +55,7 @@ const HeroSection = ({ heading, description, Image }) => {
   }
 
   return (
-    <Box component="section" height="100vh">
+    <Box component="section" height="825px">
       <BackgroundImage
         Tag="div"
         fluid={Image}
@@ -57,18 +65,19 @@ const HeroSection = ({ heading, description, Image }) => {
           height: '100%',
         }}
       >
-        <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth="xl" className={classes.container}>
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="flex-end"
-            alignItems="flex-start"
+            // alignItems="flex-start"
             height="100%"
-            maxWidth="650px" // Places it to the left of center on larger screens
+            maxWidth="958px" // Places it to the left of center on larger screens
+            className={classes.MainBox}
           >
-            <Box display="flex" pb={4}>
+            <Box display="flex">
               <Typography variant="h1" component="h1" className={classes.title}>
-                Science we can build on
+                {heading}
               </Typography>
             </Box>
             <Box display="flex" pb={4} px={1}>
@@ -77,7 +86,7 @@ const HeroSection = ({ heading, description, Image }) => {
                 component="h2"
                 className={classes.description}
               >
-                Faster data groundwork. More time for science.
+                {description}
               </Typography>
             </Box>
           </Box>

@@ -14,18 +14,25 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     height: '100%',
-    paddingTop: '4rem',
+    paddingTop: '240px',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '100px',
+    },
   },
   parentBox: {
-    padding: '1rem 1rem',
+    // padding: '1rem 1rem',
+    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      padding: '0',
+      // padding: '0',
+      marginLeft: '0',
     },
   },
   partnerTitle: {
-    width: '30%',
+    // width: '30%',
+    maxWidth: '429px',
     paddingTop: '30px',
+    marginRight: '190px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
@@ -57,9 +64,7 @@ const PartnerSection = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.partnerTitle}>
-            <Box>
-              <SectionHeading text="We work with some of the best" />
-            </Box>
+            <SectionHeading text="We work with some of the best" />
           </Box>
           <Box className={classes.detailBox}>
             <Box className={classes.logoBox}>

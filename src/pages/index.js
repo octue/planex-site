@@ -50,7 +50,11 @@ export default function Index({ location }) {
       <CallToAction />
       <ThemeProvider theme={darkTheme}>
         {/* <Hero /> */}
-        <HeroSection Image={imageData} />
+        <HeroSection
+          heading={'Science to build on.'}
+          description={'Faster data groundwork. More time for science.'}
+          Image={imageData}
+        />
       </ThemeProvider>
       <HexagonSection />
       <SvgHexagonSection />

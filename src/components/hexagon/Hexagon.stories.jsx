@@ -4,6 +4,7 @@ import HexagonSvg from './HexagonSvg'
 import MultipleHexagonWithImage from './MultipleHexagonWithImage'
 import BuildSvg from '../../assets/images/hexagon/growth.svg'
 import TripleHexagon from './TripleHexagon'
+import SimpleSmallHexagon from './SimpleSmallHexagon'
 export default {
   title: 'Hexagon',
   component: SimpleHexagon,
@@ -39,6 +40,14 @@ export const TripleHexagonImage = () => {
   return (
     <>
       <TripleHexagon />
+    </>
+  )
+}
+
+export const SmallHexagon = () => {
+  return (
+    <>
+      <SimpleSmallHexagon />
     </>
   )
 }

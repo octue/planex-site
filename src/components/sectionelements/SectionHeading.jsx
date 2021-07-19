@@ -7,9 +7,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
-    fontSize: '2rem',
-    fontWeight: 300,
-    lineHeight: '2.125rem',
+    fontSize: '48px',
+    fontWeight: 400,
+    lineHeight: '56px',
   },
 }))
 const SectionHeading = ({ text }) => {

@@ -2,9 +2,10 @@ import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import Image1 from '../../../assets/images/hexagon/growth.svg'
-import Image2 from '../../../assets/images/hexagon/team.svg'
-import Image3 from '../../../assets/images/hexagon/icon.svg'
+import Growth from '../../../assets/images/hexagon/growth.svg'
+import Team from '../../../assets/images/hexagon/team.svg'
+import Icon from '../../../assets/images/hexagon/icon.svg'
+import Build from '../../../assets/images/hexagon/build.svg'
 import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
 import HexagonSvg from '../../hexagon/HexagonSvg'
@@ -15,22 +16,39 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     height: '100%',
-    paddingTop: '4rem',
+    paddingTop: '180px',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '100px',
+    },
   },
   parentBox: {
-    padding: '1rem 1rem',
+    // padding: '1rem 1rem',
+    marginLeft: '60px',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '0',
+    },
   },
   hexagonBox: {
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // alignItems: 'center',
   },
+  hexagonBoxDescription: {
+    maxWidth: '342px',
+    marginTop: '26px',
+  },
   titleBox: {
-    marginBottom: '4rem',
+    marginBottom: '16px',
   },
   hexagonMB: {
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
+    },
+  },
+  hexagonSecondSec: {
+    marginLeft: '108px',
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: '0',
     },
   },
 }))
@@ -47,34 +65,48 @@ const SvgHexagonSection = () => {
           <Box>
             <Box display="flex" className={classes.hexagonMB}>
               <Box display="flex" className={classes.hexagonBox}>
-                <HexagonSvg svg={Image1} />
-                <SectionDetail
-                  heading="Build breakthroughs."
-                  description="Cut the time and energy spent doing data, increase the time for discovery."
-                />
+                <HexagonSvg svg={Icon} />
+                <Box className={classes.hexagonBoxDescription}>
+                  <SectionDetail
+                    heading="Build breakthroughs."
+                    description="Cut the time and energy spent doing data, increase the time for discovery."
+                  />
+                </Box>
               </Box>
-              <Box display="flex" className={classes.hexagonBox}>
-                <HexagonSvg svg={Image2} />
-                <SectionDetail
-                  heading="Build breakthroughs."
-                  description="Cut the time and energy spent doing data, increase the time for discovery."
-                />
+              <Box
+                display="flex"
+                className={`${classes.hexagonBox} ${classes.hexagonSecondSec}`}
+              >
+                <HexagonSvg svg={Build} />
+                <Box className={classes.hexagonBoxDescription}>
+                  <SectionDetail
+                    heading="Build business."
+                    description="Maximise data value by turning your code into data services, like digital twins."
+                  />
+                </Box>
               </Box>
             </Box>
             <Box display="flex" className={classes.hexagonMB}>
               <Box display="flex" className={classes.hexagonBox}>
-                <HexagonSvg svg={Image2} />
-                <SectionDetail
-                  heading="Build breakthroughs."
-                  description="Cut the time and energy spent doing data, increase the time for discovery."
-                />
+                <HexagonSvg svg={Team} />
+                <Box className={classes.hexagonBoxDescription}>
+                  <SectionDetail
+                    heading="Build collaboration."
+                    description="Work together across geographies and disciplines for faster progress."
+                  />
+                </Box>
               </Box>
-              <Box display="flex" className={classes.hexagonBox}>
-                <HexagonSvg svg={Image3} />
-                <SectionDetail
-                  heading="Build breakthroughs."
-                  description="Cut the time and energy spent doing data, increase the time for discovery."
-                />
+              <Box
+                display="flex"
+                className={`${classes.hexagonBox} ${classes.hexagonSecondSec}`}
+              >
+                <HexagonSvg svg={Growth} />
+                <Box className={classes.hexagonBoxDescription}>
+                  <SectionDetail
+                    heading="Build growth."
+                    description="Accelerate your impact with our digital and renewable energy expertise."
+                  />
+                </Box>
               </Box>
             </Box>
           </Box>

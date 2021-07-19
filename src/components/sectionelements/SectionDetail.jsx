@@ -10,22 +10,28 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
-    fontSize: '1.35rem',
+    fontSize: '24px',
     fontWeight: 400,
-    lineHeight: '1.5rem',
+    lineHeight: '30px',
   },
   description: {
     color: theme.palette.text.secondary,
-    fontSize: '1rem',
+    fontSize: '18px',
     fontWeight: 300,
-    lineHeight: '1.2rem',
-    whiteSpace: 'pre-line',
+    lineHeight: '26px',
+    // whiteSpace: 'pre-line',
   },
   cta: {
     display: 'flex',
     paddingTop: `8px`,
     paddingBottom: `8px`,
     backgroundColor: `#D31020`,
+  },
+  btnBox: {
+    marginTop: '24px',
+  },
+  titleBox: {
+    marginBottom: '16px',
   },
 }))
 const SectionDetail = ({ heading, description, button, onClick }) => {
@@ -34,12 +40,12 @@ const SectionDetail = ({ heading, description, button, onClick }) => {
   return (
     <>
       <Box>
-        <Box display="flex" pb={3}>
+        <Box display="flex" className={classes.titleBox}>
           <Typography variant="h2" component="h1" className={classes.title}>
             {heading}
           </Typography>
         </Box>
-        <Box display="flex" pb={3}>
+        <Box display="flex">
           <Typography
             variant="subtitle1"
             component="h2"
@@ -50,7 +56,7 @@ const SectionDetail = ({ heading, description, button, onClick }) => {
         </Box>
 
         {button && (
-          <Box display="flex">
+          <Box display="flex" className={classes.btnBox}>
             <Button
               className={classes.cta}
               variant="outlined"

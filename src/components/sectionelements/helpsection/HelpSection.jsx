@@ -14,24 +14,29 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     height: '100%',
-    paddingTop: '4rem',
+    paddingTop: '180px',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '100px',
+    },
   },
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
-    fontSize: '1.5rem',
+    fontSize: '18px',
     fontWeight: 400,
-    lineHeight: '2rem',
+    lineHeight: '24px',
   },
   boxSubtitle: {
     marginTop: '3rem',
     marginLeft: '2rem',
   },
   parentBox: {
-    padding: '1rem 1rem',
+    // padding: '1rem 1rem',
+    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      padding: '0',
+      // padding: '0',
+      marginLeft: '0',
     },
   },
   hexagonTitle: {
@@ -41,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   hexagonBox: {
-    marginTop: '4rem',
+    marginTop: '8px',
   },
   detailBox: {
     marginLeft: '2rem',
-    marginTop: '2rem',
+    marginTop: '5.5rem',
     width: '50%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -63,7 +68,7 @@ const HelpSection = () => {
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
             <Box>
-              <SectionHeading text="Be 20x more constructive" />
+              <SectionHeading text="How we help" />
             </Box>
             <Box className={classes.boxSubtitle}>
               <Typography variant="h3" component="h3" className={classes.title}>
@@ -72,18 +77,18 @@ const HelpSection = () => {
             </Box>
             <Box className={classes.boxSubtitle}>
               <Typography variant="h3" component="h3" className={classes.title}>
-                Get started with Twined
+                Go further with Octue
               </Typography>
             </Box>
             <Box className={classes.boxSubtitle}>
               <Typography variant="h3" component="h3" className={classes.title}>
-                Get started with Twined
+                Here to help you build
               </Typography>
             </Box>
           </Box>
           <Box className={classes.detailBox}>
             <SectionDetail
-              description="So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks."
+              description="Access, assess and analyse data and create data services with our open-source framework and tools. What you build will be shareable and scalable."
               button="Enter the library"
             />
             <Box className={classes.hexagonBox}>

@@ -10,24 +10,32 @@ import TripleHexagon from '../../hexagon/TripleHexagon'
 import SimpleHexagon from '../../hexagon/SimpleHexagon'
 import HexagonSvg from '../../hexagon/HexagonSvg'
 import Image1 from '../../../assets/images/hexagon/growth.svg'
+import SimpleSmallHexagon from '../../hexagon/SimpleSmallHexagon'
+import SmallHexagonSvg from '../../hexagon/SmallHexagonSvg'
 const useStyles = makeStyles((theme) => ({
   bgColor: {
     backgroundColor: theme.palette.background.paper,
   },
   container: {
     height: '100%',
-    paddingTop: '4rem',
+    paddingTop: '238px',
     paddingBottom: '4rem',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '100px',
+    },
   },
   parentBox: {
-    padding: '1rem 1rem',
+    // padding: '1rem 1rem',
+    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      padding: '0',
+      // padding: '0',
+      marginLeft: '0',
     },
   },
   hexagonTitle: {
-    width: '40%',
+    maxWidth: '377px',
+
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
@@ -39,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   detailBox: {
-    width: '60%',
+    width: '590px',
+    marginLeft: '233px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
@@ -70,18 +79,18 @@ const JoinSection = () => {
               button="Get involved"
             />
             <Box className={classes.hexagonBox}>
-              <SimpleHexagon bgHexagomImg={Image} />
-              <SimpleHexagon bgHexagomImg={Image} />
-              <SimpleHexagon
+              <SimpleSmallHexagon bgHexagomImg={Image} />
+              <SimpleSmallHexagon bgHexagomImg={Image} />
+              <SimpleSmallHexagon
                 bgHexagomImg={Image}
                 customStyle={classes.mbnone}
               />
-              <SimpleHexagon
+              <SimpleSmallHexagon
                 bgHexagomImg={Image}
                 customStyle={classes.mbnone}
               />
-              <SimpleHexagon bgHexagomImg={Image} />
-              <HexagonSvg svg={Image1} />
+              <SimpleSmallHexagon bgHexagomImg={Image} />
+              <SmallHexagonSvg svg={Image1} />
             </Box>
           </Box>
         </Box>

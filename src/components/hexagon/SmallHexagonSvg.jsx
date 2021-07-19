@@ -3,7 +3,7 @@ import { Box, makeStyles } from '@material-ui/core'
 import BuildSvg from '../../assets/images/hexagon/growth.svg'
 const useStyles = makeStyles((theme) => ({
   icon: {
-    fontSize: '70px',
+    fontSize: '50px',
   },
   wrapIcon: {
     display: 'flex',
@@ -14,13 +14,9 @@ const useStyles = makeStyles((theme) => ({
   hexagonMB: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
     backgroundColor: '#1895EF',
-    height: '120px',
-    width: '105px',
+    height: '80px',
+    width: '70px',
     marginLeft: '2px',
-    [theme.breakpoints.down('xs')]: {
-      maxHeight: '65px',
-      minWidth: '57px',
-    },
   },
   imageMB: {
     [theme.breakpoints.down('xs')]: {
@@ -29,15 +25,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
-const HexagonSvg = ({ svg }) => {
+const SmallHexagonSvg = ({ svg }) => {
   const classes = useStyles()
-  // const customStyle = {
-  //   clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
-  //   backgroundColor: '#1895EF',
-  //   height: '120px',
-  //   width: '105px',
-  //   marginLeft: '2px',
-  // }
 
   return (
     <>
@@ -48,8 +37,5 @@ const HexagonSvg = ({ svg }) => {
     </>
   )
 }
-// HexagonSvg.defaultProps = {
-//   svg: BuildSvg,
-// }
 
-export default HexagonSvg
+export default SmallHexagonSvg
