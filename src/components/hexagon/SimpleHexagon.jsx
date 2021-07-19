@@ -30,19 +30,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
-const SimpleHexagon = ({ bgHexagomImg, bgX, bgY }) => {
+const SimpleHexagon = ({ bgHexagomImg, bgX, bgY, customStyle }) => {
   const classes = useStyles()
   return (
     <>
-      <Box className={classes.hexagonShapeParent}>
-        <Box
-          className={classes.hexagonShape}
-          style={{
-            backgroundImage: `url(${bgHexagomImg})`,
-            backgroundPositionX: bgX,
-            backgroundPositionY: bgY,
-          }}
-        ></Box>
+      <Box className={customStyle}>
+        <Box className={classes.hexagonShapeParent}>
+          <Box
+            className={classes.hexagonShape}
+            style={{
+              backgroundImage: `url(${bgHexagomImg})`,
+              backgroundPositionX: bgX,
+              backgroundPositionY: bgY,
+            }}
+          ></Box>
+        </Box>
       </Box>
     </>
   )

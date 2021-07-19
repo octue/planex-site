@@ -7,7 +7,9 @@ import BackgroundImg from './BackgroundImg'
 import HeroSection from './herosection/HeroSection'
 import HelpSection from './helpsection/HelpSection'
 import JoinSection from './joinsection/JoinSection'
-
+import PartnerLogo from './PartnerLogo'
+import AerosenseWhite from '../../assets/images/logos/partners/aerosense-white.svg'
+import PartnerSection from './partnersection/PartnerSection'
 export default {
   title: 'SectionElements',
   component: SectionHeading,
@@ -64,6 +66,21 @@ export const JoinSectionHexagon = () => {
   return (
     <>
       <JoinSection />
+    </>
+  )
+}
+
+export const PartnerWithLogo = () => {
+  return (
+    <>
+      <PartnerLogo partnersvg={AerosenseWhite} />
+    </>
+  )
+}
+export const PartnerWithSection = () => {
+  return (
+    <>
+      <PartnerSection />
     </>
   )
 }

@@ -8,7 +8,8 @@ import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
 import TripleHexagon from '../../hexagon/TripleHexagon'
 import SimpleHexagon from '../../hexagon/SimpleHexagon'
-
+import HexagonSvg from '../../hexagon/HexagonSvg'
+import Image1 from '../../../assets/images/hexagon/growth.svg'
 const useStyles = makeStyles((theme) => ({
   bgColor: {
     backgroundColor: theme.palette.background.paper,
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
     paddingTop: '4rem',
+    paddingBottom: '4rem',
   },
   parentBox: {
     padding: '1rem 1rem',
@@ -34,12 +36,18 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2rem',
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   detailBox: {
     width: '60%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
+    },
+  },
+  mbnone: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
   },
 }))
@@ -64,10 +72,16 @@ const JoinSection = () => {
             <Box className={classes.hexagonBox}>
               <SimpleHexagon bgHexagomImg={Image} />
               <SimpleHexagon bgHexagomImg={Image} />
+              <SimpleHexagon
+                bgHexagomImg={Image}
+                customStyle={classes.mbnone}
+              />
+              <SimpleHexagon
+                bgHexagomImg={Image}
+                customStyle={classes.mbnone}
+              />
               <SimpleHexagon bgHexagomImg={Image} />
-              <SimpleHexagon bgHexagomImg={Image} />
-              <SimpleHexagon bgHexagomImg={Image} />
-              <SimpleHexagon bgHexagomImg={Image} />
+              <HexagonSvg svg={Image1} />
             </Box>
           </Box>
         </Box>
