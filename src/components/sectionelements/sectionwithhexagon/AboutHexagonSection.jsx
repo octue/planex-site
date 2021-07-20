@@ -4,9 +4,8 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
-import Image from '../../../assets/images/hexagon/Hero.png'
+import Image from '../../../assets/images/hexagon/Hero1.png'
 import SectionHeading from '../SectionHeading'
-import SectionDetail from '../SectionDetail'
 import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
 
 const useStyles = makeStyles((theme) => ({
@@ -73,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '10px',
   },
 }))
-const HexagonSection = () => {
+const AboutHexagonSection = () => {
   const classes = useStyles()
   const theme = useTheme()
   return (
@@ -82,18 +81,13 @@ const HexagonSection = () => {
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
             <Box>
-              <SectionHeading text="Be 20x more constructive" />
+              <SectionHeading text="Do more with your data" />
             </Box>
             <Box className={classes.hexagonBox}>
               <MultipleHexagonWithImage image={Image} />
             </Box>
           </Box>
           <Box className={classes.detailBox}>
-            {/* <SectionDetail
-              heading="You don't need to be a materials scientist to build a LEGO® model."
-              description="So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks."
-              button="The mission"
-            /> */}
             <Box>
               <Box display="flex" className={classes.titleBox}>
                 <Typography
@@ -101,8 +95,10 @@ const HexagonSection = () => {
                   component="h1"
                   className={classes.title}
                 >
-                  You don't need to be a materials scientist to build a LEGO®
-                  model.
+                  Data was always at the heart of a scientist’s work. Today,
+                  computers carry out sophisticated analysis for us at speed –
+                  but at a price. Most scientists have to code in order to draw
+                  conclusions. They’ve become data scientists by default.
                 </Typography>
               </Box>
               <Box display="flex" pb={3}>
@@ -111,10 +107,22 @@ const HexagonSection = () => {
                   component="h2"
                   className={classes.description}
                 >
-                  So why should someone modelling climate or energy systems need
-                  to be an expert coder? Yet scientists waste 95% of their day
-                  [Source:McKinsey] being general programmers, API architects
-                  and DevOps engineers.
+                  When Tom established marine energy consultancy Ocean Array
+                  Systems in 2013 he became frustrated by the difficulties of
+                  reusing data and building tool chains that span organisations,
+                  He started developing the Octue platform and open-source
+                  Twined framework to make it easier.
+                </Typography>
+              </Box>
+              <Box display="flex" pb={3}>
+                <Typography
+                  variant="subtitle1"
+                  component="h2"
+                  className={classes.description}
+                >
+                  Octue the company was launched in 2017 and recognised as a
+                  Gamechanger by the UK Offshore Renewable Energy Catapult for
+                  its work on digital twins.
                 </Typography>
               </Box>
               <Box display="flex" pb={4}>
@@ -123,14 +131,19 @@ const HexagonSection = () => {
                   component="h2"
                   className={classes.description}
                 >
-                  Our solution: a framework of open-source tools to create,
-                  connect, exchange and reuse analysis building blocks.
+                  OIn 2021, Octue became a non-profit dedicated to developing
+                  ever-better tools and data sources for all scientists. Our
+                  passion is the planet - the pressing need to tackle the
+                  climate crisis, and to urgently replace fossil fuels in
+                  particular, drives our commitment. Today, we help people
+                  across the renewable energy sector - and beyond - get more
+                  from their data, faster.
                 </Typography>
               </Box>
 
               <Box display="flex" className={classes.btnBox}>
                 <Button className={classes.cta} variant="outlined">
-                  The mission
+                  CTA default
                 </Button>
               </Box>
             </Box>
@@ -141,4 +154,4 @@ const HexagonSection = () => {
   )
 }
 
-export default HexagonSection
+export default AboutHexagonSection

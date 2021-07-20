@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const JoinSection = () => {
+const JoinSection = ({ description }) => {
   const classes = useStyles()
   const theme = useTheme()
   return (
@@ -74,10 +74,7 @@ const JoinSection = () => {
             </Box>
           </Box>
           <Box className={classes.detailBox}>
-            <SectionDetail
-              description="So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks."
-              button="Get involved"
-            />
+            <SectionDetail description={description} button="Get involved" />
             <Box className={classes.hexagonBox}>
               <SimpleSmallHexagon bgHexagomImg={Image} />
               <SimpleSmallHexagon bgHexagomImg={Image} />

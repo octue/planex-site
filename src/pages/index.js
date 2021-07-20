@@ -60,7 +60,11 @@ export default function Index({ location }) {
       <SvgHexagonSection />
       <HelpSection />
       <PartnerSection />
-      <JoinSection />
+      <JoinSection
+        description={
+          'So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks.'
+        }
+      />
       {/* <TimeToBuild />
       <BuildWithTwined />
       <TakeWorkFurther />
