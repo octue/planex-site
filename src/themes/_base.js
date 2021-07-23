@@ -1,5 +1,9 @@
 /* eslint-disable import/no-dynamic-require */
 
+// This is just so we have breakpoints. Don't use this theme object.
+import { createMuiTheme } from '@material-ui/core'
+const { breakpoints } = createMuiTheme()
+
 /** Extra Context (Branding)
  *
  * These are named wind pioneers colours and logos, accessible from everywhere,
@@ -74,20 +78,29 @@ const branding = {
  */
 const baseThemeOptions = {
   typography: {
-    // Used for "small link" CTAs like subscribe in the footer
+    // This is labelled as h3 on the desktop figmas, h2 on the responsive ones. SIGH.
     h3: {
       fontFamily: "'Work Sans', sans-serif",
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '2rem',
-      lineHeight: '2.5rem',
+      fontSize: '3rem',
+      lineHeight: '3.5rem',
       letterSpacing: '0rem',
     },
+    // Used for "small link" CTAs like subscribe in the footer. Ag="H3"
     h6: {
       fontSize: '0.75rem',
       fontWeight: 500,
       fontFamily: "'Work Sans', sans-serif",
       fontStyle: 'normal',
+      letterSpacing: '0.01rem',
+    },
+    // Used for most body text. Ag="body"
+    body1: {
+      fontFamily: "'Open Sans', sans-serif",
+      fontWeight: 400,
+      fontSize: '1.125rem',
+      lineHeight: '1.625rem',
       letterSpacing: '0.01rem',
     },
     // Used for copyrights etc
@@ -112,6 +125,14 @@ const baseThemeOptions = {
     MuiPaper: {
       root: {
         border: 'none',
+      },
+    },
+    MuiTypography: {
+      h3: {
+        [breakpoints.down('md')]: {
+          fontSize: '2rem',
+          lineHeight: '2.5rem',
+        },
       },
     },
   },
