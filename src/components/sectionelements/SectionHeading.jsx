@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -17,7 +18,7 @@ const SectionHeading = ({ text }) => {
   return (
     <>
       <Box>
-        <Typography variant="h1" component="h1" className={classes.title}>
+        <Typography variant="h1" component="h2" className={classes.title}>
           {text}
         </Typography>
       </Box>
@@ -27,6 +28,10 @@ const SectionHeading = ({ text }) => {
 
 SectionHeading.defaultProps = {
   text: 'Build The App Now',
+}
+
+SectionHeading.propTypes = {
+  text: PropTypes.string.isRequired,
 }
 
 export default SectionHeading

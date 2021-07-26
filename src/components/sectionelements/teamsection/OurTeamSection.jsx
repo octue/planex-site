@@ -11,7 +11,7 @@ import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
 import HexagonSvg from '../../hexagon/HexagonSvg'
 import SimpleHexagon from '../../hexagon/SimpleHexagon'
-import SectionDetailW3 from '../SectionDetailW3'
+import SectionDetailWithTwoHeading from '../SectionDetailWithTwoHeading'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -77,9 +77,9 @@ const OurTeamSection = () => {
           <Box className={classes.ourTeamBox}>
             <Box display="flex" className={classes.hexagonMB}>
               <Box display="flex" className={classes.hexagonBox}>
-                <SimpleHexagon bgHexagomImg={TeamImg} bgX="50%" bgY="30%" />
+                <SimpleHexagon bgHexImg={TeamImg} bgX="50%" bgY="30%" />
                 <Box className={classes.hexagonBoxDescription}>
-                  <SectionDetailW3
+                  <SectionDetailWithTwoHeading
                     headingOne="Tom Clark"
                     headingTwo="Founder, CEO"
                     description="Tom architected Octue’s twined framework and has been awarded patents related to AI and intelligent control of wind farms. He’s worked in renewables since 2006, in a mixture of research and managerial roles, and loves it."
@@ -90,9 +90,9 @@ const OurTeamSection = () => {
                 display="flex"
                 className={`${classes.hexagonBox} ${classes.hexagonSecondSec}`}
               >
-                <SimpleHexagon bgHexagomImg={TeamImg} bgX="50%" bgY="30%" />
+                <SimpleHexagon bgHexImg={TeamImg} bgX="50%" bgY="30%" />
                 <Box className={classes.hexagonBoxDescription}>
-                  <SectionDetailW3
+                  <SectionDetailWithTwoHeading
                     headingOne="Andy Clifton"
                     headingTwo="Co-Founder, Strategic Advisor"
                     description="Andy joins Octue with 20 years of experience delivering complex projects in areas where people, the environment, and energy interact. Andy leads WindForS, the southern German wind energy research cluster where he has developed and implemented a strategy for the joint success of the cluster’s 25 members at 7 locations."
@@ -105,9 +105,9 @@ const OurTeamSection = () => {
               className={`${classes.hexagonMB} ${classes.ourTeamSection}`}
             >
               <Box display="flex" className={classes.hexagonBox}>
-                <SimpleHexagon bgHexagomImg={TeamImg} bgX="50%" bgY="30%" />
+                <SimpleHexagon bgHexImg={TeamImg} bgX="50%" bgY="30%" />
                 <Box className={classes.hexagonBoxDescription}>
-                  <SectionDetailW3
+                  <SectionDetailWithTwoHeading
                     headingOne="Marcus"
                     headingTwo="Role"
                     description="Non fames arcu gravida ut mauris. Eros pulvinar ridiculus maecenas urna. Tempus rutrum tellus id bibendum est feugiat ut. Id nulla fames vulputate sit massa eget nulla amet nunc nibh quam."

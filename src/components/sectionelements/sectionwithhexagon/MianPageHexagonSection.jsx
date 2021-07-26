@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '10px',
   },
 }))
-const HexagonSection = () => {
+const MianPageHexagonSection = () => {
   const classes = useStyles()
   const theme = useTheme()
   return (
@@ -89,11 +89,6 @@ const HexagonSection = () => {
             </Box>
           </Box>
           <Box className={classes.detailBox}>
-            {/* <SectionDetail
-              heading="You don't need to be a materials scientist to build a LEGO® model."
-              description="So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks."
-              button="The mission"
-            /> */}
             <Box>
               <Box display="flex" className={classes.titleBox}>
                 <Typography
@@ -141,4 +136,4 @@ const HexagonSection = () => {
   )
 }
 
-export default HexagonSection
+export default MianPageHexagonSection

@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import { Link } from '../../components/core/Link'
+import { Link } from '../core/Link'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -55,7 +55,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const SectionDetailW3 = ({ headingOne, headingTwo, description }) => {
+const SectionDetailWithTwoHeading = ({
+  headingOne,
+  headingTwo,
+  description,
+}) => {
   const classes = useStyles()
   const theme = useTheme()
   return (
@@ -96,4 +100,4 @@ const SectionDetailW3 = ({ headingOne, headingTwo, description }) => {
   )
 }
 
-export default SectionDetailW3
+export default SectionDetailWithTwoHeading

@@ -76,17 +76,17 @@ const JoinSection = ({ description }) => {
           <Box className={classes.detailBox}>
             <SectionDetail description={description} button="Get involved" />
             <Box className={classes.hexagonBox}>
-              <SimpleSmallHexagon bgHexagomImg={Image} />
-              <SimpleSmallHexagon bgHexagomImg={Image} />
+              <SimpleSmallHexagon bgHexImg={Image} />
+              <SimpleSmallHexagon bgHexImg={Image} />
               <SimpleSmallHexagon
-                bgHexagomImg={Image}
+                bgHexImg={Image}
                 customStyle={classes.mbnone}
               />
               <SimpleSmallHexagon
-                bgHexagomImg={Image}
+                bgHexImg={Image}
                 customStyle={classes.mbnone}
               />
-              <SimpleSmallHexagon bgHexagomImg={Image} />
+              <SimpleSmallHexagon bgHexImg={Image} />
               <SmallHexagonSvg svg={Image1} />
             </Box>
           </Box>

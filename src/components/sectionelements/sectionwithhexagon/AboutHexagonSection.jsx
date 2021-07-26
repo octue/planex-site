@@ -131,7 +131,7 @@ const AboutHexagonSection = () => {
                   component="h2"
                   className={classes.description}
                 >
-                  OIn 2021, Octue became a non-profit dedicated to developing
+                  In 2021, Octue became a non-profit dedicated to developing
                   ever-better tools and data sources for all scientists. Our
                   passion is the planet - the pressing need to tackle the
                   climate crisis, and to urgently replace fossil fuels in

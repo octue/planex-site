@@ -18,7 +18,6 @@ const fieldsStyle = {
     '&, &event': {
       color: '#3C4858',
       fontWeight: '700',
-      // fontFamily: '"Roboto Slab", "Times New Roman", serif',
       fontFamily: "'Work Sans', sans-serif",
       marginBottom: '25px',
       marginTop: '30px',

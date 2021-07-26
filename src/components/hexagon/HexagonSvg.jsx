@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
-import BuildSvg from '../../assets/images/hexagon/growth.svg'
+import DefaultSvg from '../../assets/images/hexagon/growth.svg'
+
 const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: '70px',
@@ -11,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     margin: '1rem',
   },
-  hexagonMB: {
+  hexagon: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
     backgroundColor: '#1895EF',
     height: '120px',
@@ -22,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       minWidth: '57px',
     },
   },
-  imageMB: {
+  imageMobileResponsive: {
     [theme.breakpoints.down('xs')]: {
       width: '30px',
       height: '30px',
@@ -31,25 +33,19 @@ const useStyles = makeStyles((theme) => ({
 }))
 const HexagonSvg = ({ svg }) => {
   const classes = useStyles()
-  // const customStyle = {
-  //   clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
-  //   backgroundColor: '#1895EF',
-  //   height: '120px',
-  //   width: '105px',
-  //   marginLeft: '2px',
-  // }
 
   return (
-    <>
-      {/* style={customStyle} */}
-      <Box className={`${classes.wrapIcon} ${classes.hexagonMB}`}>
-        <img className={classes.imageMB} src={svg} alt="" />
-      </Box>
-    </>
+    <Box className={`${classes.wrapIcon} ${classes.hexagon}`}>
+      <img className={classes.imageMobileResponsive} src={svg} alt="" />
+    </Box>
   )
 }
-// HexagonSvg.defaultProps = {
-//   svg: BuildSvg,
-// }
+HexagonSvg.defaultProps = {
+  svg: DefaultSvg,
+}
+
+HexagonSvg.propTypes = {
+  svg: PropTypes.string.isRequired,
+}
 
 export default HexagonSvg

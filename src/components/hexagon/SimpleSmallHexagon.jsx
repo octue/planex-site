@@ -1,6 +1,8 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
 import BackgroundImage from '../../assets/images/hexagon/Hero.png'
-import React from 'react'
+
 const useStyles = makeStyles((theme) => ({
   hexagonShapeParent: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
@@ -8,13 +10,8 @@ const useStyles = makeStyles((theme) => ({
     height: '80px',
     width: '70px',
     marginLeft: '2px',
-    // padding: '6px',
     display: 'flex',
     alignItems: 'center',
-    // [theme.breakpoints.down('xs')]: {
-    //   height: '85px',
-    //   width: '80px',
-    // },
   },
   hexagonShape: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
@@ -23,37 +20,36 @@ const useStyles = makeStyles((theme) => ({
     width: '65px',
     marginLeft: '2px',
     padding: '6px',
-
-    // [theme.breakpoints.down('xs')]: {
-    //   height: '80px',
-    //   width: '75px',
-    // },
   },
 }))
-const SimpleSmallHexagon = ({ bgHexagomImg, bgX, bgY, customStyle }) => {
+const SimpleSmallHexagon = ({ bgHexImg, bgX, bgY, customStyle }) => {
   const classes = useStyles()
   return (
-    <>
-      <Box className={customStyle}>
-        <Box className={classes.hexagonShapeParent}>
-          <Box
-            className={classes.hexagonShape}
-            style={{
-              backgroundImage: `url(${bgHexagomImg})`,
-              backgroundPositionX: bgX,
-              backgroundPositionY: bgY,
-            }}
-          ></Box>
-        </Box>
+    <Box className={customStyle}>
+      <Box className={classes.hexagonShapeParent}>
+        <Box
+          className={classes.hexagonShape}
+          style={{
+            backgroundImage: `url(${bgHexImg})`,
+            backgroundPositionX: bgX,
+            backgroundPositionY: bgY,
+          }}
+        ></Box>
       </Box>
-    </>
+    </Box>
   )
 }
 
 SimpleSmallHexagon.defaultProps = {
-  bgHexagomImg: BackgroundImage,
+  bgHexImg: BackgroundImage,
   bgX: '0%',
   bgY: '0%',
+}
+
+SimpleSmallHexagon.propTypes = {
+  bgHexImg: PropTypes.string.isRequired,
+  bgX: PropTypes.string,
+  bgY: PropTypes.string,
 }
 
 export default SimpleSmallHexagon

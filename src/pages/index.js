@@ -1,18 +1,10 @@
 import React from 'react'
 import { ThemeProvider } from '@material-ui/styles'
-import { Hero } from '../components/sections'
-import TimeToBuild from '../components/shuffle/TimeToBuild/TimeToBuild'
-import BuildWithTwined from '../components/shuffle/BuildWithTwined/BuildWithTwined'
-import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurther'
-import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
-import TheTeam from '../components/shuffle/TheTeam/TheTeam'
-import OurMission from '../components/shuffle/OurMission/OurMission'
 import { BasicPage, CallToAction } from '../containers'
 import { darkTheme } from '../themes'
-import HexagonSection from '../components/sectionelements/sectionwithhexagon/HexagonSection'
+import MianPageHexagonSection from '../components/sectionelements/sectionwithhexagon/MianPageHexagonSection'
 import SvgHexagonSection from '../components/sectionelements/singlehexagonsection/SvgHexagonSection'
 import HeroSection from '../components/sectionelements/herosection/HeroSection'
-
 import { graphql, useStaticQuery } from 'gatsby'
 import HelpSection from '../components/sectionelements/helpsection/HelpSection'
 import JoinSection from '../components/sectionelements/joinsection/JoinSection'
@@ -56,7 +48,7 @@ export default function Index({ location }) {
           Image={imageData}
         />
       </ThemeProvider>
-      <HexagonSection />
+      <MianPageHexagonSection />
       <SvgHexagonSection />
       <HelpSection />
       <PartnerSection />
@@ -65,12 +57,6 @@ export default function Index({ location }) {
           'So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks.'
         }
       />
-      {/* <TimeToBuild />
-      <BuildWithTwined />
-      <TakeWorkFurther />
-      <HereToHelp />
-      <TheTeam />
-      <OurMission /> */}
     </BasicPage>
   )
 }

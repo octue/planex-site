@@ -1,7 +1,9 @@
-import { Box, makeStyles } from '@material-ui/core'
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Box, makeStyles } from '@material-ui/core'
 import SimpleHexagon from './SimpleHexagon'
 import Img1 from '../../assets/images/hexagon/Hero.png'
+
 const useStyles = makeStyles((theme) => ({
   boxStyle: {
     display: 'flex',
@@ -28,16 +30,20 @@ const TripleHexagon = ({ image }) => {
   return (
     <>
       <Box className={classes.boxStyleMove}>
-        <SimpleHexagon bgHexagomImg={image} bgX="10%" bgY="20%" />
+        <SimpleHexagon bgHexImg={image} bgX="10%" bgY="20%" />
       </Box>
       <Box className={classes.boxStyle}>
-        <SimpleHexagon bgHexagomImg={image} bgX="30%" bgY="40%" />
-        <SimpleHexagon bgHexagomImg={image} bgX="40%" bgY="50%" />
+        <SimpleHexagon bgHexImg={image} bgX="30%" bgY="40%" />
+        <SimpleHexagon bgHexImg={image} bgX="40%" bgY="50%" />
       </Box>
     </>
   )
 }
 TripleHexagon.defaultProps = {
   image: Img1,
+}
+
+TripleHexagon.propTypes = {
+  image: PropTypes.string.isRequired,
 }
 export default TripleHexagon

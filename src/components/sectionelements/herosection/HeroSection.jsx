@@ -76,7 +76,7 @@ const HeroSection = ({ heading, description, Image }) => {
             className={classes.MainBox}
           >
             <Box display="flex">
-              <Typography variant="h1" component="h1" className={classes.title}>
+              <Typography variant="h1" component="h2" className={classes.title}>
                 {heading}
               </Typography>
             </Box>

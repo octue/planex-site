@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
-import BuildSvg from '../../assets/images/hexagon/growth.svg'
+
 const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: '50px',
@@ -29,13 +30,14 @@ const SmallHexagonSvg = ({ svg }) => {
   const classes = useStyles()
 
   return (
-    <>
-      {/* style={customStyle} */}
-      <Box className={`${classes.wrapIcon} ${classes.hexagonMB}`}>
-        <img className={classes.imageMB} src={svg} alt="" />
-      </Box>
-    </>
+    <Box className={`${classes.wrapIcon} ${classes.hexagonMB}`}>
+      <img className={classes.imageMB} src={svg} alt="" />
+    </Box>
   )
+}
+
+SmallHexagonSvg.propTypes = {
+  svg: PropTypes.string.isRequired,
 }
 
 export default SmallHexagonSvg
