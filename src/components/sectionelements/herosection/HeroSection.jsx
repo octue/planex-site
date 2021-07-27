@@ -2,9 +2,7 @@ import React from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core'
-import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 import { setCtaOpen } from '../../../containers/elements'
@@ -13,27 +11,37 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(0deg, #212121 0%, rgba(30, 34, 34, 0) 100%)',
-  },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '80px',
-    fontWeight: 400,
-    lineHeight: '88px',
-  },
-  description: {
-    color: theme.palette.text.secondary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-    // whiteSpace: 'pre-line',
   },
   cta: {
     display: 'flex',
     border: `2px solid ${theme.palette.text.secondary}`,
     paddingTop: `10px`,
     paddingBottom: `10px`,
+  },
+  gradient: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    top: '0px',
+    left: '0px',
+    zIndex: 1,
+    // TODO parameterise to use theme background color
+    background: `linear-gradient(
+      rgba(66, 66, 66, 0) 0%,
+      rgba(66, 66, 66, 0.002) 19%,
+      rgba(66, 66, 66, 0.008) 34%,
+      rgba(66, 66, 66, 0.021) 47%,
+      rgba(66, 66, 66, 0.042) 56.5%,
+      rgba(66, 66, 66, 0.075) 65%,
+      rgba(66, 66, 66, 0.126) 73%,
+      rgba(66, 66, 66, 0.194) 80.2%,
+      rgba(66, 66, 66, 0.278) 86.1%,
+      rgba(66, 66, 66, 0.382) 91%,
+      rgba(66, 66, 66, 0.541) 95.2%,
+      rgba(66, 66, 66, 0.738) 98.2%,
+      rgba(66, 66, 66, 1) 100%
+    )`,
+    zIndex: 5,
   },
   MainBox: {
     marginLeft: '90px',
@@ -55,7 +63,8 @@ const HeroSection = ({ heading, description, Image }) => {
   }
 
   return (
-    <Box component="section" height="825px">
+    <Box component="section" height="100vh">
+      <div className={classes.gradient} />
       <BackgroundImage
         Tag="div"
         fluid={Image}
@@ -63,7 +72,19 @@ const HeroSection = ({ heading, description, Image }) => {
           backgroundColor: theme.palette.background.paper,
           width: '100%',
           height: '100%',
+          position: 'absolute',
+          top: '0px',
+          left: '0px',
+          zIndex: 0,
         }}
+      />
+      <Box
+        zIndex={10}
+        height="100%"
+        width="100%"
+        position="absolute"
+        top="0px"
+        left="0px"
       >
         <Container maxWidth="xl" className={classes.container}>
           <Box
@@ -72,26 +93,23 @@ const HeroSection = ({ heading, description, Image }) => {
             justifyContent="flex-end"
             // alignItems="flex-start"
             height="100%"
+            zIndex={10}
             maxWidth="958px" // Places it to the left of center on larger screens
             className={classes.MainBox}
           >
             <Box display="flex">
-              <Typography variant="h1" component="h2" className={classes.title}>
+              <Typography variant="h1" color="textPrimary">
                 {heading}
               </Typography>
             </Box>
             <Box display="flex" pb={4} px={1}>
-              <Typography
-                variant="subtitle1"
-                component="h2"
-                className={classes.description}
-              >
+              <Typography variant="subtitle1" color="textSecondary">
                 {description}
               </Typography>
             </Box>
           </Box>
         </Container>
-      </BackgroundImage>
+      </Box>
     </Box>
   )
 }
