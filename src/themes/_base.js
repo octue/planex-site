@@ -78,6 +78,14 @@ const branding = {
  */
 const baseThemeOptions = {
   typography: {
+    // Used for big titles e.g. in Hero sections
+    h1: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '5rem', // Converted from '80px',
+      fontWeight: 400,
+      lineHeight: '5.5rem', // Converted from '88px',
+    },
     // This is labelled as h3 on the desktop figmas, h2 on the responsive ones. SIGH.
     h3: {
       fontFamily: "'Work Sans', sans-serif",
@@ -102,6 +110,14 @@ const baseThemeOptions = {
       fontSize: '1.125rem',
       lineHeight: '1.625rem',
       letterSpacing: '0.01rem',
+    },
+    // Used for Hero subtitles
+    subtitle1: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.5rem', // Converted from '24px',
+      fontWeight: 400,
+      lineHeight: '1.875rem', // Converted from '30px',
     },
     // Used for copyrights etc
     subtitle2: {
