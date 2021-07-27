@@ -31,11 +31,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '2rem',
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },

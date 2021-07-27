@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {

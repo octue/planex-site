@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
@@ -70,5 +72,9 @@ const SectionDetail = ({ heading, description, button, onClick }) => {
     </>
   )
 }
+
+SectionDetail.defaultProps = {}
+
+SectionDetail.propTypes = {}
 
 export default SectionDetail

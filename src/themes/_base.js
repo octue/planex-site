@@ -111,6 +111,14 @@ const baseThemeOptions = {
       fontStyle: 'normal',
       letterSpacing: '0.01rem',
     },
+
+    // Used For Description
+    subtitle: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontSize: '18px',
+      fontWeight: 300,
+      lineHeight: '26px',
+    },
   },
 
   props: {

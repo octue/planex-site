@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { CssBaseline, makeStyles, useTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -17,16 +17,13 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '235px',
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
   hexagonTitle: {
-    // width: '50%',
     maxWidth: '456px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -36,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '132px',
   },
   detailBox: {
-    // marginLeft: '2rem',
-    // width: '50%',
     maxWidth: '590px',
     marginLeft: '190px',
     [theme.breakpoints.down('sm')]: {
@@ -53,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '30px',
   },
   description: {
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
     fontSize: '18px',
     fontWeight: 300,
     lineHeight: '26px',
@@ -77,6 +72,7 @@ const AboutHexagonSection = () => {
   const theme = useTheme()
   return (
     <section className={classes.bgColor}>
+      <CssBaseline />
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
