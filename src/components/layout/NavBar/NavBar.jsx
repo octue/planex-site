@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
 function NavBar({ id, transparency, height, scrollTopData, children }) {
   const classes = useStyles()
   const theme = useTheme()
-  const scrollY = useScrollPosition(transparency ? 20 : 1) // fps
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const appBarClasses = classNames(classes.appBar, {
