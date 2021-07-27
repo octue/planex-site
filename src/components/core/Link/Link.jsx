@@ -46,6 +46,9 @@ const Link = forwardRef(
      * the prop name has to start with a capital letter. So a prop "MuiComponent"
      * can be used directly like <MuiComponent/> but prop "muiComponent" wouldn't
      * be renderable.
+     *
+     * Note from future future Tom to past future Tom. So why didn't you refactor
+     * the code to do that, then? I'm not going to do it now. I'm tired.
      */
     let clickableComponent
     if (componentType === 'button') {

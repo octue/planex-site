@@ -9,7 +9,7 @@ import Hidden from '@material-ui/core/Hidden'
 import Drawer from '@material-ui/core/Drawer'
 import Menu from '@material-ui/icons/Menu'
 import Close from '@material-ui/icons/Close'
-import useScrollPosition from '@react-hook/window-scroll'
+
 import { Link } from '../../core'
 
 const useStyles = makeStyles((theme) => ({
