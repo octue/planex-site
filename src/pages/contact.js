@@ -2,9 +2,11 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import BasicPage from '../containers/layout/BasicPage'
+import BackgroundImage from 'gatsby-background-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import { ThemeProvider } from '@material-ui/styles'
 import { ContactForm } from '../containers/forms'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { darkTheme } from '../themes'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -12,6 +14,7 @@ import SectionHeading from '../components/sectionelements/SectionHeading'
 import SectionDetail from '../components/sectionelements/SectionDetail'
 import Button from '@material-ui/core/Button'
 import Location from '../assets/images/hexagon/location.svg'
+
 const useStyles = makeStyles((theme) => ({
   bgColor: {
     backgroundColor: theme.palette.background.paper,
@@ -52,9 +55,12 @@ const useStyles = makeStyles((theme) => ({
   locationDescriptionBox: {
     // maxWidth: '342px',
     display: 'flex',
-    marginTop: '475px',
+    marginTop: '200px',
+    height: '800px',
+
     marginLeft: '90px',
     [theme.breakpoints.down('sm')]: {
+      height: '500px',
       marginTop: '180px',
       marginLeft: '0',
       flexDirection: 'column',
@@ -66,6 +72,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '24px',
     fontWeight: 400,
     lineHeight: '30px',
+  },
+  locationTitleBox: {
+    marginTop: '268px',
+    maxWidth: '268px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '0px',
+    },
   },
   cta: {
     display: 'flex',
@@ -81,14 +94,33 @@ const useStyles = makeStyles((theme) => ({
   },
   locationIcon: {
     marginLeft: '602px',
-    marginTop: '100px',
+    // marginTop: '100px',
+
     [theme.breakpoints.down('xs')]: {
+      marginTop: '150px',
       marginLeft: '140px',
     },
   },
 }))
 export default function Contact() {
   const classes = useStyles()
+  const theme = useTheme()
+  const data = useStaticQuery(
+    graphql`
+      query {
+        desktop: file(relativePath: { eq: "backgrounds/map.png" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `
+  )
+
+  const imageData = data.desktop.childImageSharp.fluid
+
   const footerProps = {
     kind: 'big',
   }
@@ -113,53 +145,62 @@ export default function Contact() {
         </Box>
 
         <Box className={classes.locationDescriptionBox}>
-          <Box>
-            <Typography
-              variant="h2"
-              component="h1"
-              className={classes.locationTitle}
-            >
-              Hauser Forum
-            </Typography>
-            <Typography
-              variant="h2"
-              component="h1"
-              className={classes.locationTitle}
-            >
-              3 Charles Babbage Road
-            </Typography>
-            <Typography
-              variant="h2"
-              component="h1"
-              className={classes.locationTitle}
-            >
-              Cambridge
-            </Typography>
-            <Typography
-              variant="h2"
-              component="h1"
-              className={classes.locationTitle}
-            >
-              United Kingdom
-            </Typography>
-            <Typography
-              variant="h2"
-              component="h1"
-              className={classes.locationTitle}
-            >
-              CB3 0GT
-            </Typography>
+          <BackgroundImage
+            Tag="div"
+            fluid={imageData}
+            style={{
+              backgroundColor: theme.palette.background.paper,
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            <Box className={classes.locationTitleBox}>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={classes.locationTitle}
+              >
+                Hauser Forum
+              </Typography>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={classes.locationTitle}
+              >
+                3 Charles Babbage Road
+              </Typography>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={classes.locationTitle}
+              >
+                Cambridge
+              </Typography>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={classes.locationTitle}
+              >
+                United Kingdom
+              </Typography>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={classes.locationTitle}
+              >
+                CB3 0GT
+              </Typography>
 
-            <Box display="flex" className={classes.btnBox}>
-              <Button className={classes.cta} variant="outlined">
-                Directions
-              </Button>
+              <Box display="flex" className={classes.btnBox}>
+                <Button className={classes.cta} variant="outlined">
+                  Directions
+                </Button>
+              </Box>
             </Box>
-          </Box>
-
-          <Box className={classes.locationIcon}>
-            <img src={Location} alt="" />
-          </Box>
+            <Box className={classes.locationIcon}>
+              <img src={Location} alt="" />
+            </Box>
+          </BackgroundImage>
         </Box>
 
         {/* </Container> */}
