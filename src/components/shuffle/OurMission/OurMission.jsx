@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -26,9 +26,7 @@ function OurMission() {
         relativePath: { eq: "stock/lars-kienle-r3pIy-3Xgmg-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 600)
         }
       }
     }
@@ -109,8 +107,8 @@ function OurMission() {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Img
-                fluid={data.blocks.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.blocks.childImageSharp.gatsbyImageData}
                 className={classes.image}
               />
             </Grid>

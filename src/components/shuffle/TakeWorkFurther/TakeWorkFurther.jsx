@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -54,36 +54,28 @@ function TakeWorkFurther() {
         relativePath: { eq: "stock/shutterstock_270258722.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 40, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 40, width: 600)
         }
       }
       topRightPanel: file(
         relativePath: { eq: "stock/vincent-ledvina-bD0sXSND4kA-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 600)
         }
       }
       bottomLeftPanel: file(
         relativePath: { eq: "stock/shutterstock_255586588.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 10, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 10, width: 600)
         }
       }
       bottomRightPanel: file(
         relativePath: { eq: "stock/shutterstock_230320042.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 10, width: 600)
         }
       }
     }
@@ -96,8 +88,8 @@ function TakeWorkFurther() {
             <Grid item xs={12} md={6} className={classes.imagesColumn}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={8}>
-                  <Img
-                    fluid={data.topLeftPanel.childImageSharp.fluid}
+                  <GatsbyImage
+                    image={data.topLeftPanel.childImageSharp.gatsbyImageData}
                     className={classes.mediaLarge}
                   />
                 </Grid>
@@ -107,8 +99,10 @@ function TakeWorkFurther() {
                       <Card className={classes.emptyCard} />
                     </Grid>
                     <Grid item xs={12}>
-                      <Img
-                        fluid={data.topRightPanel.childImageSharp.fluid}
+                      <GatsbyImage
+                        image={
+                          data.topRightPanel.childImageSharp.gatsbyImageData
+                        }
                         className={classes.media}
                       />
                     </Grid>
@@ -119,8 +113,10 @@ function TakeWorkFurther() {
                 <Grid item xs={12} md={4}>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
-                      <Img
-                        fluid={data.bottomLeftPanel.childImageSharp.fluid}
+                      <GatsbyImage
+                        image={
+                          data.bottomLeftPanel.childImageSharp.gatsbyImageData
+                        }
                         className={classes.media}
                       />
                     </Grid>
@@ -135,8 +131,10 @@ function TakeWorkFurther() {
                     height="100%"
                     className={classes.mediaLarge}
                   >
-                    <Img
-                      fluid={data.bottomRightPanel.childImageSharp.fluid}
+                    <GatsbyImage
+                      image={
+                        data.bottomRightPanel.childImageSharp.gatsbyImageData
+                      }
                       className={classes.fullHeight}
                     />
                   </Box>

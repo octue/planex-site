@@ -1,55 +1,47 @@
 import React from 'react'
-import { ThemeProvider } from '@material-ui/styles'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
-import { darkTheme } from '../themes'
 import MianPageHexagonSection from '../components/sectionelements/sectionwithhexagon/MianPageHexagonSection'
 import SvgHexagonSection from '../components/sectionelements/singlehexagonsection/SvgHexagonSection'
 import HeroSection from '../components/sectionelements/herosection/HeroSection'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import HelpSection from '../components/sectionelements/helpsection/HelpSection'
 import JoinSection from '../components/sectionelements/joinsection/JoinSection'
 import PartnerSection from '../components/sectionelements/partnersection/PartnerSection'
-import SEO from '../components/core/SEO'
 
-export default function Index({ location }) {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "backgrounds/img.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
+export const query = graphql`
+  query HomePageQuery {
+    page: datoCmsHomePage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
-    `
-  )
+      navbarTransparency
+      hero {
+        whatsThis {
+          value
+        }
+        image {
+          gatsbyImageData
+        }
+        heading
+        subheading
+      }
+    }
+  }
+`
 
-  const imageData = data.desktop.childImageSharp.fluid
-  const navBarProps = {
-    transparency: true,
-  }
-  const footerProps = {
-    kind: 'big',
-  }
+export default function Index({ location, data }) {
+  const navBarProps = { transparency: data.page.navbarTransparency }
 
   return (
-    <BasicPage
-      location={location}
-      navBarProps={navBarProps}
-      footerProps={footerProps}
-    >
-      <SEO pageMeta={{ title: 'Home' }} />
+    <BasicPage location={location} navBarProps={navBarProps}>
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <ThemeProvider theme={darkTheme}>
-        {/* <Hero /> */}
-        <HeroSection
-          heading={'Science to build on.'}
-          description={'Faster data groundwork. More time for science.'}
-          Image={imageData}
-        />
-      </ThemeProvider>
+      <HeroSection
+        heading={data.page.hero[0].heading}
+        description={data.page.hero[0].subheading}
+        imageData={data.page.hero[0].image.gatsbyImageData}
+      />
       <MianPageHexagonSection />
       <SvgHexagonSection />
       <HelpSection />

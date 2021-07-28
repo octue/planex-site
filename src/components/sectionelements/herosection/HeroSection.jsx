@@ -6,6 +6,8 @@ import Box from '@material-ui/core/Box'
 import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
 
+import PropTypes from 'prop-types'
+import { convertToBgImage } from 'gbimage-bridge'
 import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const HeroSection = ({ heading, description, Image }) => {
+const HeroSection = ({ heading, description, imageData }) => {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -63,12 +65,14 @@ const HeroSection = ({ heading, description, Image }) => {
     icon: null,
   }
 
+  const bgImage = convertToBgImage(imageData)
+  console.log('BGIMAGE', bgImage)
   return (
     <Box component="section" height="100vh">
       <div className={classes.gradient} />
       <BackgroundImage
         Tag="div"
-        fluid={Image}
+        {...bgImage}
         style={{
           backgroundColor: theme.palette.background.paper,
           width: '100%',
@@ -117,6 +121,10 @@ const HeroSection = ({ heading, description, Image }) => {
 
 HeroSection.defaultProps = {}
 
-HeroSection.propTypes = {}
+HeroSection.propTypes = {
+  heading: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imageData: PropTypes.object.isRequired,
+}
 
 export default HeroSection
