@@ -1,10 +1,3 @@
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle'
-// import AddCircleIcon from '@material-ui/icons/AddCircle'
-// import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
-// import PeopleIcon from '@material-ui/icons/People'
-// import ScatterPlotIcon from '@material-ui/icons/ScatterPlot'
-// import RssFeedIcon from '@material-ui/icons/RssFeed'
-import EmailIcon from '@material-ui/icons/Email'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import TwitterIcon from '@material-ui/icons/Twitter'
@@ -16,42 +9,6 @@ export const iubenda = {
 }
 
 export const nav = [
-  // {
-  //   href: '/press',
-  //   icon: RssFeedIcon,
-  //   text: 'Press',
-  //   style: 'link',
-  // },
-  // {
-  //   href: '/login',
-  //   icon: AccountCircleIcon,
-  //   text: 'Login / Register',
-  //   style: 'link',
-  // },
-  // {
-  //   href: '/beta',
-  //   icon: AddCircleIcon,
-  //   text: 'Register',
-  //   style: 'link',
-  // },
-  // {
-  //   href: '/about#mission',
-  //   icon: ScatterPlotIcon,
-  //   text: 'Register',
-  //   style: 'link',
-  // },
-  // {
-  //   href: '/about#testimonials',
-  //   icon: FormatQuoteIcon,
-  //   text: 'Register',
-  //   style: 'link',
-  // },
-  // {
-  //   href: '/about#faqs',
-  //   icon: PeopleIcon,
-  //   text: 'Register',
-  //   style: 'link',
-  // },
   {
     href: '/about',
     text: 'About',
@@ -79,22 +36,16 @@ export const nav = [
   },
   {
     href: '/contact',
-    // icon: EmailIcon,
     text: 'Contact',
     style: 'link',
   },
   {
     href: 'https://github.com/octue',
     kind: 'external',
-    text: 'Github',
+    text: 'GitHub',
+    icon: GitHubIcon,
     style: 'link',
   },
-  // {
-  //   href: 'https://github.com/octue',
-  //   kind: 'external',
-  //   icon: GitHubIcon,
-  //   style: 'icon',
-  // },
 ]
 
 export const footerItems = [

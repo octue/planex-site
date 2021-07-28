@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import BasicPage from '../containers/layout/BasicPage'
 
+import SEO from '../components/core/SEO'
 import { ContactForm } from '../containers/forms'
 
 export default function Contact() {
@@ -12,6 +13,7 @@ export default function Contact() {
 
   return (
     <BasicPage offset pt={6} pb={8} px={2} footerProps={footerProps}>
+      <SEO pageMeta={{ title: 'Contact' }} />
       <Container maxWidth="sm">
         <Typography gutterBottom variant="h4" color="primary">
           Contact Us

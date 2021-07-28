@@ -8,6 +8,7 @@ import JoinSection from '../components/sectionelements/joinsection/JoinSection'
 import AboutHexagonSection from '../components/sectionelements/sectionwithhexagon/AboutHexagonSection'
 import AboutSvgHexagonSection from '../components/sectionelements/singlehexagonsection/AboutSvgHexagonSection'
 import OurTeamSection from '../components/sectionelements/teamsection/OurTeamSection'
+import SEO from '../components/core/SEO'
 
 const About = ({ location }) => {
   const data = useStaticQuery(
@@ -38,6 +39,7 @@ const About = ({ location }) => {
       navBarProps={navBarProps}
       footerProps={footerProps}
     >
+      <SEO pageMeta={{ title: 'Page two' }} />
       <CallToAction />
       <ThemeProvider theme={darkTheme}>
         {/* <Hero /> */}

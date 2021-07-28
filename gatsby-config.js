@@ -1,30 +1,38 @@
 module.exports = {
   siteMetadata: {
-    title: `Octue`,
-    description: ``,
-    author: `@octue`,
+    author: 'Octue Ltd',
+    authorTwitterHandle: '@octue',
+    description: 'Making scientists 20x more effective',
+    image: 'src/assets/images/backgrounds/tinted-hex.jpg',
+    lang: 'en',
+    locale: 'en_EN',
+    siteName: 'Octue',
+    siteTwitterHandle: '@octue',
+    siteUrl: 'https://www.octue.com',
+    title: 'Octue',
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#3498db`,
-        display: `minimal-ui`,
-        icon: `src/assets/images/logos/octue/square-transparent-white.png`,
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#3498db',
+        display: 'minimal-ui',
+        icon: 'src/assets/images/logos/octue/square-transparent-white.png',
       },
     },
     // {
@@ -34,9 +42,9 @@ module.exports = {
     //     display: 'swap',
     //   },
     // },
-    `gatsby-theme-material-ui`,
+    'gatsby-theme-material-ui',
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
