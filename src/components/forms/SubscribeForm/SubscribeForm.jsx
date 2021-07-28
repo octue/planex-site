@@ -41,7 +41,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
 
   useEffect(() => {
     clearErrors()
-    Object.keys(apiErrors).map((key) => {
+    Object.keys(apiErrors).forEach((key) => {
       setError(key, {
         type: 'api',
         message: apiErrors[key],

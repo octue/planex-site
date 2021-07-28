@@ -9,7 +9,7 @@ import Hidden from '@material-ui/core/Hidden'
 import Drawer from '@material-ui/core/Drawer'
 import Menu from '@material-ui/icons/Menu'
 import Close from '@material-ui/icons/Close'
-import useScrollPosition from '@react-hook/window-scroll'
+
 import { Link } from '../../core'
 
 const useStyles = makeStyles((theme) => ({
@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
 function NavBar({ id, transparency, height, scrollTopData, children }) {
   const classes = useStyles()
   const theme = useTheme()
-  const scrollY = useScrollPosition(transparency ? 20 : 1) // fps
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const appBarClasses = classNames(classes.appBar, {
