@@ -18,16 +18,13 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '235px',
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
   hexagonTitle: {
-    // width: '50%',
     maxWidth: '456px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -37,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '132px',
   },
   detailBox: {
-    // marginLeft: '2rem',
-    // width: '50%',
     maxWidth: '590px',
     marginLeft: '190px',
     [theme.breakpoints.down('sm')]: {

@@ -2,20 +2,16 @@ import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import Consultans from '../../../assets/images/hexagon/consultans.svg'
-import Team from '../../../assets/images/hexagon/team.svg'
-import Engineers from '../../../assets/images/hexagon/engineers.svg'
-import Researchers from '../../../assets/images/hexagon/researchers.svg'
+
 import TeamImg from '../../../assets/images/team/tom-clark.jpg'
 import SectionHeading from '../SectionHeading'
-import SectionDetail from '../SectionDetail'
-import HexagonSvg from '../../hexagon/HexagonSvg'
+
 import SimpleHexagon from '../../hexagon/SimpleHexagon'
 import SectionDetailWithTwoHeading from '../SectionDetailWithTwoHeading'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -25,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
@@ -38,13 +33,12 @@ const useStyles = makeStyles((theme) => ({
   },
   hexagonBoxDescription: {
     width: '342px',
-    // marginTop: '10px',
     marginLeft: '14px',
   },
   titleBox: {
     marginBottom: '16px',
   },
-  hexagonMB: {
+  hexagonMobileResponsive: {
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
     },
@@ -75,7 +69,7 @@ const OurTeamSection = () => {
             <SectionHeading text="Our team" />
           </Box>
           <Box className={classes.ourTeamBox}>
-            <Box display="flex" className={classes.hexagonMB}>
+            <Box display="flex" className={classes.hexagonMobileResponsive}>
               <Box display="flex" className={classes.hexagonBox}>
                 <SimpleHexagon bgHexImg={TeamImg} bgX="50%" bgY="30%" />
                 <Box className={classes.hexagonBoxDescription}>
@@ -102,7 +96,7 @@ const OurTeamSection = () => {
             </Box>
             <Box
               display="flex"
-              className={`${classes.hexagonMB} ${classes.ourTeamSection}`}
+              className={`${classes.hexagonMobileResponsive} ${classes.ourTeamSection}`}
             >
               <Box display="flex" className={classes.hexagonBox}>
                 <SimpleHexagon bgHexImg={TeamImg} bgX="50%" bgY="30%" />
@@ -114,18 +108,6 @@ const OurTeamSection = () => {
                   />
                 </Box>
               </Box>
-              {/* <Box
-                display="flex"
-                className={`${classes.hexagonBox} ${classes.hexagonSecondSec}`}
-              >
-                <HexagonSvg svg={Researchers} />
-                <Box className={classes.hexagonBoxDescription}>
-                  <SectionDetail
-                    heading="Researchers."
-                    description="Get your data in shape to get going on your analysis."
-                  />
-                </Box>
-              </Box> */}
             </Box>
           </Box>
         </Box>

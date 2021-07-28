@@ -10,7 +10,7 @@ import FooterLinks from './FooterLinks'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   box: {
     display: `flex`,

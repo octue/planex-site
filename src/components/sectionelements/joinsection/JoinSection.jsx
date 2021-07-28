@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
@@ -6,15 +7,13 @@ import Box from '@material-ui/core/Box'
 import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
-import TripleHexagon from '../../hexagon/TripleHexagon'
-import SimpleHexagon from '../../hexagon/SimpleHexagon'
-import HexagonSvg from '../../hexagon/HexagonSvg'
 import Image1 from '../../../assets/images/hexagon/growth.svg'
 import SimpleSmallHexagon from '../../hexagon/SimpleSmallHexagon'
 import SmallHexagonSvg from '../../hexagon/SmallHexagonSvg'
+
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -25,11 +24,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
@@ -54,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
     },
   },
-  mbnone: {
+  mobileNone: {
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -80,11 +77,11 @@ const JoinSection = ({ description }) => {
               <SimpleSmallHexagon bgHexImg={Image} />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mbnone}
+                customStyle={classes.mobileNone}
               />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mbnone}
+                customStyle={classes.mobileNone}
               />
               <SimpleSmallHexagon bgHexImg={Image} />
               <SmallHexagonSvg svg={Image1} />
@@ -95,5 +92,9 @@ const JoinSection = ({ description }) => {
     </section>
   )
 }
+
+JoinSection.defaultProps = {}
+
+JoinSection.propTypes = {}
 
 export default JoinSection

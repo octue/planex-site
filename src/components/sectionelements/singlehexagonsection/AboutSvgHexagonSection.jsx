@@ -12,7 +12,7 @@ import HexagonSvg from '../../hexagon/HexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {

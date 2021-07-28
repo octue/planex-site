@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   titleBox: {
     marginBottom: '16px',
   },
-  hexagonMB: {
+  hexagonMobileResponsive: {
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
     },
@@ -63,7 +62,7 @@ const SvgHexagonSection = () => {
             <SectionHeading text="What will you build?" />
           </Box>
           <Box>
-            <Box display="flex" className={classes.hexagonMB}>
+            <Box display="flex" className={classes.hexagonMobileResponsive}>
               <Box display="flex" className={classes.hexagonBox}>
                 <HexagonSvg svg={Icon} />
                 <Box className={classes.hexagonBoxDescription}>
@@ -86,7 +85,7 @@ const SvgHexagonSection = () => {
                 </Box>
               </Box>
             </Box>
-            <Box display="flex" className={classes.hexagonMB}>
+            <Box display="flex" className={classes.hexagonMobileResponsive}>
               <Box display="flex" className={classes.hexagonBox}>
                 <HexagonSvg svg={Team} />
                 <Box className={classes.hexagonBoxDescription}>

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -99,5 +100,9 @@ const SectionDetailWithTwoHeading = ({
     </>
   )
 }
+
+SectionDetailWithTwoHeading.defaultProps = {}
+
+SectionDetailWithTwoHeading.propTypes = {}
 
 export default SectionDetailWithTwoHeading

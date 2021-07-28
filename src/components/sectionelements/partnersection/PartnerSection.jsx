@@ -20,16 +20,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
   partnerTitle: {
-    // width: '30%',
     maxWidth: '429px',
     paddingTop: '30px',
     marginRight: '190px',
@@ -38,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logoBox: {
-    // marginTop: '2rem',
     display: 'flex',
     justifyContent: 'space-evenly',
   },
@@ -49,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
     },
   },
-  mbnone: {
+  mobileNone: {
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -71,20 +67,26 @@ const PartnerSection = () => {
               <PartnerLogo partnersvg={AerosenseWhite} />
               <PartnerLogo partnersvg={CarbonTrustWhite} />
               <PartnerLogo partnersvg={OstWhite} />
-              <PartnerLogo partnersvg={OstWhite} customStyle={classes.mbnone} />
+              <PartnerLogo
+                partnersvg={OstWhite}
+                customStyle={classes.mobileNone}
+              />
               <PartnerLogo
                 partnersvg={CarbonTrustWhite}
-                customStyle={classes.mbnone}
+                customStyle={classes.mobileNone}
               />
             </Box>
             <Box className={classes.logoBox}>
               <PartnerLogo partnersvg={AerosenseWhite} />
               <PartnerLogo partnersvg={InnovateUkWhite} />
               <PartnerLogo partnersvg={CarbonTrustWhite} />
-              <PartnerLogo partnersvg={OstWhite} customStyle={classes.mbnone} />
+              <PartnerLogo
+                partnersvg={OstWhite}
+                customStyle={classes.mobileNone}
+              />
               <PartnerLogo
                 partnersvg={CarbonTrustWhite}
-                customStyle={classes.mbnone}
+                customStyle={classes.mobileNone}
               />
             </Box>
           </Box>

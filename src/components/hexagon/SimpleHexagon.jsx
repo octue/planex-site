@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     height: '130px',
     width: '115px',
     marginLeft: '2px',
-    // padding: '6px',
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
