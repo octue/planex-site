@@ -3,7 +3,6 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 import { convertToBgImage } from 'gbimage-bridge'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
 import BasicPage from '../containers/layout/BasicPage'
 import BackgroundImage from 'gatsby-background-image'
 import { ThemeProvider } from '@material-ui/styles'
@@ -13,7 +12,6 @@ import Box from '@material-ui/core/Box'
 import { darkTheme } from '../themes'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import SectionHeading from '../components/sectionelements/SectionHeading'
-import SectionDetail from '../components/sectionelements/SectionDetail'
 import Button from '@material-ui/core/Button'
 import Location from '../assets/images/hexagon/location.svg'
 
@@ -105,7 +103,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
 export const query = graphql`
   query ContactPageQuery {
     page: datoCmsContactPage {
@@ -115,6 +112,8 @@ export const query = graphql`
       mapImage {
         gatsbyImageData
       }
+      heading
+      subheading
     }
   }
 `
@@ -123,8 +122,8 @@ export default function Contact({ data }) {
   const classes = useStyles()
   const theme = useTheme()
 
-  const bgImage = convertToBgImage(data.page.hero[0].image.gatsbyImageData)
-  
+  const bgImage = convertToBgImage(data.page.mapImage.gatsbyImageData)
+
   return (
     <BasicPage offset pt={6} pb={8} px={2}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
