@@ -8,9 +8,11 @@ module.exports = {
     locale: 'en_EN',
     siteName: 'Octue',
     siteTwitterHandle: '@octue',
+    siteUrl: 'https://www.octue.com',
     title: 'Octue',
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
