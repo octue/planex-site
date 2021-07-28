@@ -7,31 +7,22 @@ const useStyles = makeStyles((theme) => ({
   hexagonShapeParent: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
     backgroundColor: '#fff',
-    height: '130px',
-    width: '115px',
+    height: '80px',
+    width: '70px',
     marginLeft: '2px',
-    // padding: '6px',
     display: 'flex',
     alignItems: 'center',
-    [theme.breakpoints.down('xs')]: {
-      height: '85px',
-      width: '80px',
-    },
   },
   hexagonShape: {
     clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
     backgroundColor: '#fff',
-    height: '125px',
-    width: '110px',
+    height: '75px',
+    width: '65px',
     marginLeft: '2px',
     padding: '6px',
-    [theme.breakpoints.down('xs')]: {
-      height: '80px',
-      width: '75px',
-    },
   },
 }))
-const SimpleHexagon = ({ bgHexImg, bgX, bgY, customStyle }) => {
+const SimpleSmallHexagon = ({ bgHexImg, bgX, bgY, customStyle }) => {
   const classes = useStyles()
   return (
     <Box className={customStyle}>
@@ -49,16 +40,16 @@ const SimpleHexagon = ({ bgHexImg, bgX, bgY, customStyle }) => {
   )
 }
 
-SimpleHexagon.defaultProps = {
+SimpleSmallHexagon.defaultProps = {
   bgHexImg: BackgroundImage,
   bgX: '0%',
   bgY: '0%',
 }
 
-SimpleHexagon.propTypes = {
+SimpleSmallHexagon.propTypes = {
   bgHexImg: PropTypes.string.isRequired,
   bgX: PropTypes.string,
   bgY: PropTypes.string,
 }
 
-export default SimpleHexagon
+export default SimpleSmallHexagon

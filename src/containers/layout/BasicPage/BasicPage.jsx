@@ -35,7 +35,7 @@ function BasicPage({
             <NavItems />
           </NavBar>
         </ThemeProvider>
-        <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={darkTheme}>
           <Main
             offset={offset}
             height="100%"
