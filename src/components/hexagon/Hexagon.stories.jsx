@@ -5,6 +5,7 @@ import MultipleHexagonWithImage from './MultipleHexagonWithImage'
 import BuildSvg from '../../assets/images/hexagon/growth.svg'
 import TripleHexagon from './TripleHexagon'
 import SimpleSmallHexagon from './SimpleSmallHexagon'
+import ReverseMultipleHexagonWithImage from './ReverseMultipleHexagonWithImage'
 export default {
   title: 'Hexagon',
   component: SimpleHexagon,
@@ -32,6 +33,14 @@ export const MultipleHexagonImage = () => {
   return (
     <>
       <MultipleHexagonWithImage />
+    </>
+  )
+}
+
+export const ReverseMultipleHexagonImage = () => {
+  return (
+    <>
+      <ReverseMultipleHexagonWithImage />
     </>
   )
 }

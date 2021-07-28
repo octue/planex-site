@@ -103,6 +103,14 @@ const baseThemeOptions = {
       lineHeight: '1.625rem',
       letterSpacing: '0.01rem',
     },
+    // Used for Hero subtitles
+    subtitle1: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.5rem', // Converted from '24px',
+      fontWeight: 400,
+      lineHeight: '1.875rem', // Converted from '30px',
+    },
     // Used for copyrights etc
     subtitle2: {
       fontSize: '0.75rem',
@@ -110,14 +118,6 @@ const baseThemeOptions = {
       fontFamily: "'Work Sans', sans-serif",
       fontStyle: 'normal',
       letterSpacing: '0.01rem',
-    },
-
-    // Used For Description
-    subtitle: {
-      fontFamily: "'Work Sans', sans-serif",
-      fontSize: '18px',
-      fontWeight: 300,
-      lineHeight: '26px',
     },
   },
 

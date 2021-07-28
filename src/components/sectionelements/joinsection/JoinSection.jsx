@@ -13,7 +13,7 @@ import SmallHexagonSvg from '../../hexagon/SmallHexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',

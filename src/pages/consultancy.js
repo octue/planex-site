@@ -9,8 +9,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import HelpSection from '../components/sectionelements/helpsection/HelpSection'
 import JoinSection from '../components/sectionelements/joinsection/JoinSection'
 import PartnerSection from '../components/sectionelements/partnersection/PartnerSection'
+import StrategyHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/StrategyHexagonSection'
+import { CssBaseline } from '@material-ui/core'
+import DigitalHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/DigitalHexagonSection'
+import DataServicesHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/DataServicesHexagonSection'
+import SupportHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/SupportHexagonSection'
 
-export default function Index({ location }) {
+export default function Consultancy({ location }) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -41,13 +46,19 @@ export default function Index({ location }) {
     >
       <CallToAction />
       <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
         {/* <Hero /> */}
         <HeroSection
           heading={'Solve data dilemmas.'}
           description={'Inject extra strategic and tactical expertise.'}
           Image={imageData}
         />
+        {/* <ConsultancyHexagonSection /> */}
       </ThemeProvider>
+      <StrategyHexagonSection />
+      <DigitalHexagonSection />
+      <DataServicesHexagonSection />
+      <SupportHexagonSection />
     </BasicPage>
   )
 }

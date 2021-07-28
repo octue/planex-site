@@ -16,20 +16,20 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     background: 'linear-gradient(0deg, #212121 0%, rgba(30, 34, 34, 0) 100%)',
   },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '80px',
-    fontWeight: 400,
-    lineHeight: '88px',
-  },
-  description: {
-    color: theme.palette.text.secondary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-    // whiteSpace: 'pre-line',
-  },
+  // title: {
+  //   display: 'flex',
+  //   color: theme.palette.text.primary,
+  //   fontSize: '80px',
+  //   fontWeight: 400,
+  //   lineHeight: '88px',
+  // },
+  // description: {
+  //   color: theme.palette.text.secondary,
+  //   fontSize: '24px',
+  //   fontWeight: 400,
+  //   lineHeight: '30px',
+  //   // whiteSpace: 'pre-line',
+  // },
   cta: {
     display: 'flex',
     border: `2px solid ${theme.palette.text.secondary}`,
@@ -77,16 +77,12 @@ const HeroSection = ({ heading, description, Image }) => {
             className={classes.MainBox}
           >
             <Box display="flex">
-              <Typography variant="h1" component="h2" className={classes.title}>
+              <Typography variant="h1" color="textPrimary">
                 {heading}
               </Typography>
             </Box>
             <Box display="flex" pb={4} px={1}>
-              <Typography
-                variant="subtitle1"
-                component="h2"
-                className={classes.description}
-              >
+              <Typography variant="subtitle1" color="textSecondary">
                 {description}
               </Typography>
             </Box>

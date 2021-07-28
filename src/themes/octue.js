@@ -32,9 +32,7 @@ const darkThemeOptions = {
       secondary: '#fff', // TODO Review this change from the default of 'rgba(255, 255, 255, 0.7)',
     },
     background: {
-
       paper: '#424242',
-
       default: '#212121',
     },
   },
