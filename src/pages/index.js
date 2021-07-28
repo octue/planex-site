@@ -8,6 +8,7 @@ import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurth
 import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
 import TheTeam from '../components/shuffle/TheTeam/TheTeam'
 import OurMission from '../components/shuffle/OurMission/OurMission'
+import SEO from '../components/core/SEO'
 import { BasicPage, CallToAction } from '../containers'
 import { darkTheme } from '../themes'
 
@@ -25,6 +26,7 @@ export default function Index({ location }) {
       navBarProps={navBarProps}
       footerProps={footerProps}
     >
+      <SEO pageMeta={{ title: 'Home' }} />
       <CallToAction />
       <ThemeProvider theme={darkTheme}>
         <Hero />
