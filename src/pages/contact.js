@@ -5,6 +5,8 @@ import BasicPage from '../containers/layout/BasicPage'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ThemeProvider } from '@material-ui/styles'
+
+import SEO from '../components/core/SEO'
 import { ContactForm } from '../containers/forms'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -205,6 +207,16 @@ export default function Contact() {
 
         {/* </Container> */}
       </ThemeProvider>
+      <SEO pageMeta={{ title: 'Contact' }} />
+      <Container maxWidth="sm">
+        <Typography gutterBottom variant="h4" color="primary">
+          Contact Us
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          Drop us a message, we'd love to hear what you're working on...
+        </Typography>
+        <ContactForm />
+      </Container>
     </BasicPage>
   )
 }

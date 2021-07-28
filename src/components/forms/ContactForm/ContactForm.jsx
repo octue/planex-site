@@ -63,7 +63,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
   // Clear the form error state then set any errors from the API on the form state
   useEffect(() => {
     clearErrors()
-    Object.keys(apiErrors).map((key) => {
+    Object.keys(apiErrors).forEach((key) => {
       setError(key, {
         type: 'api',
         message: apiErrors[key],

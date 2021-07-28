@@ -17,7 +17,7 @@ function BaseToastable({ location, children }) {
     if (search) {
       const { toasts, ...otherQueries } = queryString.parse(search)
       const toastKeys = toasts ? toasts.split(',') : []
-      toastKeys.map((toastKey) => {
+      toastKeys.forEach((toastKey) => {
         if (toastMessages[toastKey]) {
           enqueueSnackbar(...toastMessages[toastKey])
         } else {
@@ -31,7 +31,7 @@ function BaseToastable({ location, children }) {
         })
       )
     }
-  }, [search, pathname])
+  }, [search, pathname, enqueueSnackbar])
 
   return <>{children}</>
 }

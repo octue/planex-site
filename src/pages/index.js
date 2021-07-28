@@ -9,6 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import HelpSection from '../components/sectionelements/helpsection/HelpSection'
 import JoinSection from '../components/sectionelements/joinsection/JoinSection'
 import PartnerSection from '../components/sectionelements/partnersection/PartnerSection'
+import SEO from '../components/core/SEO'
 
 export default function Index({ location }) {
   const data = useStaticQuery(
@@ -39,6 +40,7 @@ export default function Index({ location }) {
       navBarProps={navBarProps}
       footerProps={footerProps}
     >
+      <SEO pageMeta={{ title: 'Home' }} />
       <CallToAction />
       <ThemeProvider theme={darkTheme}>
         {/* <Hero /> */}
