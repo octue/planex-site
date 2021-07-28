@@ -57,7 +57,7 @@ function SEO({ pageMeta }) {
       meta={[
         {
           name: 'description',
-          content: metaDescription,
+          content: description,
         },
         {
           name: 'author',
