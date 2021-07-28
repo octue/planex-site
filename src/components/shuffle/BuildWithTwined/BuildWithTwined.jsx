@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
+
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -26,9 +27,7 @@ function BuildWithTwined() {
         relativePath: { eq: "stock/tobias-fischer-PkbZahEG2Ng-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 600)
         }
       }
     }

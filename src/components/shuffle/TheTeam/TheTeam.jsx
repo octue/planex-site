@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -23,23 +23,17 @@ function TheTeam() {
     query {
       defaultAvatar: file(relativePath: { eq: "avatars/default-avatar.png" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 300) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 300)
         }
       }
       tomClark: file(relativePath: { eq: "team/tom-clark.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 300) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 300)
         }
       }
       andyClifton: file(relativePath: { eq: "team/andy-clifton.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 300) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(quality: 90, width: 300)
         }
       }
     }
@@ -70,8 +64,8 @@ function TheTeam() {
           </Box>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={6} md={3}>
-              <Img
-                fluid={data.tomClark.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.tomClark.childImageSharp.gatsbyImageData}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -89,8 +83,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Img
-                fluid={data.defaultAvatar.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.defaultAvatar.childImageSharp.gatsbyImageData}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -108,8 +102,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Img
-                fluid={data.andyClifton.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.andyClifton.childImageSharp.gatsbyImageData}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">
@@ -127,8 +121,8 @@ function TheTeam() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <Img
-                fluid={data.defaultAvatar.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.defaultAvatar.childImageSharp.gatsbyImageData}
                 className={classes.avatar}
               />
               <Box display="flex" justifyContent="space-between">

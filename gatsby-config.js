@@ -21,8 +21,26 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-datocms',
+      options: {
+        apiToken: '74e15e9320d5d32663d6512a069d03',
+        // The project environment to read from. Defaults to the primary environment:
+        environment: 'main',
+        // If you are working on development/staging environment, you might want to
+        // preview the latest version of records instead of the published one:
+        previewMode: false,
+        // Disable automatic reloading of content when some change occurs on DatoCMS:
+        disableLiveReload: false,
+        // Setup locale fallbacks
+        localeFallbacks: {
+          de: ['en'],
+        },
+      },
+    },
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -42,7 +60,7 @@ module.exports = {
         fonts: [`Work Sans\:300,400,500,500i`, `Open Sans\:400`],
       },
     },
- 
+
     'gatsby-theme-material-ui',
 
     {
