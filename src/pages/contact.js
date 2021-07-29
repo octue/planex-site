@@ -112,6 +112,8 @@ export const query = graphql`
       mapImage {
         gatsbyImageData
       }
+      heading
+      subheading
     }
   }
 `

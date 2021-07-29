@@ -4,9 +4,8 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
-
-import PropTypes from 'prop-types'
 import { convertToBgImage } from 'gbimage-bridge'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles((theme) => ({
   container: {
