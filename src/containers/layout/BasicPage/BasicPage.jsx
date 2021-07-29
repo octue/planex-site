@@ -24,7 +24,6 @@ function BasicPage({
   offset,
   ...rest
 }) {
-  // Overrideing react-perfect-scrollbar
   const [scrollTopData, setScrollTopData] = useState(0)
   return (
     <>
@@ -34,8 +33,6 @@ function BasicPage({
           <NavBar {...navBarProps} scrollTopData={scrollTopData}>
             <NavItems />
           </NavBar>
-        </ThemeProvider>
-        <ThemeProvider theme={darkTheme}>
           <Main
             offset={offset}
             height="100%"
@@ -47,9 +44,7 @@ function BasicPage({
               {children}
             </Box>
             <Box>
-              <ThemeProvider theme={darkTheme}>
-                <Footer {...footerProps} />
-              </ThemeProvider>
+              <Footer {...footerProps} />
             </Box>
           </Main>
         </ThemeProvider>

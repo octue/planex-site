@@ -1,12 +1,12 @@
 import React from 'react'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
+import { graphql } from 'gatsby'
+import { convertToBgImage } from 'gbimage-bridge'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import BasicPage from '../containers/layout/BasicPage'
 import BackgroundImage from 'gatsby-background-image'
-import { graphql, useStaticQuery } from 'gatsby'
 import { ThemeProvider } from '@material-ui/styles'
-
-import SEO from '../components/core/SEO'
 import { ContactForm } from '../containers/forms'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -103,42 +103,37 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
-export default function Contact() {
+
+export const query = graphql`
+  query ContactPageQuery {
+    page: datoCmsContactPage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      mapImage {
+        gatsbyImageData
+      }
+    }
+  }
+`
+export default function Contact({ data }) {
   const classes = useStyles()
   const theme = useTheme()
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "backgrounds/map.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `
-  )
 
-  const imageData = data.desktop.childImageSharp.fluid
-
-  const footerProps = {
-    kind: 'big',
-  }
-
+  const bgImage = convertToBgImage(data.page.hero[0].image.gatsbyImageData)
   return (
-    <BasicPage offset pt={6} pb={8} px={2} footerProps={footerProps}>
+    <BasicPage offset pt={6} pb={8} px={2}>
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        {/* <Container maxWidth="sm"> */}
         <Box className={classes.contactTitleBox}>
           <Typography variant="h1" component="h2" className={classes.title}>
-            Drop us a message.
+            {data.page.heading}
           </Typography>
         </Box>
         <Box display="flex" className={classes.contactFormBox}>
           <Box className={classes.contactSubTitle}>
-            <SectionHeading text="We’d love to hear what you’re working on." />
+            <SectionHeading text={data.page.subheading} />
           </Box>
           <Box className={classes.formBox}>
             <ContactForm />
@@ -148,7 +143,7 @@ export default function Contact() {
         <Box className={classes.locationDescriptionBox}>
           <BackgroundImage
             Tag="div"
-            fluid={imageData}
+            {...bgImage}
             style={{
               backgroundColor: theme.palette.background.paper,
               width: '100%',
@@ -183,19 +178,7 @@ export default function Contact() {
             </Box>
           </BackgroundImage>
         </Box>
-
-        {/* </Container> */}
       </ThemeProvider>
-      <SEO pageMeta={{ title: 'Contact' }} />
-      <Container maxWidth="sm">
-        <Typography gutterBottom variant="h4" color="primary">
-          Contact Us
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          Drop us a message, we'd love to hear what you're working on...
-        </Typography>
-        <ContactForm />
-      </Container>
     </BasicPage>
   )
 }
