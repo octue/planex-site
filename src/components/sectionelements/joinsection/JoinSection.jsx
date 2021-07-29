@@ -75,11 +75,11 @@ const JoinSection = ({ description }) => {
               <SimpleSmallHexagon bgHexImg={Image} />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mobileNone}
+                className={classes.mobileNone}
               />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mobileNone}
+                className={classes.mobileNone}
               />
               <SimpleSmallHexagon bgHexImg={Image} />
               <SmallHexagonSvg svg={Image1} />

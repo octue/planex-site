@@ -108,7 +108,7 @@ const DataServicesHexagonSection = () => {
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
             <Box>
-              <SectionHeading text="Digital twins" />
+              <SectionHeading text="Data services" />
             </Box>
           </Box>
           <Box className={classes.HexagonDetailBox}>

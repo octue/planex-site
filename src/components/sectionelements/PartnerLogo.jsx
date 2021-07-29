@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core'
-import DefaultSvg from '../../assets/images/logos/partners/aerosense-white.svg'
 
 const useStyles = makeStyles((theme) => ({
   logoImg: {
@@ -22,9 +21,7 @@ const PartnerLogo = ({ partnersvg, customStyle }) => {
   )
 }
 
-PartnerLogo.defaultProps = {
-  partnersvg: DefaultSvg,
-}
+PartnerLogo.defaultProps = {}
 
 PartnerLogo.propTypes = {
   partnersvg: PropTypes.string.isRequired,

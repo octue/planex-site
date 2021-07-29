@@ -7,7 +7,6 @@ import BackgroundImage from 'gatsby-background-image'
 
 import PropTypes from 'prop-types'
 import { convertToBgImage } from 'gbimage-bridge'
-import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -56,13 +55,6 @@ const useStyles = makeStyles((theme) => ({
 const HeroSection = ({ heading, description, imageData }) => {
   const classes = useStyles()
   const theme = useTheme()
-
-  const ctaData = {
-    text: "Let's build something together",
-    kind: 'site',
-    href: '/about/',
-    icon: null,
-  }
 
   const bgImage = convertToBgImage(imageData)
   console.log('BGIMAGE', bgImage)
@@ -121,9 +113,9 @@ const HeroSection = ({ heading, description, imageData }) => {
 HeroSection.defaultProps = {}
 
 HeroSection.propTypes = {
-  heading: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  imageData: PropTypes.object.isRequired,
+  heading: PropTypes.string,
+  description: PropTypes.string,
+  imageData: PropTypes.object,
 }
 
 export default HeroSection

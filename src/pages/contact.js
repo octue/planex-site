@@ -3,7 +3,6 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 import { convertToBgImage } from 'gbimage-bridge'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
 import BasicPage from '../containers/layout/BasicPage'
 import BackgroundImage from 'gatsby-background-image'
 import { ThemeProvider } from '@material-ui/styles'
@@ -120,7 +119,7 @@ export default function Contact({ data }) {
   const classes = useStyles()
   const theme = useTheme()
 
-  const bgImage = convertToBgImage(data.page.hero[0].image.gatsbyImageData)
+  const bgImage = convertToBgImage(data.page?.hero?.[0].image.gatsbyImageData)
   return (
     <BasicPage offset pt={6} pb={8} px={2}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
