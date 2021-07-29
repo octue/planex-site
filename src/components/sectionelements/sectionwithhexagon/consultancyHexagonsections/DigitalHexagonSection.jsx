@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssBaseline, makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button'
 import Image from '../../../../assets/images/hexagon/Hero4.png'
 import SectionHeading from '../../SectionHeading'
 import MultipleHexagonWithImage from '../../../hexagon/MultipleHexagonWithImage'
-import ReverseMultipleHexagonImage from '../../../../components/hexagon/ReverseMultipleHexagonWithImage'
 import BackgroundImage from 'gatsby-background-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -63,13 +62,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
       marginTop: '10px',
     },
-  },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
   },
   description: {
     color: theme.palette.text.secondary,
@@ -194,11 +186,7 @@ const DigitalHexagonSection = () => {
                 >
                   <Box p={3}>
                     <Box pb={2}>
-                      <Typography
-                        variant="h2"
-                        component="h2"
-                        className={classes.title}
-                      >
+                      <Typography variant="subtitle1" color="textPrimary">
                         £26M/yr
                       </Typography>
                     </Box>

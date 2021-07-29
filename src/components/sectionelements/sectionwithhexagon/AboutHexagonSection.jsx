@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssBaseline, makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -40,13 +40,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
     },
   },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-  },
   description: {
     color: theme.palette.text.secondary,
     fontSize: '18px',
@@ -69,10 +62,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 const AboutHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
-      <CssBaseline />
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>

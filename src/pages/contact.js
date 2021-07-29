@@ -117,13 +117,11 @@ export const query = graphql`
     }
   }
 `
-
 export default function Contact({ data }) {
   const classes = useStyles()
   const theme = useTheme()
-
   const bgImage = convertToBgImage(data.page.mapImage.gatsbyImageData)
-
+  
   return (
     <BasicPage offset pt={6} pb={8} px={2}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
@@ -154,39 +152,19 @@ export default function Contact({ data }) {
             }}
           >
             <Box className={classes.locationTitleBox}>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 Hauser Forum
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 3 Charles Babbage Road
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 Cambridge
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 United Kingdom
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 CB3 0GT
               </Typography>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
@@ -10,7 +10,7 @@ import TripleHexagon from '../../hexagon/TripleHexagon'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
+    fontFamily: "'Work Sans', sans-serif",
     fontSize: '18px',
     fontWeight: 400,
     lineHeight: '24px',
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 const HelpSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
+
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>

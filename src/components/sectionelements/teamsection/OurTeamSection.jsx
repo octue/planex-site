@@ -1,11 +1,9 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-
 import TeamImg from '../../../assets/images/team/tom-clark.jpg'
 import SectionHeading from '../SectionHeading'
-
 import SimpleHexagon from '../../hexagon/SimpleHexagon'
 import SectionDetailWithTwoHeading from '../SectionDetailWithTwoHeading'
 
@@ -60,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
 
 const OurTeamSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>

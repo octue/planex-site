@@ -1,17 +1,16 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Image from '../../../assets/images/hexagon/Hero.png'
 import SectionHeading from '../SectionHeading'
-import SectionDetail from '../SectionDetail'
 import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -41,13 +40,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
     },
   },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-  },
   description: {
     color: theme.palette.text.secondary,
     fontSize: '18px',
@@ -70,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const MianPageHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -86,11 +77,7 @@ const MianPageHexagonSection = () => {
           <Box className={classes.detailBox}>
             <Box>
               <Box display="flex" className={classes.titleBox}>
-                <Typography
-                  variant="h2"
-                  component="h1"
-                  className={classes.title}
-                >
+                <Typography variant="subtitle1" color="textPrimary">
                   You don't need to be a materials scientist to build a LEGO®
                   model.
                 </Typography>
