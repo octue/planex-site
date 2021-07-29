@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssBaseline, makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
@@ -7,7 +7,6 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Image from '../../../../assets/images/hexagon/Hero5.png'
 import SectionHeading from '../../SectionHeading'
-import MultipleHexagonWithImage from '../../../hexagon/MultipleHexagonWithImage'
 import ReverseMultipleHexagonImage from '../../../../components/hexagon/ReverseMultipleHexagonWithImage'
 
 const useStyles = makeStyles((theme) => ({
@@ -94,7 +93,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const StrategyHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   const descriptionTitleBox = classNames(
     classes.description,
     classes.descriptionTitle

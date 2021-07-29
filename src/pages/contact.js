@@ -13,7 +13,6 @@ import Box from '@material-ui/core/Box'
 import { darkTheme } from '../themes'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import SectionHeading from '../components/sectionelements/SectionHeading'
-import SectionDetail from '../components/sectionelements/SectionDetail'
 import Button from '@material-ui/core/Button'
 import Location from '../assets/images/hexagon/location.svg'
 
@@ -157,39 +156,19 @@ export default function Contact() {
             }}
           >
             <Box className={classes.locationTitleBox}>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 Hauser Forum
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 3 Charles Babbage Road
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 Cambridge
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 United Kingdom
               </Typography>
-              <Typography
-                variant="h2"
-                component="h1"
-                className={classes.locationTitle}
-              >
+              <Typography variant="subtitle1" color="textPrimary">
                 CB3 0GT
               </Typography>
 

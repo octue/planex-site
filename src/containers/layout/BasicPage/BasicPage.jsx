@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
 import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
-import { lightTheme, darkTheme } from '../../../themes'
+import { darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
 import CookieBar from '../../../components/elements/CookieBar'
 

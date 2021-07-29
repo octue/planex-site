@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Consultans from '../../../assets/images/hexagon/consultans.svg'
@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const AboutSvgHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>

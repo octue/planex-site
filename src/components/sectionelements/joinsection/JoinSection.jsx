@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, useTheme } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Image from '../../../assets/images/hexagon/Hero2.png'
@@ -60,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 
 const JoinSection = ({ description }) => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -95,6 +93,8 @@ const JoinSection = ({ description }) => {
 
 JoinSection.defaultProps = {}
 
-JoinSection.propTypes = {}
+JoinSection.propTypes = {
+  description: PropTypes.string,
+}
 
 export default JoinSection

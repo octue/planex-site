@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Button from '@material-ui/core/Button'
-import SendIcon from '@material-ui/icons/Send'
 import Box from '@material-ui/core/Box'
 import * as Yup from 'yup'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import SectionHeading from '../SectionHeading'
@@ -10,7 +10,7 @@ import InnovateUkWhite from '../../../assets/images/logos/partners/innovate-uk-w
 import OstWhite from '../../../assets/images/logos/partners/ost-white.svg'
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PartnerSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
+
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>

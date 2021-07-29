@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -8,13 +8,6 @@ import Button from '@material-ui/core/Button'
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
-  },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
   },
   description: {
     color: theme.palette.text.secondary,
@@ -38,12 +31,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 const SectionDetail = ({ heading, description, button, onClick }) => {
   const classes = useStyles()
-  const theme = useTheme()
+
   return (
     <>
       <Box>
         <Box display="flex" className={classes.titleBox}>
-          <Typography variant="h2" component="h1" className={classes.title}>
+          <Typography variant="subtitle1" color="textPrimary">
             {heading}
           </Typography>
         </Box>
@@ -75,6 +68,9 @@ const SectionDetail = ({ heading, description, button, onClick }) => {
 
 SectionDetail.defaultProps = {}
 
-SectionDetail.propTypes = {}
+SectionDetail.propTypes = {
+  heading: PropTypes.string,
+  description: PropTypes.string,
+}
 
 export default SectionDetail

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import DefaultSvg from '../../assets/images/logos/partners/aerosense-white.svg'
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 const PartnerLogo = ({ partnersvg, customStyle }) => {
   const classes = useStyles()
-  const theme = useTheme()
+
   return (
     <Box className={customStyle}>
       <img src={partnersvg} alt="logo" className={classes.logoImg} />

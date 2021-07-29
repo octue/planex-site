@@ -121,7 +121,7 @@ SEO.propTypes = {
     author: PropTypes.string,
     authorTwitterHandle: PropTypes.string,
     description: PropTypes.string,
-    image: PropTypes.url,
+    image: PropTypes.string,
     lang: PropTypes.string,
     locale: PropTypes.string,
     title: PropTypes.string,

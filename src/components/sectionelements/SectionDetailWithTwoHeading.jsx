@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { Link } from '../core/Link'
@@ -62,7 +62,6 @@ const SectionDetailWithTwoHeading = ({
   description,
 }) => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <>
       <Box>
@@ -103,6 +102,10 @@ const SectionDetailWithTwoHeading = ({
 
 SectionDetailWithTwoHeading.defaultProps = {}
 
-SectionDetailWithTwoHeading.propTypes = {}
+SectionDetailWithTwoHeading.propTypes = {
+  headingOne: PropTypes.string,
+  headingTwo: PropTypes.string,
+  description: PropTypes.string,
+}
 
 export default SectionDetailWithTwoHeading

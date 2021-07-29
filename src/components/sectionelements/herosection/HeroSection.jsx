@@ -1,12 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
-
-import { setCtaOpen } from '../../../containers/elements'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -55,13 +52,6 @@ const useStyles = makeStyles((theme) => ({
 const HeroSection = ({ heading, description, Image }) => {
   const classes = useStyles()
   const theme = useTheme()
-
-  const ctaData = {
-    text: "Let's build something together",
-    kind: 'site',
-    href: '/about/',
-    icon: null,
-  }
 
   return (
     <Box component="section" height="100vh">

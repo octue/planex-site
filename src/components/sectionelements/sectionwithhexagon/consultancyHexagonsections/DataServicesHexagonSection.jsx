@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssBaseline, makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
@@ -97,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const DataServicesHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
 
   const descriptionTitleBox = classNames(
     classes.description,
