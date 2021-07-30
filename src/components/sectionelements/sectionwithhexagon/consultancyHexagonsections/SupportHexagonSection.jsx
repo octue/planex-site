@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -63,20 +62,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '10px',
     },
   },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-  },
-  description: {
-    color: theme.palette.text.secondary,
-    fontSize: '18px',
-    fontWeight: 300,
-    lineHeight: '26px',
-    // whiteSpace: 'pre-line',
-  },
   descriptionTitle: {
     fontWeight: 400,
   },
@@ -100,10 +85,6 @@ const useStyles = makeStyles((theme) => ({
 const SupportHexagonSection = () => {
   const classes = useStyles()
 
-  const descriptionTitleBox = classNames(
-    classes.description,
-    classes.descriptionTitle
-  )
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -126,18 +107,19 @@ const SupportHexagonSection = () => {
               </Box>
               <Box display="flex">
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={descriptionTitleBox}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                  className={classes.descriptionTitle}
                 >
                   Flexi-expertise on tap
                 </Typography>
               </Box>
               <Box display="flex" pb={2}>
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
                 >
                   You’ve built some data services, but they need to evolve to
                   meet changing needs. Your data analysts need some extra help
@@ -147,18 +129,19 @@ const SupportHexagonSection = () => {
               </Box>
               <Box display="flex">
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={descriptionTitleBox}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                  className={classes.descriptionTitle}
                 >
                   How to begin
                 </Typography>
               </Box>
               <Box display="flex" pb={2}>
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
                 >
                   If we’ve not worked together before, the best place to start
                   is with a code review, to develop a roadmap to where you need

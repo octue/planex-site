@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -63,13 +62,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '10px',
     },
   },
-  description: {
-    color: theme.palette.text.secondary,
-    fontSize: '18px',
-    fontWeight: 300,
-    lineHeight: '26px',
-    // whiteSpace: 'pre-line',
-  },
   descriptionTitle: {
     fontWeight: 400,
   },
@@ -110,10 +102,6 @@ const DigitalHexagonSection = () => {
 
   const imageData = data.desktop.childImageSharp.fluid
 
-  const descriptionTitleBox = classNames(
-    classes.description,
-    classes.descriptionTitle
-  )
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -135,18 +123,19 @@ const DigitalHexagonSection = () => {
               </Box>
               <Box display="flex">
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={descriptionTitleBox}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                  className={classes.descriptionTitle}
                 >
                   Now answer your ‘what-if?
                 </Typography>
               </Box>
               <Box display="flex" pb={2}>
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
                 >
                   Use digital twins for decision support and optimisation of
                   asset design, installation and maintenance - or you can sell a
@@ -155,18 +144,19 @@ const DigitalHexagonSection = () => {
               </Box>
               <Box display="flex">
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={descriptionTitleBox}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                  className={classes.descriptionTitle}
                 >
                   How to begin
                 </Typography>
               </Box>
               <Box display="flex" pb={2}>
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
                 >
                   Successful digital twinning projects always start small. We’ll
                   help you choose one key pain point for your business and
@@ -191,9 +181,9 @@ const DigitalHexagonSection = () => {
                       </Typography>
                     </Box>
                     <Typography
-                      variant="subtitle1"
-                      component="h2"
-                      className={classes.description}
+                      variant="body1"
+                      color="textSecondary"
+                      component="span"
                     >
                       That’s how much a typical 600MW Offshore Wind Farm could
                       save in operations and maintenance costs (15%) with

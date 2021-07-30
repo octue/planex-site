@@ -106,7 +106,7 @@ const baseThemeOptions = {
     // Used for most body text. Ag="body"
     body1: {
       fontFamily: "'Work Sans', sans-serif",
-      fontWeight: 400,
+      fontWeight: 300,
       fontSize: '1.125rem',
       lineHeight: '1.625rem',
       letterSpacing: '0.01rem',
