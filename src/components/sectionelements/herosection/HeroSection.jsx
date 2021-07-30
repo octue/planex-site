@@ -56,7 +56,7 @@ const HeroSection = ({ heading, description, imageData }) => {
   const theme = useTheme()
 
   const bgImage = convertToBgImage(imageData)
-  console.log('BGIMAGE', bgImage)
+
   return (
     <Box component="section" height="100vh">
       <div className={classes.gradient} />
