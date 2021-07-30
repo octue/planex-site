@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Button from '@material-ui/core/Button'
+import SendIcon from '@material-ui/icons/Send'
 import Box from '@material-ui/core/Box'
 import * as Yup from 'yup'
 
@@ -24,8 +25,6 @@ const schema = Yup.object().shape({
 const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
-    color: 'white',
-    backgroundColor: '#9E9E9E',
   },
   progressSpacer: {
     paddingTop: theme.spacing(1.5),
@@ -33,22 +32,6 @@ const useStyles = makeStyles((theme) => ({
   progress: {
     height: theme.spacing(0.5),
     marginBottom: `${theme.spacing(1)}px`,
-  },
-  textFieldBox: {
-    backgroundColor: '#FFFFFF',
-    marginBottom: '16px',
-    width: '590px',
-    borderRadius: '4px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
-    paddingBottom: '8px',
-    [theme.breakpoints.down('sm')]: {
-      width: '320px',
-    },
-  },
-
-  notchedOutline: {
-    borderColor: '#FFFFFF !important',
   },
 }))
 
@@ -96,110 +79,65 @@ export default ({ onSubmit, apiErrors, submitting }) => {
         <LinearProgress color="primary" className={classes.progress} />
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box className={classes.textFieldBox}>
-          <TextField
-            // autoFocus - jsx-a11y says this hurts usability and accessibility
-            defaultValue=""
-            disabled={submitting}
-            error={hasError['firstName']}
-            fullWidth
-            helperText={helperText['firstName']}
-            id="firstName"
-            inputRef={register}
-            // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
-            label="First Name *"
-            margin="normal"
-            name="firstName"
-            variant="outlined"
-            InputLabelProps={{
-              style: { color: 'gray' },
-            }}
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-              style: { color: 'gray' },
-            }}
-          />
-        </Box>
-        <Box className={classes.textFieldBox}>
-          <TextField
-            defaultValue=""
-            disabled={submitting}
-            error={hasError['lastName']}
-            fullWidth
-            helperText={helperText['lastName']}
-            id="lastName"
-            inputRef={register}
-            // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
-            label="Last Name *"
-            margin="normal"
-            name="lastName"
-            variant="outlined"
-            InputLabelProps={{
-              style: { color: 'gray' },
-            }}
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-              style: { color: 'gray' },
-            }}
-          />
-        </Box>
-        <Box className={classes.textFieldBox}>
-          <TextField
-            defaultValue=""
-            disabled={submitting}
-            error={hasError['email']}
-            fullWidth
-            helperText={helperText['email']}
-            id="email"
-            inputRef={register}
-            // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
-            label="Email *"
-            margin="normal"
-            name="email"
-            variant="outlined"
-            InputLabelProps={{
-              style: { color: 'gray' },
-            }}
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-              style: { color: 'gray' },
-            }}
-          />
-        </Box>
-        <Box className={classes.textFieldBox}>
-          <TextField
-            defaultValue=""
-            disabled={submitting}
-            error={hasError['message']}
-            fullWidth
-            helperText={helperText['message']}
-            id="message"
-            inputRef={register}
-            // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
-            label="Message *"
-            margin="normal"
-            multiline
-            name="message"
-            rows={6}
-            variant="outlined"
-            InputLabelProps={{
-              style: { color: 'gray' },
-            }}
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-              style: { color: 'gray' },
-            }}
-          />
-        </Box>
-
+        <TextField
+          // autoFocus - jsx-a11y says this hurts usability and accessibility
+          defaultValue=""
+          disabled={submitting}
+          error={hasError['firstName']}
+          fullWidth
+          helperText={helperText['firstName']}
+          id="firstName"
+          inputRef={register}
+          // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
+          label="First Name *"
+          margin="normal"
+          name="firstName"
+          variant="outlined"
+        />
+        <TextField
+          defaultValue=""
+          disabled={submitting}
+          error={hasError['lastName']}
+          fullWidth
+          helperText={helperText['lastName']}
+          id="lastName"
+          inputRef={register}
+          // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
+          label="Last Name *"
+          margin="normal"
+          name="lastName"
+          variant="outlined"
+        />
+        <TextField
+          defaultValue=""
+          disabled={submitting}
+          error={hasError['email']}
+          fullWidth
+          helperText={helperText['email']}
+          id="email"
+          inputRef={register}
+          // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
+          label="Email *"
+          margin="normal"
+          name="email"
+          variant="outlined"
+        />
+        <TextField
+          defaultValue=""
+          disabled={submitting}
+          error={hasError['message']}
+          fullWidth
+          helperText={helperText['message']}
+          id="message"
+          inputRef={register}
+          // Note - use the * in the label rather than the `required` prop to stop browser validation from kicking in, in favour of our formatted validation
+          label="Message *"
+          margin="normal"
+          multiline
+          name="message"
+          rows={6}
+          variant="outlined"
+        />
         <Typography color="error" variant="subtitle2">
           {helperText.nonFieldErrors}
         </Typography>
@@ -207,7 +145,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
           width="100%"
           display="flex"
           flexDirection="row"
-          justifyContent="flex-start"
+          justifyContent="flex-end"
         >
           <Button
             className={classes.button}
@@ -216,8 +154,8 @@ export default ({ onSubmit, apiErrors, submitting }) => {
             // TODO next version of MUI has a <LoadingButton> in the lab which will add a spinner and disable this nicely
             // pending={submitting}
             // pendingPosition="start"
-            // endIcon={<SendIcon />}
-            // color="primary"
+            endIcon={<SendIcon />}
+            color="primary"
             size="large"
             type="submit"
           >
