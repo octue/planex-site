@@ -121,7 +121,7 @@ export default function Contact({ data }) {
   const classes = useStyles()
   const theme = useTheme()
 
-  const bgImage = convertToBgImage(data.page?.hero?.[0].image.gatsbyImageData)
+  const bgImage = convertToBgImage(data.page.mapImage.gatsbyImageData)
   return (
     <BasicPage offset pt={6} pb={8} px={2}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
