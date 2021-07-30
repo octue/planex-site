@@ -10,8 +10,12 @@ const BackgroundImg = () => {
     <>
       <Box component="section" height="100vh">
         <BackgroundImage
-          Tag="div"
+          Tag="div"          
           fluid={BgImage}
+          /* See https://github.com/timhagn/gatsby-background-image/issues/142
+           * for why these styles are applied here.
+           * Unlike a dynamic react site, this shouldn't be a performance issue.
+           */
           style={{
             backgroundColor: theme.palette.background.paper,
             width: '100%',
