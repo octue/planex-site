@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '6px',
   },
 }))
-const SimpleSmallHexagon = ({ bgHexImg, bgX, bgY, customStyle }) => {
+const SimpleSmallHexagon = ({ bgHexImg, bgX, bgY, className }) => {
   const classes = useStyles()
   return (
-    <Box className={customStyle}>
+    <Box className={className}>
       <Box className={classes.hexagonShapeParent}>
         <Box
           className={classes.hexagonShape}

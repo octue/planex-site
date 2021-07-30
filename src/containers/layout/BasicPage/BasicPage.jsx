@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
 import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
-import { lightTheme, darkTheme } from '../../../themes'
+import { darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
 import CookieBar from '../../../components/elements/CookieBar'
 
@@ -24,7 +24,6 @@ function BasicPage({
   offset,
   ...rest
 }) {
-  // Overrideing react-perfect-scrollbar
   const [scrollTopData, setScrollTopData] = useState(0)
   return (
     <>
@@ -34,8 +33,6 @@ function BasicPage({
           <NavBar {...navBarProps} scrollTopData={scrollTopData}>
             <NavItems />
           </NavBar>
-        </ThemeProvider>
-        <ThemeProvider theme={darkTheme}>
           <Main
             offset={offset}
             height="100%"
@@ -47,9 +44,7 @@ function BasicPage({
               {children}
             </Box>
             <Box>
-              <ThemeProvider theme={darkTheme}>
-                <Footer {...footerProps} />
-              </ThemeProvider>
+              <Footer {...footerProps} />
             </Box>
           </Main>
         </ThemeProvider>

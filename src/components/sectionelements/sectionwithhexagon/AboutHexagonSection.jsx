@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -10,23 +10,20 @@ import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
     paddingTop: '235px',
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
   hexagonTitle: {
-    // width: '50%',
     maxWidth: '456px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -36,21 +33,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '132px',
   },
   detailBox: {
-    // marginLeft: '2rem',
-    // width: '50%',
     maxWidth: '590px',
     marginLeft: '190px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
     },
-  },
-  title: {
-    display: 'flex',
-    color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
   },
   description: {
     color: theme.palette.text.secondary,
@@ -74,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const AboutHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -90,11 +77,7 @@ const AboutHexagonSection = () => {
           <Box className={classes.detailBox}>
             <Box>
               <Box display="flex" className={classes.titleBox}>
-                <Typography
-                  variant="h2"
-                  component="h1"
-                  className={classes.title}
-                >
+                <Typography variant="subtitle1" color="textPrimary">
                   Data was always at the heart of a scientist’s work. Today,
                   computers carry out sophisticated analysis for us at speed –
                   but at a price. Most scientists have to code in order to draw

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Growth from '../../../assets/images/hexagon/growth.svg'
@@ -12,7 +12,7 @@ import HexagonSvg from '../../hexagon/HexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   titleBox: {
     marginBottom: '16px',
   },
-  hexagonMB: {
+  hexagonMobileResponsive: {
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
     },
@@ -54,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const SvgHexagonSection = () => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -63,7 +61,7 @@ const SvgHexagonSection = () => {
             <SectionHeading text="What will you build?" />
           </Box>
           <Box>
-            <Box display="flex" className={classes.hexagonMB}>
+            <Box display="flex" className={classes.hexagonMobileResponsive}>
               <Box display="flex" className={classes.hexagonBox}>
                 <HexagonSvg svg={Icon} />
                 <Box className={classes.hexagonBoxDescription}>
@@ -86,7 +84,7 @@ const SvgHexagonSection = () => {
                 </Box>
               </Box>
             </Box>
-            <Box display="flex" className={classes.hexagonMB}>
+            <Box display="flex" className={classes.hexagonMobileResponsive}>
               <Box display="flex" className={classes.hexagonBox}>
                 <HexagonSvg svg={Team} />
                 <Box className={classes.hexagonBoxDescription}>

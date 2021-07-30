@@ -1,20 +1,18 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
-import TripleHexagon from '../../hexagon/TripleHexagon'
-import SimpleHexagon from '../../hexagon/SimpleHexagon'
-import HexagonSvg from '../../hexagon/HexagonSvg'
 import Image1 from '../../../assets/images/hexagon/growth.svg'
 import SimpleSmallHexagon from '../../hexagon/SimpleSmallHexagon'
 import SmallHexagonSvg from '../../hexagon/SmallHexagonSvg'
+
 const useStyles = makeStyles((theme) => ({
   bgColor: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     height: '100%',
@@ -25,11 +23,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    // padding: '1rem 1rem',
     marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      // padding: '0',
       marginLeft: '0',
     },
   },
@@ -54,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '0.1rem',
     },
   },
-  mbnone: {
+  mobileNone: {
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -63,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 
 const JoinSection = ({ description }) => {
   const classes = useStyles()
-  const theme = useTheme()
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -80,11 +75,11 @@ const JoinSection = ({ description }) => {
               <SimpleSmallHexagon bgHexImg={Image} />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mbnone}
+                className={classes.mobileNone}
               />
               <SimpleSmallHexagon
                 bgHexImg={Image}
-                customStyle={classes.mbnone}
+                className={classes.mobileNone}
               />
               <SimpleSmallHexagon bgHexImg={Image} />
               <SmallHexagonSvg svg={Image1} />
@@ -94,6 +89,12 @@ const JoinSection = ({ description }) => {
       </Container>
     </section>
   )
+}
+
+JoinSection.defaultProps = {}
+
+JoinSection.propTypes = {
+  description: PropTypes.string,
 }
 
 export default JoinSection

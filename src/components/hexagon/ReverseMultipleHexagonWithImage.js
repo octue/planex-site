@@ -2,31 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
 import SimpleHexagon from './SimpleHexagon'
-import DefaultImg from '../../assets/images/hexagon/Hero.png'
+import Img1 from '../../assets/images/hexagon/Hero.png'
 
 const useStyles = makeStyles((theme) => ({
   boxStyle: {
     display: 'flex',
     marginTop: '-30px',
     [theme.breakpoints.down('xs')]: {
-      marginTop: '-17px',
+      marginTop: '-18px',
     },
   },
   boxStyleMove: {
     display: 'flex',
     marginLeft: '175px',
     [theme.breakpoints.down('xs')]: {
-      marginLeft: '120px',
+      marginLeft: '122px',
+      marginTop: '-23px',
     },
   },
 }))
-
-const TripleHexagon = ({ image }) => {
+const ReverseMultipleHexagonWithImage = ({ image }) => {
   const classes = useStyles()
   return (
     <>
       <Box className={classes.boxStyleMove}>
         <SimpleHexagon bgHexImg={image} bgX="10%" bgY="20%" />
+        <SimpleHexagon bgHexImg={image} bgX="20%" bgY="30%" />
       </Box>
       <Box className={classes.boxStyle}>
         <SimpleHexagon bgHexImg={image} bgX="30%" bgY="40%" />
@@ -35,11 +36,12 @@ const TripleHexagon = ({ image }) => {
     </>
   )
 }
-TripleHexagon.defaultProps = {
-  image: DefaultImg,
+
+ReverseMultipleHexagonWithImage.defaultProps = {
+  image: Img1,
 }
 
-TripleHexagon.propTypes = {
+ReverseMultipleHexagonWithImage.propTypes = {
   image: PropTypes.string.isRequired,
 }
-export default TripleHexagon
+export default ReverseMultipleHexagonWithImage

@@ -1,52 +1,45 @@
 import React from 'react'
-import { ThemeProvider } from '@material-ui/styles'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
-import { darkTheme } from '../themes'
 import HeroSection from '../components/sectionelements/herosection/HeroSection'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import JoinSection from '../components/sectionelements/joinsection/JoinSection'
 import AboutHexagonSection from '../components/sectionelements/sectionwithhexagon/AboutHexagonSection'
 import AboutSvgHexagonSection from '../components/sectionelements/singlehexagonsection/AboutSvgHexagonSection'
 import OurTeamSection from '../components/sectionelements/teamsection/OurTeamSection'
 
-const About = ({ location }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "backgrounds/about.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
+export const query = graphql`
+  query AboutPageQuery {
+    page: datoCmsAboutPage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
-    `
-  )
-
-  const imageData = data.desktop.childImageSharp.fluid
-  const navBarProps = {
-    transparency: true,
+      navbarTransparency
+      hero {
+        whatsThis {
+          value
+        }
+        image {
+          gatsbyImageData
+        }
+        heading
+        subheading
+      }
+    }
   }
-  const footerProps = {
-    kind: 'big',
-  }
+`
 
+const About = ({ location, data }) => {
+  const navBarProps = { transparency: data.page.navbarTransparency }
   return (
-    <BasicPage
-      location={location}
-      navBarProps={navBarProps}
-      footerProps={footerProps}
-    >
+    <BasicPage location={location} navBarProps={navBarProps}>
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <ThemeProvider theme={darkTheme}>
-        {/* <Hero /> */}
-        <HeroSection
-          heading={'The climate can’t wait.'}
-          description={`That's why we're a non-profit.`}
-          Image={imageData}
-        />
-      </ThemeProvider>
+      <HeroSection
+        heading={data.page.hero[0].heading}
+        description={data.page.hero[0].subheading}
+        imageData={data.page.hero[0].image.gatsbyImageData}
+      />
       <AboutHexagonSection />
       <AboutSvgHexagonSection />
       <OurTeamSection />
