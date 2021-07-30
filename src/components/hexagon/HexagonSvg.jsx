@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { Box, makeStyles } from '@material-ui/core'
 import DefaultSvg from '../../assets/images/hexagon/growth.svg'
 
@@ -33,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 const HexagonSvg = ({ svg }) => {
   const classes = useStyles()
-
+  const hexBox = classNames(classes.wrapIcon, classes.hexagon)
   return (
-    <Box className={`${classes.wrapIcon} ${classes.hexagon}`}>
+    <Box className={hexBox}>
       <img className={classes.imageMobileResponsive} src={svg} alt="" />
     </Box>
   )

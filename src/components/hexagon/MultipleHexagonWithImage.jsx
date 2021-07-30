@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
 import SimpleHexagon from './SimpleHexagon'
 import Img1 from '../../assets/images/hexagon/Hero.png'
+
 const useStyles = makeStyles((theme) => ({
   boxStyle: {
     display: 'flex',
@@ -12,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '175px',
     marginTop: '-30px',
     [theme.breakpoints.down('xs')]: {
-      marginLeft: '130px',
-      marginTop: '-23px',
+      marginLeft: '126px',
+      marginTop: '-21px',
     },
   },
 }))

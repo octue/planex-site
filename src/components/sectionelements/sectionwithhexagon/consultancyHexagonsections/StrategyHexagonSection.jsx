@@ -4,9 +4,9 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
-import Image from '../../../assets/images/hexagon/Hero.png'
-import SectionHeading from '../SectionHeading'
-import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
+import Image from '../../../../assets/images/hexagon/Hero5.png'
+import SectionHeading from '../../SectionHeading'
+import ReverseMultipleHexagonImage from '../../../../components/hexagon/ReverseMultipleHexagonWithImage'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -15,37 +15,53 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
     paddingTop: '235px',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '188px',
+    },
   },
   parentBox: {
     marginLeft: '60px',
+    maxheight: '434px',
+    flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       marginLeft: '0',
     },
   },
   hexagonTitle: {
-    maxWidth: '456px',
+    // maxWidth: '456px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+    },
+  },
+  HexagonDetailBox: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column-reverse',
+      marginLeft: '0',
     },
   },
   hexagonBox: {
     marginTop: '132px',
+    maxWidth: '434px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '50px',
+    },
   },
+
   detailBox: {
+    // display: 'flex',
+    marginTop: '-40px',
     maxWidth: '590px',
-    marginLeft: '190px',
+    marginLeft: '221px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
+      marginTop: '10px',
     },
   },
-  description: {
-    color: theme.palette.text.secondary,
-    fontSize: '18px',
-    fontWeight: 300,
-    lineHeight: '26px',
-    // whiteSpace: 'pre-line',
+  descriptionTitle: {
+    fontWeight: 400,
   },
   cta: {
     display: 'flex',
@@ -57,10 +73,10 @@ const useStyles = makeStyles((theme) => ({
     // marginTop: '24px',
   },
   titleBox: {
-    marginBottom: '10px',
+    marginBottom: '32px',
   },
 }))
-const MianPageHexagonSection = () => {
+const StrategyHexagonSection = () => {
   const classes = useStyles()
   return (
     <section className={classes.bgColor}>
@@ -68,46 +84,46 @@ const MianPageHexagonSection = () => {
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
             <Box>
-              <SectionHeading text="Be 20x more constructive" />
-            </Box>
-            <Box className={classes.hexagonBox}>
-              <MultipleHexagonWithImage image={Image} />
+              <SectionHeading text="Strategy" />
             </Box>
           </Box>
-          <Box className={classes.detailBox}>
-            <Box>
+          <Box className={classes.HexagonDetailBox}>
+            <Box className={classes.hexagonBox}>
+              <ReverseMultipleHexagonImage image={Image} />
+            </Box>
+            <Box className={classes.detailBox}>
               <Box display="flex" className={classes.titleBox}>
                 <Typography variant="subtitle1" color="textPrimary">
-                  You don't need to be a materials scientist to build a LEGO®
-                  model.
+                  It’s time to master and maximise data. If you’re managing lots
+                  of scientific data and analyses, change your business model to
+                  offer these as services - or improve your processes to make
+                  them consistent, reduce risk and cost.
                 </Typography>
               </Box>
-              <Box display="flex" pb={3}>
+              <Box display="flex">
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                  className={classes.descriptionTitle}
                 >
-                  So why should someone modelling climate or energy systems need
-                  to be an expert coder? Yet scientists waste 95% of their day
-                  [Source:McKinsey] being general programmers, API architects
-                  and DevOps engineers.
+                  How to begin
                 </Typography>
               </Box>
               <Box display="flex" pb={4}>
                 <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
                 >
-                  Our solution: a framework of open-source tools to create,
-                  connect, exchange and reuse analysis building blocks.
+                  A small package of work to understand your commercial needs
+                  and outline a system to tackle them.
                 </Typography>
               </Box>
 
               <Box display="flex" className={classes.btnBox}>
                 <Button className={classes.cta} variant="outlined">
-                  The mission
+                  Let's connect
                 </Button>
               </Box>
             </Box>
@@ -118,4 +134,4 @@ const MianPageHexagonSection = () => {
   )
 }
 
-export default MianPageHexagonSection
+export default StrategyHexagonSection

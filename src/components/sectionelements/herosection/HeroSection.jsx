@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
-
-import { setCtaOpen } from '../../../containers/elements'
+import { convertToBgImage } from 'gbimage-bridge'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -51,23 +51,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const HeroSection = ({ heading, description, Image }) => {
+const HeroSection = ({ heading, description, imageData }) => {
   const classes = useStyles()
   const theme = useTheme()
 
-  const ctaData = {
-    text: "Let's build something together",
-    kind: 'site',
-    href: '/about/',
-    icon: null,
-  }
+  const bgImage = convertToBgImage(imageData)
 
   return (
     <Box component="section" height="100vh">
       <div className={classes.gradient} />
       <BackgroundImage
         Tag="div"
-        fluid={Image}
+        {...bgImage}
         style={{
           backgroundColor: theme.palette.background.paper,
           width: '100%',
@@ -112,6 +107,14 @@ const HeroSection = ({ heading, description, Image }) => {
       </Box>
     </Box>
   )
+}
+
+HeroSection.defaultProps = {}
+
+HeroSection.propTypes = {
+  heading: PropTypes.string,
+  description: PropTypes.string,
+  imageData: PropTypes.object,
 }
 
 export default HeroSection
