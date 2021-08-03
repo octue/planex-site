@@ -8,6 +8,7 @@ import JoinSection from './joinsection/JoinSection'
 import PartnerLogo from './PartnerLogo'
 import AerosenseWhite from '../../assets/images/logos/partners/aerosense-white.svg'
 import PartnerSection from './partnersection/PartnerSection'
+import ArticlesCard from './ArticlesCard'
 
 export default {
   title: 'SectionElements',
@@ -78,6 +79,14 @@ export const PartnerWithSection = () => {
   return (
     <>
       <PartnerSection />
+    </>
+  )
+}
+
+export const ArticlesCardDetail = () => {
+  return (
+    <>
+      <ArticlesCard />
     </>
   )
 }
