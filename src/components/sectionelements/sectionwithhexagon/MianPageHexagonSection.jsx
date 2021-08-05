@@ -4,9 +4,13 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
-import Image from '../../../assets/images/hexagon/Hero.png'
+import Image1 from '../../../assets/images/hexagon/Hero.png'
+import Image2 from '../../../assets/images/hexagon/Hero1.png'
+import Image3 from '../../../assets/images/hexagon/Hero2.png'
+import Image4 from '../../../assets/images/hexagon/Hero3.png'
 import SectionHeading from '../SectionHeading'
 import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
+import HexagonGrid from '../../hexagon/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -62,6 +66,30 @@ const useStyles = makeStyles((theme) => ({
 }))
 const MianPageHexagonSection = () => {
   const classes = useStyles()
+
+  const gridObjectXY = [
+    {
+      x: 1,
+      y: 1,
+      image: Image1,
+    },
+    {
+      x: 2,
+      y: 1,
+      image: Image2,
+    },
+    {
+      x: 2,
+      y: 2,
+      image: Image3,
+    },
+    {
+      x: 3,
+      y: 2,
+      image: Image4,
+    },
+  ]
+
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -71,7 +99,8 @@ const MianPageHexagonSection = () => {
               <SectionHeading text="Be 20x more constructive" />
             </Box>
             <Box className={classes.hexagonBox}>
-              <MultipleHexagonWithImage image={Image} />
+              {/* <MultipleHexagonWithImage image={Image} /> */}
+              <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>
           <Box className={classes.detailBox}>

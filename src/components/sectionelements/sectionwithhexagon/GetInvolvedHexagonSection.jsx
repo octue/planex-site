@@ -7,6 +7,10 @@ import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
 import TripleHexagon from '../../hexagon/TripleHexagon'
 import Button from '@material-ui/core/Button'
+import Image1 from '../../../assets/images/hexagon/Hero8.png'
+import Image2 from '../../../assets/images/hexagon/Hero10.png'
+import Image3 from '../../../assets/images/hexagon/Hero9.png'
+import HexagonGrid from '../../hexagon/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -63,7 +67,23 @@ const useStyles = makeStyles((theme) => ({
 
 const GetInvolvedHexagonSection = () => {
   const classes = useStyles()
-
+  const gridObjectXY = [
+    {
+      x: 3,
+      y: 1,
+      image: Image1,
+    },
+    {
+      x: 1,
+      y: 2,
+      image: Image2,
+    },
+    {
+      x: 2,
+      y: 2,
+      image: Image3,
+    },
+  ]
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -118,7 +138,8 @@ const GetInvolvedHexagonSection = () => {
               </Box>
             </Box>
             <Box className={classes.hexagonBox}>
-              <TripleHexagon image={Image} />
+              {/* <TripleHexagon image={Image} /> */}
+              <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>
         </Box>
