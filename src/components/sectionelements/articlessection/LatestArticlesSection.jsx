@@ -201,7 +201,7 @@ const LatestArticlesSection = () => {
                 <MenuItem value="1">Showing - All</MenuItem>
                 <MenuItem value="2">Engineering Consultancy</MenuItem>
                 <MenuItem value="3">Digital Twins</MenuItem>
-                <MenuItem value="4">oftware Development</MenuItem>
+                <MenuItem value="4">Software Development</MenuItem>
               </Select>
             </Box>
             <Box className={classes.showingBox}>

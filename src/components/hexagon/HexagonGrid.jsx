@@ -146,6 +146,12 @@ const HexagonGrid = ({ gridObjectXY }) => {
 
 HexagonGrid.defaultProps = {}
 
-HexagonGrid.propTypes = {}
+HexagonGrid.propTypes = {
+  gridObjectXY: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+    image: PropTypes.string,
+  }),
+}
 
 export default HexagonGrid

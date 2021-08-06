@@ -82,8 +82,7 @@ const AwesomeScientistSection = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
-            <SectionHeading text="Be an awesome" />
-            <SectionHeading text="scientist" />
+            <SectionHeading text="Be an awesome scientist" />
           </Box>
           <Box className={classes.detailBox}>
             <Box>

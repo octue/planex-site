@@ -6,7 +6,6 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Image from '../../../../assets/images/hexagon/Hero7.png'
 import SectionHeading from '../../SectionHeading'
-import MultipleHexagonWithImage from '../../../hexagon/MultipleHexagonWithImage'
 import HexagonGrid from '../../../hexagon/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
@@ -118,7 +117,6 @@ const SupportHexagonSection = () => {
           </Box>
           <Box className={classes.HexagonDetailBox}>
             <Box className={classes.hexagonBox}>
-              {/* <MultipleHexagonWithImage image={Image} /> */}
               <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
             <Box className={classes.detailBox}>

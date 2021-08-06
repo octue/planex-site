@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
-import TripleHexagon from '../../hexagon/TripleHexagon'
 import Button from '@material-ui/core/Button'
 import Image1 from '../../../assets/images/hexagon/Hero8.png'
 import Image2 from '../../../assets/images/hexagon/Hero10.png'
@@ -138,7 +136,6 @@ const GetInvolvedHexagonSection = () => {
               </Box>
             </Box>
             <Box className={classes.hexagonBox}>
-              {/* <TripleHexagon image={Image} /> */}
               <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>

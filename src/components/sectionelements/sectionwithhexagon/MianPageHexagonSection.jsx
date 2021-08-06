@@ -9,7 +9,6 @@ import Image2 from '../../../assets/images/hexagon/Hero1.png'
 import Image3 from '../../../assets/images/hexagon/Hero2.png'
 import Image4 from '../../../assets/images/hexagon/Hero3.png'
 import SectionHeading from '../SectionHeading'
-import MultipleHexagonWithImage from '../../hexagon/MultipleHexagonWithImage'
 import HexagonGrid from '../../hexagon/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
@@ -99,7 +98,6 @@ const MianPageHexagonSection = () => {
               <SectionHeading text="Be 20x more constructive" />
             </Box>
             <Box className={classes.hexagonBox}>
-              {/* <MultipleHexagonWithImage image={Image} /> */}
               <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>

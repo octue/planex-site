@@ -3,10 +3,8 @@ import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../SectionHeading'
 import SectionDetail from '../SectionDetail'
-import TripleHexagon from '../../hexagon/TripleHexagon'
 import Image1 from '../../../assets/images/hexagon/Hero8.png'
 import Image2 from '../../../assets/images/hexagon/Hero10.png'
 import Image3 from '../../../assets/images/hexagon/Hero9.png'
@@ -111,7 +109,6 @@ const HelpSection = () => {
               button="Enter the library"
             />
             <Box className={classes.hexagonBox}>
-              {/* <TripleHexagon image={Image} /> */}
               <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>
