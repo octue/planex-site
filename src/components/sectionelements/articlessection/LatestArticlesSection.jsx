@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles, MenuItem } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
@@ -9,7 +9,8 @@ import { Link } from '../../core/Link'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
-
+import ReactPaginate from 'react-paginate'
+import './paginationCss.css'
 const useStyles = makeStyles((theme) => ({
   bgColor: {
     backgroundColor: theme.palette.background.default,
@@ -111,6 +112,10 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  paginationBox: {
+    marginTop: '30px',
+    marginLeft: '-52px',
+  },
 }))
 const LatestArticlesSection = () => {
   const classes = useStyles()
@@ -153,6 +158,88 @@ const LatestArticlesSection = () => {
       }
     }
   `)
+
+  const results = [
+    {
+      image: data.img1.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img2.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img3.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img4.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img5.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img2.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img3.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img2.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img3.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img4.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    {
+      image: data.img6.childImageSharp.gatsbyImageData,
+      title: 'Achieving Scalability',
+      description:
+        'Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra...',
+    },
+    // ...etc
+  ]
+
+  const [articles, setArticles] = useState(results)
+  const [pageNumber, setPageNumber] = useState(0)
+  const articlesPerPage = 3
+  const pagesVisited = pageNumber * articlesPerPage
+
+  const pageCount = Math.ceil(articles.length / articlesPerPage)
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected)
+  }
+
   return (
     <section className={classes.bgColor}>
       <Container maxWidth="lg" className={classes.container}>
@@ -214,27 +301,34 @@ const LatestArticlesSection = () => {
               </Typography>
             </Box>
           </Box>
-          <Box className={classes.articleBox}>
-            <Box className={classes.articleCardBox}>
-              <ArticlesCard
-                image={data.img1.childImageSharp.gatsbyImageData}
-                title="Achieving Scalability"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
+          <Box>
+            <Box className={classes.paginationBox}>
+              <ReactPaginate
+                previousLabel={'Previous'}
+                nextLabel={'Next'}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={'paginationBttns'}
+                previousLinkClassName={'previousBttn'}
+                nextLinkClassName={'nextBttn'}
+                disabledClassName={'paginationDisabled'}
+                activeClassName={'paginationActive'}
               />
             </Box>
-            <Box className={classes.articleCardBox}>
-              <ArticlesCard
-                image={data.img2.childImageSharp.gatsbyImageData}
-                title="CBA to choose a stack?"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
-              />
-            </Box>
-            <Box className={classes.articleCardBox}>
-              <ArticlesCard
-                image={data.img3.childImageSharp.gatsbyImageData}
-                title="Fluid Dynamicist"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
-              />
+            <Box className={classes.articleBox}>
+              {articles
+                .slice(pagesVisited, pagesVisited + articlesPerPage)
+                .map((article) => {
+                  return (
+                    <Box className={classes.articleCardBox}>
+                      <ArticlesCard
+                        image={article.image}
+                        title={article.title}
+                        description={article.description}
+                      />
+                    </Box>
+                  )
+                })}
             </Box>
           </Box>
           <Box className={classes.articleBox}>
