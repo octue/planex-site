@@ -6,11 +6,7 @@
 
 name: update-pull-request
 
-# Only trigger for pull requests into main branch.
-on:
-  pull_request:
-    branches:
-      - main
+on: pull_request
 
 jobs:
   description:
