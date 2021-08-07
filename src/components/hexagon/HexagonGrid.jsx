@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import classNames from 'classnames'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, makeStyles } from '@material-ui/core'
-import BackgroundImage from '../../assets/images/hexagon/Hero4.png'
 
 const useStyles = makeStyles((theme) => ({
   hexagonShapeParent: {
@@ -33,138 +31,127 @@ const useStyles = makeStyles((theme) => ({
   visibilityHexa: {
     visibility: 'hidden',
   },
+  hexagonGridBox: {
+    paddingTop: '30px',
+  },
+  oddBox: {
+    marginTop: '-30px',
+    marginLeft: '60px',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '-18px',
+      marginLeft: '40px',
+    },
+  },
+  evenBox: {
+    marginTop: '-30px',
+    marginLeft: '0px',
+    [theme.breakpoints.down('xs')]: {},
+  },
 }))
-const HexagonGrid = ({ bgHexImg, bgX, bgY, className }) => {
-  const gridObject = [
-    {
-      x: 1,
-      y: 1,
-    },
-    {
-      x: 2,
-      y: 1,
-    },
-    {
-      x: 3,
-      y: 1,
-    },
-    {
-      x: 5,
-      y: 1,
-    },
-    {
-      x: 8,
-      y: 1,
-    },
-  ]
-
-  //   const [visibiltyCount, setVisibiltyCount] = useState(1)
-  //   const [visibiltyStatus, setVisibiltyStatus] = useState(false)
-
-  let visibiltyCount = 1
-  let visibiltyStatus = true
-
+const HexagonGrid = ({ gridObjectXY }) => {
   let secondLastX = 0
   let lastX = 0
   let tempX = 0
-  gridObject.map((grid) => {
-    console.log('grid:', grid.x)
+
+  let xHexagonDisplay = []
+  let yHexagonDisplay = []
+  let yValue = 1
+  let boolStatus = false
+  let imageIndex = -1
+
+  gridObjectXY.map((grid) => {
+    if (grid.y != yValue) {
+      yValue = grid.y
+      secondLastX = 0
+      lastX = 0
+      tempX = 0
+      if (grid.y != 1) {
+        boolStatus = true
+      }
+    }
+    if (boolStatus) {
+      boolStatus = false
+      yHexagonDisplay.push({ yaxis: xHexagonDisplay })
+      xHexagonDisplay = []
+    }
     lastX = grid.x
     if (lastX > 1) {
       secondLastX = tempX
     }
     tempX = lastX
-    console.log('lastX:', lastX)
-    console.log('secondLastX:', secondLastX)
-    console.log('tempX:', tempX)
     if (lastX != secondLastX + 1) {
-      for (let x = secondLastX + 1; x <= lastX; x++) {
-        console.log('InVisiableValue:', x)
+      for (let x = secondLastX + 1; x < lastX; x++) {
+        xHexagonDisplay.push({ data: 'InVisiable' })
       }
+      xHexagonDisplay.push({ data: 'Visiable' })
     } else {
-      console.log('VisiableValue:', lastX)
+      xHexagonDisplay.push({ data: 'Visiable' })
     }
-
-    console.log('________________________________________________')
   })
 
-  const girdHexagonDisplay = []
+  yHexagonDisplay.push({ yaxis: xHexagonDisplay })
+  xHexagonDisplay = []
 
   const classes = useStyles()
 
   return (
     <>
-      {/* <Box className={className}>
-        <Box className={classes.hexagonShapeParent}>
-          <Box
-            className={classes.hexagonShape}
-            style={{
-              backgroundImage: `url(${bgHexImg})`,
-              backgroundPositionX: bgX,
-              backgroundPositionY: bgY,
-            }}
-          ></Box>
-        </Box>
-      </Box> */}
-      <Box display="flex">
-        {gridObject?.map((grid) => {
-          lastX = grid.x
-          if (lastX > 1) {
-            secondLastX = tempX
-          }
-          tempX = lastX
-
-          if (lastX != secondLastX + 1) {
-            for (let x = secondLastX + 1; x <= lastX; x++) {
-              girdHexagonDisplay.push(
-                <Box className={classes.visibilityHexa}>
-                  <Box className={classes.hexagonShapeParent}>
-                    <Box
-                      className={classes.hexagonShape}
-                      style={{
-                        backgroundImage: `url(${bgHexImg})`,
-                        backgroundPositionX: bgX,
-                        backgroundPositionY: bgY,
-                      }}
-                    ></Box>
+      <Box
+        display="flex"
+        flexDirection="column"
+        className={classes.hexagonGridBox}
+      >
+        {yHexagonDisplay.map((ygrid, index) => {
+          const moveBox = index % 2 == 0 ? classes.evenBox : classes.oddBox
+          return (
+            <Box display="flex" className={moveBox}>
+              {ygrid.yaxis.map((grid) => {
+                const indexOfImage =
+                  grid.data == 'Visiable' ? imageIndex++ : imageIndex
+                return grid.data == 'Visiable' ? (
+                  <Box>
+                    <Box className={classes.hexagonShapeParent}>
+                      <Box
+                        className={classes.hexagonShape}
+                        style={{
+                          backgroundImage: `url(${gridObjectXY[imageIndex]?.image})`,
+                          backgroundPositionX: '40%',
+                          backgroundPositionY: '30%',
+                        }}
+                      ></Box>
+                    </Box>
                   </Box>
-                </Box>
-              )
-            }
-          } else {
-            girdHexagonDisplay.push(
-              <Box>
-                <Box className={classes.hexagonShapeParent}>
-                  <Box
-                    className={classes.hexagonShape}
-                    style={{
-                      backgroundImage: `url(${bgHexImg})`,
-                      backgroundPositionX: bgX,
-                      backgroundPositionY: bgY,
-                    }}
-                  ></Box>
-                </Box>
-              </Box>
-            )
-          }
-
-          return girdHexagonDisplay
+                ) : (
+                  <Box className={classes.visibilityHexa}>
+                    <Box className={classes.hexagonShapeParent}>
+                      <Box
+                        className={classes.hexagonShape}
+                        style={{
+                          backgroundImage: `url(${gridObjectXY[imageIndex]?.image})`,
+                          backgroundPositionX: '30%',
+                          backgroundPositionY: '40%',
+                        }}
+                      ></Box>
+                    </Box>
+                  </Box>
+                )
+              })}
+            </Box>
+          )
         })}
       </Box>
     </>
   )
 }
 
-HexagonGrid.defaultProps = {
-  bgHexImg: BackgroundImage,
-  bgX: '0%',
-  bgY: '0%',
-}
+HexagonGrid.defaultProps = {}
 
 HexagonGrid.propTypes = {
-  bgHexImg: PropTypes.string.isRequired,
-  bgX: PropTypes.string,
-  bgY: PropTypes.string,
+  gridObjectXY: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+    image: PropTypes.string,
+  }),
 }
 
 export default HexagonGrid

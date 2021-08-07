@@ -1,12 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
+import SectionHeading from '../SectionHeading'
 import Button from '@material-ui/core/Button'
-import Image from '../../../../assets/images/hexagon/Hero5.png'
-import SectionHeading from '../../SectionHeading'
-import HexagonGrid from '../../../hexagon/HexagonGrid'
+import Image1 from '../../../assets/images/hexagon/Hero8.png'
+import Image2 from '../../../assets/images/hexagon/Hero10.png'
+import Image3 from '../../../assets/images/hexagon/Hero9.png'
+import HexagonGrid from '../../hexagon/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -14,54 +16,41 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     height: '100%',
-    paddingTop: '235px',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop: '188px',
+    paddingTop: '226px',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '100px',
     },
   },
   parentBox: {
     marginLeft: '60px',
-    maxheight: '434px',
-    flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       marginLeft: '0',
     },
   },
   hexagonTitle: {
-    // maxWidth: '456px',
+    width: '50%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-    },
-  },
-  HexagonDetailBox: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column-reverse',
-      marginLeft: '0',
     },
   },
   hexagonBox: {
-    marginTop: '132px',
-    maxWidth: '434px',
+    marginTop: '8px',
+    marginLeft: '100px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '50px',
+      marginLeft: '10px',
     },
   },
-
   detailBox: {
-    // display: 'flex',
-    marginTop: '-40px',
     maxWidth: '590px',
-    marginLeft: '221px',
+    marginLeft: '190px',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginLeft: '0.1rem',
-      marginTop: '10px',
     },
   },
-  descriptionTitle: {
-    fontWeight: 400,
+  titleBox: {
+    marginBottom: '32px',
   },
   cta: {
     display: 'flex',
@@ -70,34 +59,27 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: `#D31020`,
   },
   btnBox: {
-    // marginTop: '24px',
-  },
-  titleBox: {
-    marginBottom: '32px',
+    marginTop: '30px',
   },
 }))
-const StrategyHexagonSection = () => {
+
+const GetInvolvedHexagonSection = () => {
   const classes = useStyles()
   const gridObjectXY = [
     {
       x: 3,
       y: 1,
-      image: Image,
-    },
-    {
-      x: 4,
-      y: 1,
-      image: Image,
+      image: Image1,
     },
     {
       x: 1,
       y: 2,
-      image: Image,
+      image: Image2,
     },
     {
       x: 2,
       y: 2,
-      image: Image,
+      image: Image3,
     },
   ]
   return (
@@ -105,49 +87,56 @@ const StrategyHexagonSection = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Box display="flex" className={classes.parentBox}>
           <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="Strategy" />
-            </Box>
+            <SectionHeading text="Sponsor us" />
           </Box>
-          <Box className={classes.HexagonDetailBox}>
-            <Box className={classes.hexagonBox}>
-              <HexagonGrid gridObjectXY={gridObjectXY} />
-            </Box>
-            <Box className={classes.detailBox}>
+          <Box className={classes.detailBox}>
+            <Box>
               <Box display="flex" className={classes.titleBox}>
                 <Typography variant="subtitle1" color="textPrimary">
-                  It’s time to master and maximise data. If you’re managing lots
-                  of scientific data and analyses, change your business model to
-                  offer these as services - or improve your processes to make
-                  them consistent, reduce risk and cost.
+                  Octue is a non-profit organization. Our plan is to become self
+                  sufficient, to fund ever-better tools and data sources for
+                  scientists, particularly those working to tackle the climate
+                  crisis. We can succeed faster with your contribution:
                 </Typography>
               </Box>
-              <Box display="flex">
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                  className={classes.descriptionTitle}
-                >
-                  How to begin
-                </Typography>
-              </Box>
-              <Box display="flex" pb={4}>
+              <Box display="flex" pb={1}>
                 <Typography
                   variant="body1"
                   color="textSecondary"
                   component="span"
                 >
-                  A small package of work to understand your commercial needs
-                  and outline a system to tackle them.
+                  Regular donations will help us move the needle on climate
+                  change.
                 </Typography>
               </Box>
-
+              <Box display="flex" pb={1}>
+                <Typography
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                >
+                  Sponsor us to tackle an issue or implement specific new
+                  features.
+                </Typography>
+              </Box>
+              <Box display="flex" pb={1}>
+                <Typography
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                >
+                  Partner with us to help build the twine framework to meet your
+                  needs.
+                </Typography>
+              </Box>
               <Box display="flex" className={classes.btnBox}>
                 <Button className={classes.cta} variant="outlined">
-                  Let's connect
+                  Donate
                 </Button>
               </Box>
+            </Box>
+            <Box className={classes.hexagonBox}>
+              <HexagonGrid gridObjectXY={gridObjectXY} />
             </Box>
           </Box>
         </Box>
@@ -156,4 +145,4 @@ const StrategyHexagonSection = () => {
   )
 }
 
-export default StrategyHexagonSection
+export default GetInvolvedHexagonSection
