@@ -16,7 +16,7 @@ import Image5 from '../../assets/images/hexagon/Hero5.png'
 import Image6 from '../../assets/images/hexagon/Hero6.png'
 
 export default {
-  title: 'Hexagon',
+  title: 'Elements/Hexagon',
   component: SimpleHexagon,
 }
 const Template = ({ ...args }) => {

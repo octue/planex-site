@@ -59,13 +59,13 @@ const HexagonGrid = ({ gridObjectXY }) => {
   let boolStatus = false
   let imageIndex = -1
 
-  gridObjectXY.map((grid) => {
-    if (grid.y != yValue) {
+  gridObjectXY.forEach((grid) => {
+    if (grid.y !== yValue) {
       yValue = grid.y
       secondLastX = 0
       lastX = 0
       tempX = 0
-      if (grid.y != 1) {
+      if (grid.y !== 1) {
         boolStatus = true
       }
     }
@@ -79,13 +79,13 @@ const HexagonGrid = ({ gridObjectXY }) => {
       secondLastX = tempX
     }
     tempX = lastX
-    if (lastX != secondLastX + 1) {
+    if (lastX !== secondLastX + 1) {
       for (let x = secondLastX + 1; x < lastX; x++) {
-        xHexagonDisplay.push({ data: 'InVisiable' })
+        xHexagonDisplay.push({ data: 'InVisible' })
       }
-      xHexagonDisplay.push({ data: 'Visiable' })
+      xHexagonDisplay.push({ data: 'Visible' })
     } else {
-      xHexagonDisplay.push({ data: 'Visiable' })
+      xHexagonDisplay.push({ data: 'Visible' })
     }
   })
 
@@ -102,13 +102,14 @@ const HexagonGrid = ({ gridObjectXY }) => {
         className={classes.hexagonGridBox}
       >
         {yHexagonDisplay.map((ygrid, index) => {
-          const moveBox = index % 2 == 0 ? classes.evenBox : classes.oddBox
+          const moveBox = index % 2 === 0 ? classes.evenBox : classes.oddBox
           return (
             <Box display="flex" className={moveBox}>
               {ygrid.yaxis.map((grid) => {
-                const indexOfImage =
-                  grid.data == 'Visiable' ? imageIndex++ : imageIndex
-                return grid.data == 'Visiable' ? (
+                if (grid.data === 'Visible') {
+                  imageIndex++
+                }
+                return grid.data === 'Visible' ? (
                   <Box>
                     <Box className={classes.hexagonShapeParent}>
                       <Box

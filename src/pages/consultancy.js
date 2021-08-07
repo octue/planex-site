@@ -1,14 +1,15 @@
 import React from 'react'
 import { ThemeProvider } from '@material-ui/styles'
-import { BasicPage, CallToAction } from '../containers'
-import { darkTheme } from '../themes'
-import HeroSection from '../components/sectionelements/herosection/HeroSection'
 import { graphql, useStaticQuery } from 'gatsby'
-import StrategyHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/StrategyHexagonSection'
+import { darkTheme } from '../themes'
 import { CssBaseline } from '@material-ui/core'
-import DigitalHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/DigitalHexagonSection'
-import DataServicesHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/DataServicesHexagonSection'
-import SupportHexagonSection from '../components/sectionelements/sectionwithhexagon/consultancyHexagonsections/SupportHexagonSection'
+
+import { BasicPage, CallToAction } from '../containers'
+import GradientHero from '../components/sections/GradientHero'
+import Strategy from '../components/sections/Strategy'
+import DigitalTwins from '../components/sections/DigitalTwins'
+import DataServices from '../components/sections/DataServices'
+import Support from '../components/sections/Support'
 
 export default function Consultancy({ location }) {
   const data = useStaticQuery(
@@ -43,17 +44,17 @@ export default function Consultancy({ location }) {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         {/* <Hero /> */}
-        <HeroSection
+        <GradientHero
           heading={'Solve data dilemmas.'}
           description={'Inject extra strategic and tactical expertise.'}
           Image={imageData}
         />
         {/* <ConsultancyHexagonSection /> */}
       </ThemeProvider>
-      <StrategyHexagonSection />
-      <DigitalHexagonSection />
-      <DataServicesHexagonSection />
-      <SupportHexagonSection />
+      <Strategy />
+      <DigitalTwins />
+      <DataServices />
+      <Support />
     </BasicPage>
   )
 }
