@@ -6,6 +6,7 @@ import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import PropTypes from 'prop-types'
+import { hexToRgb } from '../../../themes'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -24,21 +25,20 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '0px',
     left: '0px',
-    // TODO parameterise to use theme background color
     background: `linear-gradient(
-      rgba(66, 66, 66, 0) 0%,
-      rgba(66, 66, 66, 0.002) 19%,
-      rgba(66, 66, 66, 0.008) 34%,
-      rgba(66, 66, 66, 0.021) 47%,
-      rgba(66, 66, 66, 0.042) 56.5%,
-      rgba(66, 66, 66, 0.075) 65%,
-      rgba(66, 66, 66, 0.126) 73%,
-      rgba(66, 66, 66, 0.194) 80.2%,
-      rgba(66, 66, 66, 0.278) 86.1%,
-      rgba(66, 66, 66, 0.382) 91%,
-      rgba(66, 66, 66, 0.541) 95.2%,
-      rgba(66, 66, 66, 0.738) 98.2%,
-      rgba(66, 66, 66, 1) 100%
+      rgba(${hexToRgb(theme.palette.background.default)}, 0) 0%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.002) 19%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.008) 34%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.021) 47%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.042) 56.5%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.075) 65%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.126) 73%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.194) 80.2%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.278) 86.1%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.382) 91%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.541) 95.2%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 0.738) 98.2%,
+      rgba(${hexToRgb(theme.palette.background.default)}, 1) 100%
     )`,
     zIndex: 5,
   },
