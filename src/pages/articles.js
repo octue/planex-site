@@ -2,8 +2,8 @@ import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
 import { graphql } from 'gatsby'
-import JoinSection from '../components/sectionelements/joinsection/JoinSection'
-import LatestArticlesSection from '../components/sectionelements/articlessection/LatestArticlesSection'
+import JoinTheMovement from '../components/sections/JoinTheMovement'
+import ArticlesBrowser from '../components/sections/ArticlesBrowser'
 
 export const query = graphql`
   query ArticlesPageQuery {
@@ -32,8 +32,8 @@ const Articles = ({ location, data }) => {
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <LatestArticlesSection />
-      <JoinSection
+      <ArticlesBrowser />
+      <JoinTheMovement
         description={
           'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
         }

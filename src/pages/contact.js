@@ -3,17 +3,18 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 import { convertToBgImage } from 'gbimage-bridge'
 import Typography from '@material-ui/core/Typography'
-import BasicPage from '../containers/layout/BasicPage'
 import BackgroundImage from 'gatsby-background-image'
 import { ThemeProvider } from '@material-ui/styles'
-import { ContactForm } from '../containers/forms'
 import { makeStyles, useTheme } from '@material-ui/core'
-import Box from '@material-ui/core/Box'
-import { darkTheme } from '../themes'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import SectionHeading from '../components/sectionelements/SectionHeading'
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
+
 import Location from '../assets/images/hexagon/location.svg'
+import { SectionHeading } from '../components/elements'
+import BasicPage from '../containers/layout/BasicPage'
+import { ContactForm } from '../containers/forms'
+import { darkTheme } from '../themes'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {

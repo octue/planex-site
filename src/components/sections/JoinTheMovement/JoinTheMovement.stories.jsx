@@ -28,5 +28,5 @@ const Template = ({ ...args }) => {
   return <JoinTheMovement />
 }
 
-export const Example = Template.bind({})
-Example.args = {}
+export const Basic = Template.bind({})
+Basic.args = {}
