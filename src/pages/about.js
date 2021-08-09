@@ -30,6 +30,14 @@ export const query = graphql`
     }
   }
 `
+// TODO add something like:
+// team {
+//   image {
+//     gatsbyImageData
+//   }
+//   heading
+//   subheading
+// }
 
 const About = ({ location, data }) => {
   const navBarProps = { transparency: data.page.navbarTransparency }
