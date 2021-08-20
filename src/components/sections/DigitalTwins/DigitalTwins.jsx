@@ -9,7 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import Image from '../../../assets/images/hexagon/Hero4.png'
 import { SectionHeading } from '../../elements'
-import HexagonGrid from '../../hexagon/HexagonGrid'
+import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {

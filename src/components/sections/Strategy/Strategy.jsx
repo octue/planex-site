@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 
 import Image from '../../../assets/images/hexagon/Hero5.png'
 import { SectionHeading } from '../../elements'
-import HexagonGrid from '../../hexagon/HexagonGrid'
+import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {

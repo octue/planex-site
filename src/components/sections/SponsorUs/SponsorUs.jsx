@@ -9,7 +9,7 @@ import { SectionHeading } from '../../elements'
 import Image1 from '../../../assets/images/hexagon/Hero8.png'
 import Image2 from '../../../assets/images/hexagon/Hero10.png'
 import Image3 from '../../../assets/images/hexagon/Hero9.png'
-import HexagonGrid from '../../hexagon/HexagonGrid'
+import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
