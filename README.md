@@ -12,13 +12,13 @@ integrated here.**
 
     Use `git clone` or GitHub desktop.
 
-1.  ** Install pre-commit**
+1.  ** Install pre-commit hooks**
 
     Install the program - see https://pre-commit.com/ for instructions on how.
     Then do:
 
     ```
-    pre-commit install
+    pre-commit install && pre-commit install -t commit-msg
     ```
 
 1.  **Make sure you have node and yarn installed**
