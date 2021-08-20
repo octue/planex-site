@@ -95,6 +95,20 @@ const baseThemeOptions = {
       lineHeight: '3.5rem',
       letterSpacing: '0rem',
     },
+    h4: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.5rem', // Converted from '24px',
+      fontWeight: 400,
+      lineHeight: '1.875rem', // Converted from '30px',
+    },
+    h5: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.25rem', // Converted from '20px',
+      fontWeight: 400,
+      lineHeight: '1.5rem', // Converted from '24px',
+    },
     // Used for "small link" CTAs like subscribe in the footer. Ag="H3"
     h6: {
       fontSize: '0.75rem',
@@ -106,10 +120,17 @@ const baseThemeOptions = {
     // Used for most body text. Ag="body"
     body1: {
       fontFamily: "'Open Sans', sans-serif",
-      fontWeight: 400,
-      fontSize: '1.125rem',
-      lineHeight: '1.625rem',
+      fontWeight: 300, // TODO consider whether to raise to 400 for better aliasing and visibility
+      fontSize: '1.125rem', // Converted from 18px
+      lineHeight: '1.625rem', // Converted from 26px
       letterSpacing: '0.01rem',
+    },
+    // Used for links Ag="links"
+    body2: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontWeight: 400,
+      fontSize: '1.125rem', // Converted from 18px
+      lineHeight: '1.625rem', // Converted from 26px
     },
     // Used for Hero subtitles
     subtitle1: {
