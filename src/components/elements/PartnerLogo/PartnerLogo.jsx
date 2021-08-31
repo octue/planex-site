@@ -1,4 +1,5 @@
 import React from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core'
@@ -11,20 +12,36 @@ const useStyles = makeStyles((theme) => ({
     border: '0',
   },
 }))
-const PartnerLogo = ({ partnersvg, customStyle }) => {
+const PartnerLogo = ({ alt, gatsbyImageData, url, className }) => {
   const classes = useStyles()
 
+  // SVGs only have a URL. Rasters have gatsbyImageData. So we have to accept both.
+
   return (
-    <Box className={customStyle}>
-      <img src={partnersvg} alt="logo" className={classes.logoImg} />
+    <Box className={className}>
+      {url ? (
+        <img src={url} alt={alt} className={classes.logoImg} />
+      ) : (
+        <GatsbyImage
+          image={gatsbyImageData}
+          alt={alt}
+          className={classes.logoImg}
+        />
+      )}
     </Box>
   )
 }
 
-PartnerLogo.defaultProps = {}
+PartnerLogo.defaultProps = {
+  alt: '',
+  gatsbyImageData: undefined,
+  url: undefined,
+}
 
 PartnerLogo.propTypes = {
-  partnersvg: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  gatsbyImageData: PropTypes.object,
+  url: PropTypes.string,
 }
 
 export default PartnerLogo

@@ -1,5 +1,6 @@
 import Team from '../../components/sections/Team'
 import JoinTheMovement from '../../components/sections/JoinTheMovement'
+import Partners from '../../components/sections/Partners'
 
 const InvalidSection = ({ data }) => {
   console.warn('Invalid section id or missing mapping for section data ', data)
@@ -11,6 +12,7 @@ const getDatoSectionComponent = (datoId) => {
   const sectionTypeMap = {
     PeopleSection: Team,
     JoinSection: JoinTheMovement,
+    PartnersSection: Partners,
   }
   return sectionTypeMap[sectionType] || InvalidSection
 }

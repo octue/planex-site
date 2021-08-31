@@ -7,20 +7,9 @@ import ArticlesBrowser from '../components/sections/ArticlesBrowser'
 
 export const query = graphql`
   query ArticlesPageQuery {
-    page: datoCmsAboutPage {
+    page: datoCmsArticlesPage {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
-      }
-      navbarTransparency
-      hero {
-        whatsThis {
-          value
-        }
-        image {
-          gatsbyImageData
-        }
-        heading
-        subheading
       }
     }
   }

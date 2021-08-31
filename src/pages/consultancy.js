@@ -1,35 +1,44 @@
 import React from 'react'
-import { ThemeProvider } from '@material-ui/styles'
-import { graphql, useStaticQuery } from 'gatsby'
-import { darkTheme } from '../themes'
-import { CssBaseline } from '@material-ui/core'
+import { graphql } from 'gatsby'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 
-import { BasicPage, CallToAction } from '../containers'
 import GradientHero from '../components/sections/GradientHero'
 import Strategy from '../components/sections/Strategy'
 import DigitalTwins from '../components/sections/DigitalTwins'
 import DataServices from '../components/sections/DataServices'
 import Support from '../components/sections/Support'
+import { BasicPage, CallToAction } from '../containers'
+import DatoSections from '../containers/sections/DatoSections'
 
-export default function Consultancy({ location }) {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        desktop: file(relativePath: { eq: "backgrounds/consultancy.png" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
+export const query = graphql`
+  query ConsultancyPageQuery {
+    page: datoCmsConsultancyPage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
-    `
-  )
-
-  const imageData = data.desktop.childImageSharp.fluid
-  const navBarProps = {
-    transparency: true,
+      navbarTransparency
+      hero {
+        whatsThis {
+          value
+        }
+        image {
+          gatsbyImageData
+          alt
+        }
+        heading
+        subheading
+      }
+      sections {
+        ...JoinSection
+        ...PeopleSection
+        ...PartnersSection
+      }
+    }
   }
+`
+
+export default function Consultancy({ location, data }) {
+  const navBarProps = { transparency: data.page.navbarTransparency }
   const footerProps = {
     kind: 'big',
   }
@@ -40,21 +49,19 @@ export default function Consultancy({ location }) {
       navBarProps={navBarProps}
       footerProps={footerProps}
     >
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        {/* <Hero /> */}
-        <GradientHero
-          heading={'Solve data dilemmas.'}
-          description={'Inject extra strategic and tactical expertise.'}
-          Image={imageData}
-        />
-        {/* <ConsultancyHexagonSection /> */}
-      </ThemeProvider>
+      <GradientHero
+        heading={data.page.hero[0].heading}
+        description={data.page.hero[0].subheading}
+        image={data.page.hero[0].image}
+      />
+      {/* <ConsultancyHexagonSection /> */}
       <Strategy />
       <DigitalTwins />
       <DataServices />
       <Support />
+      <DatoSections sections={data.page.sections} />
     </BasicPage>
   )
 }
