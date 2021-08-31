@@ -8,7 +8,6 @@ import getDatoSectionComponent from '../containers/sections/getDatoSectionCompon
 import GradientHero from '../components/sections/GradientHero'
 import SolutionsAcrossScience from '../components/sections/SolutionsAcrossScience'
 import DoMoreWithYourData from '../components/sections/DoMoreWithYourData'
-import JoinTheMovement from '../components/sections/JoinTheMovement'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -23,6 +22,8 @@ export const query = graphql`
         }
         image {
           gatsbyImageData
+          alt
+          title
         }
         heading
         subheading
@@ -75,12 +76,12 @@ export const query = graphql`
 
 const About = ({ location, data }) => {
   const navBarProps = { transparency: data.page.navbarTransparency }
-  console.log('ABOUT PAGE', data)
+
   const sections = data.page.sections.map((section) => {
     const { id, ...rest } = section
     console.log('SECTION DATA', JSON.stringify(rest))
-    // const Component = getDatoSectionComponent(id)
-    // return <Component {...rest} />
+    const Component = getDatoSectionComponent(id)
+    return <Component {...rest} />
   })
 
   return (
@@ -90,16 +91,11 @@ const About = ({ location, data }) => {
       <GradientHero
         heading={data.page.hero[0].heading}
         description={data.page.hero[0].subheading}
-        imageData={data.page.hero[0].image.gatsbyImageData}
+        image={data.page.hero[0].image}
       />
       <SolutionsAcrossScience />
       <DoMoreWithYourData />
-      {/* {sections} */}
-      {/* <JoinTheMovement
-        description={
-          'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
-        }
-      /> */}
+      {sections}
     </BasicPage>
   )
 }

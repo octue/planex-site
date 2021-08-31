@@ -23,6 +23,7 @@ export const query = graphql`
         }
         image {
           gatsbyImageData
+          alt
         }
         heading
         subheading
@@ -41,7 +42,7 @@ export default function Index({ location, data }) {
       <GradientHero
         heading={data.page.hero[0].heading}
         description={data.page.hero[0].subheading}
-        imageData={data.page.hero[0].image.gatsbyImageData}
+        image={data.page.hero[0].image}
       />
       <BeMoreConstructive />
       <WhatWillYouBuild />
