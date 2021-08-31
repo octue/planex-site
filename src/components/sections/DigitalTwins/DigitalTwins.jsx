@@ -92,22 +92,22 @@ const DigitalTwins = () => {
     {
       x: 1,
       y: 1,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 2,
       y: 1,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 2,
       y: 2,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 3,
       y: 2,
-      image: Image,
+      gatsbyImageData: Image,
     },
   ]
 
@@ -138,7 +138,7 @@ const DigitalTwins = () => {
           </Box>
           <Box className={classes.HexagonDetailBox}>
             <Box className={classes.hexagonBox}>
-              <HexagonGrid gridObjectXY={gridObjectXY} />
+              <HexagonGrid grid={gridObjectXY} />
             </Box>
             <Box className={classes.detailBox}>
               <Box display="flex" className={classes.titleBox}>

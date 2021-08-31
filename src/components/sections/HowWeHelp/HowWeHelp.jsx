@@ -66,17 +66,17 @@ const HelpSection = () => {
     {
       x: 3,
       y: 1,
-      image: Image1,
+      gatsbyImageData: Image1,
     },
     {
       x: 1,
       y: 2,
-      image: Image2,
+      gatsbyImageData: Image2,
     },
     {
       x: 2,
       y: 2,
-      image: Image3,
+      gatsbyImageData: Image3,
     },
   ]
   return (
@@ -109,7 +109,7 @@ const HelpSection = () => {
               button="Enter the library"
             />
             <Box className={classes.hexagonBox}>
-              <HexagonGrid gridObjectXY={gridObjectXY} />
+              <HexagonGrid grid={gridObjectXY} />
             </Box>
           </Box>
         </Box>

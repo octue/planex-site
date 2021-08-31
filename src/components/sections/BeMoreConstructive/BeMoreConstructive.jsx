@@ -71,22 +71,22 @@ const BeMoreConstructive = () => {
     {
       x: 1,
       y: 1,
-      image: Image1,
+      gatsbyImageData: Image1,
     },
     {
       x: 2,
       y: 1,
-      image: Image2,
+      gatsbyImageData: Image2,
     },
     {
       x: 2,
       y: 2,
-      image: Image3,
+      gatsbyImageData: Image3,
     },
     {
       x: 3,
       y: 2,
-      image: Image4,
+      gatsbyImageData: Image4,
     },
   ]
 
@@ -99,7 +99,7 @@ const BeMoreConstructive = () => {
               <SectionHeading text="Be 20x more constructive" />
             </Box>
             <Box className={classes.hexagonBox}>
-              <HexagonGrid gridObjectXY={gridObjectXY} />
+              <HexagonGrid grid={gridObjectXY} />
             </Box>
           </Box>
           <Box className={classes.detailBox}>
