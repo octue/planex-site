@@ -13,7 +13,7 @@ import LastButNotLeast from '../components/sections/LastButNotLeast'
 
 export const query = graphql`
   query GetInvolvedPageQuery {
-    page: datoCmsAboutPage {
+    page: datoCmsGetInvolvedPage {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -28,6 +28,11 @@ export const query = graphql`
         }
         heading
         subheading
+      }
+      sections {
+        ...JoinSection
+        ...PeopleSection
+        ...PartnersSection
       }
     }
   }

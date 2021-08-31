@@ -31,6 +31,7 @@ export const query = graphql`
       sections {
         ...JoinSection
         ...PeopleSection
+        ...PartnersSection
       }
     }
   }

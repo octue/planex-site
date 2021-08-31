@@ -6,8 +6,9 @@ export { default as GradientStripe } from './GradientStripe'
 export { default as PartnerLogo } from './PartnerLogo'
 export { default as SectionDetail } from './SectionDetail'
 export { default as SectionTitle } from './SectionTitle'
+export { default as SectionContainer } from './SectionContainer'
 export * from './Person'
 export { default as TwitterEmbed } from './TwitterEmbed'
 
-// TODO CONSOLIDATE TO SECTION TITLE
+// TODO CONSOLIDATE TO BETTER SECTION HEADING
 export { default as SectionHeading } from './SectionTitle/SectionHeading.jsx'

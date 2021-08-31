@@ -3,16 +3,16 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 
 import { BasicPage, CallToAction } from '../containers'
+import DatoSections from '../containers/sections/DatoSections'
 
 import GradientHero from '../components/sections/GradientHero'
 import ValidateCreateCommunicate from '../components/sections/ValidateCreateCommunicate'
 import HowToBegin from '../components/sections/HowToBegin'
 import ArticlesPreview from '../components/sections/ArticlesPreview'
-import JoinTheMovement from '../components/sections/JoinTheMovement'
 
 export const query = graphql`
   query TwinedPageQuery {
-    page: datoCmsAboutPage {
+    page: datoCmsTwinedPage {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -27,6 +27,11 @@ export const query = graphql`
         }
         heading
         subheading
+      }
+      sections {
+        ...JoinSection
+        ...PeopleSection
+        ...PartnersSection
       }
     }
   }
@@ -46,11 +51,7 @@ const Twined = ({ location, data }) => {
       <ValidateCreateCommunicate />
       <HowToBegin />
       <ArticlesPreview />
-      <JoinTheMovement
-        description={
-          'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
-        }
-      />
+      <DatoSections sections={data.page.sections} />
     </BasicPage>
   )
 }

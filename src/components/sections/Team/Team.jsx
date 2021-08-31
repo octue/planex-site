@@ -1,26 +1,16 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import SectionHeading from '../../elements/SectionTitle/SectionHeading'
+import SectionHeading from '../../elements/SectionHeading/SectionHeading'
+import SectionContainer from '../../elements/SectionContainer'
 import Person from '../../elements/Person/Person'
 
 const useStyles = makeStyles((theme) => ({
-  sectionBox: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '180px',
-    [theme.breakpoints.down('xs')]: {
-      paddingTop: '100px',
-    },
-  },
   parentBox: {
     flexDirection: 'column',
   },
   titleBox: {
-    marginBottom: '16px',
+    marginBottom: theme.spacing(2),
   },
   peopleBox: {
     marginTop: `-${theme.spacing(4)}px`, // person boxes have a large marginon top, this offsets
@@ -42,22 +32,20 @@ const useStyles = makeStyles((theme) => ({
 const PeopleSection = ({ people, heading, subheading, ...rest }) => {
   const classes = useStyles()
   return (
-    <Box component="section" className={classes.sectionBox} {...rest}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.titleBox}>
-            <SectionHeading text={heading} />
-          </Box>
-          <Box className={classes.peopleBox}>
-            {people.map((person) => (
-              <Box display="flex" className={classes.personBox}>
-                <Person {...person} />
-              </Box>
-            ))}
-          </Box>
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.titleBox}>
+          <SectionHeading>{heading}</SectionHeading>
         </Box>
-      </Container>
-    </Box>
+        <Box className={classes.peopleBox}>
+          {people.map((person) => (
+            <Box display="flex" className={classes.personBox}>
+              <Person {...person} />
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    </SectionContainer>
   )
 }
 
