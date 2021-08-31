@@ -3,17 +3,11 @@ import PropTypes from 'prop-types'
 import { Box } from '@material-ui/core'
 import Hexagon from '../Hexagon/Hexagon'
 
-export const HEXGON_NORMAL_OUTER_DIAMETER = 132
-export const HEXGON_SMALL_OUTER_DIAMETER = 82
-
-const outerDiameterMap = {
-  normal: HEXGON_NORMAL_OUTER_DIAMETER,
-  small: HEXGON_SMALL_OUTER_DIAMETER,
-}
+import { HEXAGON_DIAMETER_MAP } from '../hexagonSizes'
 
 const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
-  const outerDiameter = outerDiameterMap[variant]
-  const innerDiameter = (Math.sqrt(3) * outerDiameter) / 2
+  const outerDiameter = HEXAGON_DIAMETER_MAP.outer[variant]
+  const innerDiameter = HEXAGON_DIAMETER_MAP.inner[variant]
   const spacing = 0.75 * outerDiameter
   const angledMargin = (margin * Math.sqrt(3)) / 2
   return (
@@ -21,8 +15,7 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
       <Box {...rest}>
         {grid.map((item) => {
           // Parametric coordinate system. Q is a dimension across a hexagon perpendicular to
-          // (and bisecting) two flat edges, P is perpendicular to Q passing through two
-          // apexes
+          // (and bisecting) two flat edges, P is perpendicular to Q passing through two apexes
           const p = horizontal ? item.x : item.y
           const q = horizontal ? item.y : item.x
           const pOffset = 0
@@ -33,11 +26,7 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
           const top = horizontal ? qSpacing + qOffset : pSpacing + pOffset
           return (
             <Box position="absolute" left={left} top={top}>
-              <Hexagon
-                gatsbyImageData={item.gatsbyImageData}
-                variant={variant}
-                horizontal={horizontal}
-              />
+              <Hexagon {...item} variant={variant} horizontal={horizontal} />
             </Box>
           )
         })}
@@ -48,19 +37,19 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
 
 HexagonGrid.defaultProps = {
   horizontal: false,
-  variant: 'normal',
   margin: 20,
+  variant: 'normal',
 }
 
 HexagonGrid.propTypes = {
-  margin: PropTypes.number,
   grid: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     gatsbyImageData: PropTypes.object,
   }).isRequired,
   horizontal: PropTypes.bool,
-  variant: PropTypes.oneOf(['small', 'normal']),
+  margin: PropTypes.number,
+  variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }
 
 export default HexagonGrid

@@ -67,14 +67,16 @@ const Hexagon = ({
 }
 
 Hexagon.defaultProps = {
-  variant: 'normal',
+  alt: '',
   horizontal: false,
+  variant: 'normal',
 }
 
 Hexagon.propTypes = {
-  horizontal: PropTypes.bool,
-  variant: PropTypes.oneOf(['tiny', 'small', 'normal', 'large']),
+  alt: PropTypes.string,
   gatsbyImageData: PropTypes.object.isRequired,
+  horizontal: PropTypes.bool,
+  variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }
 
 export default Hexagon

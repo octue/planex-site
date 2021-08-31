@@ -20,3 +20,9 @@ Normal.args = { variant: 'normal' }
 
 export const Small = Template.bind({})
 Small.args = { variant: 'small' }
+
+export const Large = Template.bind({})
+Large.args = { variant: 'large' }
+
+export const Horizontal = Template.bind({})
+Horizontal.args = { horizontal: true }

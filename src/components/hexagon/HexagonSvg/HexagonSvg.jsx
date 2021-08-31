@@ -3,67 +3,68 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Box, makeStyles } from '@material-ui/core'
 
+import { HEXAGON_DIAMETER_MAP } from '../hexagonSizes'
+
 const useStyles = makeStyles((theme) => ({
   hexagon: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  vertical: {
+    clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
+    aspectRatio: 0.866025403,
+  },
+  horizontal: {
+    clipPath: 'polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%)',
+    aspectRatio: 1.154700538,
+  },
+  parent: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
-    backgroundColor: '#1895EF',
   },
-  normalParent: {
-    height: '120px',
-    width: '105px',
-    [theme.breakpoints.down('xs')]: {
-      height: '65px',
-      width: '57px',
-    },
-  },
-  smallParent: {
-    height: '80px',
-    width: '70px',
-  },
-  normalChild: {
-    [theme.breakpoints.down('xs')]: {
-      width: '30px',
-      height: '30px',
-    },
-  },
-  smallChild: {
-    [theme.breakpoints.down('xs')]: {
-      width: '30px',
-      height: '30px',
-    },
+  child: {
+    margin: '3px',
+    padding: '6px',
   },
 }))
 
-const HexagonSvg = ({ svg, variant, ...rest }) => {
+const HexagonSvg = ({ alt, horizontal, svg, title, variant, ...rest }) => {
   const classes = useStyles()
 
-  const parentClasses = classNames(classes.hexagon, {
-    [classes.normalParent]: variant === 'normal',
-    [classes.smallParent]: variant === 'small',
+  const parentClasses = classNames(classes.hexagon, classes.parent, {
+    [classes.horizontal]: horizontal,
+    [classes.vertical]: !horizontal,
   })
 
-  const childClasses = classNames({
-    [classes.normalChild]: variant === 'normal',
-    [classes.smallChild]: variant === 'small',
+  const childClasses = classNames(classes.hexagon, classes.child, {
+    [classes.horizontal]: horizontal,
+    [classes.vertical]: !horizontal,
   })
+
+  const width = `${
+    HEXAGON_DIAMETER_MAP[horizontal ? 'outer' : 'inner'][variant]
+  }px`
 
   return (
-    <Box className={parentClasses} {...rest}>
-      <img className={childClasses} src={svg} alt="" />
+    <Box {...rest}>
+      <Box className={parentClasses} width={width}>
+        <img className={childClasses} src={svg} alt={alt} />
+      </Box>
     </Box>
   )
 }
 
 HexagonSvg.defaultProps = {
+  alt: '',
+  horizontal: false,
   variant: 'normal',
 }
 
 HexagonSvg.propTypes = {
-  variant: PropTypes.oneOf(['small', 'normal']),
+  alt: PropTypes.string,
+  horizontal: PropTypes.bool,
   svg: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }
 
 export default HexagonSvg

@@ -17,8 +17,11 @@ const Template = ({ ...args }) => {
 export const Normal = Template.bind({})
 Normal.args = { ...avatar, variant: 'normal' }
 
-export const Horizontal = Template.bind({})
-Horizontal.args = { ...avatar, horizontal: true, variant: 'normal' }
-
 export const Small = Template.bind({})
 Small.args = { ...avatar, variant: 'small' }
+
+export const Large = Template.bind({})
+Large.args = { ...avatar, variant: 'large' }
+
+export const Horizontal = Template.bind({})
+Horizontal.args = { ...avatar, horizontal: true, variant: 'normal' }

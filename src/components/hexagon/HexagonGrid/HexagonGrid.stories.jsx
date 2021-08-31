@@ -18,8 +18,11 @@ const Template = ({ ...args }) => {
 export const Normal = Template.bind({})
 Normal.args = { grid, variant: 'normal' }
 
-export const Horizontal = Template.bind({})
-Horizontal.args = { grid, variant: 'normal', horizontal: true }
+export const Large = Template.bind({})
+Large.args = { grid, variant: 'large' }
 
 export const Small = Template.bind({})
 Small.args = { grid, variant: 'small' }
+
+export const Horizontal = Template.bind({})
+Horizontal.args = { grid, variant: 'normal', horizontal: true }
