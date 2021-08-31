@@ -28,24 +28,46 @@ export const query = graphql`
         subheading
       }
       sections {
-        id
-        people {
-          bio
-          github
-          avatar {
-            gatsbyImageData(
-              imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
-            )
-            alt
-            title
+        ... on DatoCmsJoinSection {
+          id
+          description
+          heading
+          link {
+            url
+            openInNewTab
+            optimiseInternalLink
           }
-          name
-          role
-          linkedin
-          twitter
+          githubCollaborators {
+            handle
+            avatar {
+              gatsbyImageData(
+                imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
+              )
+              alt
+              title
+            }
+          }
         }
-        heading
-        subheading
+        ... on DatoCmsPeopleSection {
+          id
+          people {
+            bio
+            github
+            avatar {
+              gatsbyImageData(
+                imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
+              )
+              alt
+              title
+            }
+            name
+            role
+            linkedin
+            twitter
+          }
+          heading
+          subheading
+        }
       }
     }
   }
@@ -57,8 +79,8 @@ const About = ({ location, data }) => {
   const sections = data.page.sections.map((section) => {
     const { id, ...rest } = section
     console.log('SECTION DATA', JSON.stringify(rest))
-    const Component = getDatoSectionComponent(id)
-    return <Component {...rest} />
+    // const Component = getDatoSectionComponent(id)
+    // return <Component {...rest} />
   })
 
   return (
@@ -72,12 +94,12 @@ const About = ({ location, data }) => {
       />
       <SolutionsAcrossScience />
       <DoMoreWithYourData />
-      {sections}
-      <JoinTheMovement
+      {/* {sections} */}
+      {/* <JoinTheMovement
         description={
           'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
         }
-      />
+      /> */}
     </BasicPage>
   )
 }

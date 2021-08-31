@@ -7,8 +7,7 @@ import Image from '../../../assets/images/hexagon/Hero2.png'
 import SectionHeading from '../../elements/SectionTitle/SectionHeading'
 import SectionDetail from '../../elements/SectionDetail/SectionDetail'
 import Image1 from '../../../assets/images/hexagon/growth.svg'
-import SimpleSmallHexagon from '../../hexagon/SimpleSmallHexagon'
-import SmallHexagonSvg from '../../hexagon/SmallHexagonSvg'
+import { Hexagon, HexagonGrid, HexagonSvg } from '../../hexagon'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -71,18 +70,20 @@ const JoinSection = ({ description }) => {
           <Box className={classes.detailBox}>
             <SectionDetail description={description} button="Get involved" />
             <Box className={classes.hexagonBox}>
-              <SimpleSmallHexagon bgHexImg={Image} />
-              <SimpleSmallHexagon bgHexImg={Image} />
-              <SimpleSmallHexagon
-                bgHexImg={Image}
+              <Hexagon variant="small" gatsbyImageData={Image} />
+              <Hexagon variant="small" gatsbyImageData={Image} />
+              <Hexagon
+                variant="small"
+                gatsbyImageData={Image}
                 className={classes.mobileNone}
               />
-              <SimpleSmallHexagon
-                bgHexImg={Image}
+              <Hexagon
+                variant="small"
+                gatsbyImageData={Image}
                 className={classes.mobileNone}
               />
-              <SimpleSmallHexagon bgHexImg={Image} />
-              <SmallHexagonSvg svg={Image1} />
+              <Hexagon variant="small" gatsbyImageData={Image} />
+              <HexagonSvg variant="small" svg={Image1} />
             </Box>
           </Box>
         </Box>
