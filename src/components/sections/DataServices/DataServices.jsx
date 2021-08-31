@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Image from '../../../assets/images/hexagon/Hero6.png'
 import { SectionHeading } from '../../elements'
-import HexagonGrid from '../../hexagon/HexagonGrid'
+import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
@@ -85,22 +85,22 @@ const DataServices = () => {
     {
       x: 3,
       y: 1,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 4,
       y: 1,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 1,
       y: 2,
-      image: Image,
+      gatsbyImageData: Image,
     },
     {
       x: 2,
       y: 2,
-      image: Image,
+      gatsbyImageData: Image,
     },
   ]
   return (
@@ -114,7 +114,7 @@ const DataServices = () => {
           </Box>
           <Box className={classes.HexagonDetailBox}>
             <Box className={classes.hexagonBox}>
-              <HexagonGrid gridObjectXY={gridObjectXY} />
+              <HexagonGrid grid={gridObjectXY} />
             </Box>
             <Box className={classes.detailBox}>
               <Box display="flex" className={classes.titleBox}>

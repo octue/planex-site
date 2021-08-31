@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import PersonBioCard from './PersonBioCard'
-import SimpleHexagon from '../../hexagon/SimpleHexagon'
+import Hexagon from '../../hexagon/Hexagon'
 
 const Person = ({ avatar, ...rest }) => {
   return (
     <>
       <Box display="flex" width="100%">
         <Box display="flex">
-          <SimpleHexagon
+          <Hexagon
             image={avatar.gatsbyImageData}
             alt={avatar.alt}
             title={avatar.title}

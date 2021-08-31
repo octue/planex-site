@@ -1,1 +1,1 @@
-export { default } from './JoinSection'
+export { default } from './JoinTheMovement'

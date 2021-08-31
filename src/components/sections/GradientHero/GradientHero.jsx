@@ -50,11 +50,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const HeroSection = ({ heading, description, imageData }) => {
+const GradientHero = ({ heading, description, image }) => {
   const classes = useStyles()
   const theme = useTheme()
-
-  const bgImage = convertToBgImage(imageData)
+  const { alt, gatsbyImageData } = image
+  const bgImage = convertToBgImage(gatsbyImageData)
 
   return (
     <Box component="section" height="100vh">
@@ -62,6 +62,7 @@ const HeroSection = ({ heading, description, imageData }) => {
       <BackgroundImage
         Tag="div"
         {...bgImage}
+        alt={alt}
         style={{
           backgroundColor: theme.palette.background.paper,
           width: '100%',
@@ -85,7 +86,6 @@ const HeroSection = ({ heading, description, imageData }) => {
             display="flex"
             flexDirection="column"
             justifyContent="flex-end"
-            // alignItems="flex-start"
             height="100%"
             zIndex={10}
             maxWidth="958px" // Places it to the left of center on larger screens
@@ -108,12 +108,15 @@ const HeroSection = ({ heading, description, imageData }) => {
   )
 }
 
-HeroSection.defaultProps = {}
+GradientHero.defaultProps = {}
 
-HeroSection.propTypes = {
+GradientHero.propTypes = {
   heading: PropTypes.string,
   description: PropTypes.string,
-  imageData: PropTypes.object,
+  image: PropTypes.shape({
+    gatsbyImageData: PropTypes.object.isRequired,
+    alt: PropTypes.string,
+  }).isRequired,
 }
 
-export default HeroSection
+export default GradientHero

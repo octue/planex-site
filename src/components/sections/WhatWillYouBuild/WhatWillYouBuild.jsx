@@ -7,7 +7,7 @@ import Team from '../../../assets/images/hexagon/team.svg'
 import Icon from '../../../assets/images/hexagon/icon.svg'
 import Build from '../../../assets/images/hexagon/build.svg'
 import { SectionHeading, SectionDetail } from '../../elements'
-import HexagonSvg from '../../hexagon/HexagonSvg'
+import HexagonSvg from '../../hexagon/HexagonSvg/HexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {

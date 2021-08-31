@@ -7,7 +7,7 @@ import Engineers from '../../../assets/images/hexagon/engineers.svg'
 import Consultants from '../../../assets/images/hexagon/consultants.svg'
 import Researchers from '../../../assets/images/hexagon/researchers.svg'
 import { SectionHeading, SectionDetail } from '../../elements'
-import HexagonSvg from '../../hexagon/HexagonSvg'
+import HexagonSvg from '../../hexagon/HexagonSvg/HexagonSvg'
 
 const useStyles = makeStyles((theme) => ({
   bgColor: {
