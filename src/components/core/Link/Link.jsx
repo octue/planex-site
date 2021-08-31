@@ -15,6 +15,8 @@ const Link = forwardRef(
       component: kind === 'site' ? GatsbyLink : 'a',
     }
 
+    const { variant, ...others } = rest
+
     if (kind === 'site') {
       // Internal gatsby links are usually provided with 'to' instead of href but I find changing the prop name
       // to be poor developer experience so we use just one, `href`, and map it as needed here.
@@ -53,19 +55,19 @@ const Link = forwardRef(
     let clickableComponent
     if (componentType === 'button') {
       clickableComponent = (
-        <MuiButton ref={ref} {...extra} {...rest}>
+        <MuiButton ref={ref} {...extra} {...others}>
           {children}
         </MuiButton>
       )
     } else if (componentType === 'iconButton') {
       clickableComponent = (
-        <MuiIconButton ref={ref} {...extra} {...rest}>
+        <MuiIconButton ref={ref} {...extra} {...others}>
           {children}
         </MuiIconButton>
       )
     } else {
       clickableComponent = (
-        <MuiLink ref={ref} {...extra} {...rest}>
+        <MuiLink ref={ref} {...extra} {...others}>
           {children}
         </MuiLink>
       )

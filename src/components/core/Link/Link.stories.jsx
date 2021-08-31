@@ -14,16 +14,16 @@ export default {
 
 const Template = ({ children, ...args }) => {
   return (
-    <Box width="80vw" m={6} border="1px solid #333">
-      <Box width="100%" m={2}>
-        <Typography variant="subtitle" gutterBottom>
-          {`Kind: ${args.kind}, Variant: ${args.variant}`}
-        </Typography>
-      </Box>
-      <Box m={2}>
-        <Link {...args}>{children}</Link>
-      </Box>
-    </Box>
+    // <Box width="80vw" m={6} border="1px solid #333">
+    //   <Box width="100%" m={2}>
+    //     <Typography variant="subtitle1" gutterBottom>
+    //       {`Kind: ${args.kind}, Variant: ${args.variant}`}
+    //     </Typography>
+    //   </Box>
+    //   <Box m={2}>
+    <Link {...args}>{children}</Link>
+    //   </Box>
+    // </Box>
   )
 }
 
