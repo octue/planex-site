@@ -10,7 +10,6 @@ import Volunteer from '../components/sections/Volunteer'
 import TellUsWhatYouNeed from '../components/sections/TellUsWhatYouNeed'
 import AwesomeScientist from '../components/sections/AwesomeScientist'
 import LastButNotLeast from '../components/sections/LastButNotLeast'
-import JoinTheMovement from '../components/sections/JoinTheMovement'
 
 export const query = graphql`
   query GetInvolvedPageQuery {
@@ -50,11 +49,6 @@ const GetInvolved = ({ location, data }) => {
       <TellUsWhatYouNeed />
       <AwesomeScientist />
       <LastButNotLeast />
-      <JoinTheMovement
-        description={
-          'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
-        }
-      />
     </BasicPage>
   )
 }

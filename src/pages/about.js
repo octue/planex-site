@@ -3,7 +3,7 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 
 import { BasicPage, CallToAction } from '../containers'
-import getDatoSectionComponent from '../containers/sections/getDatoSectionComponent'
+import DatoSections from '../containers/sections/DatoSections'
 
 import GradientHero from '../components/sections/GradientHero'
 import SolutionsAcrossScience from '../components/sections/SolutionsAcrossScience'
@@ -29,46 +29,8 @@ export const query = graphql`
         subheading
       }
       sections {
-        ... on DatoCmsJoinSection {
-          id
-          description
-          heading
-          link {
-            url
-            openInNewTab
-            optimiseInternalLink
-          }
-          githubCollaborators {
-            handle
-            avatar {
-              gatsbyImageData(
-                imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
-              )
-              alt
-              title
-            }
-          }
-        }
-        ... on DatoCmsPeopleSection {
-          id
-          people {
-            bio
-            github
-            avatar {
-              gatsbyImageData(
-                imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
-              )
-              alt
-              title
-            }
-            name
-            role
-            linkedin
-            twitter
-          }
-          heading
-          subheading
-        }
+        ...JoinSection
+        ...PeopleSection
       }
     }
   }
@@ -76,13 +38,6 @@ export const query = graphql`
 
 const About = ({ location, data }) => {
   const navBarProps = { transparency: data.page.navbarTransparency }
-
-  const sections = data.page.sections.map((section) => {
-    const { id, ...rest } = section
-    console.log('SECTION DATA', JSON.stringify(rest))
-    const Component = getDatoSectionComponent(id)
-    return <Component {...rest} />
-  })
 
   return (
     <BasicPage location={location} navBarProps={navBarProps}>
@@ -95,7 +50,7 @@ const About = ({ location, data }) => {
       />
       <SolutionsAcrossScience />
       <DoMoreWithYourData />
-      {sections}
+      <DatoSections sections={data.page.sections} />
     </BasicPage>
   )
 }

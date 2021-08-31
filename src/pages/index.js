@@ -2,13 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
+import DatoSections from '../containers/sections/DatoSections'
 
 import GradientHero from '../components/sections/GradientHero/GradientHero'
 import BeMoreConstructive from '../components/sections/BeMoreConstructive'
 import WhatWillYouBuild from '../components/sections/WhatWillYouBuild'
 import HowWeHelp from '../components/sections/HowWeHelp'
 import Partners from '../components/sections/Partners'
-import JoinTheMovement from '../components/sections/JoinTheMovement'
 
 export const query = graphql`
   query HomePageQuery {
@@ -27,6 +27,10 @@ export const query = graphql`
         }
         heading
         subheading
+      }
+      sections {
+        ...JoinSection
+        ...PeopleSection
       }
     }
   }
@@ -48,11 +52,7 @@ export default function Index({ location, data }) {
       <WhatWillYouBuild />
       <HowWeHelp />
       <Partners />
-      <JoinTheMovement
-        description={
-          'So why should someone modelling climate or energy systems need to be an expert coder? Yet scientists waste 95% of their day [Source:McKinsey] being general programmers, API architects and DevOps engineers. Our solution: a framework of open-source tools to create, connect, exchange and reuse analysis building blocks.'
-        }
-      />
+      <DatoSections sections={data.page.sections} />
     </BasicPage>
   )
 }
