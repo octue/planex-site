@@ -10,7 +10,7 @@ const Person = ({ avatar, ...rest }) => {
       <Box display="flex" width="100%">
         <Box display="flex">
           <Hexagon
-            image={avatar.gatsbyImageData}
+            gatsbyImageData={avatar.gatsbyImageData}
             alt={avatar.alt}
             title={avatar.title}
           />
