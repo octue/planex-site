@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const HexagonSvg = ({ alt, horizontal, svg, title, variant, ...rest }) => {
+const HexagonSvg = ({ alt, horizontal, url, title, variant, ...rest }) => {
   const classes = useStyles()
 
   const parentClasses = classNames(classes.hexagon, classes.parent, {
@@ -48,7 +48,7 @@ const HexagonSvg = ({ alt, horizontal, svg, title, variant, ...rest }) => {
   return (
     <Box {...rest}>
       <Box className={parentClasses} width={width}>
-        <img className={childClasses} src={svg} alt={alt} />
+        <img className={childClasses} src={url} alt={alt} />
       </Box>
     </Box>
   )
@@ -63,7 +63,7 @@ HexagonSvg.defaultProps = {
 HexagonSvg.propTypes = {
   alt: PropTypes.string,
   horizontal: PropTypes.bool,
-  svg: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }
 

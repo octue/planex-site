@@ -7,7 +7,6 @@ import DatoSections from '../containers/sections/DatoSections'
 import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
 import BeMoreConstructive from '../components/sections/BeMoreConstructive'
-import WhatWillYouBuild from '../components/sections/WhatWillYouBuild'
 import HowWeHelp from '../components/sections/HowWeHelp'
 import Partners from '../components/sections/Partners'
 
@@ -33,6 +32,7 @@ export const query = graphql`
         gradient
       }
       sections {
+        ...HexBulletsSection
         ...JoinSection
         ...PeopleSection
         ...PartnersSection
@@ -50,7 +50,6 @@ export default function Index({ location, data }) {
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         <BeMoreConstructive />
-        <WhatWillYouBuild />
         <HowWeHelp />
         <Partners />
         <DatoSections sections={data.page.sections} />

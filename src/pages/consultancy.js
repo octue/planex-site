@@ -33,6 +33,7 @@ export const query = graphql`
         gradient
       }
       sections {
+        ...HexBulletsSection
         ...JoinSection
         ...PeopleSection
         ...PartnersSection

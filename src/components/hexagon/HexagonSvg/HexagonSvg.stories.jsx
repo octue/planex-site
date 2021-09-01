@@ -10,7 +10,7 @@ export default {
 const Template = ({ ...args }) => {
   return (
     <>
-      <HexagonSvg svg={BuildSvg} {...args} />
+      <HexagonSvg url={BuildSvg} {...args} />
     </>
   )
 }

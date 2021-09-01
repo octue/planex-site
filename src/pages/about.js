@@ -7,7 +7,6 @@ import DatoSections from '../containers/sections/DatoSections'
 
 import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
-import SolutionsAcrossScience from '../components/sections/SolutionsAcrossScience'
 import DoMoreWithYourData from '../components/sections/DoMoreWithYourData'
 
 export const query = graphql`
@@ -32,6 +31,7 @@ export const query = graphql`
         gradient
       }
       sections {
+        ...HexBulletsSection
         ...JoinSection
         ...PeopleSection
         ...PartnersSection
@@ -49,7 +49,6 @@ const About = ({ location, data }) => {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        <SolutionsAcrossScience />
         <DoMoreWithYourData />
         <DatoSections sections={data.page.sections} />
       </SectionManager>
