@@ -1,9 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import SectionHeading from '../../elements/SectionHeading/SectionHeading'
-import SectionContainer from '../../elements/SectionContainer'
-import Person from '../../elements/Person/Person'
+import { SectionHeading, SectionContainer, Person } from '../../elements'
 
 const useStyles = makeStyles((theme) => ({
   parentBox: {
@@ -13,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   peopleBox: {
-    marginTop: `-${theme.spacing(4)}px`, // person boxes have a large marginon top, this offsets
+    marginTop: `-${theme.spacing(4)}px`, // person boxes have a large margin on top, this offsets
     width: '100%',
     display: 'flex',
     flexWrap: 'wrap',

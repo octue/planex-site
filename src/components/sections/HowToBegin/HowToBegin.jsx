@@ -1,26 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import { useStaticQuery, graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
 
-import { SectionHeading, SectionDetail } from '../../elements'
+import { SectionHeading, SectionContainer, SectionDetail } from '../../elements'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '150px',
-    [theme.breakpoints.down('xs')]: {
-      paddingTop: '100px',
-    },
-  },
   titleFontSize: {
     fontWeight: 400,
   },
@@ -61,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const TwinedHelpSection = () => {
+const HowToBegin = (rest) => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query {
@@ -73,81 +62,79 @@ const TwinedHelpSection = () => {
     }
   `)
   return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="How to begin" />
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Box display="flex">
-                <Box className={classes.arrowIcon}>
-                  <ArrowRightAltIcon style={{ color: 'white' }} />
-                </Box>
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                  className={classes.titleFontSize}
-                >
-                  Twined-components
-                </Typography>
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <Box>
+            <SectionHeading>How to begin</SectionHeading>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Box display="flex">
+              <Box className={classes.arrowIcon}>
+                <ArrowRightAltIcon style={{ color: 'white' }} />
               </Box>
-            </Box>
-            <Box className={classes.boxSubtitle}>
               <Typography
+                variant="body1"
                 color="textSecondary"
                 component="span"
                 className={classes.titleFontSize}
               >
-                Twine-builder
-              </Typography>
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography
-                color="textSecondary"
-                component="span"
-                className={classes.titleFontSize}
-              >
-                Twined-monitor
-              </Typography>
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography
-                color="textSecondary"
-                component="span"
-                className={classes.titleFontSize}
-              >
-                Octue-sdk
-              </Typography>
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography
-                color="textSecondary"
-                component="span"
-                className={classes.titleFontSize}
-              >
-                User-personas
+                Twined-components
               </Typography>
             </Box>
           </Box>
-          <Box className={classes.detailBox}>
-            <SectionDetail
-              description="Build your own front-ends for scientific data, using these components ready-made in React."
-              button="Go to github"
-            />
-            <Grid item className={classes.twinedHelpImage}>
-              <GatsbyImage
-                image={data.Image.childImageSharp.gatsbyImageData}
-                className={classes.mediaLarge}
-              />
-            </Grid>
+          <Box className={classes.boxSubtitle}>
+            <Typography
+              color="textSecondary"
+              component="span"
+              className={classes.titleFontSize}
+            >
+              Twine-builder
+            </Typography>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography
+              color="textSecondary"
+              component="span"
+              className={classes.titleFontSize}
+            >
+              Twined-monitor
+            </Typography>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography
+              color="textSecondary"
+              component="span"
+              className={classes.titleFontSize}
+            >
+              Octue-sdk
+            </Typography>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography
+              color="textSecondary"
+              component="span"
+              className={classes.titleFontSize}
+            >
+              User-personas
+            </Typography>
           </Box>
         </Box>
-      </Container>
-    </section>
+        <Box className={classes.detailBox}>
+          <SectionDetail
+            description="Build your own front-ends for scientific data, using these components ready-made in React."
+            button="Go to github"
+          />
+          <Grid item className={classes.twinedHelpImage}>
+            <GatsbyImage
+              image={data.Image.childImageSharp.gatsbyImageData}
+              className={classes.mediaLarge}
+            />
+          </Grid>
+        </Box>
+      </Box>
+    </SectionContainer>
   )
 }
 
-export default TwinedHelpSection
+export default HowToBegin

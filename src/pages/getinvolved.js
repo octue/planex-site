@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import { BasicPage, CallToAction } from '../containers'
 
+import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
 import SponsorUs from '../components/sections/SponsorUs'
 import Volunteer from '../components/sections/Volunteer'
@@ -49,11 +50,13 @@ const GetInvolved = ({ location, data }) => {
         description={data.page.hero[0].subheading}
         image={data.page.hero[0].image}
       />
-      <SponsorUs />
-      <Volunteer />
-      <TellUsWhatYouNeed />
-      <AwesomeScientist />
-      <LastButNotLeast />
+      <SectionManager>
+        <SponsorUs />
+        <Volunteer />
+        <TellUsWhatYouNeed />
+        <AwesomeScientist />
+        <LastButNotLeast />
+      </SectionManager>
     </BasicPage>
   )
 }

@@ -70,6 +70,7 @@ function JoinTheMovement({
 
 JoinTheMovement.defaultProps = {
   id: 'join-the-movement',
+  githubCollaborators: [],
 }
 
 JoinTheMovement.propTypes = {
@@ -83,7 +84,7 @@ JoinTheMovement.propTypes = {
         gatsbyImageData: PropTypes.object.isRequired,
       }).isRequired,
     })
-  ).isRequired,
+  ),
 }
 
 export default JoinTheMovement

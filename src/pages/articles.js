@@ -2,7 +2,6 @@ import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
 import { graphql } from 'gatsby'
-import JoinTheMovement from '../components/sections/JoinTheMovement'
 import ArticlesBrowser from '../components/sections/ArticlesBrowser'
 
 export const query = graphql`
@@ -22,11 +21,6 @@ const Articles = ({ location, data }) => {
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
       <ArticlesBrowser />
-      <JoinTheMovement
-        description={
-          'Octue is a non-profit organisation working to free scientists from their daily data drudgery. Here are the latest supporters contributing to our codebase.'
-        }
-      />
     </BasicPage>
   )
 }

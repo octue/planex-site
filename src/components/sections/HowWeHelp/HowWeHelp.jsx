@@ -1,26 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import SectionHeading from '../../elements/SectionTitle/SectionHeading'
-import SectionDetail from '../../elements/SectionDetail/SectionDetail'
+import { SectionHeading, SectionContainer, SectionDetail } from '../../elements'
 import Image1 from '../../../assets/images/hexagon/Hero8.png'
 import Image2 from '../../../assets/images/hexagon/Hero10.png'
 import Image3 from '../../../assets/images/hexagon/Hero9.png'
 import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '180px',
-    [theme.breakpoints.down('xs')]: {
-      paddingTop: '100px',
-    },
-  },
   title: {
     display: 'flex',
     color: theme.palette.text.primary,
@@ -58,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const HelpSection = () => {
+const HowWeHelp = (rest) => {
   const classes = useStyles()
   const gridObjectXY = [
     {
@@ -77,43 +65,42 @@ const HelpSection = () => {
       gatsbyImageData: Image3,
     },
   ]
+
   return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="How we help" />
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography variant="h3" component="h3" className={classes.title}>
-                Get started with Twined
-              </Typography>
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography variant="h3" component="h3" className={classes.title}>
-                Go further with Octue
-              </Typography>
-            </Box>
-            <Box className={classes.boxSubtitle}>
-              <Typography variant="h3" component="h3" className={classes.title}>
-                Here to help you build
-              </Typography>
-            </Box>
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <Box>
+            <SectionHeading>How we help</SectionHeading>
           </Box>
-          <Box className={classes.detailBox}>
-            <SectionDetail
-              description="Access, assess and analyse data and create data services with our open-source framework and tools. What you build will be shareable and scalable."
-              button="Enter the library"
-            />
-            <Box className={classes.hexagonBox}>
-              <HexagonGrid grid={gridObjectXY} />
-            </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography variant="h3" component="h3" className={classes.title}>
+              Get started with Twined
+            </Typography>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography variant="h3" component="h3" className={classes.title}>
+              Go further with Octue
+            </Typography>
+          </Box>
+          <Box className={classes.boxSubtitle}>
+            <Typography variant="h3" component="h3" className={classes.title}>
+              Here to help you build
+            </Typography>
           </Box>
         </Box>
-      </Container>
-    </section>
+        <Box className={classes.detailBox}>
+          <SectionDetail
+            description="Access, assess and analyse data and create data services with our open-source framework and tools. What you build will be shareable and scalable."
+            button="Enter the library"
+          />
+          <Box className={classes.hexagonBox}>
+            <HexagonGrid grid={gridObjectXY} />
+          </Box>
+        </Box>
+      </Box>
+    </SectionContainer>
   )
 }
 
-export default HelpSection
+export default HowWeHelp

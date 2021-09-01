@@ -1,12 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 
 import Image from '../../../assets/images/hexagon/Hero5.png'
-import { SectionHeading } from '../../elements'
+import { SectionHeading, SectionContainer } from '../../elements'
 import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
@@ -76,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Strategy = () => {
+const Strategy = (rest) => {
   const classes = useStyles()
   const gridObjectXY = [
     {
@@ -100,59 +99,57 @@ const Strategy = () => {
       gatsbyImageData: Image,
     },
   ]
-  return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="Strategy" />
-            </Box>
-          </Box>
-          <Box className={classes.HexagonDetailBox}>
-            <Box className={classes.hexagonBox}>
-              <HexagonGrid grid={gridObjectXY} />
-            </Box>
-            <Box className={classes.detailBox}>
-              <Box display="flex" className={classes.titleBox}>
-                <Typography variant="subtitle1" color="textPrimary">
-                  It’s time to master and maximise data. If you’re managing lots
-                  of scientific data and analyses, change your business model to
-                  offer these as services - or improve your processes to make
-                  them consistent, reduce risk and cost.
-                </Typography>
-              </Box>
-              <Box display="flex">
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                  className={classes.descriptionTitle}
-                >
-                  How to begin
-                </Typography>
-              </Box>
-              <Box display="flex" pb={4}>
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                >
-                  A small package of work to understand your commercial needs
-                  and outline a system to tackle them.
-                </Typography>
-              </Box>
 
-              <Box display="flex" className={classes.btnBox}>
-                <Button className={classes.cta} variant="outlined">
-                  Let's connect
-                </Button>
-              </Box>
+  return (
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <Box>
+            <SectionHeading>Strategy</SectionHeading>
+          </Box>
+        </Box>
+        <Box className={classes.HexagonDetailBox}>
+          <Box className={classes.hexagonBox}>
+            <HexagonGrid grid={gridObjectXY} />
+          </Box>
+          <Box className={classes.detailBox}>
+            <Box display="flex" className={classes.titleBox}>
+              <Typography variant="subtitle1" color="textPrimary">
+                It’s time to master and maximise data. If you’re managing lots
+                of scientific data and analyses, change your business model to
+                offer these as services - or improve your processes to make them
+                consistent, reduce risk and cost.
+              </Typography>
+            </Box>
+            <Box display="flex">
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+                className={classes.descriptionTitle}
+              >
+                How to begin
+              </Typography>
+            </Box>
+            <Box display="flex" pb={4}>
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+              >
+                A small package of work to understand your commercial needs and
+                outline a system to tackle them.
+              </Typography>
+            </Box>
+            <Box display="flex" className={classes.btnBox}>
+              <Button className={classes.cta} variant="outlined">
+                Let's connect
+              </Button>
             </Box>
           </Box>
         </Box>
-      </Container>
-    </section>
+      </Box>
+    </SectionContainer>
   )
 }
 

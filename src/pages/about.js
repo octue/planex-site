@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import { BasicPage, CallToAction } from '../containers'
 import DatoSections from '../containers/sections/DatoSections'
 
+import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
 import SolutionsAcrossScience from '../components/sections/SolutionsAcrossScience'
 import DoMoreWithYourData from '../components/sections/DoMoreWithYourData'
@@ -49,9 +50,11 @@ const About = ({ location, data }) => {
         description={data.page.hero[0].subheading}
         image={data.page.hero[0].image}
       />
-      <SolutionsAcrossScience />
-      <DoMoreWithYourData />
-      <DatoSections sections={data.page.sections} />
+      <SectionManager>
+        <SolutionsAcrossScience />
+        <DoMoreWithYourData />
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
     </BasicPage>
   )
 }

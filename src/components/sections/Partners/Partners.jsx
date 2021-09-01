@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import PartnerLogo from '../../elements/PartnerLogo'
-import SectionHeading from '../../elements/SectionHeading'
-import SectionContainer from '../../elements/SectionContainer'
+import { SectionHeading, SectionContainer } from '../../elements'
 
 const useStyles = makeStyles((theme) => ({
   logosBox: {

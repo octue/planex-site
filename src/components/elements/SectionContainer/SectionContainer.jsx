@@ -9,11 +9,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   container: {
-    height: '100%',
-    paddingTop: '240px',
-    [theme.breakpoints.down('xs')]: {
-      paddingTop: '100px',
-    },
+    // height: '100%',
+    // paddingTop: '240px',
+    // [theme.breakpoints.down('xs')]: {
+    //   paddingTop: '100px',
+    // },
   },
 }))
 

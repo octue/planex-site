@@ -1,21 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
-import { SectionHeading } from '../../elements'
+import { SectionHeading, SectionContainer } from '../../elements'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '200px',
-    [theme.breakpoints.down('xs')]: {
-      paddingTop: '100px',
-    },
-  },
   parentBox: {
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
@@ -57,28 +46,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LastButNotLeast = () => {
+const LastButNotLeast = (rest) => {
   const classes = useStyles()
   return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <SectionHeading text="Last but not least" />
-          </Box>
-          <Box className={classes.detailBox}>
-            <Box>
-              <Box className={classes.titleBox}>
-                <Typography variant="subtitle1" color="textPrimary">
-                  Join the general email list, tweet about us, try it out and
-                  let us know.
-                </Typography>
-              </Box>
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <SectionHeading>Last but not least</SectionHeading>
+        </Box>
+        <Box className={classes.detailBox}>
+          <Box>
+            <Box className={classes.titleBox}>
+              <Typography variant="subtitle1" color="textPrimary">
+                Join the general email list, tweet about us, try it out and let
+                us know.
+              </Typography>
             </Box>
           </Box>
         </Box>
-      </Container>
-    </section>
+      </Box>
+    </SectionContainer>
   )
 }
 

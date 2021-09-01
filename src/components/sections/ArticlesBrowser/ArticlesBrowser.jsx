@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
 import { makeStyles, MenuItem } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import { useStaticQuery, graphql } from 'gatsby'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import ReactPaginate from 'react-paginate'
-
-import { SectionHeading, ArticleCard } from '../../elements'
+import { SectionHeading, SectionContainer, ArticleCard } from '../../elements'
 import { Link } from '../../core/Link'
 import './paginationCss.css'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
   container: {
-    height: '100%',
     paddingTop: '210px',
   },
   parentBox: {
@@ -117,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const ArticlesBrowser = () => {
+const ArticlesBrowser = (rest) => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query {
@@ -240,127 +234,121 @@ const ArticlesBrowser = () => {
   }
 
   return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.articleTitle}>
-            <SectionHeading text="Latest articles & resources" />
+    <SectionContainer className={classes.container} {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.articleTitle}>
+          <SectionHeading>{'Latest articles & resources'}</SectionHeading>
+        </Box>
+        <Box>
+          <Box
+            component="li"
+            display="inline-flex"
+            p={0}
+            m={0}
+            className={classes.linkBox}
+          >
+            <Link href="/" className={classes.link}>
+              All
+            </Link>
+            <Link href="/" className={classes.link}>
+              Engineering Consultancy{' '}
+            </Link>
+            <Link href="/" className={classes.link}>
+              Digital Twins
+            </Link>
+            <Link href="/" className={classes.link}>
+              Cool Science
+            </Link>
+            <Link href="/" className={classes.link}>
+              Software Development
+            </Link>
+            <Link href="/" className={classes.link}>
+              Applications
+            </Link>
           </Box>
-          <Box>
-            <Box
-              component="li"
-              display="inline-flex"
-              p={0}
-              m={0}
-              className={classes.linkBox}
+          <Box className={classes.selectFieldBox}>
+            <Select
+              id="select"
+              value="1"
+              className={classes.select}
+              inputProps={{
+                classes: {
+                  icon: classes.icon,
+                },
+              }}
             >
-              <Link href="/" className={classes.link}>
-                All
-              </Link>
-              <Link href="/" className={classes.link}>
-                Engineering Consultancy{' '}
-              </Link>
-              <Link href="/" className={classes.link}>
-                Digital Twins
-              </Link>
-              <Link href="/" className={classes.link}>
-                Cool Science
-              </Link>
-              <Link href="/" className={classes.link}>
-                Software Development
-              </Link>
-              <Link href="/" className={classes.link}>
-                Applications
-              </Link>
-            </Box>
-            <Box className={classes.selectFieldBox}>
-              <Select
-                id="select"
-                value="1"
-                className={classes.select}
-                inputProps={{
-                  classes: {
-                    icon: classes.icon,
-                  },
-                }}
-              >
-                <MenuItem value="1">Showing - All</MenuItem>
-                <MenuItem value="2">Engineering Consultancy</MenuItem>
-                <MenuItem value="3">Digital Twins</MenuItem>
-                <MenuItem value="4">Software Development</MenuItem>
-              </Select>
-            </Box>
-            <Box className={classes.showingBox}>
-              <Typography
-                variant="body1"
-                color="textSecondary"
-                component="span"
-              >
-                Showing 6 of 16
-              </Typography>
-            </Box>
+              <MenuItem value="1">Showing - All</MenuItem>
+              <MenuItem value="2">Engineering Consultancy</MenuItem>
+              <MenuItem value="3">Digital Twins</MenuItem>
+              <MenuItem value="4">Software Development</MenuItem>
+            </Select>
           </Box>
-          <Box>
-            <Box className={classes.paginationBox}>
-              <ReactPaginate
-                previousLabel={'Previous'}
-                nextLabel={'Next'}
-                pageCount={pageCount}
-                onPageChange={changePage}
-                containerClassName={'paginationBttns'}
-                previousLinkClassName={'previousBttn'}
-                nextLinkClassName={'nextBttn'}
-                disabledClassName={'paginationDisabled'}
-                activeClassName={'paginationActive'}
-              />
-            </Box>
-            <Box className={classes.articleBox}>
-              {articles
-                .slice(pagesVisited, pagesVisited + articlesPerPage)
-                .map((article) => {
-                  return (
-                    <Box className={classes.articleCardBox}>
-                      <ArticleCard
-                        image={article.image}
-                        title={article.title}
-                        description={article.description}
-                      />
-                    </Box>
-                  )
-                })}
-            </Box>
-          </Box>
-          <Box className={classes.articleBox}>
-            <Box className={classes.articleCardBox}>
-              <ArticleCard
-                image={data.img4.childImageSharp.gatsbyImageData}
-                title="Amet dolor"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
-              />
-            </Box>
-            <Box className={classes.articleCardBox}>
-              <ArticleCard
-                image={data.img5.childImageSharp.gatsbyImageData}
-                title="Lorem ipsum amet"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
-              />
-            </Box>
-            <Box className={classes.articleCardBox}>
-              <ArticleCard
-                image={data.img6.childImageSharp.gatsbyImageData}
-                title="Lorem ipsum amet dolor"
-                description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
-              />
-            </Box>
-          </Box>
-          <Box display="flex" className={classes.btnBox}>
-            <Button className={classes.cta} variant="outlined">
-              Show more
-            </Button>
+          <Box className={classes.showingBox}>
+            <Typography variant="body1" color="textSecondary" component="span">
+              Showing 6 of 16
+            </Typography>
           </Box>
         </Box>
-      </Container>
-    </section>
+        <Box>
+          <Box className={classes.paginationBox}>
+            <ReactPaginate
+              previousLabel={'Previous'}
+              nextLabel={'Next'}
+              pageCount={pageCount}
+              onPageChange={changePage}
+              containerClassName={'paginationBttns'}
+              previousLinkClassName={'previousBttn'}
+              nextLinkClassName={'nextBttn'}
+              disabledClassName={'paginationDisabled'}
+              activeClassName={'paginationActive'}
+            />
+          </Box>
+          <Box className={classes.articleBox}>
+            {articles
+              .slice(pagesVisited, pagesVisited + articlesPerPage)
+              .map((article) => {
+                return (
+                  <Box className={classes.articleCardBox}>
+                    <ArticleCard
+                      image={article.image}
+                      title={article.title}
+                      description={article.description}
+                    />
+                  </Box>
+                )
+              })}
+          </Box>
+        </Box>
+        <Box className={classes.articleBox}>
+          <Box className={classes.articleCardBox}>
+            <ArticleCard
+              image={data.img4.childImageSharp.gatsbyImageData}
+              title="Amet dolor"
+              description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
+            />
+          </Box>
+          <Box className={classes.articleCardBox}>
+            <ArticleCard
+              image={data.img5.childImageSharp.gatsbyImageData}
+              title="Lorem ipsum amet"
+              description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
+            />
+          </Box>
+          <Box className={classes.articleCardBox}>
+            <ArticleCard
+              image={data.img6.childImageSharp.gatsbyImageData}
+              title="Lorem ipsum amet dolor"
+              description="Quis viverra ut quam aliquet ipsum, habitasse congue. A vel justo at ultricies egestas. Eu lectus ullamcorper sed massa pharetra..."
+            />
+          </Box>
+        </Box>
+        <Box display="flex" className={classes.btnBox}>
+          <Button className={classes.cta} variant="outlined">
+            Show more
+          </Button>
+        </Box>
+      </Box>
+    </SectionContainer>
   )
 }
 

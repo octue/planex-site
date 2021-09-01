@@ -4,6 +4,7 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
 import DatoSections from '../containers/sections/DatoSections'
 
+import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero/GradientHero'
 import BeMoreConstructive from '../components/sections/BeMoreConstructive'
 import WhatWillYouBuild from '../components/sections/WhatWillYouBuild'
@@ -49,11 +50,13 @@ export default function Index({ location, data }) {
         description={data.page.hero[0].subheading}
         image={data.page.hero[0].image}
       />
-      <BeMoreConstructive />
-      <WhatWillYouBuild />
-      <HowWeHelp />
-      <Partners />
-      <DatoSections sections={data.page.sections} />
+      <SectionManager>
+        <BeMoreConstructive />
+        <WhatWillYouBuild />
+        <HowWeHelp />
+        <Partners />
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
     </BasicPage>
   )
 }

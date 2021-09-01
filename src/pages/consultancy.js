@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 
+import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
 import Strategy from '../components/sections/Strategy'
 import DigitalTwins from '../components/sections/DigitalTwins'
@@ -56,12 +57,15 @@ export default function Consultancy({ location, data }) {
         description={data.page.hero[0].subheading}
         image={data.page.hero[0].image}
       />
-      {/* <ConsultancyHexagonSection /> */}
-      <Strategy />
-      <DigitalTwins />
-      <DataServices />
-      <Support />
-      <DatoSections sections={data.page.sections} />
+
+      <SectionManager>
+        {/* <ConsultancyHexagonSection /> */}
+        <Strategy />
+        <DigitalTwins />
+        <DataServices />
+        <Support />
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
     </BasicPage>
   )
 }

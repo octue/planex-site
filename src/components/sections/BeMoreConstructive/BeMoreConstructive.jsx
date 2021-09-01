@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -8,17 +7,10 @@ import Image1 from '../../../assets/images/hexagon/Hero.png'
 import Image2 from '../../../assets/images/hexagon/Hero1.png'
 import Image3 from '../../../assets/images/hexagon/Hero2.png'
 import Image4 from '../../../assets/images/hexagon/Hero3.png'
-import { SectionHeading } from '../../elements'
+import { SectionHeading, SectionContainer } from '../../elements'
 import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '235px',
-  },
   parentBox: {
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
@@ -62,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const BeMoreConstructive = () => {
+const BeMoreConstructive = (rest) => {
   const classes = useStyles()
 
   const gridObjectXY = [
@@ -89,58 +81,56 @@ const BeMoreConstructive = () => {
   ]
 
   return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="Be 20x more constructive" />
-            </Box>
-            <Box className={classes.hexagonBox}>
-              <HexagonGrid grid={gridObjectXY} />
-            </Box>
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <Box>
+            <SectionHeading>Be 20x more constructive</SectionHeading>
           </Box>
-          <Box className={classes.detailBox}>
-            <Box>
-              <Box display="flex" className={classes.titleBox}>
-                <Typography variant="subtitle1" color="textPrimary">
-                  You don't need to be a materials scientist to build a LEGO®
-                  model.
-                </Typography>
-              </Box>
-              <Box display="flex" pb={3}>
-                <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
-                >
-                  So why should someone modelling climate or energy systems need
-                  to be an expert coder? Yet scientists waste 95% of their day
-                  [Source:McKinsey] being general programmers, API architects
-                  and DevOps engineers.
-                </Typography>
-              </Box>
-              <Box display="flex" pb={4}>
-                <Typography
-                  variant="subtitle1"
-                  component="h2"
-                  className={classes.description}
-                >
-                  Our solution: a framework of open-source tools to create,
-                  connect, exchange and reuse analysis building blocks.
-                </Typography>
-              </Box>
+          <Box className={classes.hexagonBox}>
+            <HexagonGrid grid={gridObjectXY} />
+          </Box>
+        </Box>
+        <Box className={classes.detailBox}>
+          <Box>
+            <Box display="flex" className={classes.titleBox}>
+              <Typography variant="subtitle1" color="textPrimary">
+                You don't need to be a materials scientist to build a LEGO®
+                model.
+              </Typography>
+            </Box>
+            <Box display="flex" pb={3}>
+              <Typography
+                variant="subtitle1"
+                component="h2"
+                className={classes.description}
+              >
+                So why should someone modelling climate or energy systems need
+                to be an expert coder? Yet scientists waste 95% of their day
+                [Source:McKinsey] being general programmers, API architects and
+                DevOps engineers.
+              </Typography>
+            </Box>
+            <Box display="flex" pb={4}>
+              <Typography
+                variant="subtitle1"
+                component="h2"
+                className={classes.description}
+              >
+                Our solution: a framework of open-source tools to create,
+                connect, exchange and reuse analysis building blocks.
+              </Typography>
+            </Box>
 
-              <Box display="flex" className={classes.btnBox}>
-                <Button className={classes.cta} variant="outlined">
-                  The mission
-                </Button>
-              </Box>
+            <Box display="flex" className={classes.btnBox}>
+              <Button className={classes.cta} variant="outlined">
+                The mission
+              </Button>
             </Box>
           </Box>
         </Box>
-      </Container>
-    </section>
+      </Box>
+    </SectionContainer>
   )
 }
 

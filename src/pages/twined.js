@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import { BasicPage, CallToAction } from '../containers'
 import DatoSections from '../containers/sections/DatoSections'
 
+import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
 import ValidateCreateCommunicate from '../components/sections/ValidateCreateCommunicate'
 import HowToBegin from '../components/sections/HowToBegin'
@@ -48,10 +49,12 @@ const Twined = ({ location, data }) => {
         description={data.page.hero[0].subheading}
         image={data.page.hero[0].image}
       />
-      <ValidateCreateCommunicate />
-      <HowToBegin />
-      <ArticlesPreview />
-      <DatoSections sections={data.page.sections} />
+      <SectionManager>
+        <ValidateCreateCommunicate />
+        <HowToBegin />
+        <ArticlesPreview />
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
     </BasicPage>
   )
 }

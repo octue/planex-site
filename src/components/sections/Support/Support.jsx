@@ -1,26 +1,13 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Image from '../../../assets/images/hexagon/Hero7.png'
-import { SectionHeading } from '../../elements'
+import { SectionHeading, SectionContainer } from '../../elements'
 import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    height: '100%',
-    paddingTop: '202px',
-    paddingBottom: '211px',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop: '100px',
-      paddingBottom: '100px',
-    },
-  },
   parentBox: {
     maxheight: '434px',
     flexDirection: 'column',
@@ -48,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '50px',
     },
   },
-
   detailBox: {
     // display: 'flex',
     marginTop: '-40px',
@@ -80,7 +66,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '590px',
   },
 }))
-const Support = () => {
+
+const Support = (rest) => {
   const classes = useStyles()
   const gridObjectXY = [
     {
@@ -104,81 +91,79 @@ const Support = () => {
       gatsbyImageData: Image,
     },
   ]
-  return (
-    <section className={classes.bgColor}>
-      <Container maxWidth="lg" className={classes.container}>
-        <Box display="flex" className={classes.parentBox}>
-          <Box className={classes.hexagonTitle}>
-            <Box>
-              <SectionHeading text="Support" />
-            </Box>
-          </Box>
-          <Box className={classes.HexagonDetailBox}>
-            <Box className={classes.hexagonBox}>
-              <HexagonGrid grid={gridObjectXY} />
-            </Box>
-            <Box className={classes.detailBox}>
-              <Box display="flex" className={classes.titleBox}>
-                <Typography variant="subtitle1" color="textPrimary">
-                  Enjoy ongoing maintenance and help from a team who specialise
-                  in turning scientific code into industrial data products.
-                </Typography>
-              </Box>
-              <Box display="flex">
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                  className={classes.descriptionTitle}
-                >
-                  Flexi-expertise on tap
-                </Typography>
-              </Box>
-              <Box display="flex" pb={2}>
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                >
-                  You’ve built some data services, but they need to evolve to
-                  meet changing needs. Your data analysts need some extra help
-                  tweaking and getting things right, and you don’t want to hire
-                  a full software engineering team in house.
-                </Typography>
-              </Box>
-              <Box display="flex">
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                  className={classes.descriptionTitle}
-                >
-                  How to begin
-                </Typography>
-              </Box>
-              <Box display="flex" pb={2}>
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                >
-                  If we’ve not worked together before, the best place to start
-                  is with a code review, to develop a roadmap to where you need
-                  to be and what kind of monthly support effort might be
-                  helpful.
-                </Typography>
-              </Box>
 
-              <Box display="flex" className={classes.btnBox}>
-                <Button className={classes.cta} variant="outlined">
-                  Add an expert
-                </Button>
-              </Box>
+  return (
+    <SectionContainer {...rest}>
+      <Box display="flex" className={classes.parentBox}>
+        <Box className={classes.hexagonTitle}>
+          <Box>
+            <SectionHeading>Support</SectionHeading>
+          </Box>
+        </Box>
+        <Box className={classes.HexagonDetailBox}>
+          <Box className={classes.hexagonBox}>
+            <HexagonGrid grid={gridObjectXY} />
+          </Box>
+          <Box className={classes.detailBox}>
+            <Box display="flex" className={classes.titleBox}>
+              <Typography variant="subtitle1" color="textPrimary">
+                Enjoy ongoing maintenance and help from a team who specialise in
+                turning scientific code into industrial data products.
+              </Typography>
+            </Box>
+            <Box display="flex">
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+                className={classes.descriptionTitle}
+              >
+                Flexi-expertise on tap
+              </Typography>
+            </Box>
+            <Box display="flex" pb={2}>
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+              >
+                You’ve built some data services, but they need to evolve to meet
+                changing needs. Your data analysts need some extra help tweaking
+                and getting things right, and you don’t want to hire a full
+                software engineering team in house.
+              </Typography>
+            </Box>
+            <Box display="flex">
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+                className={classes.descriptionTitle}
+              >
+                How to begin
+              </Typography>
+            </Box>
+            <Box display="flex" pb={2}>
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+              >
+                If we’ve not worked together before, the best place to start is
+                with a code review, to develop a roadmap to where you need to be
+                and what kind of monthly support effort might be helpful.
+              </Typography>
+            </Box>
+
+            <Box display="flex" className={classes.btnBox}>
+              <Button className={classes.cta} variant="outlined">
+                Add an expert
+              </Button>
             </Box>
           </Box>
         </Box>
-      </Container>
-    </section>
+      </Box>
+    </SectionContainer>
   )
 }
 
