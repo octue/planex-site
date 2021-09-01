@@ -28,6 +28,8 @@ export const query = graphql`
         }
         heading
         subheading
+        fullHeight
+        gradient
       }
       sections {
         ...JoinSection
@@ -45,11 +47,7 @@ const About = ({ location, data }) => {
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero
-        heading={data.page.hero[0].heading}
-        description={data.page.hero[0].subheading}
-        image={data.page.hero[0].image}
-      />
+      <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         <SolutionsAcrossScience />
         <DoMoreWithYourData />

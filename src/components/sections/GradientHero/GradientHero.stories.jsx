@@ -1,7 +1,6 @@
 import React from 'react'
 import GradientHero from './GradientHero'
-
-import image from '../../../assets/images/backgrounds/img.png'
+import { hero as heroFixture } from '../../../fixtures'
 
 export default {
   title: 'Sections/GradientHero',
@@ -9,11 +8,16 @@ export default {
 }
 
 const Template = (args) => {
-  return <GradientHero {...args} Image={image} />
+  return <GradientHero {...args} />
 }
 
-export const Basic = Template.bind({})
-Basic.args = {
-  heading: "The climate can't wait.",
-  description: "That's why we're a non-profit.",
+export const FullHeight = Template.bind({})
+FullHeight.args = {
+  ...heroFixture,
+}
+
+export const Banner = Template.bind({})
+Banner.args = {
+  ...heroFixture,
+  fullHeight: false,
 }

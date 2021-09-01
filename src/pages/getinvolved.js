@@ -2,7 +2,7 @@ import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
 
-import { BasicPage, CallToAction } from '../containers'
+import { BasicPage, CallToAction, DatoSections } from '../containers'
 
 import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
@@ -26,9 +26,12 @@ export const query = graphql`
         image {
           gatsbyImageData
           alt
+          title
         }
         heading
         subheading
+        fullHeight
+        gradient
       }
       sections {
         ...JoinSection
@@ -45,17 +48,14 @@ const GetInvolved = ({ location, data }) => {
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero
-        heading={data.page.hero[0].heading}
-        description={data.page.hero[0].subheading}
-        image={data.page.hero[0].image}
-      />
+      <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         <SponsorUs />
         <Volunteer />
         <TellUsWhatYouNeed />
         <AwesomeScientist />
         <LastButNotLeast />
+        <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>
   )

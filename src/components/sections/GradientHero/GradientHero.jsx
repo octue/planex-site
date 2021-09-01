@@ -50,32 +50,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const GradientHero = ({ heading, description, image }) => {
+const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const { alt, gatsbyImageData } = image
-  const bgImage = convertToBgImage(gatsbyImageData)
+  const { alt, gatsbyImageData } = image || {}
+  const bgImage = gatsbyImageData && convertToBgImage(gatsbyImageData)
 
+  const height = fullHeight ? '100vh' : '40vh'
+  console.log('FULH', fullHeight, height)
   return (
-    <Box component="section" height="100vh">
-      <div className={classes.gradient} />
-      <BackgroundImage
-        Tag="div"
-        {...bgImage}
-        alt={alt}
-        style={{
-          backgroundColor: theme.palette.background.paper,
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: '0px',
-          left: '0px',
-          zIndex: 0,
-        }}
-      />
+    <Box component="section" height={height}>
+      {gradient && <div className={classes.gradient} />}
+      {bgImage && (
+        <BackgroundImage
+          Tag="div"
+          {...bgImage}
+          alt={alt}
+          style={{
+            backgroundColor: theme.palette.background.paper,
+            width: '100%',
+            height: height,
+            position: 'absolute',
+            top: '0px',
+            left: '0px',
+            zIndex: 0,
+          }}
+        />
+      )}
       <Box
         zIndex={10}
-        height="100%"
+        height={height}
         width="100%"
         position="absolute"
         top="0px"
@@ -97,8 +101,12 @@ const GradientHero = ({ heading, description, image }) => {
               </Typography>
             </Box>
             <Box display="flex" pb={4} px={1}>
-              <Typography variant="subtitle1" color="textSecondary">
-                {description}
+              <Typography
+                variant="subtitle1"
+                component="h2"
+                color="textSecondary"
+              >
+                {subheading}
               </Typography>
             </Box>
           </Box>
@@ -108,15 +116,23 @@ const GradientHero = ({ heading, description, image }) => {
   )
 }
 
-GradientHero.defaultProps = {}
+GradientHero.defaultProps = {
+  heading: '',
+  subheading: '',
+  image: {},
+  gradient: false,
+  fullHeight: false,
+}
 
 GradientHero.propTypes = {
   heading: PropTypes.string,
-  description: PropTypes.string,
+  subheading: PropTypes.string,
+  gradient: PropTypes.bool,
+  fullHeight: PropTypes.bool,
   image: PropTypes.shape({
     gatsbyImageData: PropTypes.object.isRequired,
     alt: PropTypes.string,
-  }).isRequired,
+  }),
 }
 
 export default GradientHero

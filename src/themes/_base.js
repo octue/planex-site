@@ -165,6 +165,16 @@ const baseThemeOptions = {
       },
     },
     MuiTypography: {
+      h1: {
+        textWrap: 'balance',
+        [breakpoints.down('md')]: {
+          fontStyle: 'normal',
+          fontWeight: 400,
+          fontSize: '3rem',
+          lineHeight: '3.5rem',
+          letterSpacing: '0rem',
+        },
+      },
       h3: {
         [breakpoints.down('md')]: {
           fontSize: '2rem',

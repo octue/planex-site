@@ -25,9 +25,12 @@ export const query = graphql`
         image {
           gatsbyImageData
           alt
+          title
         }
         heading
         subheading
+        fullHeight
+        gradient
       }
       sections {
         ...JoinSection
@@ -44,11 +47,7 @@ const Twined = ({ location, data }) => {
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero
-        heading={data.page.hero[0].heading}
-        description={data.page.hero[0].subheading}
-        image={data.page.hero[0].image}
-      />
+      <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         <ValidateCreateCommunicate />
         <HowToBegin />

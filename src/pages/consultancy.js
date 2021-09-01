@@ -25,9 +25,12 @@ export const query = graphql`
         image {
           gatsbyImageData
           alt
+          title
         }
         heading
         subheading
+        fullHeight
+        gradient
       }
       sections {
         ...JoinSection
@@ -52,12 +55,7 @@ export default function Consultancy({ location, data }) {
     >
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero
-        heading={data.page.hero[0].heading}
-        description={data.page.hero[0].subheading}
-        image={data.page.hero[0].image}
-      />
-
+      <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         {/* <ConsultancyHexagonSection /> */}
         <Strategy />

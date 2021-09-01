@@ -5,7 +5,7 @@ import { BasicPage, CallToAction } from '../containers'
 import DatoSections from '../containers/sections/DatoSections'
 
 import SectionManager from '../components/elements/SectionManager'
-import GradientHero from '../components/sections/GradientHero/GradientHero'
+import GradientHero from '../components/sections/GradientHero'
 import BeMoreConstructive from '../components/sections/BeMoreConstructive'
 import WhatWillYouBuild from '../components/sections/WhatWillYouBuild'
 import HowWeHelp from '../components/sections/HowWeHelp'
@@ -25,9 +25,12 @@ export const query = graphql`
         image {
           gatsbyImageData
           alt
+          title
         }
         heading
         subheading
+        fullHeight
+        gradient
       }
       sections {
         ...JoinSection
@@ -40,16 +43,11 @@ export const query = graphql`
 
 export default function Index({ location, data }) {
   const navBarProps = { transparency: data.page.navbarTransparency }
-
   return (
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero
-        heading={data.page.hero[0].heading}
-        description={data.page.hero[0].subheading}
-        image={data.page.hero[0].image}
-      />
+      <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         <BeMoreConstructive />
         <WhatWillYouBuild />
