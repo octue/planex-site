@@ -16,10 +16,8 @@ const useStyles = makeStyles((theme) => ({
   parentBox: {
     display: 'flex',
     flexDirection: 'column',
-    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      marginLeft: '0',
     },
   },
   articleTitle: {

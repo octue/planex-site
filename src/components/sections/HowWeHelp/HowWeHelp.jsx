@@ -34,10 +34,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '2rem',
   },
   parentBox: {
-    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      marginLeft: '0',
     },
   },
   hexagonTitle: {

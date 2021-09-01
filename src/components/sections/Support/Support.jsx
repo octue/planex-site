@@ -22,12 +22,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    marginLeft: '60px',
     maxheight: '434px',
     flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      marginLeft: '0',
     },
   },
   hexagonTitle: {

@@ -21,11 +21,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   parentBox: {
-    marginLeft: '60px',
     flexDirection: 'column',
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: '0',
-    },
+    [theme.breakpoints.down('sm')]: {},
   },
   hexagonBox: {
     // justifyContent: 'center',

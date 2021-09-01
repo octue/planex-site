@@ -20,10 +20,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '235px',
   },
   parentBox: {
-    marginLeft: '60px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      marginLeft: '0',
     },
   },
   hexagonTitle: {
