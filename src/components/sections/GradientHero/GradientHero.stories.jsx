@@ -21,3 +21,9 @@ Banner.args = {
   ...heroFixture,
   fullHeight: false,
 }
+export const NoImage = Template.bind({})
+NoImage.args = {
+  ...heroFixture,
+  image: undefined,
+  fullHeight: false,
+}

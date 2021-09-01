@@ -9,6 +9,9 @@ import PropTypes from 'prop-types'
 import { hexToRgb } from '../../../themes'
 
 const useStyles = makeStyles((theme) => ({
+  section: {
+    backgroundColor: theme.palette.background.default,
+  },
   container: {
     height: '100%',
     width: '100%',
@@ -59,7 +62,7 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
   const height = fullHeight ? '100vh' : '40vh'
 
   return (
-    <Box component="section" height={height}>
+    <Box component="section" height={height} className={classes.section}>
       {gradient && <div className={classes.gradient} />}
       {bgImage && (
         <BackgroundImage
