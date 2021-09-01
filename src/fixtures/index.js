@@ -1,4 +1,4 @@
-export { team } from './sections/team'
+export { people } from './sections/people'
 export { join } from './sections/join'
 export { hero } from './sections/hero'
 export { partners } from './sections/partners'

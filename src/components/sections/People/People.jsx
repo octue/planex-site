@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PeopleSection = ({ people, heading, subheading, ...rest }) => {
+const People = ({ people, heading, subheading, ...rest }) => {
   const classes = useStyles()
   return (
     <SectionContainer {...rest}>
@@ -47,4 +47,4 @@ const PeopleSection = ({ people, heading, subheading, ...rest }) => {
   )
 }
 
-export default PeopleSection
+export default People

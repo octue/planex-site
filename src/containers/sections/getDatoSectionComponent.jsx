@@ -1,4 +1,4 @@
-import Team from '../../components/sections/Team'
+import People from '../../components/sections/People'
 import JoinTheMovement from '../../components/sections/JoinTheMovement'
 import Partners from '../../components/sections/Partners'
 import HexBullets from '../../components/sections/HexBullets'
@@ -11,7 +11,7 @@ const InvalidSection = ({ data }) => {
 const getDatoSectionComponent = (datoId) => {
   const sectionType = datoId.split('-')[0].replace('DatoCms', '')
   const sectionTypeMap = {
-    PeopleSection: Team,
+    PeopleSection: People,
     JoinSection: JoinTheMovement,
     PartnersSection: Partners,
     HexBulletsSection: HexBullets,
