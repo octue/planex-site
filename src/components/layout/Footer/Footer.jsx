@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: '100%',
     [theme.breakpoints.up('sm')]: {
       flexBasis: '80%',
+      marginTop: `-${theme.spacing(1.5)}px`,
     },
   },
   copyright: {
