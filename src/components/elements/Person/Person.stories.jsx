@@ -1,6 +1,6 @@
 import React from 'react'
 import Person from './Person'
-import { team as teamFixture } from '../../../fixtures'
+import { people as peopleFixture } from '../../../fixtures'
 
 export default {
   title: 'Elements/Person',
@@ -13,4 +13,4 @@ const Template = (args) => {
 }
 
 export const Basic = Template.bind({})
-Basic.args = { ...teamFixture.people[0] }
+Basic.args = { ...peopleFixture.people[0] }
