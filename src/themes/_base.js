@@ -166,7 +166,6 @@ const baseThemeOptions = {
     },
     MuiTypography: {
       h1: {
-        textWrap: 'balance',
         [breakpoints.down('md')]: {
           fontStyle: 'normal',
           fontWeight: 400,

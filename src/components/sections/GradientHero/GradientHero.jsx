@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
+import Typography from '../../elements/Typography'
 import Box from '@material-ui/core/Box'
 import { makeStyles, useTheme } from '@material-ui/core'
 import BackgroundImage from 'gatsby-background-image'
@@ -57,7 +57,7 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
   const bgImage = gatsbyImageData && convertToBgImage(gatsbyImageData)
 
   const height = fullHeight ? '100vh' : '40vh'
-  console.log('FULH', fullHeight, height)
+
   return (
     <Box component="section" height={height}>
       {gradient && <div className={classes.gradient} />}
@@ -96,12 +96,13 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
             className={classes.MainBox}
           >
             <Box display="flex">
-              <Typography variant="h1" color="textPrimary">
+              <Typography balance variant="h1" color="textPrimary">
                 {heading}
               </Typography>
             </Box>
             <Box display="flex" pb={4} px={1}>
               <Typography
+                balance
                 variant="subtitle1"
                 component="h2"
                 color="textSecondary"
