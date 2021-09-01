@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
+import Typography from '../../elements/Typography'
 import Box from '@material-ui/core/Box'
 import { Link } from '../../core/Link'
 
@@ -49,20 +49,30 @@ const PersonBioCard = ({
     <>
       <Box {...rest}>
         <Box display="flex">
-          <Typography variant="h4" component="h3" className={classes.name}>
+          <Typography
+            balance
+            variant="h4"
+            component="h3"
+            className={classes.name}
+          >
             {name}
           </Typography>
         </Box>
         <Box display="flex" mt="6px">
           {role && (
-            <Typography variant="h5" component="h4" className={classes.role}>
+            <Typography
+              balance
+              variant="h5"
+              component="h4"
+              className={classes.role}
+            >
               {role}
             </Typography>
           )}
         </Box>
         <Box width="100%" mt={2}>
           {bio && (
-            <Typography variant="body1" className={classes.bio}>
+            <Typography balance variant="body1" className={classes.bio}>
               {bio}
             </Typography>
           )}

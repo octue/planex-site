@@ -8,12 +8,17 @@ const SectionDetail = ({ children, heading, description, ...rest }) => {
     <>
       <Box>
         <Box display="flex" mb={2}>
-          <Typography variant="subtitle1" component="h4" color="textPrimary">
+          <Typography
+            balance
+            variant="subtitle1"
+            component="h4"
+            color="textPrimary"
+          >
             {heading}
           </Typography>
         </Box>
         <Box display="flex">
-          <Typography variant="body1" color="textSecondary">
+          <Typography balance variant="body1" color="textSecondary">
             {description}
           </Typography>
         </Box>

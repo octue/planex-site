@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+import Typography from '../../elements/Typography'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
 
 const useStyles = makeStyles((theme) => ({
@@ -36,12 +36,13 @@ function ArticleCard({ image, title, description }) {
           <Grid item>
             <GatsbyImage image={image} className={classes.articlesImage} />
             <Box display="flex" justifyContent="space-between">
-              <Typography variant="subtitle1" color="textPrimary">
+              <Typography balance variant="subtitle1" color="textPrimary">
                 {title}
               </Typography>
             </Box>
             <Box pb={1}>
               <Typography
+                balance
                 variant="body1"
                 color="textSecondary"
                 component="span"
