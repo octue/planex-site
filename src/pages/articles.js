@@ -2,11 +2,12 @@ import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
 import { graphql } from 'gatsby'
-import ArticlesBrowser from '../components/sections/ArticlesBrowser'
 import GradientHero from '../components/sections/GradientHero'
 
 import SectionManager from '../components/elements/SectionManager'
 import DatoSections from '../containers/sections/DatoSections'
+import ArticlesBrowser from '../components/sections/ArticlesBrowser'
+import PaginatedArticlesHandler from '../containers/pagination/PaginatedArticlesHandler'
 
 export const query = graphql`
   query ArticlesPageQuery {
@@ -46,7 +47,10 @@ const Articles = ({ location, data }) => {
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
-      <ArticlesBrowser />
+      <PaginatedArticlesHandler
+        Component={ArticlesBrowser}
+        initialItemsPerPage={6}
+      />
       <SectionManager>
         <DatoSections sections={data.page.sections} />
       </SectionManager>

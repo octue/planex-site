@@ -1,17 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useTheme } from '@material-ui/core'
+import { useTheme, makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { Scrollable } from '../../../containers'
 
+const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: theme.palette.background.default,
+  },
+}))
+
 function Main({ offset, scrollable, scrollTopData, children, ...rest }) {
   const theme = useTheme()
+  const classes = useStyles()
 
   const offsetMargin = `${theme.spacing(offset ? 8 : 0)}px`
 
   return scrollable ? (
     <Box
       component="main"
+      className={classes.main}
       height={`calc(100vh - ${offsetMargin})`}
       mt={offsetMargin}
     >
@@ -22,6 +30,7 @@ function Main({ offset, scrollable, scrollTopData, children, ...rest }) {
   ) : (
     <Box
       component="main"
+      className={classes.main}
       height={`calc(100vh - ${offsetMargin})`}
       mt={offsetMargin}
       {...rest}
