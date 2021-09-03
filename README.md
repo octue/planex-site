@@ -3,8 +3,9 @@
 This repository ([planex-site](https://github.com/octue/planex-site)) is for developing the front-end components and
 pages of the octue website.
 
-See also [planex-cms](https://github.com/octue/planex-cms) for a content management system. **Currently not
-integrated here.**
+This site uses the DatoCMS content management system.
+
+**We can duplicate our DatoCMS project/models setup for you. Along with this OSS frontend that will save you WEEKS of time to get to a beautifully integrated, state-of the art Gatsby site with linked CMS. We're a non-profit working to fight climate change, and would ask for a donation of two developer-days of wages to do that. Just [get in touch](https://www.octue.com/contact).**
 
 ## 🚀 Quick start
 
@@ -76,7 +77,7 @@ Make and save any edits you need, using either the storybook or the gatsby reloa
 Commit your changes regularly and in a granular way with an informative message:
 
 ```
-git commit <file> -m "FIX updated copyright string"
+git commit <file> -m "FIX: updated copyright string"
 ```
 
 Push your changes to GitHub:
