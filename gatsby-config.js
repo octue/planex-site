@@ -12,6 +12,7 @@ module.exports = {
     title: 'Octue',
   },
   plugins: [
+    `gatsby-plugin-gatsby-cloud`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-react-helmet',
@@ -61,7 +62,6 @@ module.exports = {
       },
     },
     'gatsby-theme-material-ui',
-
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {

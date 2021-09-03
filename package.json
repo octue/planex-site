@@ -15,6 +15,7 @@
     "classnames": "^2.3.1",
     "gatsby": "^3.0.0",
     "gatsby-background-image": "^1.4.1",
+    "gatsby-plugin-gatsby-cloud": "^3.1.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^3.13.0",
     "gatsby-plugin-image": "^1.10.1",
@@ -70,6 +71,7 @@
     "gatsby/raw-loader": "4.0.2"
   },
   "scripts": {
+    "postinstall": "rm -rf node_modules/gatsby-plugin-gatsby-cloud && echo see https://github.com/gatsbyjs/gatsby/issues/33042",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
