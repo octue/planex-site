@@ -1,23 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
 import Pagination from '@material-ui/lab/Pagination'
 import Typography from '@material-ui/core/Typography'
-import { SectionContainer, ArticleCard } from '../../elements'
+import ArticleCard from '../../elements/ArticleCard'
+import SectionGrid from '../../elements/SectionGrid'
 
 const useStyles = makeStyles((theme) => ({
-  parentBox: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  articleCardBox: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(6),
-  },
   paginationBox: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(6),
     justifyContent: 'center',
   },
 }))
@@ -42,40 +33,38 @@ const ArticlesBrowser = ({
     ? `Showing ${showingStart} to ${showingEnd} of ${articlesCount}`
     : null
 
+  const before = (
+    <Box my={6}>
+      <Typography variant="body1" color="textSecondary" component="span">
+        {showing}
+      </Typography>
+    </Box>
+  )
+
+  const after = (
+    <Box display="flex" className={classes.paginationBox}>
+      <Pagination
+        count={pageCount}
+        variant="outlined"
+        shape="rounded"
+        page={page}
+        onChange={onPageChange}
+      />
+    </Box>
+  )
+
   return (
-    <SectionContainer {...rest}>
-      <Box display="flex" className={classes.parentBox}>
-        <Box my={6}>
-          <Typography variant="body1" color="textSecondary" component="span">
-            {showing}
-          </Typography>
-        </Box>
-        <Grid container spacing={3}>
-          {articles &&
-            articles.map((article) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                key={article.id}
-                className={classes.articleCardBox}
-              >
-                <ArticleCard {...article} />
-              </Grid>
-            ))}
-        </Grid>
-        <Box display="flex" className={classes.paginationBox}>
-          <Pagination
-            count={pageCount}
-            variant="outlined"
-            shape="rounded"
-            page={page}
-            onChange={onPageChange}
-          />
-        </Box>
-      </Box>
-    </SectionContainer>
+    <SectionGrid
+      xs={12}
+      sm={6}
+      md={4}
+      centerItems
+      after={after}
+      before={before}
+      {...rest}
+    >
+      {articles && articles.map((article) => <ArticleCard {...article} />)}
+    </SectionGrid>
   )
 }
 

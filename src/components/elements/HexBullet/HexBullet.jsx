@@ -7,7 +7,13 @@ import Hexagon from '../../hexagon/Hexagon/Hexagon'
 
 const useStyles = makeStyles((theme) => ({
   bulletRoot: {
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
     alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
+      marginRight: 0,
+    },
   },
   bulletDetail: {
     marginLeft: theme.spacing(3),

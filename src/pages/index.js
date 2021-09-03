@@ -32,6 +32,7 @@ export const query = graphql`
         gradient
       }
       sections {
+        ...ArticlesPreviewSection
         ...HexBulletsSection
         ...JoinSection
         ...PeopleSection

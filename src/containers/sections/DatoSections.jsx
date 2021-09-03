@@ -3,6 +3,24 @@ import PropTypes from 'prop-types'
 import getDatoSectionComponent from './getDatoSectionComponent'
 
 export const query = graphql`
+  fragment ArticlesPreviewSection on DatoCmsArticlesPreviewSection {
+    id
+    articles {
+      image {
+        alt
+        url
+        gatsbyImageData(
+          imgixParams: { auto: "format", fit: "crop", w: "380", h: "220" }
+        )
+        title
+      }
+      originalDate
+      precis
+      title
+      url
+    }
+    heading
+  }
   fragment HexBulletsSection on DatoCmsHexBulletsSection {
     id
     bullets {

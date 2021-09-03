@@ -1,7 +1,8 @@
-import People from '../../components/sections/People'
+import ArticlesPreview from '../../components/sections/ArticlesPreview'
+import HexBullets from '../../components/sections/HexBullets'
 import JoinTheMovement from '../../components/sections/JoinTheMovement'
 import Partners from '../../components/sections/Partners'
-import HexBullets from '../../components/sections/HexBullets'
+import People from '../../components/sections/People'
 
 const InvalidSection = ({ data }) => {
   console.warn('Invalid section id or missing mapping for section data ', data)
@@ -11,10 +12,11 @@ const InvalidSection = ({ data }) => {
 const getDatoSectionComponent = (datoId) => {
   const sectionType = datoId.split('-')[0].replace('DatoCms', '')
   const sectionTypeMap = {
-    PeopleSection: People,
+    ArticlesPreviewSection: ArticlesPreview,
+    HexBulletsSection: HexBullets,
     JoinSection: JoinTheMovement,
     PartnersSection: Partners,
-    HexBulletsSection: HexBullets,
+    PeopleSection: People,
   }
   return sectionTypeMap[sectionType] || InvalidSection
 }
