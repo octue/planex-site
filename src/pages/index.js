@@ -50,9 +50,9 @@ export default function Index({ location, data }) {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        <BeMoreConstructive />
+        {/* <BeMoreConstructive />
         <HowWeHelp />
-        <Partners />
+        <Partners /> */}
         <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>

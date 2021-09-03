@@ -60,10 +60,10 @@ export default function Consultancy({ location, data }) {
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
         {/* <ConsultancyHexagonSection /> */}
-        <Strategy />
+        {/* <Strategy />
         <DigitalTwins />
         <DataServices />
-        <Support />
+        <Support /> */}
         <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>

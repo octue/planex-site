@@ -48,11 +48,11 @@ const About = ({ location, data }) => {
     <BasicPage location={location} navBarProps={navBarProps}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <GradientHero {...data.page.hero[0]} />
+      {/* <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        <DoMoreWithYourData />
-        <DatoSections sections={data.page.sections} />
-      </SectionManager>
+        <DoMoreWithYourData /> */}
+      <DatoSections sections={data.page.sections} />
+      {/* </SectionManager> */}
     </BasicPage>
   )
 }

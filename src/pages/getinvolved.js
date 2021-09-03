@@ -52,11 +52,11 @@ const GetInvolved = ({ location, data }) => {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        <SponsorUs />
+        {/* <SponsorUs />
         <Volunteer />
         <TellUsWhatYouNeed />
         <AwesomeScientist />
-        <LastButNotLeast />
+        <LastButNotLeast /> */}
         <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>
