@@ -3,7 +3,7 @@
 import darkTextLogo from '../assets/images/logos/octue/text-transparent-white.svg'
 import lightTextLogo from '../assets/images/logos/octue/text-transparent-coloured.svg'
 import darkSquareLogo from '../assets/images/logos/octue/square-transparent-white.svg'
-import darkSquareLogo from '../assets/images/logos/octue/square-transparent-coloured.svg'
+import lightSquareLogo from '../assets/images/logos/octue/square-transparent-coloured.svg'
 
 // This is just so we have breakpoints. Don't use this theme object.
 import { createMuiTheme } from '@material-ui/core'
