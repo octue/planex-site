@@ -11,6 +11,20 @@ export const query = graphql`
       entryName
       horizontal
       variant
+      grid {
+        addLink
+        image {
+          gatsbyImageData
+          url
+          title
+          alt
+        }
+        openInNewTab
+        optimiseInternalLink
+        url
+        xCoordinate
+        yCoordinate
+      }
     }
   }
 

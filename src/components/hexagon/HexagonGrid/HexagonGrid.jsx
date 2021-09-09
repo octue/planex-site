@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '@material-ui/core'
 import Hexagon from '../Hexagon/Hexagon'
+import DatoLink from '../../core/DatoLink'
 
 import { HEXAGON_DIAMETER_MAP } from '../hexagonSizes'
 
@@ -12,7 +13,7 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
   const angledMargin = (margin * Math.sqrt(3)) / 2
   return (
     <>
-      <Box {...rest}>
+      <Box position="relative" {...rest}>
         {grid.map((item) => {
           // Parametric coordinate system. Q is a dimension across a hexagon perpendicular to
           // (and bisecting) two flat edges, P is perpendicular to Q passing through two apexes
@@ -26,7 +27,17 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
           const top = horizontal ? qSpacing + qOffset : pSpacing + pOffset
           return (
             <Box position="absolute" left={left} top={top}>
-              <Hexagon {...item} variant={variant} horizontal={horizontal} />
+              {item.link ? (
+                <DatoLink {...item.link} wrap>
+                  <Hexagon
+                    {...item}
+                    variant={variant}
+                    horizontal={horizontal}
+                  />
+                </DatoLink>
+              ) : (
+                <Hexagon {...item} variant={variant} horizontal={horizontal} />
+              )}
             </Box>
           )
         })}
@@ -42,11 +53,13 @@ HexagonGrid.defaultProps = {
 }
 
 HexagonGrid.propTypes = {
-  grid: PropTypes.shape({
-    x: PropTypes.number,
-    y: PropTypes.number,
-    gatsbyImageData: PropTypes.object,
-  }).isRequired,
+  grid: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.number,
+      y: PropTypes.number,
+      gatsbyImageData: PropTypes.object,
+    })
+  ).isRequired,
   horizontal: PropTypes.bool,
   margin: PropTypes.number,
   variant: PropTypes.oneOf(['small', 'normal', 'large']),

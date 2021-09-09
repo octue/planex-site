@@ -28,14 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Hexagon = ({
-  alt,
-  horizontal,
-  gatsbyImageData,
-  title,
-  variant,
-  ...rest
-}) => {
+const Hexagon = ({ horizontal, image, variant, ...rest }) => {
   const classes = useStyles()
 
   const parentClasses = classNames(classes.hexagon, classes.parent, {
@@ -55,26 +48,31 @@ const Hexagon = ({
   return (
     <Box {...rest}>
       <Box className={parentClasses} width={width}>
-        <GatsbyImage
-          image={gatsbyImageData}
-          alt={alt}
-          title={title}
-          className={childClasses}
-        />
+        {image && (
+          <GatsbyImage
+            image={image.gatsbyImageData}
+            alt={image.alt}
+            title={image.title}
+            className={childClasses}
+          />
+        )}
       </Box>
     </Box>
   )
 }
 
 Hexagon.defaultProps = {
-  alt: '',
+  image: undefined,
   horizontal: false,
   variant: 'normal',
 }
 
 Hexagon.propTypes = {
-  alt: PropTypes.string,
-  gatsbyImageData: PropTypes.object.isRequired,
+  image: PropTypes.shape({
+    alt: PropTypes.string,
+    gatsbyImageData: PropTypes.object.isRequired,
+    title: PropTypes.string,
+  }),
   horizontal: PropTypes.bool,
   variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }

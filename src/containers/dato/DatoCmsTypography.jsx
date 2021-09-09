@@ -6,7 +6,7 @@ import Typography from '../../components/elements/Typography'
 import LinkTypography from '@material-ui/core/Link'
 import DatoLink from '../../components/core/DatoLink'
 
-const TheComponent = ({
+const DatoCmsTypography = ({
   content,
   component,
   color,
@@ -52,4 +52,4 @@ const TheComponent = ({
     />
   )
 }
-export default TheComponent
+export default DatoCmsTypography

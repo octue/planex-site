@@ -1,22 +1,34 @@
 import React from 'react'
+import HexagonGrid from '../../components/hexagon/HexagonGrid/HexagonGrid'
 
-// import HexagonGrid from '../../hexagon/HexagonGrid/HexagonGrid'
-// const fieldContentMap = {
-//   'HexGrid': HexagonGrid,
-// }
-// const DatoModularField = ({content, ...rest}) => {
-//   return <>
-//   { content ? content.map((item) => {
-//     const FieldComponent = fieldComponentMap
-//           <HexagonGrid {...column1[0].hexGrid} />
-//   </>
-// }
-import Typography from '@material-ui/core/Typography'
-const TheComponent = ({ id, ...rest }) => (
-  <>
-    <Typography variant="subtitle1" color="textPrimary">
-      Some hexagons go here
-    </Typography>
-  </>
-)
-export default TheComponent
+const DatoCmsHexGridLink = ({ id, hexGrid }) => {
+  console.log('HEX', hexGrid)
+  const { id: hexGridId, grid, ...hexGridProps } = hexGrid
+
+  const updatedGrid = React.useMemo(
+    () =>
+      grid
+        ? grid.map((item) => {
+            const {
+              addLink,
+              url,
+              openInNewTab,
+              optimiseInternalLink,
+              image,
+              xCoordinate: x,
+              yCoordinate: y,
+            } = item
+            const link = addLink
+              ? { url, openInNewTab, optimiseInternalLink }
+              : undefined
+            return { link, image, x, y }
+          })
+        : [],
+    [grid]
+  )
+  console.log('UPDG:', updatedGrid)
+
+  return <HexagonGrid grid={updatedGrid} {...hexGridProps} />
+}
+
+export default DatoCmsHexGridLink
