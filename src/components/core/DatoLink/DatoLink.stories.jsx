@@ -1,5 +1,4 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
 import RssFeed from '@material-ui/icons/RssFeed'
 
 import LinkTypography from '@material-ui/core/Link'

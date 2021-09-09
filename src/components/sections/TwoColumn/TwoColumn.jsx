@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
   sectionHeadingBox: {
     width: '100%',
     flexGrow: 1,
-    marginBottom: theme.spacing(8),
+    marginBottom: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(1),
     },
   },
   column1Box: {
@@ -29,12 +29,19 @@ const useStyles = makeStyles((theme) => ({
   },
   column1ComponentBox: {
     width: '100%',
+    '& > :not(:last-child)': {
+      marginBottom: theme.spacing(3),
+    },
     [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(2),
+      marginTop: theme.spacing(4),
     },
   },
-  column2Box: {
+  column2ComponentBox: {
+    marginTop: theme.spacing(1),
     width: '50%',
+    '& > :not(:last-child)': {
+      marginBottom: theme.spacing(3),
+    },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
@@ -57,7 +64,7 @@ const TwoColumn = ({ heading, column1, column2, ...rest }) => {
   )
 
   const column2Component = (
-    <Box className={classes.column2Box}>
+    <Box className={classes.column2ComponentBox}>
       <DatoModularField blocks={column2}></DatoModularField>
     </Box>
   )
