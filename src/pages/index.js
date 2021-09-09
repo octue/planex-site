@@ -6,9 +6,6 @@ import DatoSections from '../containers/sections/DatoSections'
 
 import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
-import BeMoreConstructive from '../components/sections/BeMoreConstructive'
-import HowWeHelp from '../components/sections/HowWeHelp'
-import Partners from '../components/sections/Partners'
 
 export const query = graphql`
   query HomePageQuery {
@@ -50,9 +47,6 @@ export default function Index({ location, data }) {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        {/* <BeMoreConstructive />
-        <HowWeHelp />
-        <Partners /> */}
         <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>

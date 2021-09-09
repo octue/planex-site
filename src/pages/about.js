@@ -7,7 +7,6 @@ import DatoSections from '../containers/sections/DatoSections'
 
 import SectionManager from '../components/elements/SectionManager'
 import GradientHero from '../components/sections/GradientHero'
-import DoMoreWithYourData from '../components/sections/DoMoreWithYourData'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -36,6 +35,7 @@ export const query = graphql`
         ...JoinSection
         ...PeopleSection
         ...PartnersSection
+        ...CustomSection
       }
     }
   }
@@ -50,7 +50,6 @@ const About = ({ location, data }) => {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        {/* <DoMoreWithYourData /> */}
         <DatoSections sections={data.page.sections} />
       </SectionManager>
     </BasicPage>

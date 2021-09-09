@@ -93,6 +93,10 @@ export const query = graphql`
     heading
     subheading
   }
+  fragment CustomSection on DatoCmsCustomSection {
+    id
+    componentName
+  }
 `
 
 const DatoSections = ({ sections }) => {
