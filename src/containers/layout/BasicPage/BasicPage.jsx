@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import Box from '@material-ui/core/Box'
 import { ThemeProvider } from '@material-ui/styles'
@@ -6,6 +6,8 @@ import { NavBar, NavItems, Main, Footer } from '../../../components/layout'
 import { darkTheme } from '../../../themes'
 import Toastable from '../Toastable'
 import CookieBar from '../../../components/elements/CookieBar'
+import CallToAction from '../../../components/elements/CallToAction'
+import SubscribeForm from '../../forms/SubscribeForm'
 
 /**
  * A basic page layout.
@@ -25,11 +27,20 @@ function BasicPage({
   ...rest
 }) {
   const [scrollTopData, setScrollTopData] = useState(0)
+  const [open, setOpen] = useState(false)
+  const handleOpenSubscribe = useCallback(() => setOpen(true), [setOpen])
+  const handleCloseSubscribe = useCallback(() => setOpen(false), [setOpen])
+
   return (
     <>
       <CookieBar />
       <Toastable location={location}>
         <ThemeProvider theme={darkTheme}>
+          <CallToAction
+            open={open}
+            onClose={handleCloseSubscribe}
+            FormComponent={SubscribeForm}
+          />
           <NavBar {...navBarProps} scrollTopData={scrollTopData}>
             <NavItems />
           </NavBar>
@@ -44,7 +55,7 @@ function BasicPage({
               {children}
             </Box>
             <Box>
-              <Footer {...footerProps} />
+              <Footer onSubscribe={handleOpenSubscribe} {...footerProps} />
             </Box>
           </Main>
         </ThemeProvider>
