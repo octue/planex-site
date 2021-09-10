@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import { Copyright } from '../../elements'
-import { LogoLink } from '../../core'
+import LogoLink from '../../core/LogoLink'
 import FooterItems from './FooterItems'
 import FooterLinks from './FooterLinks'
 

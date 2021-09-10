@@ -2,7 +2,7 @@ import React from 'react'
 import HexagonGrid from '../../components/hexagon/HexagonGrid/HexagonGrid'
 
 const DatoCmsHexGridLink = ({ id, hexGrid }) => {
-  const { id: hexGridId, grid, ...hexGridProps } = hexGrid
+  const { id: hexGridId, grid, entryName, ...hexGridProps } = hexGrid
 
   const updatedGrid = React.useMemo(
     () =>

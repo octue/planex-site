@@ -79,7 +79,7 @@ const DatoModularField = ({ blocks }) => {
     const { id, ...rest } = block
     const Component = getDatoComponent(id)
     console.log(`Dato Component ${id} rendering with props`, rest)
-    return <Component {...rest} />
+    return <Component key={id} {...rest} />
   })
 
   return <>{datoComponents}</>

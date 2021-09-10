@@ -97,6 +97,26 @@ export const query = graphql`
     id
     componentName
   }
+  fragment TwoColumnSection on DatoCmsTwoColumnSection {
+    heading
+    id
+    column1 {
+      ...Typography
+      ...HexGridLink
+      ...FullWidthImage
+      ...CtaLink
+      ...CtaSubscribe
+      ...CtaContact
+    }
+    column2 {
+      ...Typography
+      ...HexGridLink
+      ...FullWidthImage
+      ...CtaLink
+      ...CtaContact
+      ...CtaSubscribe
+    }
+  }
 `
 
 const DatoSections = ({ sections }) => {
@@ -104,7 +124,7 @@ const DatoSections = ({ sections }) => {
     const { id, ...rest } = section
     const Component = getDatoSectionComponent(id)
     console.log(`Dato Section ${id} rendering with props`, rest)
-    return <Component {...rest} />
+    return <Component key={id} {...rest} />
   })
 
   return <>{sectionComponents}</>

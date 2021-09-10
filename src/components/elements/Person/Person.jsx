@@ -9,11 +9,7 @@ const Person = ({ avatar, ...rest }) => {
     <>
       <Box display="flex" width="100%">
         <Box display="flex">
-          <Hexagon
-            gatsbyImageData={avatar.gatsbyImageData}
-            alt={avatar.alt}
-            title={avatar.title}
-          />
+          <Hexagon image={avatar} />
         </Box>
         <PersonBioCard {...rest} flexGrow={1} ml={3} />
       </Box>

@@ -58,7 +58,7 @@ function JoinTheMovement({
                 wrap
                 className={classes.hexagonLink}
               >
-                <Hexagon variant="small" {...item.avatar} />
+                <Hexagon variant="small" image={item.avatar} />
               </DatoLink>
             ))}
           </Box>

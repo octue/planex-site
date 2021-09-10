@@ -1,31 +1,22 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
 
 import DatoLink from '../../components/core/DatoLink'
 
-const DatoCmsCtaLink = ({
-  id,
-  text,
-  url,
-  openInNewTab,
-  optimiseInternalLink,
-  ...rest
-}) => {
+const DatoCmsCtaLink = ({ text, url, openInNewTab, optimiseInternalLink }) => {
   return (
-    <DatoLink
-      url={url}
-      openInNewTab={openInNewTab}
-      optimiseInternalLink={optimiseInternalLink}
-    >
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        // endIcon={<RssFeed>send</RssFeed>}
+    <Box width="100%">
+      <DatoLink
+        url={url}
+        openInNewTab={openInNewTab}
+        optimiseInternalLink={optimiseInternalLink}
       >
-        This is how to use a button as a link
-      </Button>
-    </DatoLink>
+        <Button variant="contained" color="primary" size="large">
+          {text}
+        </Button>
+      </DatoLink>
+    </Box>
   )
 }
 

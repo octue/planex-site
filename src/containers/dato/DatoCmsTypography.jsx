@@ -38,12 +38,12 @@ const DatoCmsTypography = ({
             return children
           }
         }),
-        renderRule(isLink, ({ children, node: { url, meta } }) => {
+        renderRule(isLink, ({ children, node: { url, meta }, key }) => {
           // NB we don't use dato's link meta straight out of the box because it doesn't safely set noreferrer etc
           // Use the DatoLink component to safely render internal or external links
           const openInNewTab = meta?.value === '_blank'
           return (
-            <DatoLink url={url} openInNewTab={openInNewTab}>
+            <DatoLink key={key} url={url} openInNewTab={openInNewTab}>
               <LinkTypography>{children}</LinkTypography>
             </DatoLink>
           )

@@ -1,7 +1,7 @@
 import React from 'react'
 import RssFeed from '@material-ui/icons/RssFeed'
 
-import LinkTypography from '@material-ui/core/Link'
+import MuiLink from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
 
 import DatoLink from './DatoLink'
@@ -14,9 +14,9 @@ export default {
 const Template = ({ text, ...args }) => {
   return (
     <DatoLink {...args}>
-      <LinkTypography variant="subtitle1" gutterBottom>
+      <MuiLink variant="subtitle1" gutterBottom>
         {text}
-      </LinkTypography>
+      </MuiLink>
     </DatoLink>
   )
 }

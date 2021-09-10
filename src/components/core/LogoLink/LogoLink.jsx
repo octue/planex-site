@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { makeStyles, useTheme } from '@material-ui/core'
-import { Link } from '../../core'
+import Link from '../Link'
 
 const useStyles = makeStyles((theme) => ({
   logo: {

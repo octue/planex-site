@@ -5,7 +5,7 @@ import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 
 import Box from '@material-ui/core/Box'
-import { Link } from '../../core/Link'
+import Link from '../../core/Link'
 import hexToRgb from '../../../themes/hexToRgb'
 import { footerLinks as menu } from '../../../../menus'
 

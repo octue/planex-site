@@ -65,7 +65,7 @@ const AwesomeScientist = (rest) => {
     }
   `)
   return (
-    <SectionContainer {...rest}>
+    <SectionContainer id="awesome-scientist" {...rest}>
       <Box display="flex" className={classes.parentBox}>
         <Box className={classes.hexagonTitle}>
           <SectionHeading>Be an awesome scientist</SectionHeading>
@@ -88,6 +88,7 @@ const AwesomeScientist = (rest) => {
             <GatsbyImage
               image={data.Image.childImageSharp.gatsbyImageData}
               className={classes.mediaLarge}
+              alt=""
             />
           </Grid>
         </Box>

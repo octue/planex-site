@@ -10,7 +10,7 @@ import Drawer from '@material-ui/core/Drawer'
 import Menu from '@material-ui/icons/Menu'
 import Close from '@material-ui/icons/Close'
 
-import { Link } from '../../core'
+import Link from '../../core/Link'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

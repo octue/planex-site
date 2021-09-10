@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import classNames from 'classnames'
 import Box from '@material-ui/core/Box'
 import { useLocation } from '@reach/router'
-import { Link } from '../../core/Link'
+import Link from '../../core/Link'
 import hexToRgb from '../../../themes/hexToRgb'
 
 const useStyles = makeStyles((theme) => ({

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Typography from '../../elements/Typography'
 import Box from '@material-ui/core/Box'
-import { Link } from '../../core/Link'
+import Link from '../../core/Link'
 
 const useStyles = makeStyles((theme) => ({
   name: {

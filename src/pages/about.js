@@ -36,6 +36,7 @@ export const query = graphql`
         ...PeopleSection
         ...PartnersSection
         ...CustomSection
+        ...TwoColumnSection
       }
     }
   }
