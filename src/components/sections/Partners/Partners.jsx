@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     display: 'flex',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(2),
-    },
   },
 }))
 
