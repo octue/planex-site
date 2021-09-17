@@ -14,7 +14,9 @@ export const query = graphql`
       grid {
         addLink
         image {
-          gatsbyImageData
+          gatsbyImageData(
+            imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
+          )
           url
           title
           alt
