@@ -60,6 +60,7 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
   const bgImage = gatsbyImageData && convertToBgImage(gatsbyImageData)
 
   const height = fullHeight ? '100vh' : '40vh'
+  const paddingBottom = fullHeight ? '12vh' : '2vh'
 
   return (
     <Box component="section" height={height} className={classes.section}>
@@ -87,6 +88,7 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
         position="absolute"
         top="0px"
         left="0px"
+        paddingBottom={paddingBottom}
       >
         <Container maxWidth="xl" className={classes.container}>
           <Box
