@@ -19,4 +19,4 @@ jobs:
       - name: Install semantic version checker
         run: pip install git+https://github.com/octue/conventional-commits
       - name: Check version
-        run: check-semantic-version npm
+        run: check-semantic-version package.json
