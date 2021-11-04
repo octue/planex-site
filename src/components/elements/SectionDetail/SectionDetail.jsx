@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-const SectionDetail = ({ children, heading, description, ...rest }) => {
+const SectionDetail = ({
+  children,
+  heading,
+  description,
+  balance,
+  ...rest
+}) => {
   return (
     <>
       <Box>
@@ -18,7 +24,7 @@ const SectionDetail = ({ children, heading, description, ...rest }) => {
           </Typography>
         </Box>
         <Box display="flex">
-          <Typography balance variant="body1" color="textSecondary">
+          <Typography balance={balance} variant="body1" color="textSecondary">
             {description}
           </Typography>
         </Box>
@@ -33,11 +39,13 @@ const SectionDetail = ({ children, heading, description, ...rest }) => {
 SectionDetail.defaultProps = {
   heading: '',
   description: '',
+  balance: true,
 }
 
 SectionDetail.propTypes = {
   heading: PropTypes.string,
   description: PropTypes.string,
+  balance: PropTypes.bool,
 }
 
 export default SectionDetail
