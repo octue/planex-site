@@ -84,7 +84,6 @@ export const query = graphql`
 export default function Contact({ location, data }) {
   const classes = useStyles()
   const navBarProps = { transparency: data.page.navbarTransparency }
-  console.log('DATA', data)
   return (
     <BasicPage location={location} navBarProps={navBarProps} pb={8}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
