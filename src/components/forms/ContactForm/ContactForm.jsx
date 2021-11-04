@@ -154,7 +154,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
             // TODO next version of MUI has a <LoadingButton> in the lab which will add a spinner and disable this nicely
             // pending={submitting}
             // pendingPosition="start"
-            endIcon={<SendIcon />}
+            startIcon={<SendIcon />}
             color="primary"
             size="large"
             type="submit"

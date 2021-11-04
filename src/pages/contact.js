@@ -1,105 +1,57 @@
 import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { graphql } from 'gatsby'
-import { convertToBgImage } from 'gbimage-bridge'
 import Typography from '@material-ui/core/Typography'
-import BackgroundImage from 'gatsby-background-image'
-import { ThemeProvider } from '@material-ui/styles'
-import { makeStyles, useTheme } from '@material-ui/core'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { makeStyles } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
+import PushPinIcon from '@material-ui/icons/PinDrop'
 
-import Location from '../assets/images/hexagon/location.svg'
-import { SectionHeading } from '../components/elements'
-import BasicPage from '../containers/layout/BasicPage'
+import DatoLink from '../components/core/DatoLink'
+import GradientHero from '../components/sections/GradientHero'
 import { ContactForm } from '../containers/forms'
-import { darkTheme } from '../themes'
+import BasicPage from '../containers/layout/BasicPage'
+
+import DatoModularField from '../containers/dato/DatoModularField'
 
 const useStyles = makeStyles((theme) => ({
-  bgColor: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  title: {
-    display: 'flex',
-    fontSize: '80px',
-    fontWeight: 400,
-    lineHeight: '88px',
-  },
-  contactFormBox: {
-    marginLeft: '95px',
-    marginTop: '200px',
+  contactBox: {
+    maxWidth: '50%',
+    margin: 0,
     [theme.breakpoints.down('sm')]: {
-      marginLeft: '10px',
+      marginTop: theme.spacing(3),
+      maxWidth: '100%',
+    },
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginTop: theme.spacing(10),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(2),
       flexDirection: 'column',
     },
   },
-  contactTitleBox: {
-    marginTop: '188px',
-    marginLeft: '90px',
+  addressBox: {
+    margin: 0,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    maxWidth: '50%',
     [theme.breakpoints.down('sm')]: {
-      marginLeft: '0',
-      marginTop: '97px',
+      marginTop: theme.spacing(6),
+      maxWidth: '100%',
     },
   },
-  contactSubTitle: {
-    marginTop: '10px',
-    maxWidth: '400px',
-  },
-  formBox: {
-    maxWidth: '590px',
-    marginLeft: '154px',
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: '-20px',
-    },
-  },
-  locationDescriptionBox: {
-    // maxWidth: '342px',
+  addressLinkBox: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
     display: 'flex',
-    marginTop: '200px',
-    height: '800px',
-
-    marginLeft: '90px',
     [theme.breakpoints.down('sm')]: {
-      height: '500px',
-      marginTop: '180px',
-      marginLeft: '0',
-      flexDirection: 'column',
-    },
-  },
-  locationTitle: {
-    display: 'flex',
-    // color: theme.palette.text.primary,
-    fontSize: '24px',
-    fontWeight: 400,
-    lineHeight: '30px',
-  },
-  locationTitleBox: {
-    marginTop: '268px',
-    maxWidth: '268px',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '0px',
-    },
-  },
-  cta: {
-    display: 'flex',
-    paddingTop: `8px`,
-    paddingBottom: `8px`,
-    backgroundColor: `#D31020`,
-  },
-  btnBox: {
-    marginTop: '20px',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '10px',
-    },
-  },
-  locationIcon: {
-    marginLeft: '602px',
-    // marginTop: '100px',
-
-    [theme.breakpoints.down('xs')]: {
-      marginTop: '150px',
-      marginLeft: '140px',
+      justifyContent: 'flex-end',
     },
   },
 }))
@@ -107,80 +59,70 @@ const useStyles = makeStyles((theme) => ({
 export const query = graphql`
   query ContactPageQuery {
     page: datoCmsContactPage {
+      heading
+      mapImage {
+        gatsbyImageData
+        alt
+        title
+      }
+      navbarTransparency
+      officeAddress {
+        ...Typography
+      }
+      officeLocation {
+        latitude
+        longitude
+      }
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
-      mapImage {
-        gatsbyImageData
-      }
-      heading
       subheading
     }
   }
 `
-export default function Contact({ data }) {
+
+export default function Contact({ location, data }) {
   const classes = useStyles()
-  const theme = useTheme()
-
-  const bgImage = convertToBgImage(data.page.mapImage.gatsbyImageData)
+  const navBarProps = { transparency: data.page.navbarTransparency }
+  console.log('DATA', data)
   return (
-    <BasicPage offset pt={6} pb={8} px={2}>
+    <BasicPage location={location} navBarProps={navBarProps} pb={8}>
       <HelmetDatoCms seo={data.page.seoMetaTags} />
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Box className={classes.contactTitleBox}>
-          <Typography variant="h1" component="h2" className={classes.title}>
-            {data.page.heading}
+      <GradientHero
+        heading={data.page.heading}
+        image={data.page.mapImage}
+        gradient={false} // See https://github.com/octue/planex-site/issues/110
+        fullHeight={false}
+      />
+      <Container maxWidth="lg" className={classes.container}>
+        <Box className={classes.contactBox}>
+          <Typography variant="subtitle1" color="textPrimary" gutterBottom>
+            {data.page.subheading}
           </Typography>
+          <ContactForm />
         </Box>
-        <Box display="flex" className={classes.contactFormBox}>
-          <Box className={classes.contactSubTitle}>
-            <SectionHeading text={data.page.subheading} />
-          </Box>
-          <Box className={classes.formBox}>
-            <ContactForm />
-          </Box>
-        </Box>
-
-        <Box className={classes.locationDescriptionBox}>
-          <BackgroundImage
-            Tag="div"
-            {...bgImage}
-            style={{
-              backgroundColor: theme.palette.background.paper,
-              width: '100%',
-              height: '100%',
-            }}
-          >
-            <Box className={classes.locationTitleBox}>
-              <Typography variant="subtitle1" color="textPrimary">
-                Hauser Forum
-              </Typography>
-              <Typography variant="subtitle1" color="textPrimary">
-                3 Charles Babbage Road
-              </Typography>
-              <Typography variant="subtitle1" color="textPrimary">
-                Cambridge
-              </Typography>
-              <Typography variant="subtitle1" color="textPrimary">
-                United Kingdom
-              </Typography>
-              <Typography variant="subtitle1" color="textPrimary">
-                CB3 0GT
-              </Typography>
-
-              <Box display="flex" className={classes.btnBox}>
-                <Button className={classes.cta} variant="outlined">
-                  Directions
+        <Box className={classes.addressBox}>
+          <DatoModularField blocks={data.page.officeAddress}></DatoModularField>
+          {data.page.officeLocation && (
+            <Box className={classes.addressLinkBox}>
+              <DatoLink
+                url={`https://www.google.com/maps/search/?api=1&query=${data.page.officeLocation.latitude},${data.page.officeLocation.longitude}`}
+                openInNewTab={true}
+                optimiseInternalLink={false}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  startIcon={<PushPinIcon />}
+                >
+                  Find us on google maps
                 </Button>
-              </Box>
+              </DatoLink>
             </Box>
-            <Box className={classes.locationIcon}>
-              <img src={Location} alt="" />
-            </Box>
-          </BackgroundImage>
+          )}
         </Box>
-      </ThemeProvider>
+      </Container>
     </BasicPage>
   )
 }
