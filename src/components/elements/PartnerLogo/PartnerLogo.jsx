@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   logoImg: {
-    height: '100px',
+    width: '100%',
     paddingBottom: '3px',
     verticalAlign: 'middle',
     border: '0',
@@ -18,7 +18,7 @@ const PartnerLogo = ({ alt, gatsbyImageData, url, className }) => {
   // SVGs only have a URL. Rasters have gatsbyImageData. So we have to accept both.
 
   return (
-    <Box className={className}>
+    <>
       {url ? (
         <img src={url} alt={alt} className={classes.logoImg} />
       ) : (
@@ -28,7 +28,7 @@ const PartnerLogo = ({ alt, gatsbyImageData, url, className }) => {
           className={classes.logoImg}
         />
       )}
-    </Box>
+    </>
   )
 }
 

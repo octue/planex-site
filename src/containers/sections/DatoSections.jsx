@@ -67,8 +67,14 @@ export const query = graphql`
     partnerLogos {
       alt
       gatsbyImageData(
-        imgixParams: { auto: "format", fit: "crop", w: "150", h: "150" }
+        imgixParams: {
+          auto: "compress,format"
+          fit: "crop"
+          w: "150"
+          h: "150"
+        }
       )
+      customData
       url
     }
   }
