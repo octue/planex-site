@@ -15,13 +15,15 @@ const DatoLink = forwardRef(
     const linkProps = {}
 
     if (optimiseInternalLink) {
-      // Internal gatsby links must be provided with 'to' instead of href
-      linkProps['to'] = url
+      // Internal gatsby links must be provided with 'to' instead of href.
+      // Links to this site should be made relative to the root so gatsby can pre-cache the pages
+      linkProps['to'] = url.replace('https://www.octue.com', '')
     } else {
       linkProps['href'] = url
       linkProps['rel'] = 'noopener noreferrer'
     }
 
+    console.log('here', linkProps, url, optimiseInternalLink)
     if (openInNewTab) {
       linkProps['target'] = '_blank'
     }
