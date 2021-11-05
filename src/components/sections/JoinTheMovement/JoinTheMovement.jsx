@@ -41,7 +41,6 @@ function JoinTheMovement({
   link,
 }) {
   const classes = useStyles()
-  console.log('JTM LINK', link)
   return (
     <SectionContainer id={id}>
       <Grid container spacing={0}>
@@ -49,7 +48,7 @@ function JoinTheMovement({
           <SectionHeading>{heading}</SectionHeading>
         </Grid>
         <Grid item sm={12} md={6}>
-          <Typography align="justify" variant="body1" color="textSecondary">
+          <Typography align="justify" variant="body1" color="textPrimary">
             {description}
           </Typography>
           <Box className={classes.hexagonBox}>
