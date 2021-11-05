@@ -110,7 +110,7 @@ const GradientHero = ({ heading, subheading, image, gradient, fullHeight }) => {
                 balance
                 variant="subtitle1"
                 component="h2"
-                color="textSecondary"
+                color="textPrimary"
               >
                 {subheading}
               </Typography>

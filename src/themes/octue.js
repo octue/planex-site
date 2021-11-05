@@ -27,13 +27,9 @@ const darkThemeOptions = {
   palette: {
     ...lightThemeOptions.palette,
     type: 'dark',
-    text: {
-      primary: '#fff',
-      secondary: '#fff', // TODO Review this change from the default of 'rgba(255, 255, 255, 0.7)',
-    },
     background: {
-      paper: '#424242',
-      default: '#212121',
+      paper: '#3f4448',
+      default: '#30363a',
     },
   },
 }

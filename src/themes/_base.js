@@ -18,6 +18,23 @@ const { breakpoints } = createMuiTheme()
  */
 const branding = {
   palette: {
+    // 1/3 of the distance from MUI Grey to MUI Blue-Grey palette
+    grey: {
+      50: '#f7f8fa',
+      100: '#e8ebee',
+      200: '#d9dde0',
+      300: '#c5cad0',
+      400: '#a6acb3',
+      500: '#8c9398',
+      600: '#6c7479',
+      700: '#595f63',
+      800: '#3f4448',
+      900: '#242729',
+      A100: '#e8ebee',
+      A200: '#d9dde0',
+      A400: '#a6acb3',
+      A700: '#595f63',
+    },
     success: {
       // Because MUI has error, warning, info but misses success
       light: '#81c784',
