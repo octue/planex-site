@@ -48,3 +48,27 @@ So that's why we built planex-site. It uses:
 - Gatsby Cloud to build and deploy the site, which is hosted on a public bucket on Google Cloud.
 - Chromatic to build and deploy the storybook.
 - Google Cloud Functions to receive form submissions and do whatever we want with them.
+
+
+## Fixtures
+
+We use fixtures (see the `src/fixtures` folder) to provide data for the storybook,
+since we don't want it coupled to gatsby's querying system and the actual CMS.
+
+As new models are added in Dato CMS, we need fixtures for those models in order to
+render the storybook.
+
+### Exporting Fixtures
+
+1. Run `yarn start` which puts gatsby into development mode.
+
+1. In the page you want to get fixtures for, do:
+    ```
+    const MyPageComponent = ({data}) => {
+      console.log('PAGE DATA', JSON.stringify(data))
+
+      // ... rest of component
+    }
+    ```
+
+1. Then copy the json string directly from the console to the fixture file you want.

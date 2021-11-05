@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/styles'
 import NavBar from './NavBar'
 import NavItems from './NavItems'
 import { darkTheme } from '../../../themes'
-import defaultMenu from '../../../../menus'
+import { nav as defaultMenu } from '../../../../menus'
 
 export default {
   title: 'Layout/NavBar',

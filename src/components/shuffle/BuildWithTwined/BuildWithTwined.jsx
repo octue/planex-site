@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
@@ -20,19 +20,17 @@ const useStyles = makeStyles((theme) => ({
 
 function BuildWithTwined() {
   const classes = useStyles()
-  const data = useStaticQuery(graphql`
-    query {
-      desktop: file(
-        relativePath: { eq: "stock/tobias-fischer-PkbZahEG2Ng-unsplash.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 600) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     desktop: file(
+  //       relativePath: { eq: "stock/tobias-fischer-PkbZahEG2Ng-unsplash.jpg" }
+  //     ) {
+  //       childImageSharp {
+  //         gatsbyImageData(quality: 90, width: 600)
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <section id="build-with-twined">
@@ -80,10 +78,10 @@ function BuildWithTwined() {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Img
+              {/* <Img
                 fluid={data.desktop.childImageSharp.fluid}
                 className={classes.image}
-              />
+              /> */}
             </Grid>
           </Grid>
         </Box>

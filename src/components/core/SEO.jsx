@@ -10,23 +10,42 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ pageMeta }) {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
+            siteName
+            lang
+            locale
             title
             description
+            image
             author
+            authorTwitterHandle
+            siteTwitterHandle
           }
         }
       }
     `
   )
+  const siteMeta = site.siteMetadata
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const author = pageMeta?.author || siteMeta.author
+  const authorTwitterHandle =
+    pageMeta?.authorTwitterHandle ||
+    siteMeta.authorTwitterHandle ||
+    siteMeta.siteTwitterHandle
+  const description = pageMeta?.description || siteMeta.description
+  const lang = pageMeta?.lang || siteMeta.lang
+  const locale = pageMeta?.locale || siteMeta.locale
+  const image = pageMeta?.image || siteMeta.image
+  const siteName = siteMeta.siteName
+  const siteTwitterHandle = siteMeta.siteTwitterHandle
+  const title = pageMeta?.title || siteMeta.title
+
+  const needsTitleTemplate = title !== siteMeta.title
 
   return (
     <Helmet
@@ -34,56 +53,79 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={needsTitleTemplate ? `%s | ${siteMeta.title}` : null}
       meta={[
         {
-          name: `description`,
-          content: metaDescription,
+          name: 'description',
+          content: description,
         },
         {
-          property: `og:title`,
+          name: 'author',
+          content: author,
+        },
+        {
+          property: 'og:title',
           content: title,
         },
         {
-          property: `og:description`,
-          content: metaDescription,
+          property: 'og:description',
+          content: description,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: 'og:image',
+          content: image,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: 'og:locale',
+          content: locale,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          property: 'og:type',
+          content: 'website',
         },
         {
-          name: `twitter:title`,
+          property: 'og:site_name',
+          content: siteName,
+        },
+        {
+          name: 'twitter:site',
+          content: siteTwitterHandle,
+        },
+        {
+          name: 'twitter:image',
+          content: image,
+        },
+        {
+          name: 'twitter:creator',
+          content: authorTwitterHandle,
+        },
+        {
+          name: 'twitter:title',
           content: title,
         },
         {
-          name: `twitter:description`,
-          content: metaDescription,
+          name: 'twitter:description',
+          content: description,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
+  pageMeta: {},
 }
 
 SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  pageMeta: PropTypes.shape({
+    author: PropTypes.string,
+    authorTwitterHandle: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    lang: PropTypes.string,
+    locale: PropTypes.string,
+    title: PropTypes.string,
+  }),
 }
 
 export default SEO

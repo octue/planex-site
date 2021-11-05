@@ -27,6 +27,10 @@ const darkThemeOptions = {
   palette: {
     ...lightThemeOptions.palette,
     type: 'dark',
+    background: {
+      paper: '#3f4448',
+      default: '#30363a',
+    },
   },
 }
 export const darkTheme = merge(createMuiTheme(darkThemeOptions), branding)

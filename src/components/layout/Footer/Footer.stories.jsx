@@ -7,6 +7,8 @@ export default {
   component: Footer,
 }
 
+export const Basic = ({ ...args }) => <Footer />
+
 const Template = ({ ...args }) => (
   // This flexbox arrangement is the simplest way of getting the footer to stick to the bottom of the page,
   // but not cover content that is longer than the page.
@@ -24,17 +26,17 @@ const Template = ({ ...args }) => (
           height: `${args.height}vh`,
         }}
       >
-        Actual content of the page. Adjust the height in the control to > 100 to
-        see what happens when page content is longer than the viewport height.
+        This story shows how to lay out a footer with flex. This is the actual
+        content of the page. Adjust the height in the control to &gt; 100 to see
+        what happens when page content is longer than the viewport height.
         Switch between kinds in the controls to see different footers.
       </Box>
     </Box>
-    <Footer kind={args.kind} />
+    <Footer />
   </Box>
 )
 
-export const Simple = Template.bind({})
-Simple.args = {
-  kind: 'micro',
+export const Layout = Template.bind({})
+Layout.args = {
   height: 50,
 }

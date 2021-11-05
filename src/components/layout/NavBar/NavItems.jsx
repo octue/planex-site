@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import List from '@material-ui/core/List'
 import { makeStyles } from '@material-ui/core'
-import defaultMenu from '../../../../menus'
+import { nav as defaultMenu } from '../../../../menus'
 import NavItem from './NavItem'
 
 const useStyles = makeStyles((theme) => ({

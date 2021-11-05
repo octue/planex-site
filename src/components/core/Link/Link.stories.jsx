@@ -1,10 +1,5 @@
 import React from 'react'
 import Link from './Link'
-import { ThemeProvider } from '@material-ui/styles'
-import Typography from '@material-ui/core/Typography'
-import { darkTheme } from '../../../themes'
-import NavBar from '../../layout/NavBar'
-import Box from '@material-ui/core/Box'
 import RssFeed from '@material-ui/icons/RssFeed'
 
 export default {
@@ -13,18 +8,7 @@ export default {
 }
 
 const Template = ({ children, ...args }) => {
-  return (
-    <Box width="80vw" m={6} border="1px solid #333">
-      <Box width="100%" m={2}>
-        <Typography variant="subtitle" gutterBottom>
-          {`Kind: ${args.kind}, Variant: ${args.variant}`}
-        </Typography>
-      </Box>
-      <Box m={2}>
-        <Link {...args}>{children}</Link>
-      </Box>
-    </Box>
-  )
+  return <Link {...args}>{children}</Link>
 }
 
 export const SiteLink = Template.bind({})

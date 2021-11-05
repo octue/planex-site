@@ -1,5 +1,14 @@
 /* eslint-disable import/no-dynamic-require */
 
+import darkTextLogo from '../assets/images/logos/octue/text-transparent-white.svg'
+import lightTextLogo from '../assets/images/logos/octue/text-transparent-coloured.svg'
+import darkSquareLogo from '../assets/images/logos/octue/square-transparent-white.svg'
+import lightSquareLogo from '../assets/images/logos/octue/square-transparent-coloured.svg'
+
+// This is just so we have breakpoints. Don't use this theme object.
+import { createMuiTheme } from '@material-ui/core'
+const { breakpoints } = createMuiTheme()
+
 /** Extra Context (Branding)
  *
  * These are named wind pioneers colours and logos, accessible from everywhere,
@@ -9,6 +18,23 @@
  */
 const branding = {
   palette: {
+    // 1/3 of the distance from MUI Grey to MUI Blue-Grey palette
+    grey: {
+      50: '#f7f8fa',
+      100: '#e8ebee',
+      200: '#d9dde0',
+      300: '#c5cad0',
+      400: '#a6acb3',
+      500: '#8c9398',
+      600: '#6c7479',
+      700: '#595f63',
+      800: '#3f4448',
+      900: '#242729',
+      A100: '#e8ebee',
+      A200: '#d9dde0',
+      A400: '#a6acb3',
+      A700: '#595f63',
+    },
     success: {
       // Because MUI has error, warning, info but misses success
       light: '#81c784',
@@ -51,12 +77,12 @@ const branding = {
   },
   logos: {
     text: {
-      dark: require('../assets/images/logos/octue/text-transparent-white.svg'),
-      light: require('../assets/images/logos/octue/text-transparent-coloured.svg'),
+      dark: darkTextLogo,
+      light: lightTextLogo,
     },
     square: {
-      dark: require('../assets/images/logos/octue/square-transparent-white.svg'),
-      light: require('../assets/images/logos/octue/square-transparent-coloured.svg'),
+      dark: darkSquareLogo,
+      light: lightSquareLogo,
     },
   },
 }
@@ -73,6 +99,79 @@ const branding = {
  *
  */
 const baseThemeOptions = {
+  typography: {
+    // Used for big titles e.g. in Hero sections
+    h1: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '5rem', // Converted from '80px',
+      fontWeight: 400,
+      lineHeight: '5.5rem', // Converted from '88px',
+    },
+    // This is labelled as h3 on the desktop figmas, h2 on the responsive ones. SIGH.
+    h3: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '3rem',
+      lineHeight: '3.5rem',
+      letterSpacing: '0rem',
+    },
+    h4: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.5rem', // Converted from '24px',
+      fontWeight: 400,
+      lineHeight: '1.875rem', // Converted from '30px',
+    },
+    h5: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.25rem', // Converted from '20px',
+      fontWeight: 400,
+      lineHeight: '1.5rem', // Converted from '24px',
+    },
+    // Used for "small link" CTAs like subscribe in the footer. Ag="H3"
+    h6: {
+      fontSize: '0.75rem',
+      fontWeight: 500,
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      letterSpacing: '0.01rem',
+    },
+    // Used for most body text. Ag="body"
+    body1: {
+      fontFamily: "'Open Sans', sans-serif",
+      fontWeight: 300, // TODO consider whether to raise to 400 for better aliasing and visibility
+      fontSize: '1.125rem', // Converted from 18px
+      lineHeight: '1.625rem', // Converted from 26px
+      letterSpacing: '0.01rem',
+    },
+    // Used for links Ag="links"
+    body2: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontWeight: 400,
+      fontSize: '1.125rem', // Converted from 18px
+      lineHeight: '1.625rem', // Converted from 26px
+    },
+    // Used for Hero subtitles
+    subtitle1: {
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      fontSize: '1.5rem', // Converted from '24px',
+      fontWeight: 400,
+      lineHeight: '1.875rem', // Converted from '30px',
+    },
+    // Used for copyrights etc
+    subtitle2: {
+      fontSize: '0.75rem',
+      fontWeight: 300,
+      fontFamily: "'Work Sans', sans-serif",
+      fontStyle: 'normal',
+      letterSpacing: '0.01rem',
+    },
+  },
+
   props: {
     MuiTextField: {
       variant: 'outlined',
@@ -85,6 +184,23 @@ const baseThemeOptions = {
     MuiPaper: {
       root: {
         border: 'none',
+      },
+    },
+    MuiTypography: {
+      h1: {
+        [breakpoints.down('md')]: {
+          fontStyle: 'normal',
+          fontWeight: 400,
+          fontSize: '3rem',
+          lineHeight: '3.5rem',
+          letterSpacing: '0rem',
+        },
+      },
+      h3: {
+        [breakpoints.down('md')]: {
+          fontSize: '2rem',
+          lineHeight: '2.5rem',
+        },
       },
     },
   },

@@ -45,7 +45,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
   // Clear the form error state then set any errors from the API on the form state
   useEffect(() => {
     clearErrors()
-    Object.keys(apiErrors).map((key) => {
+    Object.keys(apiErrors).forEach((key) => {
       setError(key, {
         type: 'api',
         message: apiErrors[key],
@@ -154,7 +154,7 @@ export default ({ onSubmit, apiErrors, submitting }) => {
             // TODO next version of MUI has a <LoadingButton> in the lab which will add a spinner and disable this nicely
             // pending={submitting}
             // pendingPosition="start"
-            endIcon={<SendIcon />}
+            startIcon={<SendIcon />}
             color="primary"
             size="large"
             type="submit"

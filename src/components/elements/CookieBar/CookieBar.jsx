@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 /**
  * Adds javascript to <head> that creates and manages a cookie consent dialog, using the iubenda plugin.
  */
-function CookieBar({}) {
+function CookieBar() {
   return (
     <Helmet>
       <script type="text/javascript">

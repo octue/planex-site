@@ -1,16 +1,60 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
+import { graphql } from 'gatsby'
 
-import Layout from '../components/core/Layout'
-import SEO from '../components/core/SEO'
+import { BasicPage, CallToAction } from '../containers'
+import DatoSections from '../containers/sections/DatoSections'
 
-const About = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+import SectionManager from '../components/elements/SectionManager'
+import GradientHero from '../components/sections/GradientHero'
+
+export const query = graphql`
+  query AboutPageQuery {
+    page: datoCmsAboutPage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      navbarTransparency
+      hero {
+        whatsThis {
+          value
+        }
+        image {
+          gatsbyImageData
+          alt
+          title
+        }
+        heading
+        subheading
+        fullHeight
+        gradient
+      }
+      sections {
+        ...ArticlesPreviewSection
+        ...HexBulletsSection
+        ...JoinSection
+        ...PeopleSection
+        ...PartnersSection
+        ...CustomSection
+        ...TwoColumnSection
+      }
+    }
+  }
+`
+
+const About = ({ location, data }) => {
+  const navBarProps = { transparency: data.page.navbarTransparency }
+
+  return (
+    <BasicPage location={location} navBarProps={navBarProps}>
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
+      <CallToAction />
+      <GradientHero {...data.page.hero[0]} />
+      <SectionManager>
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
+    </BasicPage>
+  )
+}
 
 export default About

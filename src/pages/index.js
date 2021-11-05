@@ -1,40 +1,56 @@
 import React from 'react'
-import { ThemeProvider } from '@material-ui/styles'
-
-import { Hero } from '../components/sections'
-import TimeToBuild from '../components/shuffle/TimeToBuild/TimeToBuild'
-import BuildWithTwined from '../components/shuffle/BuildWithTwined/BuildWithTwined'
-import TakeWorkFurther from '../components/shuffle/TakeWorkFurther/TakeWorkFurther'
-import HereToHelp from '../components/shuffle/HereToHelp/HereToHelp'
-import TheTeam from '../components/shuffle/TheTeam/TheTeam'
-import OurMission from '../components/shuffle/OurMission/OurMission'
+import { graphql } from 'gatsby'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 import { BasicPage, CallToAction } from '../containers'
-import { darkTheme } from '../themes'
+import DatoSections from '../containers/sections/DatoSections'
 
-export default function Index({ location }) {
-  const navBarProps = {
-    transparency: true,
-  }
-  const footerProps = {
-    kind: 'big',
-  }
+import SectionManager from '../components/elements/SectionManager'
+import GradientHero from '../components/sections/GradientHero'
 
+export const query = graphql`
+  query HomePageQuery {
+    page: datoCmsHomePage {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      navbarTransparency
+      hero {
+        whatsThis {
+          value
+        }
+        image {
+          gatsbyImageData
+          alt
+          title
+        }
+        heading
+        subheading
+        fullHeight
+        gradient
+      }
+      sections {
+        ...ArticlesPreviewSection
+        ...HexBulletsSection
+        ...JoinSection
+        ...PeopleSection
+        ...PartnersSection
+        ...CustomSection
+        ...TwoColumnSection
+      }
+    }
+  }
+`
+
+export default function Index({ location, data }) {
+  const navBarProps = { transparency: data.page.navbarTransparency }
   return (
-    <BasicPage
-      location={location}
-      navBarProps={navBarProps}
-      footerProps={footerProps}
-    >
+    <BasicPage location={location} navBarProps={navBarProps}>
+      <HelmetDatoCms seo={data.page.seoMetaTags} />
       <CallToAction />
-      <ThemeProvider theme={darkTheme}>
-        <Hero />
-      </ThemeProvider>
-      <TimeToBuild />
-      <BuildWithTwined />
-      <TakeWorkFurther />
-      <HereToHelp />
-      <TheTeam />
-      <OurMission />
+      <GradientHero {...data.page.hero[0]} />
+      <SectionManager>
+        <DatoSections sections={data.page.sections} />
+      </SectionManager>
     </BasicPage>
   )
 }

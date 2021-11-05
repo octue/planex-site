@@ -2,6 +2,7 @@ import React from 'react'
 import { action } from "@storybook/addon-actions"
 import themes from './storybookTheme'
 import { withMuiTheme } from '@harelpls/storybook-addon-materialui'
+import withFonts from './withFonts'
 import withLocationProvider from './withLocationProvider'
 import { lightTheme, darkTheme } from '../src/themes'
 
@@ -46,9 +47,10 @@ window.___navigate = pathname => {
 }
 
 export const decorators = [
+  withFonts,
   withLocationProvider,
   withMuiTheme({
-    'Light Theme': lightTheme,
     'Dark Theme': darkTheme,
+    'Light Theme': lightTheme,
   })
 ]
