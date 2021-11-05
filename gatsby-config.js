@@ -26,14 +26,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-datocms',
       options: {
-        apiToken: '74e15e9320d5d32663d6512a069d03',
         // The project environment to read from. Defaults to the primary environment:
-        environment: 'main',
+        apiToken: process.env.DATO_API_TOKEN,
+        environment: process.env.DATO_ENVIRONMENT,
         // If you are working on development/staging environment, you might want to
         // preview the latest version of records instead of the published one:
-        previewMode: false,
+        // previewMode: true,
         // Disable automatic reloading of content when some change occurs on DatoCMS:
-        disableLiveReload: false,
+        // disableLiveReload: false,
         // Setup locale fallbacks
         localeFallbacks: {
           de: ['en'],
