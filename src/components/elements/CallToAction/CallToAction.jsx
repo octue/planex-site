@@ -34,12 +34,12 @@ function CallToAction({ FormComponent, open, onClose, ...rest }) {
   return (
     <Dialog open={open}>
       <CardContent className={classes.content}>
-        <Typography variant="h5" component="h2" className={classes.gutter}>
+        <Typography variant="h3" component="h1" className={classes.gutter}>
           Get updates
         </Typography>
         <Box px={2}>
           <Typography
-            variant="subtitle1"
+            variant="body1"
             color="textSecondary"
             className={classes.gutter}
           >
@@ -47,7 +47,7 @@ function CallToAction({ FormComponent, open, onClose, ...rest }) {
             tools. {<strong>Subscribe to get notifications!</strong>}
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="body1"
             color="textSecondary"
             className={classes.gutter}
           >
