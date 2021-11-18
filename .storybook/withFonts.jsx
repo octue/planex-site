@@ -10,8 +10,6 @@ const Wrapper = (storyFn, context) => {
     )
 }
 
-/* Provides fonts into head metadata
- */
 export const withFonts = makeDecorator({
   name: 'withFonts',
   parameterName: 'fontsAdded',
