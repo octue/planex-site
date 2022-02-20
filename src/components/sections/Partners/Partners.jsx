@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 
 const PartnerSection = ({ id, heading, partnerLogos }) => {
   const classes = useStyles()
-  console.log('partnerlogos', partnerLogos)
   return (
     <SectionContainer id={id}>
       <Grid container spacing={0}>

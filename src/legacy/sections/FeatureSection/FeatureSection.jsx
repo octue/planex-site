@@ -11,7 +11,6 @@ import featureSectionStyle from 'assets/jss/material-octue/sections/featureSecti
 
 class FeatureInfoArea extends React.Component {
   render() {
-    console.log('RENDERING FEATURESECTION', this.props)
     return (
       <InfoArea
         title={this.props.heading}
@@ -39,7 +38,6 @@ class FeatureInfoArea extends React.Component {
 class FeatureSection extends React.Component {
   render() {
     const { classes, value } = this.props
-    console.log('RENDERING FEATURESECTION', this.props)
     return (
       <div className={classes.feature}>
         <div className={classes.container}>

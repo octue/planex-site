@@ -60,7 +60,6 @@ class Testimonial extends React.Component {
 class TestimonialSection extends React.Component {
   render() {
     const { classes } = this.props
-    console.log('RENDERING TESTIMONIALS SECTION', this.props)
     const settings = {
       dots: true,
       infinite: true,

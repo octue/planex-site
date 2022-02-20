@@ -11,7 +11,7 @@ const { breakpoints } = createMuiTheme()
 
 /** Extra Context (Branding)
  *
- * These are named wind pioneers colours and logos, accessible from everywhere,
+ * These are named colours and logos, accessible from everywhere,
  * irrespective of whether the whitelabeled theme is in context or not.
  *
  * From main colours, light and dark variants came from https://material.io/resources/color/
