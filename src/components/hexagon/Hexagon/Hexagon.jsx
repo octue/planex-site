@@ -1,65 +1,112 @@
 import React from 'react'
-import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import { Box, makeStyles } from '@material-ui/core'
+import { Box, makeStyles, useTheme } from '@material-ui/core'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { GatsbyImage } from 'gatsby-plugin-image'
-
-import { HEXAGON_DIAMETER_MAP } from '../hexagonSizes'
+import { getDimension } from '../hexagonSizes'
 
 const useStyles = makeStyles((theme) => ({
-  hexagon: {
-    backgroundColor: theme.palette.text.primary,
-  },
-  vertical: {
-    clipPath: 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
-    aspectRatio: 0.866025403,
-  },
-  horizontal: {
-    clipPath: 'polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%)',
-    aspectRatio: 1.154700538,
-  },
-  parent: {
+  hexagonBox: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: (props) =>
+      props.backgroundColor === 'textPrimary'
+        ? theme.palette.text.primary
+        : theme.palette.primary.main,
+    clipPath: (props) =>
+      props.horizontal
+        ? 'polygon(0 50%, 25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%)'
+        : 'polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)',
   },
-  child: {
-    margin: '3px',
-    padding: '6px',
+  raster: {},
+  svg: {
+    width: '50%',
+    height: '50%',
+  },
+  border: {
+    overflow: 'visible',
+    zIndex: 1000,
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
 }))
 
-const Hexagon = ({ horizontal, image, variant, ...rest }) => {
-  const classes = useStyles()
+const Hexagon = ({
+  horizontal,
+  image,
+  variant,
+  backgroundColor,
+  border,
+  ...rest
+}) => {
+  const rasterChild = !!image?.gatsbyImageData
 
-  const parentClasses = classNames(classes.hexagon, classes.parent, {
-    [classes.horizontal]: horizontal,
-    [classes.vertical]: !horizontal,
-  })
+  const theme = useTheme()
+  const classes = useStyles({ horizontal, variant, backgroundColor })
 
-  const childClasses = classNames(classes.hexagon, classes.child, {
-    [classes.horizontal]: horizontal,
-    [classes.vertical]: !horizontal,
-  })
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const width = getDimension(
+    horizontal,
+    variant,
+    'width',
+    matches ? 'sm-down' : 'sm-up'
+  )
+  const height = getDimension(
+    horizontal,
+    variant,
+    'height',
+    matches ? 'sm-down' : 'sm-up'
+  )
 
-  const width = `${
-    HEXAGON_DIAMETER_MAP[horizontal ? 'outer' : 'inner'][variant]
-  }px`
-  const height = `${
-    HEXAGON_DIAMETER_MAP[horizontal ? 'inner' : 'outer'][variant]
-  }px`
+  // Manually scaled in the vertical
+  const borderPoints = horizontal
+    ? '0,43.3 25,0 75,0 100,43.3 75,86.6 25,86.6'
+    : '50,0 0,28.8675 0,86.60 50,115.47 100,86.60 100,28.8675'
 
   return (
     <Box {...rest}>
-      <Box className={parentClasses} width={width} height={height}>
-        {image && (
+      <Box className={classes.hexagonBox} width={width} height={height}>
+        {rasterChild ? (
           <GatsbyImage
             image={image.gatsbyImageData}
             alt={image.alt}
             title={image.title}
-            className={childClasses}
+            className={classes.raster}
+            style={{ width, height }}
           />
+        ) : (
+          <img className={classes.svg} src={image.url} alt={image.alt} />
         )}
       </Box>
+      {border && (
+        <svg
+          version="1.1"
+          id="border"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 100 100"
+          xmlSpace="preserve"
+          width={width}
+          className={classes.border}
+        >
+          <defs>
+            <polygon id={`POLYGON`} class="st0" points={borderPoints} />
+          </defs>
+          <use
+            xlinkHref={`#POLYGON`}
+            style={{
+              overflow: 'visible',
+              fill: 'none',
+              stroke: '#FFFFFF',
+              strokeWidth: 4,
+              strokeMiterlimit: 10,
+              strokeAlignment: 'inner',
+            }}
+          />
+        </svg>
+      )}
     </Box>
   )
 }
@@ -68,12 +115,16 @@ Hexagon.defaultProps = {
   image: undefined,
   horizontal: false,
   variant: 'normal',
+  border: true,
 }
 
 Hexagon.propTypes = {
+  backgroundColor: PropTypes.oneOf(['textPrimary', 'main']),
+  border: PropTypes.bool,
   image: PropTypes.shape({
+    url: PropTypes.string, // Falls back to <img src={url} if no gatsbyImageData (for SVGs)
     alt: PropTypes.string,
-    gatsbyImageData: PropTypes.object.isRequired,
+    gatsbyImageData: PropTypes.object,
     title: PropTypes.string,
   }),
   horizontal: PropTypes.bool,
