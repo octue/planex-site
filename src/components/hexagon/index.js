@@ -1,5 +1,2 @@
 export { default as Hexagon } from './Hexagon'
-export { default as HexagonSvg } from './HexagonSvg'
 export { default as HexagonGrid } from './HexagonGrid/HexagonGrid'
-export { default as MultipleHexagonWithImage } from './MultipleHexagonWithImage'
-export { default as ReverseMultipleHexagonWithImage } from './ReverseMultipleHexagonWithImage'
