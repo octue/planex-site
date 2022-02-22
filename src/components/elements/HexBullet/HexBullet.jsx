@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { SectionDetail } from '../../elements'
-import HexagonSvg from '../../hexagon/HexagonSvg/HexagonSvg'
 import Hexagon from '../../hexagon/Hexagon/Hexagon'
 
 const useStyles = makeStyles((theme) => ({
@@ -23,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
 const HexBullet = ({ heading, description, image, variant, rest }) => {
   const classes = useStyles()
 
-  const isSvg = !!image.url
-
   return (
     <Box display="flex" className={classes.bulletRoot} {...rest}>
-      {isSvg ? (
-        <HexagonSvg {...image} variant={variant} />
-      ) : (
-        <Hexagon {...image} variant={variant} />
-      )}
+      <Hexagon
+        image={image}
+        variant={variant}
+        position="relative" // Forces the hexagon border to sit correctly, because its position is absolute
+        top="0"
+        left="0"
+      />
       <Box className={classes.bulletDetail}>
         <SectionDetail heading={heading} description={description} />
       </Box>

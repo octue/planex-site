@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderRule, StructuredText } from 'react-datocms'
+import { renderNodeRule, StructuredText } from 'react-datocms'
 import { isParagraph, isRoot, isLink } from 'datocms-structured-text-utils'
 import Typography from '../../components/elements/Typography'
 
@@ -17,8 +17,8 @@ const DatoCmsTypography = ({
   return (
     <StructuredText
       data={content}
-      customRules={[
-        renderRule(isParagraph, ({ children, key, ancestors }) => {
+      customNodeRules={[
+        renderNodeRule(isParagraph, ({ children, key, ancestors }) => {
           if (isRoot(ancestors[0])) {
             // If this paragraph node is a top-level one, use Typography to render it
             return (
@@ -38,7 +38,7 @@ const DatoCmsTypography = ({
             return children
           }
         }),
-        renderRule(isLink, ({ children, node: { url, meta }, key }) => {
+        renderNodeRule(isLink, ({ children, node: { url, meta }, key }) => {
           // NB we don't use dato's link meta straight out of the box because it doesn't safely set noreferrer etc
           // Use the DatoLink component to safely render internal or external links
           const openInNewTab = meta?.value === '_blank'

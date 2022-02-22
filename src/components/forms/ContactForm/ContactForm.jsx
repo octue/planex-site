@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default ({ onSubmit, apiErrors, submitting }) => {
+const ContactForm = ({ onSubmit, apiErrors, submitting }) => {
   const { register, handleSubmit, setError, clearErrors, errors } = useForm({
     resolver: yupResolver(schema),
   })
@@ -166,3 +166,5 @@ export default ({ onSubmit, apiErrors, submitting }) => {
     </Container>
   )
 }
+
+export default ContactForm

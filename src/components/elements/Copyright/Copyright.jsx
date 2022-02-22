@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { useTheme } from '@material-ui/core/styles'
-import { Link } from 'gatsby-theme-material-ui'
+import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({

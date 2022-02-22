@@ -23,7 +23,6 @@ const DatoLink = forwardRef(
       linkProps['rel'] = 'noopener noreferrer'
     }
 
-    console.log('here', linkProps, url, optimiseInternalLink)
     if (openInNewTab) {
       linkProps['target'] = '_blank'
     }

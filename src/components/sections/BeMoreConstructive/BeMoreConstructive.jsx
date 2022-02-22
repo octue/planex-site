@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
   hexagonBox: {
     marginTop: '132px',
+    width: '100%',
+    overflow: 'hidden',
   },
   detailBox: {
     maxWidth: '590px',

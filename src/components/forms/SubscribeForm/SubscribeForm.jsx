@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default ({ onSubmit, apiErrors, submitting }) => {
+const SubscribeForm = ({ onSubmit, apiErrors, submitting }) => {
   const { register, handleSubmit, setError, clearErrors, errors } = useForm({
     resolver: yupResolver(schema),
   })
@@ -101,3 +101,5 @@ export default ({ onSubmit, apiErrors, submitting }) => {
     </form>
   )
 }
+
+export default SubscribeForm

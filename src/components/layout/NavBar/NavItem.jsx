@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
 import classNames from 'classnames'
 import Box from '@material-ui/core/Box'
-import { useLocation } from '@reach/router'
+import { useLocation } from '@gatsbyjs/reach-router'
 import Link from '../../core/Link'
 import hexToRgb from '../../../themes/hexToRgb'
 

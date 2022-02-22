@@ -15,55 +15,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-robots-txt',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-datocms',
-      options: {
-        // The project environment to read from. Defaults to the primary environment:
-        apiToken: process.env.DATO_API_TOKEN,
-        environment: process.env.DATO_ENVIRONMENT,
-        // If you are working on development/staging environment, you might want to
-        // preview the latest version of records instead of the published one:
-        // previewMode: true,
-        // Disable automatic reloading of content when some change occurs on DatoCMS:
-        // disableLiveReload: false,
-        // Setup locale fallbacks
-        localeFallbacks: {
-          de: ['en'],
-        },
-      },
-    },
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#3498db',
-        display: 'minimal-ui',
-        icon: 'src/assets/images/logos/octue/square-transparent-white.png',
-      },
-    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Work Sans\:300,400,500,500i`, `Open Sans\:400`],
       },
     },
-    'gatsby-theme-material-ui',
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
@@ -88,5 +45,47 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#3498db',
+        display: 'minimal-ui',
+        icon: 'src/assets/images/logos/octue/square-transparent-white.png',
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-datocms',
+      options: {
+        // The project environment to read from. Defaults to the primary environment:
+        apiToken: process.env.DATO_API_TOKEN,
+        environment: process.env.DATO_ENVIRONMENT,
+        // If you are working on development/staging environment, you might want to
+        // preview the latest version of records instead of the published one:
+        // previewMode: true,
+        // Disable automatic reloading of content when some change occurs on DatoCMS:
+        // disableLiveReload: false,
+        // Setup locale fallbacks
+        localeFallbacks: {
+          de: ['en'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/assets/images`,
+      },
+    },
+    'gatsby-transformer-sharp',
   ],
 }

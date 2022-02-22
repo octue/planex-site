@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeDecorator } from '@storybook/addons'
-import { LocationProvider } from '@reach/router'
+import { LocationProvider } from '@gatsbyjs/reach-router'
 
 const Wrapper = (storyFn, context) => {
   return (

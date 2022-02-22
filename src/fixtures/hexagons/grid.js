@@ -4,56 +4,57 @@ export const grid = [
   {
     x: 0,
     y: 0,
-    ...avatar,
+    link: '#',
+    image: avatar,
   },
   {
     x: 0,
     y: 1,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 1,
     y: 0,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 1,
     y: 1,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 2,
     y: 1,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 1,
     y: 2,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 2,
     y: 2,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 3,
     y: 2,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 2,
     y: 3,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 1,
     y: 4,
-    ...avatar,
+    image: avatar,
   },
   {
     x: 2,
     y: 4,
-    ...avatar,
+    image: avatar,
   },
 ]

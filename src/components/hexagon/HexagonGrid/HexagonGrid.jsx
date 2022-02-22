@@ -1,14 +1,21 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { Box } from '@material-ui/core'
+import { Box, useTheme } from '@material-ui/core'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Hexagon from '../Hexagon/Hexagon'
 import DatoLink from '../../core/DatoLink'
 
-import { HEXAGON_DIAMETER_MAP } from '../hexagonSizes'
+import {
+  HEXAGON_DIAMETER_MAP,
+  HEXAGON_SM_DOWN_SCALE_FACTOR,
+} from '../hexagonSizes'
 
 const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
-  const outerDiameter = HEXAGON_DIAMETER_MAP.outer[variant]
-  const innerDiameter = HEXAGON_DIAMETER_MAP.inner[variant]
+  const theme = useTheme({ horizontal })
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const scale = matches ? HEXAGON_SM_DOWN_SCALE_FACTOR : 1.0
+  const outerDiameter = HEXAGON_DIAMETER_MAP.outer[variant] * scale
+  const innerDiameter = HEXAGON_DIAMETER_MAP.inner[variant] * scale
   const spacing = 0.75 * outerDiameter
   const angledMargin = (margin * Math.sqrt(3)) / 2
   const { layout, height } = useMemo(() => {
@@ -20,7 +27,7 @@ const HexagonGrid = ({ grid, horizontal, variant, margin, ...rest }) => {
       const q = horizontal ? item.y : item.x
       const pOffset = 0
       const qOffset = p % 2 === 0 ? 0 : (innerDiameter + angledMargin) / 2
-      const pSpacing = p * (spacing + margin / 2)
+      const pSpacing = p * (spacing + 6 + margin / 2)
       const qSpacing = q * (innerDiameter + angledMargin)
       const left = horizontal ? pSpacing + pOffset : qSpacing + qOffset
       const top = horizontal ? qSpacing + qOffset : pSpacing + pOffset

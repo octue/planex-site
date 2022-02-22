@@ -129,7 +129,8 @@ const DatoSections = ({ sections }) => {
   const sectionComponents = sections.map((section) => {
     const { id, ...rest } = section
     const Component = getDatoSectionComponent(id)
-    console.log(`Dato Section ${id} rendering with props`, rest)
+    // Turn on for a quick debug of all sections
+    // console.log(`Dato Section ${id} rendering with props`, rest)
     return <Component key={id} {...rest} />
   })
 
