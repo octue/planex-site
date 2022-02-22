@@ -45,9 +45,13 @@ const HexagonSvg = ({ alt, horizontal, url, title, variant, ...rest }) => {
     HEXAGON_DIAMETER_MAP[horizontal ? 'outer' : 'inner'][variant]
   }px`
 
+  const height = `${
+    HEXAGON_DIAMETER_MAP[horizontal ? 'inner' : 'outer'][variant]
+  }px`
+
   return (
     <Box {...rest}>
-      <Box className={parentClasses} width={width}>
+      <Box className={parentClasses} width={width} height={height}>
         <img className={childClasses} src={url} alt={alt} />
       </Box>
     </Box>

@@ -44,10 +44,13 @@ const Hexagon = ({ horizontal, image, variant, ...rest }) => {
   const width = `${
     HEXAGON_DIAMETER_MAP[horizontal ? 'outer' : 'inner'][variant]
   }px`
+  const height = `${
+    HEXAGON_DIAMETER_MAP[horizontal ? 'inner' : 'outer'][variant]
+  }px`
 
   return (
     <Box {...rest}>
-      <Box className={parentClasses} width={width}>
+      <Box className={parentClasses} width={width} height={height}>
         {image && (
           <GatsbyImage
             image={image.gatsbyImageData}
