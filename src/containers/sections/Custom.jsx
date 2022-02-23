@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import AwesomeScientist from '../../components/sections/AwesomeScientist'
-import BeMoreConstructive from '../../components/sections/BeMoreConstructive'
 import DataServices from '../../components/sections/DataServices'
 import DigitalTwins from '../../components/sections/DigitalTwins'
 import DoMoreWithYourData from '../../components/sections/DoMoreWithYourData'
@@ -15,7 +14,6 @@ import LastButNotLeast from '../../components/sections/LastButNotLeast'
 
 const map = {
   AwesomeScientist,
-  BeMoreConstructive,
   DataServices,
   DigitalTwins,
   DoMoreWithYourData,
