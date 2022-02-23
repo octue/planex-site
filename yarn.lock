@@ -2329,6 +2329,11 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
+"@slixites/gatsby-plugin-google-fonts@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@slixites/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.1.1.tgz#eeb65c80861fbf3b3622b674ed2d9b122e7cdc0e"
+  integrity sha512-j3ErrGd360UClx5WAquaYnHDjly1ghBHzqD+AF2jb3doyC7REZxAfm/YZt1+1s410SR1Ck4B0ehaGY3seUiJow==
+
 "@storybook/addon-actions@6.4.19", "@storybook/addon-actions@^6.3.12":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.4.19.tgz#10631d9c0a6669810264ea7fac3bff7201553084"
@@ -8172,11 +8177,6 @@ gatsby-plugin-gatsby-cloud@^4.2.0:
     kebab-hash "^0.1.2"
     lodash "^4.17.21"
     webpack-assets-manifest "^5.1.0"
-
-gatsby-plugin-google-fonts@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.0.1.tgz#d71054f7bf207b9a8da227380369e18e6f4e0201"
-  integrity sha512-p1NVkn27GUnDA5qHM+Z4cCcLCJIardzZXMon3640sT4xuL/AZJbsx3HEt2KY/5oZu0UXIkytkxzV2Da4rQeUIg==
 
 gatsby-plugin-google-gtag@^4.2.0:
   version "4.7.0"

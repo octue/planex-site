@@ -16,9 +16,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `@slixites/gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Work Sans\:300,400,500,500i`, `Open Sans\:400`],
+        display: 'swap',
+        preconnect: true,
+        attributes: {
+          rel: 'stylesheet preload prefetch',
+          as: 'style',
+        },
       },
     },
     {
