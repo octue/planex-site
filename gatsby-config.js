@@ -16,12 +16,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Work Sans\:300,400,500,500i`, `Open Sans\:400`],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.

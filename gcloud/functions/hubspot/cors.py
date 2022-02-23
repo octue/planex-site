@@ -29,20 +29,20 @@ def cors_enabled(func):
     def wrapper(request):
 
         # Respond to preflight requests automatically
-        if request.method == 'OPTIONS':
+        if request.method == "OPTIONS":
             # Allows GET requests from any origin with the Content-Type
             # header and caches preflight response for an 3600s
             headers = {
-                'Access-Control-Allow-Origin': ACCESS_CONTROL_ALLOW_ORIGIN,
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Max-Age': '3600'
+                "Access-Control-Allow-Origin": ACCESS_CONTROL_ALLOW_ORIGIN,
+                "Access-Control-Allow-Methods": "POST",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Max-Age": "3600",
             }
 
-            return '', 204, headers
+            return "", 204, headers
 
         # Execute the main request and add CORS headers
-        headers = {'Access-Control-Allow-Origin': ACCESS_CONTROL_ALLOW_ORIGIN}
+        headers = {"Access-Control-Allow-Origin": ACCESS_CONTROL_ALLOW_ORIGIN}
 
         return (*func(request), headers)
 

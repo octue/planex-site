@@ -1,15 +1,13 @@
 import logging
 from forms import ContactForm, SubscribeForm
-from hubspot import create_ticket, create_or_update_contact, subscribe_contact, update_user_name
+from hubspot import create_ticket, create_or_update_contact, subscribe_contact
 from cors import cors_enabled
 from errors import clean_errors
 
 
 logger = logging.getLogger(__name__)
 
-INVALID_METHOD_RESPONSE = {
-    "nonFieldErrors": "Method Not Allowed. Try 'POST'."
-}
+INVALID_METHOD_RESPONSE = {"nonFieldErrors": "Method Not Allowed. Try 'POST'."}
 
 
 @cors_enabled
@@ -23,8 +21,8 @@ def contact(request):
         `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
     """
 
-    form = ContactForm(meta={'csrf': False})
-    if request.method != 'POST':
+    form = ContactForm(meta={"csrf": False})
+    if request.method != "POST":
         return INVALID_METHOD_RESPONSE, 405
 
     if form.validate_on_submit():
@@ -54,9 +52,9 @@ def subscribe(request):
         `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
     """
 
-    form = SubscribeForm(meta={'csrf': False})
+    form = SubscribeForm(meta={"csrf": False})
 
-    if request.method != 'POST':
+    if request.method != "POST":
         return INVALID_METHOD_RESPONSE, 405
 
     if form.validate_on_submit():
