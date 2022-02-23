@@ -10,7 +10,9 @@ logger = logging.getLogger(__name__)
 
 HUBSPOT_API_KEY = environ.get("HUBSPOT_API_KEY", None)
 if HUBSPOT_API_KEY is None:
-    raise ValueError("Attempted to start the HubSpot client but no api key given. Generate an api key over at hubspot, then add it to the function as an environment variable (config var on heroku).")
+    raise ValueError(
+        "Attempted to start the HubSpot client but no api key given. Generate an api key over at hubspot, then add it to the function as an environment variable (config var on heroku)."
+    )
 
 
 # TODO Subscribing to a paid hubspot package allows us to automate ticket assignation, which is what should be done
@@ -18,9 +20,7 @@ if HUBSPOT_API_KEY is None:
 #  gets notified when a ticket is created unless it's assigned).
 # TODO Add a drop down that would allow us to assign different tickets to different pipelines
 # To display ticket owner ids while setting this up, use the print_owner_ids() function below
-TICKET_OWNER_IDS = {
-    'Support Pipeline': environ.get("SUPPORT_PIPELINE_TICKET_OWNER_ID")
-}
+TICKET_OWNER_IDS = {"Support Pipeline": environ.get("SUPPORT_PIPELINE_TICKET_OWNER_ID")}
 
 client = Hubspot3(api_key=HUBSPOT_API_KEY)
 
@@ -59,11 +59,13 @@ def initialise():
                 support_pipeline = pipeline["pipelineId"]
                 # Sigh. Stages aren't ordered by display order.
                 for stage in pipeline["stages"]:
-                    if stage['displayOrder'] == 0:
+                    if stage["displayOrder"] == 0:
                         support_stage = stage["stageId"]
 
         if support_pipeline is None:
-            raise Exception('Cannot get "Support Pipeline" from hubspot. Check your support ticket pipelines and create this one if necessary.')
+            raise Exception(
+                'Cannot get "Support Pipeline" from hubspot. Check your support ticket pipelines and create this one if necessary.'
+            )
 
     except Exception as e:
 
@@ -85,15 +87,9 @@ def create_or_update_contact(email, first_name=None, last_name=None):
     """
     properties = [{"property": "email", "value": email}]
     if first_name is not None:
-        properties.append({
-            "property": "firstname",
-            "value": first_name
-        })
+        properties.append({"property": "firstname", "value": first_name})
     if last_name is not None:
-        properties.append({
-            "property": "lastname",
-            "value": last_name
-        })
+        properties.append({"property": "lastname", "value": last_name})
     contact = client.contacts.create_or_update_by_email(email, data={"properties": properties})
 
     return contact
@@ -123,7 +119,9 @@ def create_ticket(message, subject, contact):
     ticket_owner_id = TICKET_OWNER_IDS["Support Pipeline"]
 
     ticket = client.tickets.create(
-        pipeline=support_pipeline, stage=support_stage, properties={"subject": subject, "content": message, "hubspot_owner_id": ticket_owner_id}
+        pipeline=support_pipeline,
+        stage=support_stage,
+        properties={"subject": subject, "content": message, "hubspot_owner_id": ticket_owner_id},
     )
 
     if contact is not None:
