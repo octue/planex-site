@@ -52,6 +52,7 @@ module.exports = {
         icon: 'src/assets/images/logos/octue/square-transparent-white.png',
       },
     },
+    'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-sitemap',
