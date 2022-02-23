@@ -24,13 +24,7 @@ const HexBullet = ({ heading, description, image, variant, rest }) => {
 
   return (
     <Box display="flex" className={classes.bulletRoot} {...rest}>
-      <Hexagon
-        image={image}
-        variant={variant}
-        position="relative" // Forces the hexagon border to sit correctly, because its position is absolute
-        top="0"
-        left="0"
-      />
+      <Hexagon image={image} variant={variant} />
       <Box className={classes.bulletDetail}>
         <SectionDetail heading={heading} description={description} />
       </Box>

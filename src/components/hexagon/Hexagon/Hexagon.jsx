@@ -34,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Hexagon = ({
+  backgroundColor,
+  border,
   horizontal,
   image,
   variant,
-  backgroundColor,
-  border,
   ...rest
 }) => {
   const rasterChild = !!image?.gatsbyImageData
@@ -65,69 +65,77 @@ const Hexagon = ({
     ? '0,43.3 25,0 75,0 100,43.3 75,86.6 25,86.6'
     : '50,0 0,28.8675 0,86.60 50,115.47 100,86.60 100,28.8675'
 
+  /* The absolute positioning of the hexagon border refers to the first ancestor element
+   * with a non-static position.
+   * So we make sure that's the parent div here (lest it slip all the way up to <main> when
+   * using hexagons in normal layouts). However, this non-default position interferes with
+   * the grid flex properties, so we wrap an extra div here.
+   */
   return (
     <Box {...rest}>
-      <Box className={classes.hexagonBox} width={width} height={height}>
-        {rasterChild ? (
-          <GatsbyImage
-            image={image.gatsbyImageData}
-            alt={image.alt}
-            title={image.title}
-            className={classes.raster}
-            style={{ width, height }}
-          />
-        ) : (
-          <img className={classes.svg} src={image.url} alt={image.alt} />
+      <Box position="relative" top="0" left="0">
+        <Box className={classes.hexagonBox} width={width} height={height}>
+          {rasterChild ? (
+            <GatsbyImage
+              image={image.gatsbyImageData}
+              alt={image.alt}
+              title={image.title}
+              className={classes.raster}
+              style={{ width, height }}
+            />
+          ) : (
+            <img className={classes.svg} src={image.url} alt={image.alt} />
+          )}
+        </Box>
+        {border && (
+          <svg
+            version="1.1"
+            id="border"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 100 100"
+            xmlSpace="preserve"
+            width={width}
+            className={classes.border}
+          >
+            <defs>
+              <polygon id={`POLYGON`} class="st0" points={borderPoints} />
+            </defs>
+            <use
+              xlinkHref={`#POLYGON`}
+              style={{
+                overflow: 'visible',
+                fill: 'none',
+                stroke: '#FFFFFF',
+                strokeWidth: 4,
+                strokeMiterlimit: 10,
+                strokeAlignment: 'inner',
+              }}
+            />
+          </svg>
         )}
       </Box>
-      {border && (
-        <svg
-          version="1.1"
-          id="border"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 100 100"
-          xmlSpace="preserve"
-          width={width}
-          className={classes.border}
-        >
-          <defs>
-            <polygon id={`POLYGON`} class="st0" points={borderPoints} />
-          </defs>
-          <use
-            xlinkHref={`#POLYGON`}
-            style={{
-              overflow: 'visible',
-              fill: 'none',
-              stroke: '#FFFFFF',
-              strokeWidth: 4,
-              strokeMiterlimit: 10,
-              strokeAlignment: 'inner',
-            }}
-          />
-        </svg>
-      )}
     </Box>
   )
 }
 
 Hexagon.defaultProps = {
-  image: undefined,
-  horizontal: false,
-  variant: 'normal',
   border: true,
+  horizontal: false,
+  image: undefined,
+  variant: 'normal',
 }
 
 Hexagon.propTypes = {
   backgroundColor: PropTypes.oneOf(['textPrimary', 'main']),
   border: PropTypes.bool,
+  horizontal: PropTypes.bool,
   image: PropTypes.shape({
     url: PropTypes.string, // Falls back to <img src={url} if no gatsbyImageData (for SVGs)
     alt: PropTypes.string,
     gatsbyImageData: PropTypes.object,
     title: PropTypes.string,
   }),
-  horizontal: PropTypes.bool,
   variant: PropTypes.oneOf(['small', 'normal', 'large']),
 }
 
