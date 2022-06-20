@@ -7,7 +7,7 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 // import HowToBegin from '../components/sections/HowToBegin'
 import React from 'react'
 import SectionManager from '../components/elements/SectionManager'
-// import ToolShowcase from '../components/sections/ToolShowcase'
+import ToolShowcase from '../components/sections/ToolShowcase'
 // import ValidateCreateCommunicate from '../components/sections/ValidateCreateCommunicate'
 import { graphql } from 'gatsby'
 
@@ -53,7 +53,7 @@ const Tools = ({ location, data }) => {
       <CallToAction />
       <GradientHero {...data.page.hero[0]} />
       <SectionManager>
-        {/* <ToolShowcase /> */}
+        <ToolShowcase />
         {/* <ValidateCreateCommunicate />
         <HowToBegin />
         <ArticlesPreview /> */}

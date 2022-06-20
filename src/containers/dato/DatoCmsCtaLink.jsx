@@ -1,12 +1,17 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
-
+import Button from '@material-ui/core/Button'
 import DatoLink from '../../components/core/DatoLink'
+import React from 'react'
 
-const DatoCmsCtaLink = ({ text, url, openInNewTab, optimiseInternalLink }) => {
+const DatoCmsCtaLink = ({
+  text,
+  url,
+  openInNewTab,
+  optimiseInternalLink,
+  ...rest
+}) => {
   return (
-    <Box width="100%">
+    <Box width="100%" {...rest}>
       <DatoLink
         url={url}
         openInNewTab={openInNewTab}
