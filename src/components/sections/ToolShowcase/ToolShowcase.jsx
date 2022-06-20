@@ -164,10 +164,7 @@ const WrapYourCodeSlide = () => {
           <ArrowBullet>
             Ask and answer questions between colleagues, teams and companies.
           </ArrowBullet>
-          <ArrowBullet>Assemble networks of linked data services</ArrowBullet>
-          <ArrowBullet>
-            Deploy your expertise for colleagues and customers to use
-          </ArrowBullet>
+          <ArrowBullet>Use related services to build networks</ArrowBullet>
         </Box>
         {/* <Box> */}
         <DatoCmsCtaLink
@@ -239,7 +236,7 @@ const ProvideDataServicesSlide = () => {
             Forward logs and live monitors straight through to the client
           </ArrowBullet>
           <ArrowBullet>
-            Add fine-level access controls or a paymet gateway
+            Add fine-level access controls or a payment gateway
           </ArrowBullet>
         </Box>
         <DatoCmsCtaLink
