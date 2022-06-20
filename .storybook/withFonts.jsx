@@ -10,9 +10,6 @@ const Wrapper = (storyFn, context) => {
     )
 }
 
-/* Wraps stories in a location provider, to enable components to use the
- * useLocation() hook (which is useful in Gatsby to determine the page location)
- */
 export const withFonts = makeDecorator({
   name: 'withFonts',
   parameterName: 'fontsAdded',

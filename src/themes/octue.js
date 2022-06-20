@@ -1,12 +1,17 @@
-import merge from 'deepmerge'
-import { createMuiTheme } from '@material-ui/core/styles'
 import { baseThemeOptions, branding } from './_base'
+
+import { createMuiTheme } from '@material-ui/core/styles'
+import merge from 'deepmerge'
 
 /* Light Theme
  *
  */
 export const lightThemeOptions = {
   ...baseThemeOptions,
+  shape: {
+    ...baseThemeOptions.shape,
+    borderRadius: 8,
+  },
   palette: {
     primary: {
       ...branding.palette.octueBlue,

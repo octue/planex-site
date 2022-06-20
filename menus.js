@@ -15,8 +15,8 @@ export const nav = [
     style: 'link',
   },
   {
-    href: '/twined',
-    text: 'Twined',
+    href: '/tools',
+    text: 'Tools',
     style: 'link',
   },
   {

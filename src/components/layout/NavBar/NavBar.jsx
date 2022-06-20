@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import classNames from 'classnames'
-import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import Hidden from '@material-ui/core/Hidden'
-import Drawer from '@material-ui/core/Drawer'
-import Menu from '@material-ui/icons/Menu'
-import Close from '@material-ui/icons/Close'
 
+import AppBar from '@material-ui/core/AppBar'
+import Close from '@material-ui/icons/Close'
+import Drawer from '@material-ui/core/Drawer'
+import Hidden from '@material-ui/core/Hidden'
+import IconButton from '@material-ui/core/IconButton'
 import Link from '../../core/Link'
+import Menu from '@material-ui/icons/Menu'
+import PropTypes from 'prop-types'
+import Toolbar from '@material-ui/core/Toolbar'
+import classNames from 'classnames'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         : theme.palette.primary.contrastText,
     backgroundColor:
       theme.palette.type === 'dark'
-        ? theme.palette.background.paper
+        ? theme.palette.background.default
         : theme.palette.primary.main,
     transition: '0.5s ease-in-out',
   },
