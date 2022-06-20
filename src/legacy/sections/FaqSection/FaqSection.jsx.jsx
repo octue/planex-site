@@ -10,7 +10,6 @@ import classNames from 'classnames'
 class FaqSection extends React.Component {
   render() {
     const { classes, value } = this.props
-    console.log('RENDERING FAQ SECTION', this.props)
     return (
       <div className={classes.faqs}>
         <div className={classes.container}>

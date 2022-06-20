@@ -5,6 +5,13 @@ import lightTextLogo from '../assets/images/logos/octue/text-transparent-coloure
 import darkSquareLogo from '../assets/images/logos/octue/square-transparent-white.svg'
 import lightSquareLogo from '../assets/images/logos/octue/square-transparent-coloured.svg'
 
+// Preloads our font CSS at build-time
+import '@fontsource/open-sans/400.css'
+import '@fontsource/work-sans/300.css'
+import '@fontsource/work-sans/400.css'
+import '@fontsource/work-sans/500.css'
+import '@fontsource/work-sans/500-italic.css'
+
 // This is just so we have breakpoints. Don't use this theme object.
 import { createMuiTheme } from '@material-ui/core'
 const { breakpoints } = createMuiTheme()

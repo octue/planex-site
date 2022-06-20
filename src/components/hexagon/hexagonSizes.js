@@ -18,3 +18,24 @@ export const HEXAGON_DIAMETER_MAP = {
   outer: HEXAGON_OUTER_DIAMETER_MAP,
   inner: HEXAGON_INNER_DIAMETER_MAP,
 }
+
+export const HEXAGON_SM_DOWN_SCALE_FACTOR = 0.6
+
+export function getDimension(
+  horizontal,
+  variant,
+  dimension = 'width',
+  media = 'xs-up'
+) {
+  let dim
+  if (dimension === 'width') {
+    dim = HEXAGON_DIAMETER_MAP[horizontal ? 'outer' : 'inner'][variant]
+  } else {
+    dim = HEXAGON_DIAMETER_MAP[horizontal ? 'inner' : 'outer'][variant]
+  }
+  // TODO more advanced breakpoints, this is all we need for now
+  if (media === 'sm-down') {
+    dim = dim * HEXAGON_SM_DOWN_SCALE_FACTOR
+  }
+  return `${dim}px`
+}

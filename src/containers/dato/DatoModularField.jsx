@@ -80,7 +80,8 @@ const DatoModularField = ({ blocks }) => {
   const datoComponents = blocks.map((block) => {
     const { id, ...rest } = block
     const Component = getDatoComponent(id)
-    console.log(`Dato Component ${id} rendering with props`, rest)
+    // Turn on for a quick debug of all components
+    // console.log(`Dato Component ${id} rendering with props`, rest)
     return <Component key={id} {...rest} />
   })
 

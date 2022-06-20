@@ -9,13 +9,14 @@ class ContactForm(FlaskForm):
     converting keys javascript-side
 
     """
-    firstName = StringField('First Name', [validators.DataRequired(), validators.Length(min=1, max=200)])
-    lastName = StringField('Last Name', [validators.DataRequired(), validators.Length(min=1, max=200)])
-    email = StringField('Email Address', [validators.DataRequired(), validators.Email()])
-    message = TextAreaField('Message', [validators.DataRequired(), validators.Length(min=1, max=1000)])
+
+    firstName = StringField("First Name", [validators.DataRequired(), validators.Length(min=1, max=200)])
+    lastName = StringField("Last Name", [validators.DataRequired(), validators.Length(min=1, max=200)])
+    email = StringField("Email Address", [validators.DataRequired(), validators.Email()])
+    message = TextAreaField("Message", [validators.DataRequired(), validators.Length(min=1, max=1000)])
 
 
 class SubscribeForm(FlaskForm):
     """An email subscription form
     """
-    email = StringField('Email Address', [validators.DataRequired(), validators.Email()])
+    email = StringField("Email Address", [validators.DataRequired(), validators.Email()])

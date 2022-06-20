@@ -5,7 +5,7 @@ import React from 'react'
 import classNames from 'classnames'
 import hexToRgb from '../../../themes/hexToRgb'
 import { makeStyles } from '@material-ui/core'
-import { useLocation } from '@reach/router'
+import { useLocation } from '@gatsbyjs/reach-router'
 
 const useStyles = makeStyles((theme) => ({
   link: {

@@ -10,7 +10,6 @@ import classNames from 'classnames'
 class CarouselSection extends React.Component {
   render() {
     const { classes, value } = this.props
-    console.log('RENDERING CAROUSEL SECTION', this.props)
     return (
       <div className={classes.carousel}>
         <div className={classes.container}>
