@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core'
-import classNames from 'classnames'
 import Box from '@material-ui/core/Box'
-import { useLocation } from '@reach/router'
 import Link from '../../core/Link'
+import PropTypes from 'prop-types'
+import React from 'react'
+import classNames from 'classnames'
 import hexToRgb from '../../../themes/hexToRgb'
+import { makeStyles } from '@material-ui/core'
+import { useLocation } from '@reach/router'
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up('md')]: {
       '&:hover, &:focus, &.active': {
+        borderBottomLeftRadius: '0px',
+        borderBottomRightRadius: '0px',
         borderBottom: `${theme.spacing(0.5)}px solid`,
         paddingBottom: theme.spacing(1),
       },
@@ -34,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'flex-start',
       },
       '&:hover, &:focus, &.active': {
+        borderBottomLeftRadius: '0px',
+        borderBottomRightRadius: '0px',
         borderLeft: `${theme.spacing(0.5)}px solid`,
         paddingLeft: theme.spacing(1),
       },
