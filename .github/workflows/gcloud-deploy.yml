@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - id: deploy-contact
         uses: google-github-actions/deploy-cloud-functions@main
@@ -19,8 +19,8 @@ jobs:
           runtime: python38
           region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }},ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }},SUPPORT_PIPELINE_TICKET_OWNER_ID=${{ secrets.SUPPORT_PIPELINE_TICKET_OWNER_ID }}
-          source_dir: gcloud/functions/hubspot
+          env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
+          source_dir: gcloud/functions
 
       - id: deploy-subscribe
         uses: google-github-actions/deploy-cloud-functions@main
@@ -29,5 +29,5 @@ jobs:
           runtime: python38
           region: europe-west1
           credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          env_vars: HUBSPOT_API_KEY=${{ secrets.HUBSPOT_API_KEY }},ACCESS_CONTROL_ALLOW_ORIGIN=${{ secrets.ACCESS_CONTROL_ALLOW_ORIGIN }}
-          source_dir: gcloud/functions/hubspot
+          env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
+          source_dir: gcloud/functions
