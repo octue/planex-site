@@ -76,3 +76,8 @@ yarn-error.log
 # Storybook build files
 build-storybook.log
 storybook-static
+
+
+# IDEs
+.idea/
+.vscode/
