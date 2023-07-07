@@ -2,7 +2,7 @@
   "name": "planex-site",
   "private": true,
   "description": "The octue website frontend",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Tom Clark <tom@octue.com>",
   "dependencies": {
     "@fontsource/open-sans": "^4.5.5",
