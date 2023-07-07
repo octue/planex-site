@@ -1,1 +1,1 @@
-export { wrapPageElement } from './gatsby-base'
+export { wrapPageElement } from './gatsbybase'
