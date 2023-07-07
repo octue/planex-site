@@ -81,7 +81,6 @@ const ArrowBullet = ({ children }) => {
 }
 
 const SchemaAsStrandsSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3} mx={4}>
       <Box maxWidth={750}>
@@ -114,7 +113,6 @@ const SchemaAsStrandsSlide = () => {
 }
 
 const DatasetsSdkSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -149,7 +147,6 @@ const DatasetsSdkSlide = () => {
 }
 
 const WrapYourCodeSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -180,7 +177,6 @@ const WrapYourCodeSlide = () => {
 }
 
 const CloudStoreMeetPostgresSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -216,7 +212,6 @@ const CloudStoreMeetPostgresSlide = () => {
 }
 
 const ProvideDataServicesSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -251,7 +246,6 @@ const ProvideDataServicesSlide = () => {
 }
 
 const CppChartsSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -284,7 +278,6 @@ const CppChartsSlide = () => {
 }
 
 const UnifyYourGitSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -318,7 +311,6 @@ const UnifyYourGitSlide = () => {
 }
 
 const AutomateThoseReportsSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>
@@ -352,7 +344,6 @@ const AutomateThoseReportsSlide = () => {
 }
 
 const EverythingIsOpenSlide = () => {
-  const classes = useStyles()
   return (
     <Box display="flex" justifyContent="center" mb={3}>
       <Box maxWidth={750}>

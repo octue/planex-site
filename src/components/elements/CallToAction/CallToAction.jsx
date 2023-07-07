@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 function CallToAction({ FormComponent, open, onClose, ...rest }) {
   const classes = useStyles()
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={onClose}>
       <CardContent className={classes.content}>
         <Typography variant="h3" component="h1" className={classes.gutter}>
           Get updates
@@ -61,7 +61,7 @@ function CallToAction({ FormComponent, open, onClose, ...rest }) {
             developments, please {<Link href="/contact">get in touch</Link>}.
           </Typography>
         </Box>
-        <FormComponent {...rest} />
+        <FormComponent onClose={onClose} {...rest} />
       </CardContent>
       <CardActions>
         <Button size="small" onClick={onClose}>
