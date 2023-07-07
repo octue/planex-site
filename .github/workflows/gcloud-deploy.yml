@@ -37,7 +37,7 @@ jobs:
           name: contact
           runtime: python38
           region: ${{ steps.get-deployment-info.outputs.gcp_region }}
-          # credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          service_account_email: plx-production@${{ steps.get-deployment-info.outputs.gcp_project_name }}.iam.gserviceaccount.com
           env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
           source_dir: gcloud/functions
 
@@ -47,6 +47,6 @@ jobs:
           name: subscribe
           runtime: python38
           region: ${{ steps.get-deployment-info.outputs.gcp_region }}
-          # credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          service_account_email: plx-production@${{ steps.get-deployment-info.outputs.gcp_project_name }}.iam.gserviceaccount.com
           env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
           source_dir: gcloud/functions
