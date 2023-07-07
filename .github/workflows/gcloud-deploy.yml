@@ -12,22 +12,38 @@ jobs:
       - id: checkout
         uses: actions/checkout@v3
 
+      - id: get-deployment-info
+        uses: octue/get-deployment-info@0.1.3
+        with:
+          gcp_project_name: planex
+          gcp_project_number: 979301859850
+          gcp_region: europe-west1
+          gcp_resource_affix: planex
+          gcp_service_name: ignored
+          gcp_environment: ignored
+
+      - id: workload-identity-authentication
+        uses: google-github-actions/auth@v0
+        with:
+          workload_identity_provider: projects/${{ steps.get-deployment-info.outputs.gcp_project_number }}/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions@${{ steps.get-deployment-info.outputs.gcp_project_name }}.iam.gserviceaccount.com
+
       - id: deploy-contact
         uses: google-github-actions/deploy-cloud-functions@main
         with:
           name: contact
           runtime: python38
-          region: europe-west1
-          credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          region: ${{ steps.get-deployment-info.outputs.gcp_region }}
+          # credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
           env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
           source_dir: gcloud/functions
 
-      - id: deploy-subscribe
+      - id: deploy-subscription
         uses: google-github-actions/deploy-cloud-functions@main
         with:
           name: subscribe
           runtime: python38
-          region: europe-west1
-          credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          region: ${{ steps.get-deployment-info.outputs.gcp_region }}
+          # credentials: ${{ secrets.GCP_SERVICE_ACCOUNT }}
           env_vars: MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }},MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}
           source_dir: gcloud/functions
