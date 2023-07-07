@@ -1,3 +1,4 @@
 flask_wtf
 wtforms[email]
 functions_framework==3.4.0
+requests

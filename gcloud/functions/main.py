@@ -1,11 +1,11 @@
 import logging
 import functions_framework
-from mailgun import forward_contact_email
 
 from cors import cors_enabled
 from errors import clean_errors
 from forms import ContactForm, SubscribeForm
 from mailchimp import add_or_update_subscriber
+from mailgun import forward_contact_email
 
 
 logger = logging.getLogger(__name__)
