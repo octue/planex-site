@@ -1,8 +1,11 @@
 import logging
-from forms import ContactForm, SubscribeForm
-from hubspot import create_ticket, create_or_update_contact, subscribe_contact
+import functions_framework
+from mailgun import forward_contact_email
+
 from cors import cors_enabled
 from errors import clean_errors
+from forms import ContactForm, SubscribeForm
+from mailchimp import add_or_update_subscriber
 
 
 logger = logging.getLogger(__name__)
@@ -10,9 +13,10 @@ logger = logging.getLogger(__name__)
 INVALID_METHOD_RESPONSE = {"nonFieldErrors": "Method Not Allowed. Try 'POST'."}
 
 
+@functions_framework.http
 @cors_enabled
 def contact(request):
-    """Creates a 'contact' type support request in HubSpot
+    """Forwards a message to an octue email address
     Args:
         request (flask.Request): HTTP request object.
     Returns:
@@ -27,13 +31,20 @@ def contact(request):
 
     if form.validate_on_submit():
         try:
-            contact, created = create_or_update_contact(form.email, form.firstName, form.lastName)
-            create_ticket(form.message, "Octue contact form submission", contact)
+            response = forward_contact_email(
+                form.data["firstName"],
+                form.data["lastName"],
+                form.data["email"],
+                form.data["message"],
+            )
+            response.raise_for_status()
+            logger.info("Sent contact form request via mailgun")
 
+        # Blanket exception because we don't want to show internal errors to customers
+        # pylint: disable-next=bare-except
         except:
-            # Blanket exception because we don't want to show internal errors to customers
             # Log the form data so it's retrievable
-            logger.exception(f"An error occurred. Form data was: {form.data}")
+            logger.exception("An error occurred. Form data was: %s", form.data)
 
         return form.data, 200
 
@@ -41,9 +52,10 @@ def contact(request):
         return clean_errors(form.errors), 400
 
 
+@functions_framework.http
 @cors_enabled
 def subscribe(request):
-    """Subscribes a user to the mailing list in HubSpot
+    """Subscribes a user to the main mailchimp list
     Args:
         request (flask.Request): HTTP request object.
     Returns:
@@ -59,13 +71,14 @@ def subscribe(request):
 
     if form.validate_on_submit():
         try:
-            create_or_update_contact(form.email)
-            subscribe_contact(form.email)
+            add_or_update_subscriber(form.data["email"])
+            logger.info("Added / updated subscriber in mailchimp")
 
+        # Blanket exception because we don't want to show internal errors to customers
+        # pylint: disable-next=bare-except
         except:
-            # Blanket exception because we don't want to show internal errors to customers
             # Log the form data so it's retrievable
-            logger.exception(f"An error occurred. Form data was: {form.data}")
+            logger.exception("An error occurred. Form data was: %s", form.data)
 
         return form.data, 200
 
