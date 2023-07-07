@@ -6,11 +6,13 @@ from os import environ
 # once your system is running.
 # If I need to check the cors policies are working, I deploy a site to preview.octue.com before actually rolling it
 # out to www.octue.com.
-ACCESS_CONTROL_ALLOW_ORIGIN = environ.get("ACCESS_CONTROL_ALLOW_ORIGIN", "www.octue.com")
+ACCESS_CONTROL_ALLOW_ORIGIN = environ.get(
+    "ACCESS_CONTROL_ALLOW_ORIGIN", "https://www.octue.com"
+)
 
 
 def cors_enabled(func):
-    """ Decorator to explicitly define a Cross Origin Resource Sharing policy
+    """Decorator to explicitly define a Cross Origin Resource Sharing policy
 
     From https://cloud.google.com/functions/docs/writing/http#handling_http_methods
 
@@ -27,7 +29,6 @@ def cors_enabled(func):
     """
 
     def wrapper(request):
-
         # Respond to preflight requests automatically
         if request.method == "OPTIONS":
             # Allows GET requests from any origin with the Content-Type
